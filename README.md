@@ -3,10 +3,10 @@
 技术交流QQ群：468278040
 
 演示站:http://demo1.inxedu.com/
-账号:demo@test.com
-密码:111111
-
-网站功能模块</br>
+账号:demo@test.com</br>
+密码:111111</br>
+</br>
+网站功能模块:</br>
 课程功能</br>
 咨询功能</br>
 问答功能</br>
