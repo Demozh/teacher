@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="utf-8" http-equiv="Content-Type" />
-<title>资讯后台管理系统 - 因酷在线教育软件 - 在线教育整体解决方案提供商</title>
+<title>后台管理系统 - 因酷在线教育软件 - 在线教育整体解决方案提供商</title>
 </head>
 <body style="background: none;">
 	<div class="rMain" style="margin-top: 8px">

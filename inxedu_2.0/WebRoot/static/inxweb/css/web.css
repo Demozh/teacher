@@ -211,7 +211,7 @@
 .buy-cin-list {margin-left: -18px;overflow: hidden;clear: both;}
 .buy-cin-list span {display: block;float: left;width: 18%;margin: 5px 0 15px 18px;text-align: center;}
 .buy-cin-list span img {border-radius: 50%;display: block;max-width: 100%;}
-.buy-cin-list span tt {height: 18px;width: 100%;margin-top: 5px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.buy-cin-list span tt {height: 18px;width: 100%;display: block;margin-top: 5px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
 .comm-title.all-teacher-title,.comm-title.all-article-title {overflow: visible;}
 .all-teacher-title .c-tab-title {margin-bottom: 20px;height: auto;}
 .all-teacher-title .c-tab-title a {margin: 0 10px;}
@@ -237,7 +237,7 @@
 .i-art-title:hover {text-decoration: none;}
 .i-article-list.r-art-wrap li {padding: 0 0 10px 30px;min-height: inherit;+min-height: 50px;position: relative;}
 .r-art-wrap li .orderNum {position: absolute;left: 0;top: 6px;}
-.r-art-wrap li .orderNum span {background: #ddd;color: #777;display: inline-block;font-size: 12px;text-align: center;width: 20px;height: 20px;line-height: 20px;}
+.r-art-wrap li .orderNum span {background: #ddd;border-radius: 3px;color: #777;display: inline-block;font-size: 12px;text-align: center;width: 20px;height: 20px;line-height: 20px;}
 .r-art-wrap li.lt2 .orderNum span {background: #CA9191;color: #fff;}
 #art-infor-body {border-top: 1px solid #e0e0e0;border-bottom: 1px solid #e0e0e0;line-height: 200%;color: #4e4e4e;font-size: 14px;font-family: 'SimSun';padding: 20px 10px;overflow: hidden;}
 #art-infor-body p {margin-bottom: 20px;text-indent: 24px;text-align: justify;}
@@ -284,6 +284,7 @@
 .q-n-r-box .question-list.lh-bj-list li {padding-bottom: 30px;}
 .question-list.lh-bj-list .c-btn-6 {display: none;}
 .question-list.lh-bj-list li:hover .c-btn-6 {display: block;}
+.question-list.lh-bj-list .bg-fa .c-btn-6,.question-list.lh-bj-list li:hover .bg-fa .c-btn-6 {display: inline-block;}
 .good-anwer-box {background: #FFFAED;margin-top: 20px;padding: 0 20px 20px;position: relative;}
 .g-a-title span {border-radius: 0 0 30px 0;display: inline-block;padding: 0 40px 0 20px;font-size: 18px;color: #fff;height: 34px;line-height: 34px;margin-left: -20px;}
 .good-answer .question-list.lh-bj-list li {border: none;}

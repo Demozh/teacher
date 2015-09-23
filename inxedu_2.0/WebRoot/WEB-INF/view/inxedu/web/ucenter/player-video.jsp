@@ -94,6 +94,7 @@
 										<menu id="lh-menu" class="lh-menu">
 											<ul>
 												<c:forEach items="${parentKpointList }" var="parentKpoint" varStatus="index">
+													<c:if test="${parentKpoint.kpointType==0 }"><!-- 文件目录 -->
 															<li class="lh-menu-stair">
 																<a href="javascript: void(0)" title="${parentKpoint.name }" 
 																	<c:if test="${index.first==true}">class="current-1"</c:if>
@@ -119,6 +120,24 @@
 																	</c:forEach>
 																</ol>
 															</li>
+														</c:if>
+														<c:if test="${parentKpoint.kpointType==1 }"><!-- 视频 -->
+															<li class="lh-menu-stair">
+																<ul class="lh-menu-ol no-parent-node">
+																	<li class="lh-menu-second"><a title="" onclick="play('${parentKpoint.videoUrl }','${parentKpoint.name }',${parentKpoint.kpointId },this)" href="javascript:void(0)">
+																			<span class="fr"> 
+																				<c:if test="${parentKpoint.free==1 }">
+																					<tt class="free-icon vam mr10">免费试听</tt>
+																				</c:if>
+																				<c:if test="${!empty parentKpoint.playTime}">
+																					<em class="lh-p-icon icon14 ml5">&nbsp;</em>
+																					${parentKpoint.playTime}
+																				</c:if>
+																				</span><em class="lh-menu-i-2 icon14 mr5">&nbsp;</em>${parentKpoint.name }</a>
+																	</li>
+																</ul>
+															</li>
+														</c:if>
 													</c:forEach>
 											</ul>
 										</menu>

@@ -6,7 +6,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd"
        default-lazy-init="true">
 
-	<context:component-scan base-package="com.yizhilu.os"> 
+	<context:component-scan base-package="com.inxedu.os"> 
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 		<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
 	</context:component-scan>
@@ -111,7 +111,7 @@
     	 <!-- 通配符指定Mapper.xml -->
 		<property name="mapperLocations" value="classpath:/mybatis/**/*Mapper.xml" />
 		<!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
-		 <property name="typeAliasesPackage" value="com.yizhilu.os.inxedu.common.entity,com.yizhilu.os.inxedu.entity" />
+		 <property name="typeAliasesPackage" value="com.inxedu.os.common.entity,com.inxedu.os.entity" />
 	</bean>
 	<bean id="sqlSessionMain" class="org.mybatis.spring.SqlSessionTemplate">  
     	<constructor-arg index="0" ref="sqlSessionFactory"/>  

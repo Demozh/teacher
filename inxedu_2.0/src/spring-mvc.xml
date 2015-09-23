@@ -8,7 +8,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
 	<!-- ①：对web包中的所有类进行扫描，以完成Bean创建和自动依赖注入的功能 -->
-	 <context:component-scan base-package="com.yizhilu.os" use-default-filters="false">
+	 <context:component-scan base-package="com.inxedu.os" use-default-filters="false">
 			<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 			<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
 	</context:component-scan>
@@ -29,7 +29,7 @@
 		 	<mvc:mapping path="/admin/*"/>
 		 	<mvc:mapping path="/admin/**/*"/>
 	 		<mvc:exclude-mapping path="/admin/main/login"/>
-		 	<bean class="com.yizhilu.os.inxedu.common.intercepter.IntercepterAdmin"></bean>
+		 	<bean class="com.inxedu.os.common.intercepter.IntercepterAdmin"></bean>
 	 	</mvc:interceptor>
          <!-- 前台网站配置拦截器配置 -->
          <mvc:interceptor>
@@ -37,7 +37,7 @@
              <mvc:exclude-mapping path="/static/**/*"/>
              <mvc:exclude-mapping path="/*/ajax/**"/>
              <mvc:exclude-mapping path="/kindeditor/**/*"/>
-             <bean class="com.yizhilu.os.inxedu.common.intercepter.LimitIntercepterForWebsite">
+             <bean class="com.inxedu.os.common.intercepter.LimitIntercepterForWebsite">
              </bean>
          </mvc:interceptor>
          <!-- 前台用户登录拦截器配置 -->
@@ -51,7 +51,7 @@
              <mvc:exclude-mapping path="/uc/login"/>
              <mvc:exclude-mapping path="/uc/passwordRecovery"/>
              <mvc:exclude-mapping path="/uc/sendEmail"/>
-             <bean class="com.yizhilu.os.inxedu.common.intercepter.IntercepterWebLogin">
+             <bean class="com.inxedu.os.common.intercepter.IntercepterWebLogin">
              </bean>
          </mvc:interceptor>
 

@@ -48,7 +48,7 @@ function playVideo(url,obj){
 		return;
 	}
 	//节点选中
-	$(".lh-menu-stair").find("ol>li>a").removeClass("current-2");
+	$(".lh-menu-stair").find("ul>li>a,ol>li>a").removeClass("current-2");
 	$(obj).addClass("current-2");
 	var content='<iframe src="'+url+'" scrolling="no" frameborder="0" width="100%" height="100%"></iframe>';
 	$("#videoPlay").html(content);

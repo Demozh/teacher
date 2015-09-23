@@ -17,7 +17,7 @@ $(function() {
 		return false;
 	} else {
 		// 播放第一个视频节点
-		$("#lh-menu").find("ul>li:eq(0)").find("ol>li:eq(0)").find("a").click();
+		$("#lh-menu").find("ul>li:eq(0)").find("ul>li:eq(0),ol>li:eq(0)").find("a").click();
 	}
 	// 学过此课程的用户
 	getCourseLearnedUser(otherId);
@@ -184,7 +184,7 @@ function browserRedirect() {
  */
 function play(url, name, kpointId, obj) {
 	// 节点选中
-	$(".lh-menu-stair").find("ol>li>a").removeClass("current-2");
+	$(".lh-menu-stair").find("ul>li>a,ol>li>a").removeClass("current-2");
 	$(obj).addClass("current-2");
 
 	$("#contentTitle").text(name);

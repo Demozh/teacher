@@ -54,5 +54,6 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/ant-1.9.3.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/poi-2.5.1-final-20040804.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/sitemesh-2.5.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/lesscss-engine-1.5.1.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

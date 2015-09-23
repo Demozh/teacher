@@ -18,6 +18,7 @@
 <meta name="description" content="${websitemap.web.description}" />
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href="${ctx}/static/inxweb/css/reset.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/static/inxweb/css/theme.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/static/inxweb/css/global.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/static/inxweb/css/web.css">
 <link href="${ctx}/static/inxweb/css/mw_320_768.css" rel="stylesheet" type="text/css" media="screen and (min-width: 320px) and (max-width: 768px)">

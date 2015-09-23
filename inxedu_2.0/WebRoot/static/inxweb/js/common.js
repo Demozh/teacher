@@ -192,7 +192,8 @@ function dialog(dTitle,msg,index,url) {
             "<div class='d-tips-2'><em class='pa d-t-icon-2'></em><p class='fsize14 c-666'>"+msg+"</p><div class='tac mt30'><a href='javascript:void(0)' title='' class='order-submit dClose'>确定</a></div></div>",
             "<div class='d-tips-3'><em class='pa d-t-icon-3'></em><p class='fsize14 c-666'>"+msg+"</p><div class='tac mt30'><a href='"+url+"' title='' class='order-submit'>确定</a><a href='javascript:void(0)' title='' class='goBack-btn ml10 dClose'>取消</a></div></div>",
             "<div class='d-tips-4><em class='pa d-t-icon-1'></em><p class='fsize14 c-666'>你选择使用工商银行网银进行在线支付，在你支付成功后我们将尽快发送给你购买的课程。祝你学习愉快！</p><div class='tac mt20'><a href='' title='' class='blue-btn mr10'>支付过程发生问题</a><a href='' title='' class='blue-btn ml10'>已成功完成支付</a></div><p class='tar mt20 c-666'>如有疑问请询问客服：400-6587-777</p></div>",
-            "<div class='d-tips-5'><em class='pa d-t-icon-4'></em><p class='fsize14 c-666 disIb ml5'>恭喜，你已成功激活。现在你可以：</p><div class='tac mt20 mb10'><a href='' title='' class='blue-btn mr10'>登录网页</a><a href='' title='' class='blue-btn'>查看课程</a></div></div>"
+            "<div class='d-tips-5'><em class='pa d-t-icon-4'></em><p class='fsize14 c-666 disIb ml5'>恭喜，你已成功激活。现在你可以：</p><div class='tac mt20 mb10'><a href='' title='' class='blue-btn mr10'>登录网页</a><a href='' title='' class='blue-btn'>查看课程</a></div></div>",
+            "<div class='d-tips-6'>"+msg+"</div>"
         ];
     $("#dcWrap").html(dCont[index]);
     var dTop = (parseInt(document.documentElement.clientHeight, 10)/2) + (parseInt(document.documentElement.scrollTop || document.body.scrollTop, 10)),
@@ -266,6 +267,8 @@ function addPraise(targetId,type,obj){
 			}
 		})
 	}else{
+		//先关闭 弹出
+		 $("#tisbutt,.dClose,#qujiao").click();
 		lrFun();
 	}
 }

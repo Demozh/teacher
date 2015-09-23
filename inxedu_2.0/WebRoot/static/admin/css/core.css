@@ -6,7 +6,7 @@
 
 /* Global declarations */
 body {
-	font: 12px/150% 'Arial', 'Helvetica Neue', 'Helvetica', 'sans-serif';
+	font: 12px/150% "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 	position: relative;
 }
 
@@ -90,7 +90,7 @@ label {
 
 a.button {
 	position: relative;
-	padding: 3px 10px 3px 0px;
+	padding: 3px 5px;
 	text-decoration: none;
 	width: auto;
 	display: inline-block;
@@ -155,12 +155,12 @@ INPUT[type="checkbox"], INPUT[type="radio"] {
 }
 
 .tHeader {
-	border-bottom: 2px solid #222;
+	border-bottom: 1px solid #e2e2e2;
 }
 
 #header {
 	width: 100%;
-	height: 130px;
+	height: 86px;
 }
 
 #header #top {
@@ -182,14 +182,15 @@ INPUT[type="checkbox"], INPUT[type="radio"] {
 	float: right;
 	position: relative;
 	padding-right: 10px;
-	margin-top: 30px;
+	margin-top: 5px;
 }
 
 .meta p {
 	text-align: right;
 	margin-bottom: 10px;
 	margin-top: 10px;
-	color: #fff;
+	color: #111;
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 .meta ul {
@@ -218,6 +219,7 @@ INPUT[type="checkbox"], INPUT[type="radio"] {
 p.mid {
 	text-align: center;
 	margin-top: 20px;
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 p.mid a {
@@ -350,6 +352,7 @@ ul.nav li li a {
 
 #sidebar p {
 	margin-bottom: 0;
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 #sidebar .sort {
@@ -477,6 +480,7 @@ table.fullwidth thead, table.normal thead {
 
 table.fullwidth thead td {
 	font-size: 14px;
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 table.fullwidth td, table.normal td {

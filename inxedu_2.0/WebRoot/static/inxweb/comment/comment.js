@@ -105,3 +105,22 @@ function addComment() {
 		}
 	});
 }
+
+//查询文章评论回复 分页弹出
+function queryCommentReplyPage(pCommentId) {
+	//ajaxPage("/web/comment/ajax/commentreplypage", "&otherId=" + otherId + "&pCommentId=" + pCommentId , 1, dialog("评论列表",result,5));
+	$.ajax({
+		url : baselocation + '/web/comment/ajax/commentreplypage',
+		data : {
+			"otherId" : otherId,
+			"pCommentId" : pCommentId
+		},
+		type : 'post',
+		async : true,
+		dataType : 'text',
+		success : function(result) {
+			//弹出
+			dialog("评论列表",result,5);
+		}
+	});
+}

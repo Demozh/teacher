@@ -23,28 +23,27 @@
 <script type="text/javascript" src="${ctx}/static/admin/js/custom.js"></script>
 <!-- End of Libraries -->
 <script type="text/javascript">
-        /*sMenu*/
-        $(function() {
-            $("#ui-sMenu>div").each(function() {
-                var _this = $(this),
-                        _oT = _this.find("h3"),
-                        _oTi = _oT.find(".ui-icon"),
-                        _oC = _oT.next("div");
-                _oT.click(function() {
-                    if(_oC.is(":hidden")) {
-                        _oT.removeClass("ui-state-default ui-corner-all").addClass("ui-state-active ui-corner-top");
-                        _oTi.removeClass("ui-icon-triangle-1-e").addClass("ui-icon-triangle-1-s");
-                        _oC.slideDown("fast");
-                    } else {
-                        _oT.removeClass("ui-state-active ui-corner-top").addClass("ui-state-default ui-corner-all");
-                        _oTi.removeClass("ui-icon-triangle-1-s").addClass("ui-icon-triangle-1-e");
-                        _oC.slideUp("fast");
-                    }
-                });
-            });
-        });
-		
-	</script>
+	 /*sMenu*/
+	 $(function() {
+	     $("#ui-sMenu>div").each(function() {
+	         var _this = $(this),
+	                 _oT = _this.find("h3"),
+	                 _oTi = _oT.find(".ui-icon"),
+	                 _oC = _oT.next("div");
+	         _oT.click(function() {
+	             if(_oC.is(":hidden")) {
+	                 _oT.removeClass("ui-state-default ui-corner-all").addClass("ui-state-active ui-corner-top");
+	                 _oTi.removeClass("ui-icon-triangle-1-e").addClass("ui-icon-triangle-1-s");
+	                 _oC.slideDown("fast");
+	             } else {
+	                 _oT.removeClass("ui-state-active ui-corner-top").addClass("ui-state-default ui-corner-all");
+	                 _oTi.removeClass("ui-icon-triangle-1-s").addClass("ui-icon-triangle-1-e");
+	                 _oC.slideUp("fast");
+	             }
+	         });
+	     });
+	 });
+</script>
 </head>
 <body>
 	<!-- Container -->
@@ -58,7 +57,7 @@
 					<!-- Logo -->
 					<div class="logo">
 						<a href="http://demo1.inxedu.com/" target="_blank" title="因酷在线教育软件 - 在线教育整体解决方案提供商" class="tooltip">
-							<img src="${ctx}/static/admin/assets/logo.png" height="105" alt="因酷在线教育软件 - 在线教育整体解决方案提供商" />
+							<img src="${ctx}/static/admin/assets/logo.png" height="60" alt="因酷在线教育软件 - 在线教育整体解决方案提供商" />
 						</a>
 					</div>
 					<!-- End of Logo -->
@@ -100,7 +99,7 @@
 			<!-- Main Content -->
 			<div id="content">
 				<div id="main">
-					<iframe name="content" scrolling="auto" frameborder="0" src="${ctx}/admin/main/index" height="850" width="100%"></iframe>
+					<iframe name="content" scrolling="auto" frameborder="0" src="${ctx}/admin/main/index" height="750" width="100%"></iframe>
 				</div>
 			</div>
 			<!-- End of Main Content -->
@@ -220,9 +219,9 @@
 				</div>
 				<!-- End of Accordion-->
 
-				<h2>便捷日历 / Calendar</h2>
+				<!-- <h2>便捷日历 / Calendar</h2> -->
 				<!-- Datepicker -->
-				<div id="datepicker"></div>
+				<!-- <div id="datepicker"></div> -->
 				<!-- End of Datepicker -->
 
 				<!-- Statistics -->
@@ -246,16 +245,16 @@
 
 	<!-- Footer -->
 	<div id="footer">
-		<p class="mid">
+		<%-- <p class="mid">
 			<c:forEach items="${navigatemap.TAB}" var="indexNavigate" varStatus="index">
 				<a href="${indexNavigate.url}" title="${indexNavigate.name}" <c:if test="${indexNavigate.newPage==0}">target="_blank"</c:if>
 					class="tooltip">${indexNavigate.name}</a>
 				<c:if test="${index.index+1 < navigatemap.TAB.size()}">&middot;</c:if>
 			</c:forEach>
-		</p>
+		</p> --%>
 		<p class="mid">${websitemap.web.copyright}</p>
 		<p class="mid">
-			<a target="_blank" href="http://demo1.inxedu.com/" style="color: #666;">Powered By ${websitemap.web.company}</a>
+			Powered By <a target="_blank" href="http://demo1.inxedu.com/" style="color: #666;">${websitemap.web.company}</a>
 		</p>
 	</div>
 </body>

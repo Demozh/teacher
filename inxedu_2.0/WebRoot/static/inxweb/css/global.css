@@ -93,7 +93,6 @@
 .lt-ie9.lt-ie8 .col-3,.lt-ie9 .col-3 {width: 25%;}
 .container {margin-left: auto;margin-right: auto;width: 1200px;}
 /*========== theam ==========*/
-.c-master {color: #EA562E;}
 .c-green {color: #14BA4C;}
 .c-yellow {color: #FFCC00;}
 .c-orange {color: #FF8723;}
@@ -103,15 +102,10 @@
 .c-666 {color: #666;}
 .c-999 {color: #999;}
 .c-ccc {color: #ccc;}
-.c-fff {color: #fff;}
-::-webkit-input-placeholder {color: #838383;}  
-:-moz-placeholder {color: #838383;}  
+.c-fff {color: #fff;} 
 .bg-green {background-color: #14BA4C;}
-.bg-orange {background-color: #FF5F16;}
 .bg-fa {background-color: #fafafa;}
-.nav li.current a,.nav li a:hover,.h-r-login li a:hover,.h-r-login li a:hover,.c-tab-title a.current,.c-btn-2,.i-teach-wrap:hover a,.paging a,.paging a:hover,.paging a.current,#footer,.u-m-dd ul li a:hover,.u-m-dd ul li.current a,.d-s-head-tab a.current {border-color: #EA562E;color: #EA562E;}
 .c-btn-3 {border-color: #FFCC00;color: #FFCC00;}
-.lh-menu ul li.lh-menu-stair ol li.lh-menu-second a.current-2,.lh-menu ul li.lh-menu-stair ol li.lh-menu-second a.current-2 .lh-menu-i-2,.lh-menu-second a.current-2 span.fr,#t-infor-menu p a.current,.i-art-title:hover,.q-sort-wrap span.current{border-color: #EA562E;color: #EA562E;}
 .h-r-s-box .s-btn em,.login-icon,.news-icon,.no-data-ico,.v-play-btn em,.shareIcon,.scIcon,.lh-p-icon,.lh-playing span em,.m-tree-icon,.noter-dy em,.noter-zan em,.icon-close,.q-tw,.q-hd,.q-share-icon,.g-a-title em,.u-a-cw,.u-a-zq,.p-h-goback em,.dpIcon,.o-c-icon,.dClose,.d-t-icon-1,.d-t-icon-2,.d-t-icon-3,.d-t-icon-4,.r-fixed-ul li a em {background: url(../img/icon.png) no-repeat;}
 .h-r-s-box .s-btn em {background-position: 0 0;}
 .login-icon {background-position: 0 -29px;}
@@ -127,7 +121,9 @@ a.current-2 .lh-p-icon {background-position: 0 -254px;}
 .no-data-ico {background-position: -92px 0;}
 .v-play-btn em {background-position: -43px -67px;}
 .noter-dy em {background-position: -42px -160px;}
+.noter-dy:hover em {background-position: -42px -139px;}
 .noter-zan em {background-position: -42px -187px;}
+.noter-zan:hover em {background-position: -42px -265px;}
 .icon-close,.dClose {background-position: -42px -215px;}
 .icon-close:hover,.dClose:hover {background-position: -42px -244px;}
 .q-tw {background-position: -72px -163px;}
@@ -206,7 +202,7 @@ a.current-2 .lh-p-icon {background-position: 0 -254px;}
 .h-r-login li {float: left;margin-left: 10px;position: relative;}
 .h-r-login li a {cursor: pointer;line-height: 50px;color: #666;font-size: 16px;transition: .3s;-webkit-transition: .3s;}
 .h-r-login li.h-r-user a img {border-radius: 50%;width: 30px;height: 30px;}
-.h-r-login li.h-r-user span {max-width: 60px;height: 20px;font-size: 16px;line-height: 16px;+line-height: 20px;overflow: hidden;}
+.h-r-login li.h-r-user span {max-width: 60px;height: 17px;font-size: 16px;line-height: 16px;+line-height: 20px;overflow: hidden;}
 .red-point {position: absolute;right: -4px;top: 8px;display: block;width: 8px;height: 8px;border-radius: 50%;background: #cb2020;text-indent: -9999px;}
 .h-r-search {margin: 10px 20px 0 0;}
 .h-r-s-box {display: block;position: relative;}
@@ -247,7 +243,8 @@ a.current-2 .lh-p-icon {background-position: 0 -254px;}
 .lh-list-more a:hover {border-color: #1755A0;color: #1755A0;text-decoration: none;}
 .question-list.lh-bj-list li {padding-bottom: 8px;}
 .noter-dy,.noter-zan {color: #666;cursor: pointer;}
-.noter-dy:hover {color: #3FACEA;}
+.noter-dy:hover,.noter-zan:hover {color: #3FACEA;text-decoration: none;}
+.noter-dy *,.noter-zan * {vertical-align: middle;}
 .n-reply {display: none;margin-top: 8px;}
 .n-reply-wrap textarea {background: #fff;border: 1px solid #ddd;width: 98%;height: 48px;padding: 4px;font-size: 14px;color: #666;overflow-x: hidden;overflow-y: auto;}
 .n-reply-wrap textarea:focus {border-color: #3FACEA;}
@@ -291,6 +288,7 @@ a.current-2 .lh-p-icon {background-position: 0 -254px;}
 .d-tips-1 p,.d-tips-2 p,.d-tips-3 p {padding-left: 60px;line-height: 180%;}
 .d-tips-1 {position: relative;width: 420px;}
 .d-tips-2 {position: relative;width: 400px;}
+.d-tips-6 {position: relative;width: 680px;max-height: 500px;overflow-y: auto;overflow-x: hidden;margin-right: -20px;}
 /*========== global uMenu ==========*/
 .uMenu {padding: 0;margin: 0;}
 .uMenu dl {margin-right: 15px;}

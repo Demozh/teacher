@@ -1,5 +1,5 @@
 <%@page language="java" pageEncoding="UTF-8"%>
-<%@page import="com.yizhilu.os.inxedu.common.constants.CommonConstants"%>
+<%@page import="com.inxedu.os.common.constants.CommonConstants"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>

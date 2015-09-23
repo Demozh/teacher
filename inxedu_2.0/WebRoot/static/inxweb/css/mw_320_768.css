@@ -97,7 +97,7 @@ html.active .in-wrap  {transform: translate3d(-240px, 0, 0);-webkit-transform: t
 .p-h-head {padding: 0 30px;}
 .p-h-goback a tt,.p-h-rSc .kcShare,.p-h-head aside.pa {display: none;}
 .v-body .c-infor-box {margin: 0 -25px;}
-.d-tips-1,.d-tips-2 {width: 260px;}
+.d-tips-1,.d-tips-2,.d-tips-6 {width: 260px;}
 .ukindeditor {min-height: 682px;}
 .ukindeditor .jc-demo-box {width: 280px;height: 280px;}
 .ukindeditor .uploadWrap {margin: 20px 0 0 0;width: auto;}

@@ -135,8 +135,54 @@
 		WHERE
 		edu_comment.COMMENT_ID=#{commentId}
 	</update>
+	
 	<delete id="delComment" parameterType="Map">
 		DELETE FROM edu_comment WHERE
 		(COMMENT_ID = #{commentId} or P_COMMENT_ID = #{commentId})
 	</delete>
+	
+	<select id="queryCommentList" parameterType="comment" resultMap="CommentResult">
+		select
+		<include refid="edu_comment_column" />
+		,edu_user.EMAIL email,
+		edu_user.user_name userName,
+		edu_user.PIC_IMG picImg
+		from edu_comment
+		left join edu_user on edu_comment.USER_ID=edu_user.USER_ID
+		<where>
+			<if test="type!=0">
+				and edu_comment.type=#{type}
+			</if>
+			<if test="otherId!=0">
+				and edu_comment.OTHER_ID=#{otherId}
+			</if>
+			<if test="pCommentId==0">
+				and edu_comment.P_COMMENT_ID=0
+			</if>
+			<if test="pCommentId!=0">
+				and edu_comment.P_COMMENT_ID=#{pCommentId}
+			</if>
+			<if test="email!=null and email!=''">
+				and edu_user.email LIKE CONCAT('%',#{email},'%')
+			</if>
+			<if test="content!=null and content!=''">
+				and edu_comment.content LIKE CONCAT('%',#{content},'%')
+			</if>
+			<if test="beginCreateTime!=null and beginCreateTime!=''">
+				AND edu_comment.ADDTIME >= #{beginCreateTime}
+			</if>
+			<if test="endCreateTime!=null and endCreateTime!=''">
+				AND <![CDATA[ edu_comment.ADDTIME <= #{endCreateTime}]]>
+			</if>
+			<if test="order=='commentId'">
+				order by edu_comment.COMMENT_ID desc
+			</if>
+			<if test="order=='praiseCount'">
+				order by edu_comment.PRAISE_COUNT desc
+			</if>
+			<if test="limitNumber!=null and limitNumber!=0">
+				limit #{limitNumber}
+			</if>
+		</where>
+	</select>
 </mapper>

@@ -2,12 +2,11 @@
 	margin: 0;
 	padding: 0;
 }
-
+html,body {position: relative;height: 100%;overflow: hidden;}
 body {
-	position: relative;
-	height: 100%;
-	background: #fff url('../assets/load-bg.jpg') 50% -66px repeat-x;
-	font-family: Tahoma, Arial, sans-serif;
+	background: #fff url('../assets/load-bg.jpg') 50% 50% no-repeat;
+	background-size: cover;
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 img {
@@ -21,7 +20,7 @@ img {
 
 #container .logo {
 	width: 230px;
-	margin: 334px 0 0 174px;
+	margin: 30% 0 0 174px;
 	position: relative;
 	text-align: center;
 }
@@ -38,7 +37,7 @@ img {
 
 #container #box {
 	background: #fff;
-	box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 12px 12px 0 rgba(0, 0, 0, 0.1);
 	border: 1px solid #fbfbfb;
 	clear: both;
 	float: none;
@@ -58,7 +57,7 @@ p.main label {
 }
 
 .b-box {
-	border-top: 2px solid #333;
+	/* border-top: 2px solid #333; */
 	width: 100%;
 }
 
@@ -76,6 +75,7 @@ p.main label {
 	text-align: center;
 	margin: -15px 0 30px;
 	padding-bottom: 15px;
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 p.main {
@@ -90,6 +90,7 @@ p.main INPUT {
 	padding: 5px;
 	float: left;
 	width: 200px;
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 p.main INPUT:focus {
@@ -98,7 +99,7 @@ p.main INPUT:focus {
 }
 
 p.main label {
-	font: 14px/20px 'Microsoft YaHei';
+	font: 14px/20px "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;;
 }
 
 p.main .yzm-pic {
@@ -120,6 +121,7 @@ input.login {
 	display: inline;
 	margin-right: 50px;
 	cursor: pointer;
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 input.login:hover {

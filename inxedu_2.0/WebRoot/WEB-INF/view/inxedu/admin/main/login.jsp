@@ -60,7 +60,7 @@
 			</div>
 			<div class="login-foot">
 				<span>
-					<a target="_blank" href="http://demo1.inxedu.com/">Powered By ${websitemap.web.company}</a>
+					Powered By <a target="_blank" href="http://www.inxedu.com/" style="color: #666;">${websitemap.web.company}</a>
 				</span>
 			</div>
 		</div>

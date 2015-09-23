@@ -64,6 +64,13 @@ function addaKpoint(courseId){
 			return;
 		}
 	}
+	if(getKpointType(parentId)==false){//判断父级节点类型
+		return;
+	}
+	var kpointType=0;
+	if(parentId!=0){
+		kpointType=1;
+	}
 	
 	$.ajax({
 		url:baselocation+'/admin/kpoint/addkpoint',
@@ -72,7 +79,8 @@ function addaKpoint(courseId){
 		data:{
 			'courseKpoint.name':'新创建视频',
 			'courseKpoint.parentId':parentId,
-			'courseKpoint.courseId':courseId
+			'courseKpoint.courseId':courseId,
+			'courseKpoint.kpointType':kpointType
 		},
 		success:function(result){
 			if(result.success==false){
@@ -90,7 +98,6 @@ function addaKpoint(courseId){
 			alert('系统繁忙，请稍后再操作！');
 		}
 	});
-	
 }
 
 /**
@@ -100,6 +107,8 @@ function addaKpoint(courseId){
 function initUpdateKpoint(treeId, treeNode){
 	closeData();
 	var treeNodeLeve=treeNode.level;
+	var childrenNodes = treeNode.children;
+	
 	$.ajax({
 		url:baselocation+'/admin/kpoint/getkpoint/'+treeNode.kpointId,
 		type:'post',
@@ -108,11 +117,26 @@ function initUpdateKpoint(treeId, treeNode){
 			var obj = result.entity;
 			$("input[name='courseKpoint.kpointId']").val(obj.kpointId);
 			$("input[name='courseKpoint.name']").val(obj.name);
-			if(treeNodeLeve==0){//一级节点 不输入视频地址
-				$("input[name='courseKpoint.videoUrl']").parent().parent().hide();
+			if(treeNodeLeve==0){//一级节点 
+				//$("input[name='courseKpoint.videoUrl']").parent().parent().hide();//不输入视频地址
 			}else{
 				$("input[name='courseKpoint.videoUrl']").parent().parent().show();
+				$("select[name='courseKpoint.kpointType']").val(1);//节点类型默认 为视频
+				$("select[name='courseKpoint.kpointType']").parent().parent().hide();//节点类型 隐藏
 			}
+			if (childrenNodes&&childrenNodes.length>0) {//如果 当前节点有子节点 
+				$("select[name='courseKpoint.kpointType']").val(0);//节点类型 为目录
+				$("input[name='courseKpoint.videoUrl']").parent().parent().hide();//不输入视频地址
+				$("select[name='courseKpoint.kpointType']").parent().parent().hide();//节点类型 隐藏
+		    }else{
+		    	$("#courseKpointKpointType").parent().parent().show();//显示
+		    }
+			if(treeNodeLeve!=0){
+				$("#courseKpointKpointType").parent().parent().hide();//隐藏
+			}
+			
+			$("#courseKpointKpointType").val(obj.kpointType);
+			$("#courseKpointKpointType").change();
 			$("input[name='courseKpoint.videoUrl']").val(obj.videoUrl);
 			$("input[name='courseKpoint.sort']").val(obj.sort);
 			$("input[name='courseKpoint.playCount']").val(obj.playCount);
@@ -163,6 +187,9 @@ function updateKpoint(){
 		alert('请选择老师');
 		return false;
 	}
+
+	var kpointType=$("select").val();
+	params+="courseKpoint.kpointType="+kpointType+"&";
 	$.ajax({
 		url:baselocation+'/admin/kpoint/updateKpoint',
 		type:'post',
@@ -284,3 +311,40 @@ function closeData(){
 	$("#teacher").text('');
 }
 
+/**
+ * 视频节点类型 下拉改变
+ */
+function kpointTypeChange(obj){
+	var kpointType=$(obj).val();
+	if(kpointType==0){
+		$("input[name='courseKpoint.videoUrl']").parent().parent().hide();
+		$("input[name='courseKpoint.videoUrl']").val("");
+	}else{
+		$("input[name='courseKpoint.videoUrl']").parent().parent().show();
+	}
+}
+
+/**
+ *判断节点类型 
+ */
+function getKpointType(parentId){
+	var isTrue=true;
+	$.ajax({
+		url:baselocation+'/admin/kpoint/getkpoint/'+parentId,
+		type:'post',
+		dataType:'json',
+		async:false,
+		success:function(result){
+			var obj = result.entity;
+			if(obj!=null && obj!="" && obj.kpointType==1){
+				isTrue=false;
+				alert("创建视频节点只能在目录节点类型下添加!");
+			}
+		},
+		error:function(error){
+			isTrue=false;
+			alert("系统繁忙，请稍后再操作！");
+		}
+	});
+	return isTrue;
+}

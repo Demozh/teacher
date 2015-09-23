@@ -78,7 +78,7 @@ function addReply(obj){
 				if(result.success==true){
 					$(obj).parent().prev().find("textarea").val("");
 					//重新加载该问答回复的子评论
-					var tempObj=$(obj).parent().parent().parent().prev().find("a.noter-dy");
+					var tempObj=$(obj).parent().parent().parent().parent().prev().find("a.noter-dy");
 					getCommentById(tempObj,commentId);
 					//修改该问答回复的 评论数
 					var questionsReplyCount=parseInt($(tempObj).children("span").html());
@@ -130,6 +130,25 @@ function getCommentById(obj,commentId){
 		async:true,
 		success:function(result){
 			$(obj).parent().parent().next().find("dl.n-reply-list").html(result);
+		}
+	});
+}
+
+/**
+ * 根据问答回复id  获取所有子评论  分页弹出
+ */
+function getAllCommentById(pCommentId) {
+	//ajaxPage("/questionscommentall/ajax/getCommentById/"+pCommentId, "" , 1, dialog("评论列表",result,5));
+	$.ajax({
+		url : baselocation + '/questionscommentall/ajax/getCommentById/'+pCommentId,
+		data : {
+		},
+		type : 'post',
+		async : true,
+		dataType : 'text',
+		success : function(result) {
+			//弹出
+			dialog("评论列表",result,5);
 		}
 	});
 }

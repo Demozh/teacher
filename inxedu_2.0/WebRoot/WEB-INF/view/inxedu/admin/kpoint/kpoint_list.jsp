@@ -68,6 +68,15 @@
 						</td>
 					</tr>
 					<tr>
+						<td>节点类型:</td>
+						<td style="text-align: left;">
+							<select id="courseKpointKpointType" name="courseKpoint.kpointType" onchange="kpointTypeChange(this)">
+								<option value="0">目录</option>
+								<option value="1">视频</option>
+							</select>
+						</td>
+					</tr>
+					<tr style="display:none">
 						<td>视频节点URL:</td>
 						<td style="text-align: left;">
 							<input type="text" name="courseKpoint.videoUrl" value="" />

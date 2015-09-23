@@ -15,6 +15,7 @@
 	<result property="videoUrl" column="VIDEO_URL"/>
 	<result property="teacherId" column="TEACHER_ID"/>
 	<result property="playTime" column="play_time"/>
+	<result property="kpointType" column="KPOINT_TYPE"/>
 	</resultMap>
 	
 	<sql id="edu_course_kpoint_columns">
@@ -28,7 +29,8 @@
 	EDU_COURSE_KPOINT.IS_FREE,
 	EDU_COURSE_KPOINT.VIDEO_URL,
 	EDU_COURSE_KPOINT.TEACHER_ID,
-	EDU_COURSE_KPOINT.play_time
+	EDU_COURSE_KPOINT.play_time,
+	EDU_COURSE_KPOINT.KPOINT_TYPE
 	</sql>
 	<sql id="edu_course_kpoint_properties">
 	#{kpointId},
@@ -41,7 +43,8 @@
 	#{free},
 	#{videoUrl},
 	#{teacherId},
-	#{playTime}
+	#{playTime},
+	#{kpointType}
 	</sql>
 
 	<!-- 创建视频节点 -->
@@ -66,6 +69,7 @@
 	EDU_COURSE_KPOINT.VIDEO_URL as videoUrl,
 	EDU_COURSE_KPOINT.TEACHER_ID as teacherId,
 	EDU_COURSE_KPOINT.play_time as playTime,
+	EDU_COURSE_KPOINT.KPOINT_TYPE as kpointType,
 	EDU_TEACHER.NAME as teacherName
 	FROM EDU_COURSE_KPOINT
 	LEFT JOIN EDU_TEACHER ON EDU_TEACHER.ID = EDU_COURSE_KPOINT.TEACHER_ID
@@ -81,7 +85,8 @@
 	EDU_COURSE_KPOINT.IS_FREE=#{free},
 	EDU_COURSE_KPOINT.VIDEO_URL=#{videoUrl},
 	EDU_COURSE_KPOINT.TEACHER_ID=#{teacherId},
-	EDU_COURSE_KPOINT.play_time = #{playTime}
+	EDU_COURSE_KPOINT.play_time = #{playTime},
+	EDU_COURSE_KPOINT.KPOINT_TYPE=#{kpointType}
 	WHERE EDU_COURSE_KPOINT.KPOINT_ID=#{kpointId}
 	</update>
 	
@@ -95,11 +100,11 @@
 	UPDATE EDU_COURSE_KPOINT SET EDU_COURSE_KPOINT.PARENT_ID=#{parentId} WHERE EDU_COURSE_KPOINT.KPOINT_ID=#{kpointId}
 	</update>
 	
-	<!--  获取课程的 二级视频节点总数(只支持二级) -->
+	<!--  获取课程的 视频节点总数 -->
 	<select id="getSecondLevelKpointCount" parameterType="long" resultType="int">
 	SELECT IFNULL(count(1),0) 
 		FROM edu_course_kpoint 
 	where 
-		edu_course_kpoint.COURSE_ID=#{value} and edu_course_kpoint.PARENT_ID!=0
+		edu_course_kpoint.COURSE_ID=#{value} and edu_course_kpoint.KPOINT_TYPE=1
 	</select>
 </mapper>

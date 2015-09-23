@@ -62,6 +62,7 @@ a:hover.button, input:hover.button {
 	border: 1px solid #ddd;
 	padding: 3px 10px 3px 5px;
 	color: #333;
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 p.mid a {
@@ -111,6 +112,7 @@ ul.nav li li a:hover {
 #sidebar h2 {
 	border-bottom: 1px dotted #d3d3d3;
 	color: #000;
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 #sidebar ul li {
@@ -1190,6 +1192,7 @@ button.ui-state-default.ui-corner-all:hover, button.ui-state-default.ui-corner-a
 	font-size: 14px;
 	padding: .5em .5em .5em 2em;
 	font-weight: bold;
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 .ui-accordion .ui-accordion-header .ui-icon {
@@ -1222,6 +1225,7 @@ button.ui-state-default.ui-corner-all:hover, button.ui-state-default.ui-corner-a
 	display: block;
 	font-size: 14px;
 	line-height: 32px;
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 .acd-sub-dl dd {

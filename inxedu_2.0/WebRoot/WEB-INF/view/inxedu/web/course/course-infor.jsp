@@ -162,48 +162,51 @@
 											<menu id="lh-menu" class="lh-menu mt10 mr10">
 												<ul>
 													<c:forEach items="${parentKpointList }" var="parentKpoint" varStatus="index">
-														<li class="lh-menu-stair">
-															<a href="javascript: void(0)" title="${parentKpoint.name }" 
-																<c:if test="${index.first==true}">class="current-1"</c:if>
-															>
-																<span class="fr"><em class="icon14 m-tree-icon">&nbsp;</em></span><em class="lh-menu-i-1 icon24 mr5"><font>${index.index+1 }</font></em>${parentKpoint.name }</a>
-															<ol class="lh-menu-ol"  
-																<c:if test="${index.first==true}">style="display: block;"</c:if>
-																<c:if test="${index.first==false}">style="display: none;"</c:if>
-															>
-																<c:forEach items="${parentKpoint.kpointList}" var="sonKpoint">
-																	<li class="lh-menu-second ml30"><a href="javascript:void(0)" onclick="playVideo('${sonKpoint.videoUrl }',this)" title="">
+														<c:if test="${parentKpoint.kpointType==0 }"><!-- 文件目录 -->
+															<li class="lh-menu-stair">
+																<a href="javascript: void(0)" title="${parentKpoint.name }" 
+																	<c:if test="${index.first==true}">class="current-1"</c:if>
+																>
+																	<span class="fr"><em class="icon14 m-tree-icon">&nbsp;</em></span><em class="lh-menu-i-1 icon24 mr5"><font>${index.index+1 }</font></em>${parentKpoint.name }</a>
+																<ol class="lh-menu-ol"  
+																	<c:if test="${index.first==true}">style="display: block;"</c:if>
+																	<c:if test="${index.first==false}">style="display: none;"</c:if>
+																>
+																	<c:forEach items="${parentKpoint.kpointList}" var="sonKpoint">
+																		<li class="lh-menu-second ml30"><a href="javascript:void(0)" onclick="playVideo('${sonKpoint.videoUrl }',this)" title="">
+																				<span class="fr"> 
+																					<c:if test="${sonKpoint.free==1 }">
+																						<tt class="free-icon vam mr10">免费试听</tt>
+																					</c:if>
+																					<c:if test="${!empty sonKpoint.playTime}">
+																						<em class="lh-p-icon icon14 ml5">&nbsp;</em>
+																						${sonKpoint.playTime}
+																					</c:if>
+																				</span><em class="lh-menu-i-2 icon14 mr5">&nbsp;</em>${sonKpoint.name }
+																			</a>
+																		</li>
+																	</c:forEach>
+																</ol>
+															</li>
+														</c:if>
+														<c:if test="${parentKpoint.kpointType==1 }"><!-- 视频 -->
+															<li class="lh-menu-stair">
+																<ul class="lh-menu-ol no-parent-node">
+																	<li class="lh-menu-second"><a title="" onclick="playVideo('${parentKpoint.videoUrl }',this)" href="javascript:void(0)">
 																			<span class="fr"> 
-																				<c:if test="${sonKpoint.free==1 }">
+																				<c:if test="${parentKpoint.free==1 }">
 																					<tt class="free-icon vam mr10">免费试听</tt>
 																				</c:if>
-																				<c:if test="${!empty sonKpoint.playTime}">
+																				<c:if test="${!empty parentKpoint.playTime}">
 																					<em class="lh-p-icon icon14 ml5">&nbsp;</em>
-																					${sonKpoint.playTime}
+																					${parentKpoint.playTime}
 																				</c:if>
-																			</span><em class="lh-menu-i-2 icon14 mr5">&nbsp;</em>${sonKpoint.name }
-																		</a>
+																				</span><em class="lh-menu-i-2 icon14 mr5">&nbsp;</em>${parentKpoint.name }</a>
 																	</li>
-																</c:forEach>
-															</ol>
-														</li>
+																</ul>
+															</li>
+														</c:if>
 													</c:forEach>
-													<!-- <li class="lh-menu-stair">
-														<ul class="lh-menu-ol no-parent-node">
-															<li class="lh-menu-second"><a title="" onclick="playVideo('http://player.youku.com/player.php/sid/XOTI5Mzc3MTA4/v.swf',this)" href="javascript:void(0)">
-																			<span class="fr"> 
-																				<tt class="free-icon vam mr10">免费试听</tt>
-																				<em class="lh-p-icon icon14 ml5">&nbsp;</em>
-																					01:20</span><em class="lh-menu-i-2 icon14 mr5">&nbsp;</em>少年时代</a>
-																	</li>
-																<li class="lh-menu-second"><a title="" onclick="playVideo('http://player.youku.com/player.php/sid/XOTI5Mzc3MTA4/v.swf',this)" href="javascript:void(0)">
-																			<span class="fr"> 
-																				<tt class="free-icon vam mr10">免费试听</tt>
-																				<em class="lh-p-icon icon14 ml5">&nbsp;</em>
-																					01:20</span><em class="lh-menu-i-2 icon14 mr5">&nbsp;</em>少年时代</a>
-																	</li>
-														</ul>
-													</li> -->
 												</ul>
 											</menu>
 										</div>

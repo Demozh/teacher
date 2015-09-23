@@ -78,7 +78,9 @@
 		parameterType="long">
 		select
 		<include refid="edu_questions_comment_columns" />
+		,edu_user.SHOW_NAME as showName,edu_user.EMAIL as email ,edu_user.PIC_IMG as picImg
 		from edu_questions_comment
+		left join edu_user on edu_user.USER_ID=edu_questions_comment.CUS_ID
 		where
 		id = #{value}
 	</select>
