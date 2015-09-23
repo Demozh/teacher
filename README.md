@@ -1,7 +1,7 @@
 免费开源网校系统源代码轻松搭建在线教育平台
 
 技术交流QQ群：468278040
-
+官网:http://www.inxedu.com/
 演示站:http://demo1.inxedu.com/
 账号:demo@test.com</br>
 密码:111111</br>
