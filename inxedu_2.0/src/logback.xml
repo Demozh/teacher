@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
     <jmxConfigurator />
-
+ 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <!-- 典型的日志pattern -->
         <encoder>
