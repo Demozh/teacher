@@ -15,6 +15,7 @@
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/spring-mvc.xml</file>
+          <file>file://$MODULE_DIR$/src/spring-quartz.xml</file>
           <file>file://$MODULE_DIR$/src/applicationContext.xml</file>
           <file>file://$MODULE_DIR$/WebRoot/WEB-INF/classes/spring-mvc.xml</file>
           <file>file://$MODULE_DIR$/WebRoot/WEB-INF/classes/applicationContext.xml</file>
@@ -30,6 +31,5 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lib" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 8.0.24" level="application_server_libraries" />
   </component>
 </module>
