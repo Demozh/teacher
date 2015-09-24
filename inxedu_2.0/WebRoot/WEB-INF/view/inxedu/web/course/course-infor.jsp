@@ -58,7 +58,7 @@
 						<section class="c-attr-mt c-attr-time">
 							<span class="c-fff fsize14">课程有效期：
 											<c:if test="${course.loseType==0 }">
-												<fmt:formatDate type="both" value="${course.endTime}" />
+												<fmt:formatDate pattern="yyyy/MM/dd HH:mm"  value="${course.endTime}" />
 											</c:if>
 											<c:if test="${course.loseType==1 }">
 													从购买之日起${course.loseTime }天

@@ -112,7 +112,7 @@ public class ZfbPayController extends BaseController{
 					expireDate=course.getEndTime();
 				}
 				// 按天数计算
-				if (course.getLoseType() == 1) {// 
+				else if (course.getLoseType() == 1) {// 
 					// 按所写时间推移过期时间
 					Calendar now = Calendar.getInstance();
 					now.setTime(nowDate);

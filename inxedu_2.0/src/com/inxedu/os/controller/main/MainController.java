@@ -1,6 +1,7 @@
 package com.inxedu.os.controller.main;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +22,7 @@ import com.inxedu.os.entity.system.SysFunction;
 import com.inxedu.os.entity.system.SysUser;
 import com.inxedu.os.service.article.ArticleService;
 import com.inxedu.os.service.course.CourseService;
+import com.inxedu.os.service.statistics.StatisticsDayService;
 import com.inxedu.os.service.system.SysFunctionService;
 import com.inxedu.os.service.user.UserService;
 
@@ -38,6 +40,8 @@ public class MainController extends BaseController{
 	private UserService userService;
 	@Autowired
 	private ArticleService articleService;
+	@Autowired
+	private StatisticsDayService statisticsDayService;
 	
 	private List<SysFunction> functionList =null;
 	/**
@@ -128,7 +132,7 @@ public class MainController extends BaseController{
 		sf.setChildList(childFunction);
 		functionList.add(sf);
 	}
-	
+
 	/**
 	 * 后台操作中心初始化首页
 	 * @param request
@@ -138,8 +142,9 @@ public class MainController extends BaseController{
 	public ModelAndView mainIndex(HttpServletRequest request){
 		ModelAndView model = new ModelAndView();
 		try{
-
-
+			// 今天登录人数数据获得
+			int todayloginnum = statisticsDayService.getTodayLoginNum(new Date());
+			model.addObject("todayloginnum", todayloginnum);
 			model.setViewName(mainIndexPage);
 		}catch (Exception e) {
 			model.setViewName(this.setExceptionRequest(request, e));

@@ -21,4 +21,11 @@ public class CacheConstans extends CacheConstansbBase{
 	public static final String 	ARTICLE_GOOD_RECOMMEND = MEMFIX+"ARTICLE_GOOD_RECOMMEND";
 	/** 问答  热门问答推荐 缓存 **/
 	public static final String 	QUESTIONS_HOT_RECOMMEND = MEMFIX+"QUESTIONS_HOT_RECOMMEND";
+	
+	/**网站统计*/
+	public static final String WEB_STATISTICS = MEMFIX + "web_statistics";
+	/** 网站最近30条活跃统计 */
+	public static final String WEB_STATISTICS_THIRTY = MEMFIX + "web_statistics_thirty";
+	/**缓存1小时*/
+	public static final int WEB_STATISTICS_TIME = Integer.parseInt(webPropertyUtil.getProperty("WEB_STATISTICS_TIME"));
 }
