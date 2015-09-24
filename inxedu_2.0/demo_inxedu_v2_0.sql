@@ -18,7 +18,7 @@
 --
 -- Table structure for table `edu_article`
 --
-11
+11  
 DROP TABLE IF EXISTS `edu_article`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
