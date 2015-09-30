@@ -78,6 +78,7 @@ public class AdminCourseController extends BaseController {
 		try {
 			page.setPageSize(14);
 			model.setViewName(showCourseList);
+			queryCourse.setIsavaliable(1);
 			//查询课程
 			List<CourseDto> courseList = courseService.queryCourseListPage(queryCourse, page);
 			model.addObject("page", page);
@@ -214,9 +215,9 @@ public class AdminCourseController extends BaseController {
     }
     
     /**
-     * 上架或下架课程
+     * 删除课程
      * @param courseId 课程ID
-     * @param type 1上架 2下架
+     * @param type 1正常 2删除
      * @return Map<String,Object>
      */
     @RequestMapping("/cou/avaliable/{courseId}/{type}")

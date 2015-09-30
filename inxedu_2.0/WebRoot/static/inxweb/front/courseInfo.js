@@ -39,20 +39,37 @@ var setting={
 };
 
 /**
- * 播放视频
- * @param url 视频URL
+ * 获得播放器的html 
+ * @param kpointId
+ * @param obj
  */
-function playVideo(url,obj){
-	if(url==""||url==null){
-		dialog('提示',"对不起，该课程视频暂不支持试听,请购买后观看!",1);
-		return;
-	}
+function getPlayerHtml(kpointId,free,obj) {
 	//节点选中
 	$(".lh-menu-stair").find("ul>li>a,ol>li>a").removeClass("current-2");
 	$(obj).addClass("current-2");
-	var content='<iframe src="'+url+'" scrolling="no" frameborder="0" width="100%" height="100%"></iframe>';
-	$("#videoPlay").html(content);
-	$("html,body").animate({scrollTop : $("#videoPlay").offset().top - 60}, 500);//滑动到播放位置
+	
+	if(isok==true || currentprice <= 0 || free==1){
+		$.ajax({
+			url : "" + baselocation + "/front/ajax/getKopintHtml",
+			data : {
+				"kpointId" : kpointId,
+				"courseId" : otherId
+			},
+			type : "post",
+			dataType : "text",
+			async:false,
+			success : function(result) {
+				//alert(result);
+				//$("#videoPlay").html("1111"+"<script src='http://p.bokecc.com/player?vid=28410965A68FCF5B9C33DC5901307461&siteid=F9C3434C51509878&autoStart=true&width=100%&height=100%&playerid=51A2AD3118ACAD37&playertype=1' type='text/javascript'></script>"+result);
+				$("#videoPlay").html(result);
+				$("html,body").animate({scrollTop : $("#videoPlay").offset().top - 60}, 500);//滑动到播放位置
+			}
+		});
+	}else{
+		dialog('提示',"该课程视频暂不支持试听,请购买后观看!",1);
+		return;
+	}
+	
 }
 
 $(function(){
@@ -128,11 +145,11 @@ function favorites(courseId,obj){
 }
 
 //视频试听播放方法
-function vedioClick(tryUrl){
-	if(freeVideoUrl!=""&&freeVideoUrl!=null)
+function vedioClick(freeVideoId){
+	if(freeVideoId!=""&&freeVideoId!=0)
 	{
 		// 播放视频
-		playVideo(freeVideoUrl);
+		getPlayerHtml(freeVideoId,1,"");
 	}else{
 		dialog('提示',"该课程暂不支持试听,请购买后观看!",1);
 	}

@@ -13,6 +13,11 @@
 <script type="text/javascript" src="${ctx}/static/admin/article/article.js"></script>
 <link rel="stylesheet" type="text/css" href="${ctx}/kindeditor/themes/default/default.css" />
 <script type="text/javascript" src="${ctx}/kindeditor/kindeditor-all.js"></script>
+
+<link rel="stylesheet" href="${ctx}/static/common/nice-validator/jquery.validator.css"></link>
+<script type="text/javascript" src="${ctx}/static/common/nice-validator/jquery.validator.js"></script>
+<script type="text/javascript" src="${ctx}/static/common/nice-validator/local/zh-CN.js"></script>
+
 <script type="text/javascript">
 	$(function() {
 		initKindEditor_addblog('content', 580, 400, 'articleContent', 'true');
@@ -30,7 +35,7 @@
 </head>
 <body>
 	<div class="pad20" style="background-color: #f0f0f0;">
-		<form action="${ctx}/admin/article/updatearticle" method="post" id="articleForm">
+		<form action="${ctx}/admin/article/updatearticle" method="post" id="articleForm" data-validator-option="{stopOnError:false, timely:false}">
 			<input type="hidden" name="article.articleId" value="${article.articleId}">
 			<input type="hidden" name="article.imageUrl" value="${article.imageUrl}">
 			<table style="line-height: 35px;">
@@ -39,13 +44,13 @@
 						<font color="red">*</font>标题
 					</td>
 					<td>
-						<input name="article.title" type="text" value="${article.title}" style="width: 580px;" />
+						<input name="article.title" type="text" data-rule="标题:required;" value="${article.title}" style="width: 580px;" />
 					</td>
 				</tr>
 				<tr>
 					<td>摘要：</td>
 					<td>
-						<textarea name="article.summary" style="width: 580px; height: 90px;">${article.summary}</textarea>
+						<textarea name="article.summary" style="width: 580px; height: 90px;" data-rule="required;" >${article.summary}</textarea>
 					</td>
 				</tr>
 				<tr>
@@ -79,13 +84,13 @@
 				<tr>
 					<td>点击数：</td>
 					<td>
-						<input name="article.clickNum" id="clickNum"   type="text" style="width: 140px;" value="${article.clickNum}"  onkeyup="this.value=this.value.replace(/\D/g,'')"/>
+						<input name="article.clickNum" id="clickNum"   type="text" style="width: 140px;" value="${article.clickNum}" data-rule="required;" onkeyup="this.value=this.value.replace(/\D/g,'')"/>
 					</td>
 				</tr>
 				<tr>
 					<td>发布时间：</td>
 					<td>
-						<input name="article.publishTime" id="publishTime" readonly="readonly" type="text" style="width: 140px;" value="<fmt:formatDate value="${article.publishTime}" pattern="yyyy-MM-dd HH:mm:ss"/>" />
+						<input name="article.publishTime" data-rule="required;" id="publishTime" readonly="readonly" type="text" style="width: 140px;" value="<fmt:formatDate value="${article.publishTime}" pattern="yyyy-MM-dd HH:mm:ss"/>" />
 					</td>
 				</tr>
 				<tr>
@@ -93,7 +98,13 @@
 						<font color="red">*</font>内容：
 					</td>
 					<td>
-						<textarea name="articleContent.content" id="content">${content}</textarea>
+						<textarea name="articleContent.content" id="content" data-rule="required;">${content}</textarea>
+					</td>
+				</tr>
+				<tr>
+					<td>排序值：</td>
+					<td>
+						<input name="article.sort" id="sort" data-rule="required;"  type="text" style="width: 140px;" value="${article.sort }"  onkeyup="this.value=this.value.replace(/\D/g,'')" data-rule="required;"/>
 					</td>
 				</tr>
 				<tr>

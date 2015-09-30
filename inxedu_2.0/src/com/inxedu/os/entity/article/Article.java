@@ -36,6 +36,8 @@ public class Article implements Serializable{
 	private int clickNum;
 	/**文章点赞量*/
 	private int praiseCount;
+	/** 排序值 */
+	private int sort;
 	
 	/**文章评论数*/
 	private int commentNum;

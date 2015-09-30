@@ -11,12 +11,11 @@
 			<legend>
 				<span>网站配置管理</span>
 				&gt;
-				<span>添加网站配置</span>
+				<span>修改网站配置</span>
 			</legend>
 			<div class="mt20">
 				<p>
 					<label for="lf"><span>
-							修改网站配置
 							<tt class="c_666 ml20 fsize12">
 								（<font color="red">*</font>&nbsp;为必填项）
 							</tt>
@@ -100,6 +99,30 @@
 					<p>
 						<label for="sf"><font color="red">*</font>&nbsp;统计代码</label>
 						<textarea rows="6" cols="60" name="censusCodeString">${webSiteMap.censusCode.censusCodeString}</textarea>
+						<span class="field_desc"></span>
+					</p>
+				</c:if>
+				<c:if test="${type=='letv'}">
+					<p>
+						<label for="sf"><font color="red">*</font>&nbsp;用户唯一标识码</label>
+						<input type="text" name="user_unique" value="${webSiteMap.letv.user_unique}" style="width: 15%" class="sf" />
+						<span class="field_desc"></span>
+					</p>
+					<p>
+						<label for="sf"><font color="red">*</font>&nbsp;秘钥</label>
+						<input type="text" name="secret_key" value="${webSiteMap.letv.secret_key}" style="width: 15%" class="sf" />
+						<span class="field_desc"></span>
+					</p>
+				</c:if>
+				<c:if test="${type=='cc'}">
+					<p>
+						<label for="sf"><font color="red">*</font>&nbsp;CC appID</label>
+						<input type="text" name="ccappID" value="${webSiteMap.cc.ccappID}" style="width: 15%" class="sf" />
+						<span class="field_desc"></span>
+					</p>
+					<p>
+						<label for="sf"><font color="red">*</font>&nbsp;CC appKEY</label>
+						<input type="text" name="ccappKEY" value="${webSiteMap.cc.ccappKEY}" style="width: 15%" class="sf" />
 						<span class="field_desc"></span>
 					</p>
 				</c:if>

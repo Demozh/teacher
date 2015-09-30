@@ -6,7 +6,7 @@
 <title>${course.courseName}详情</title>
 <script type="text/javascript">
 	var isok = ${isok};
-	var freeVideoUrl = "${freeVideoUrl}";
+	var currentprice=${course.currentPrice};
 </script>
 </head>
 <body>
@@ -31,7 +31,7 @@
 							</c:otherwise>
 						</c:choose>
 	
-						<a href="javascript:void(0)" onclick="vedioClick('0')" title="${course.courseName}" class="v-play-btn">
+						<a href="javascript:void(0)" onclick="vedioClick(${freeVideoId})" title="${course.courseName}" class="v-play-btn">
 							<em class="icon30">&nbsp;</em>
 						</a>
 					</section>
@@ -173,7 +173,7 @@
 																	<c:if test="${index.first==false}">style="display: none;"</c:if>
 																>
 																	<c:forEach items="${parentKpoint.kpointList}" var="sonKpoint">
-																		<li class="lh-menu-second ml30"><a href="javascript:void(0)" onclick="playVideo('${sonKpoint.videoUrl }',this)" title="">
+																		<li class="lh-menu-second ml30"><a href="javascript:void(0)" <%-- onclick="playVideo('${sonKpoint.videoUrl }',this)" --%> onclick="getPlayerHtml(${sonKpoint.kpointId },${sonKpoint.free },this)" title="">
 																				<span class="fr"> 
 																					<c:if test="${sonKpoint.free==1 }">
 																						<tt class="free-icon vam mr10">免费试听</tt>
@@ -192,7 +192,7 @@
 														<c:if test="${parentKpoint.kpointType==1 }"><!-- 视频 -->
 															<li class="lh-menu-stair">
 																<ul class="lh-menu-ol no-parent-node">
-																	<li class="lh-menu-second"><a title="" onclick="playVideo('${parentKpoint.videoUrl }',this)" href="javascript:void(0)">
+																	<li class="lh-menu-second"><a title="" <%-- onclick="playVideo('${parentKpoint.videoUrl }',this)" --%> onclick="getPlayerHtml(${parentKpoint.kpointId },${parentKpoint.free },this)" href="javascript:void(0)">
 																			<span class="fr"> 
 																				<c:if test="${parentKpoint.free==1 }">
 																					<tt class="free-icon vam mr10">免费试听</tt>
@@ -319,6 +319,7 @@
 		</section>
 		<!-- /课程详情 结束 -->
 	</div>
+	<script type="text/javascript" src="${ctx}/static/common/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="${ctx}/static/inxweb/front/courseInfo.js"></script>
 	<script type="text/javascript" src="${ctx}/static/inxweb/comment/comment.js"></script>
 	<script>

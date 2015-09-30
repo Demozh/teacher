@@ -10,4 +10,6 @@ public enum WebSiteProfileType {
     censusCode,//统计代码
     ico,//ico文件
     online,//在线咨询
+    letv,//乐视云
+    cc,//cc视频配置
 }

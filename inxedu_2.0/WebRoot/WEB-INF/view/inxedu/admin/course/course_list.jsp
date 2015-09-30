@@ -38,9 +38,12 @@ $(function(){
 });
 
 /**
- * 上架或下架课程 
+ * 删除课程 
  */
 function avaliable(courseId,type,em){
+	if(!confirm('确实要删除吗?')){
+		return;
+	}
 	$.ajax({
 		url:'/admin/cou/avaliable/'+courseId+'/'+type,
 		type:'post',
@@ -49,14 +52,7 @@ function avaliable(courseId,type,em){
 			if(result.success==false){
 				alert(result.message);
 			}else{
-				var td =$(em).parent('samp').parent('td').parent('tr').children('td')[1];
-				if(type==1){
-					$(td).text('上架');
-					$($(em).parent('samp')).html('<a class="button tooltip" onclick="avaliable('+courseId+',2,this)" href="javascript:void(0)">下架</a>');
-				}else if(type==2){
-					$(td).text('下架');
-					$($(em).parent('samp')).html('<a class="button tooltip" onclick="avaliable('+courseId+',1,this)" href="javascript:void(0)">上架</a>');
-				}
+				location.reload();
 			}
 		},
 		error:function(error){
@@ -71,11 +67,11 @@ function avaliable(courseId,type,em){
 		<form action="${ctx}/admin/cou/list" method="post" id="searchForm">
 			<input type="hidden" id="pageCurrentPage" name="page.currentPage" value="1" />
 			<input type="text" name="queryCourse.courseName" value="${queryCourse.courseName}" placeholder="课程标题" />
-			状态:<select name="queryCourse.isavaliable">
+			<%-- 状态:<select name="queryCourse.isavaliable">
 				<option value="0">请选择</option>
 				<option <c:if test="${queryCourse.isavaliable==1 }">selected</c:if> value="1">上架</option>
 				<option <c:if test="${queryCourse.isavaliable==2 }">selected</c:if> value="2">下架</option>
-			</select>
+			</select> --%>
 			<input type="hidden" id="subjectId" name="queryCourse.subjectId" value="${queryCourse.subjectId}" />
 			专业:
 			<samp id="levelId"></samp>
@@ -144,14 +140,7 @@ function avaliable(courseId,type,em){
 						<td align="center">
 							<a href="${ctx}/admin/kpoint/list/${course.courseId}" class="button tooltip">章节管理</a>
 							<a href="${ctx}/admin/cou/initUpdate/${course.courseId}" class="button tooltip">修改</a>
-							<samp>
-								<c:if test="${course.isavaliable==1}">
-									<a href="javascript:void(0)" onclick="avaliable(${course.courseId},2,this)" class="button tooltip">下架</a>
-								</c:if>
-								<c:if test="${course.isavaliable==2}">
-									<a href="javascript:void(0)" onclick="avaliable(${course.courseId},1,this)" class="button tooltip">上架</a>
-								</c:if>
-							</samp>
+							<a href="javascript:void(0)" onclick="avaliable(${course.courseId},2,this)" class="button tooltip">删除</a>
 						</td>
 					</tr>
 				</c:forEach>

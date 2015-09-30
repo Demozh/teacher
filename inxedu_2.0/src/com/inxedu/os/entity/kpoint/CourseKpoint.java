@@ -37,6 +37,8 @@ public class CourseKpoint implements Serializable{
     private String playTime;
     /**节点类型 0文件目录 1视频*/
     private int kpointType;
+    /** 视频类型 */
+    private String videoType;
     /**节点list*/
     private List<CourseKpoint> kpointList=new ArrayList<CourseKpoint>();
 }

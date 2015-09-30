@@ -15,7 +15,8 @@
 	EDU_ARTICLE.ARTICLE_TYPE,
 	EDU_ARTICLE.CLICK_NUM,
 	EDU_ARTICLE.PRAISE_COUNT,
-	EDU_ARTICLE.COMMENT_NUM
+	EDU_ARTICLE.COMMENT_NUM,
+	EDU_ARTICLE.SORT
 	</sql>
 	<sql id="edu_article_property">
 	#{articleId},
@@ -29,7 +30,8 @@
 	#{type},
 	#{clickNum},
 	#{praiseCount},
-	#{commentNum}
+	#{commentNum},
+	#{sort}
 	</sql>
 	
 	<sql id="edu_article_content_column">
@@ -53,6 +55,7 @@
 	<result property="clickNum" column="CLICK_NUM"/>
 	<result property="praiseCount" column="PRAISE_COUNT"/>
 	<result property="commentNum" column="COMMENT_NUM"/>
+	<result property="sort" column="SORT"/>
 
 	</resultMap>
 	
@@ -77,7 +80,8 @@
 	EDU_ARTICLE.CLICK_NUM=#{clickNum},
 	EDU_ARTICLE.AUTHOR=#{author},
 	EDU_ARTICLE.PUBLISH_TIME=#{publishTime},
-	EDU_ARTICLE.ARTICLE_TYPE=#{type}
+	EDU_ARTICLE.ARTICLE_TYPE=#{type},
+	EDU_ARTICLE.SORT=#{sort}
 	WHERE EDU_ARTICLE.ARTICLE_ID=#{articleId}
 	</update>
 	
@@ -121,11 +125,11 @@
 		<if test="e.endCreateTime!=null and e.endCreateTime!=''">
 			AND <![CDATA[EDU_ARTICLE.CREATE_TIME <= #{e.endCreateTime}]]>
 		</if>
-	<if test="e.queryKey!=null and e.queryKey!=''">
-	AND (EDU_ARTICLE.TITLE LIKE CONCAT('%',#{e.queryKey},'%') OR EDU_ARTICLE.SOURCE LIKE CONCAT('%',#{e.queryKey},'%') OR EDU_ARTICLE.AUTHOR LIKE CONCAT('%',#{e.queryKey},'%'))
-	</if>
-
+		<if test="e.queryKey!=null and e.queryKey!=''">
+			AND (EDU_ARTICLE.TITLE LIKE CONCAT('%',#{e.queryKey},'%') OR EDU_ARTICLE.SOURCE LIKE CONCAT('%',#{e.queryKey},'%') OR EDU_ARTICLE.AUTHOR LIKE CONCAT('%',#{e.queryKey},'%'))
+		</if>
 	</where>
+	order by sort desc,PUBLISH_TIME desc
 	</select>
 	
 	<!-- 更新文章浏览量 -->

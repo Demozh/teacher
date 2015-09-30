@@ -40,7 +40,7 @@
 	<select id="queryComment" parameterType="java.util.Map" resultMap="CommentResult">
 		select
 		<include refid="edu_comment_column" />
-		,edu_user.EMAIL email,edu_user.PIC_IMG picImg
+		,edu_user.SHOW_NAME userName,edu_user.EMAIL email,edu_user.PIC_IMG picImg
 		from edu_comment
 		left join edu_user on edu_comment.USER_ID=edu_user.USER_ID
 		<where>
@@ -68,7 +68,7 @@
 		select
 		<include refid="edu_comment_column" />
 		,edu_user.EMAIL email,
-		edu_user.user_name userName,
+		edu_user.SHOW_NAME userName,
 		edu_user.PIC_IMG picImg
 		from edu_comment
 		left join edu_user on edu_comment.USER_ID=edu_user.USER_ID
@@ -145,7 +145,7 @@
 		select
 		<include refid="edu_comment_column" />
 		,edu_user.EMAIL email,
-		edu_user.user_name userName,
+		edu_user.SHOW_NAME userName,
 		edu_user.PIC_IMG picImg
 		from edu_comment
 		left join edu_user on edu_comment.USER_ID=edu_user.USER_ID

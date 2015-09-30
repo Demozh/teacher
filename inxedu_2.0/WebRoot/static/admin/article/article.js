@@ -52,7 +52,7 @@ function selectAll(em){
  * 保存文章
  */
 function saveArticle(){
-	var title = $("input[name='article.title']").val();
+	/*var title = $("input[name='article.title']").val();
 	if(title==null || $.trim(title)==''){
 		alert("请填写文章标题！");
 		return false;
@@ -66,7 +66,7 @@ function saveArticle(){
 	if(content==null || $.trim(content)==''){
 		alert('请填写文章内容！');
 		return false;
-	}
+	}*/
 	$("#articleForm").submit();
 }
 

@@ -64,22 +64,13 @@ function deleteTc(tcId){
  * 保存课程
  */
 function saveCourse(){
-	var name = $("input[name='course.courseName']").val();
-	if(name==null || $.trim(name)==''){
-		alert("请填写课程名称！");
-		return false;
-	}
+
 	var subjectId = $("input[name='course.subjectId']").val();
 	if(subjectId<=0){
 		alert("请选择课程专业");
 		return false;
 	}
-	var reg=/^\d+$/;
-	var lessionNum = $("input[name='course.lessionNum']").val();
-	if(!reg.test(lessionNum)){
-		alert("课时必须是正整数！");
-		return false;
-	}
+
 	var regs=/(^\d+[\.][0-9]{1,2}$)|(^\d+$)/;
 	var sourcePrice = $("input[name='course.sourcePrice']").val();
 	var currentPrice = $("input[name='course.currentPrice']").val();
@@ -87,7 +78,7 @@ function saveCourse(){
 		alert("价格必须是整数或最多带两小数点！");
 		return false;
 	}
-	
+
 	if ($("#losetype").val() == 0) {//有效期类型 到期时间
 		var beginTime = new Date();
 		var endTime = $("#endTime").val();
@@ -109,18 +100,7 @@ function saveCourse(){
 			return false;
 		}
 	}
-	
-	
-	var pageBuycount = $("input[name='course.pageBuycount']").val();
-	if(!reg.test(pageBuycount)){
-		alert("销售数量必须是正整数！");
-		return false;
-	}
-	var pageViewcount = $("input[name='course.pageViewcount']").val();
-	if(!reg.test(pageViewcount)){
-		alert("浏览量必须是正整数！");
-		return false;
-	}
+
 	$("#saveCourseForm").submit();
 }
 

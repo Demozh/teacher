@@ -1,11 +1,14 @@
 package com.inxedu.os.controller.article;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-
+import com.inxedu.os.common.constants.CacheConstans;
+import com.inxedu.os.common.controller.BaseController;
+import com.inxedu.os.common.entity.PageEntity;
+import com.inxedu.os.common.service.cache.EHCacheUtil;
+import com.inxedu.os.entity.article.Article;
+import com.inxedu.os.entity.article.QueryArticle;
+import com.inxedu.os.entity.website.WebsiteImages;
+import com.inxedu.os.service.article.ArticleService;
+import com.inxedu.os.service.website.WebsiteImagesService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,15 +19,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.inxedu.os.common.constants.CacheConstans;
-import com.inxedu.os.common.controller.BaseController;
-import com.inxedu.os.common.entity.PageEntity;
-import com.inxedu.os.common.service.cache.EHCacheUtil;
-import com.inxedu.os.entity.article.Article;
-import com.inxedu.os.entity.article.QueryArticle;
-import com.inxedu.os.entity.website.WebsiteImages;
-import com.inxedu.os.service.article.ArticleService;
-import com.inxedu.os.service.website.WebsiteImagesService;
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 前台文章资讯
@@ -60,13 +58,7 @@ public class ArticleController extends BaseController {
 			model.addObject("articleList", articleList);
 			model.addObject("page", page);
 			model.setViewName(listPage);
-			// 查询排行文章
-			QueryArticle query = new QueryArticle();
-			query.setType(2);
-			query.setCount(10);
-			query.setOrderby(1);
-			List<Article> orderList = articleService.queryArticleList(query);
-			model.addObject("orderList", orderList);
+
 		} catch (Exception e) {
 			model.setViewName(this.setExceptionRequest(request, e));
 			logger.error("showArticleList()--error", e);

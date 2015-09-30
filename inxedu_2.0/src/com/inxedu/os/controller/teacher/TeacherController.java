@@ -92,7 +92,7 @@ public class TeacherController extends BaseController {
 			// 讲师所讲的课程
 			page.setPageSize(8);
 			QueryCourse queryCourse = new QueryCourse();
-			// 只查询上架的
+			// 只查询状态正常的
 			queryCourse.setIsavaliable(1);
 			queryCourse.setTeacherId(teacherId);
 			List<CourseDto> courseList = courseService.queryCourseListPage(queryCourse, page);

@@ -175,26 +175,35 @@ function browserRedirect() {
 };
 
 /**
- * 播放视频
- * 
- * @param url
- *            视频路径
- * @param name
- *            视频名
+ * 获得播放器的html 
  */
-function play(url, name, kpointId, obj) {
+function getPlayerHtml(kpointId,name,obj) {
 	// 节点选中
 	$(".lh-menu-stair").find("ul>li>a,ol>li>a").removeClass("current-2");
 	$(obj).addClass("current-2");
 
 	$("#contentTitle").text(name);
-	// $("#videoPlay").attr('src',url);
-	$("#videoPlay").html('<iframe  scrolling="no" frameborder="0" width="100%" height="100%" src=" ' + url + ' "></iframe>');
 	currentKpointId = kpointId;
-
-	// 添加播放记录
-	setTimeoutflag = setTimeout('addPlayTimes(' + otherId + ',' + currentKpointId + ')', Number(countPlayTimeOut) * 1000);
+	
+	$.ajax({
+		url : "" + baselocation + "/front/ajax/getKopintHtml",
+		data : {
+			"kpointId" : kpointId,
+			"courseId" : otherId
+		},
+		type : "post",
+		dataType : "text",
+		async:false,
+		success : function(result) {
+			//alert(result);
+			//$("#videoPlay").html("1111"+"<script src='http://p.bokecc.com/player?vid=28410965A68FCF5B9C33DC5901307461&siteid=F9C3434C51509878&autoStart=true&width=100%&height=100%&playerid=51A2AD3118ACAD37&playertype=1' type='text/javascript'></script>"+result);
+			$("#videoPlay").html(result);
+			// 添加播放记录
+			setTimeoutflag = setTimeout('addPlayTimes(' + otherId + ',' + currentKpointId + ')', Number(countPlayTimeOut) * 1000);
+		}
+	});
 }
+
 /**
  * 收藏课程
  * @param courseId

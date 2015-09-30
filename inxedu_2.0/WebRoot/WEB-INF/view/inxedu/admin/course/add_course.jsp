@@ -15,6 +15,11 @@
 <script type="text/javascript" src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery-ui-timepicker-zh-CN.js"></script>
 <script type="text/javascript" src="${ctximg}/static/admin/course/course.js"></script>
 <script type="text/javascript" src="${ctximg}/static/admin/teacher/select_teacher_list.js"></script>
+
+<%--验证框架--%>
+<link rel="stylesheet" href="${ctx}/static/common/nice-validator/jquery.validator.css"></link>
+<script type="text/javascript" src="${ctx}/static/common/nice-validator/jquery.validator.js"></script>
+<script type="text/javascript" src="${ctx}/static/common/nice-validator/local/zh-CN.js"></script>
 <script type="text/javascript">
     subjectList='${subjectList}';
     $(function(){
@@ -36,7 +41,7 @@
 </head>
 <body>
 	<div class="pad20" style="background-color: #f0f0f0;">
-		<form action="${ctx}/admin/cou/addCourse" method="post" id="saveCourseForm">
+		<form action="${ctx}/admin/cou/addCourse" method="post" id="saveCourseForm" data-validator-option="{stopOnError:false, timely:false}">
 			<input type="hidden" name="course.logo" />
 			<table style="line-height: 35px;">
 				<tr>
@@ -44,7 +49,7 @@
 						<font color="red">*</font>课程名称:
 					</td>
 					<td>
-						<input name="course.courseName" type="text" style="width: 580px;" />
+						<input name="course.courseName" type="text" style="width: 580px;" data-rule="required;"/>
 					</td>
 				</tr>
 				<tr>
@@ -62,7 +67,7 @@
 						<font color="red">*</font>总课时:
 					</td>
 					<td style="text-align: left;">
-						<input name="course.lessionNum" value="0" type="text" style="width: 140px;" />
+						<input name="course.lessionNum" value="0" type="text" style="width: 140px;" data-rule="required;integer[+0]"/>
 					</td>
 				</tr>
 				<tr>
@@ -70,7 +75,7 @@
 						<font color="red">*</font>课程原价格:
 					</td>
 					<td style="text-align: left;">
-						<input name="course.sourcePrice" type="text" value="0.00" style="width: 140px;" />
+						<input name="course.sourcePrice" type="text" value="0" style="width: 140px;" data-rule="required;"/>
 					</td>
 				</tr>
 				<tr>
@@ -78,7 +83,7 @@
 						<font color="red">*</font>课程销售价格:
 					</td>
 					<td style="text-align: left;">
-						<input name="course.currentPrice" type="text" value="0.00" style="width: 140px;" />
+						<input name="course.currentPrice" type="text" value="0" style="width: 140px;" data-rule="required;"/>
 					</td>
 				</tr>
 				<tr>
@@ -97,7 +102,7 @@
 						<font color="red">*</font>有效期结束时间:
 					</td>
 					<td style="text-align: left;">
-						<input name="course.endTime" readonly="readonly" id="endTime" type="text" style="width: 140px;" />
+						<input name="course.endTime" readonly="readonly" id="endTime" type="text" style="width: 140px;" data-rule="required;"/>
 					</td>
 				</tr>
 				<tr class="loseTimeShow" style="display: none;">
@@ -119,19 +124,19 @@
 				<tr>
 					<td>销售数量:</td>
 					<td style="text-align: left;">
-						<input name="course.pageBuycount" value="0" type="text" style="width: 140px;" />
+						<input name="course.pageBuycount" value="0" type="text" style="width: 140px;" data-rule="required;integer[+0]"/>
 					</td>
 				</tr>
 				<tr>
 					<td>浏览量:</td>
 					<td style="text-align: left;">
-						<input name="course.pageViewcount" value="0" type="text" style="width: 140px;" />
+						<input name="course.pageViewcount" value="0" type="text" style="width: 140px;" data-rule="required;integer[+0]"/>
 					</td>
 				</tr>
 				<tr>
 					<td>课程简介:</td>
 					<td style="text-align: left;">
-						<input name="course.title" type="text" style="width: 580px;" />
+						<input name="course.title" type="text" style="width: 580px;" data-rule="required;"/>
 					</td>
 				</tr>
 				<tr>
@@ -145,7 +150,7 @@
 				<tr>
 					<td>课程详情:</td>
 					<td style="text-align: left;">
-						<textarea name="course.context" id="content"></textarea>
+						<textarea name="course.context" id="content" data-rule="required;"></textarea>
 					</td>
 				</tr>
 

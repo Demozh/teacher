@@ -16,6 +16,7 @@
 	<result property="teacherId" column="TEACHER_ID"/>
 	<result property="playTime" column="play_time"/>
 	<result property="kpointType" column="KPOINT_TYPE"/>
+	<result property="videoType" column="VIDEO_TYPE"/>
 	</resultMap>
 	
 	<sql id="edu_course_kpoint_columns">
@@ -30,7 +31,9 @@
 	EDU_COURSE_KPOINT.VIDEO_URL,
 	EDU_COURSE_KPOINT.TEACHER_ID,
 	EDU_COURSE_KPOINT.play_time,
-	EDU_COURSE_KPOINT.KPOINT_TYPE
+	EDU_COURSE_KPOINT.KPOINT_TYPE,
+	EDU_COURSE_KPOINT.VIDEO_TYPE
+	
 	</sql>
 	<sql id="edu_course_kpoint_properties">
 	#{kpointId},
@@ -44,7 +47,8 @@
 	#{videoUrl},
 	#{teacherId},
 	#{playTime},
-	#{kpointType}
+	#{kpointType},
+	#{videoType}
 	</sql>
 
 	<!-- 创建视频节点 -->
@@ -70,6 +74,7 @@
 	EDU_COURSE_KPOINT.TEACHER_ID as teacherId,
 	EDU_COURSE_KPOINT.play_time as playTime,
 	EDU_COURSE_KPOINT.KPOINT_TYPE as kpointType,
+	EDU_COURSE_KPOINT.VIDEO_TYPE as videoType,
 	EDU_TEACHER.NAME as teacherName
 	FROM EDU_COURSE_KPOINT
 	LEFT JOIN EDU_TEACHER ON EDU_TEACHER.ID = EDU_COURSE_KPOINT.TEACHER_ID
@@ -86,7 +91,8 @@
 	EDU_COURSE_KPOINT.VIDEO_URL=#{videoUrl},
 	EDU_COURSE_KPOINT.TEACHER_ID=#{teacherId},
 	EDU_COURSE_KPOINT.play_time = #{playTime},
-	EDU_COURSE_KPOINT.KPOINT_TYPE=#{kpointType}
+	EDU_COURSE_KPOINT.KPOINT_TYPE=#{kpointType},
+	EDU_COURSE_KPOINT.VIDEO_TYPE=#{videoType}
 	WHERE EDU_COURSE_KPOINT.KPOINT_ID=#{kpointId}
 	</update>
 	

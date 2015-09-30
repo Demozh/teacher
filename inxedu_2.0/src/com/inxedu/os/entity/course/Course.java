@@ -13,7 +13,7 @@ public class Course implements Serializable{
 	
 	private int courseId;
     private String courseName;//课程名称
-    private int isavaliable;//0可用(上架)1不可用(下架)
+    private int isavaliable;//1 正常　２　删除
     private int subjectId;//课程专业ID
     private String subjectLink;//课程专业链
     private Date addTime;//课程添加时间

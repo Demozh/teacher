@@ -103,6 +103,16 @@ public class AdminWebsiteProfileController extends BaseController {
 				if (type.equals(WebSiteProfileType.censusCode.toString())) {
 					map.put("censusCodeString", request.getParameter("censusCodeString"));// thirdloginstatus第三方登录是否开启
 				}
+				// 乐视云
+				if (type.equals(WebSiteProfileType.letv.toString())) {
+					map.put("user_unique", request.getParameter("user_unique"));
+					map.put("secret_key", request.getParameter("secret_key"));
+				}
+				// CC视频
+				if (type.equals(WebSiteProfileType.cc.toString())) {
+					map.put("ccappID", request.getParameter("ccappID"));
+					map.put("ccappKEY", request.getParameter("ccappKEY"));
+				}
 				// 将map转化json串
 				JsonObject jsonObject = jsonParser.parse(gson.toJson(map)).getAsJsonObject();
 				if (ObjectUtils.isNotNull(jsonObject) && StringUtils.isNotEmpty(jsonObject.toString())) {// 如果不为空进行更新

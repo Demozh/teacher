@@ -178,16 +178,16 @@ public class CourseController extends BaseController {
                 			}
 						}
                 	}
-            		String freeVideoUrl="";
+            		int freeVideoId=0;
             		for(CourseKpoint tempParent:parentKpointList){
                 		for(CourseKpoint temp:kpointList){
                     		if (temp.getParentId()==tempParent.getKpointId()) {
                     			tempParent.getKpointList().add(temp);
         					}
-                    		//获取一个可以试听的视频地址
-                    		if (freeVideoUrl.equals("")&&temp.getFree()==1) {
-                    			freeVideoUrl=temp.getVideoUrl();
-                    			model.addObject("freeVideoUrl",freeVideoUrl);
+                    		//获取一个可以试听的视频id
+                    		if (freeVideoId==0&&temp.getFree()==1&&temp.getKpointType()==1) {
+                    			freeVideoId=temp.getKpointId();
+                    			model.addObject("freeVideoId",freeVideoId);
 							}
                     	}
                 	}

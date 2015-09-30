@@ -121,12 +121,14 @@ function initUpdateKpoint(treeId, treeNode){
 				//$("input[name='courseKpoint.videoUrl']").parent().parent().hide();//不输入视频地址
 			}else{
 				$("input[name='courseKpoint.videoUrl']").parent().parent().show();
+				$("#courseKpointVideoType").parent().parent().show();
 				$("select[name='courseKpoint.kpointType']").val(1);//节点类型默认 为视频
 				$("select[name='courseKpoint.kpointType']").parent().parent().hide();//节点类型 隐藏
 			}
 			if (childrenNodes&&childrenNodes.length>0) {//如果 当前节点有子节点 
 				$("select[name='courseKpoint.kpointType']").val(0);//节点类型 为目录
 				$("input[name='courseKpoint.videoUrl']").parent().parent().hide();//不输入视频地址
+				$("#courseKpointVideoType").parent().parent().hide();
 				$("select[name='courseKpoint.kpointType']").parent().parent().hide();//节点类型 隐藏
 		    }else{
 		    	$("#courseKpointKpointType").parent().parent().show();//显示
@@ -137,6 +139,7 @@ function initUpdateKpoint(treeId, treeNode){
 			
 			$("#courseKpointKpointType").val(obj.kpointType);
 			$("#courseKpointKpointType").change();
+			$("#courseKpointVideoType").val(obj.videoType);
 			$("input[name='courseKpoint.videoUrl']").val(obj.videoUrl);
 			$("input[name='courseKpoint.sort']").val(obj.sort);
 			$("input[name='courseKpoint.playCount']").val(obj.playCount);
@@ -190,6 +193,9 @@ function updateKpoint(){
 
 	var kpointType=$("select").val();
 	params+="courseKpoint.kpointType="+kpointType+"&";
+	var videoType=$("#courseKpointVideoType").val();
+	params+="courseKpoint.videoType="+videoType+"&";
+	
 	$.ajax({
 		url:baselocation+'/admin/kpoint/updateKpoint',
 		type:'post',
@@ -318,9 +324,11 @@ function kpointTypeChange(obj){
 	var kpointType=$(obj).val();
 	if(kpointType==0){
 		$("input[name='courseKpoint.videoUrl']").parent().parent().hide();
+		$("#courseKpointVideoType").parent().parent().hide();
 		$("input[name='courseKpoint.videoUrl']").val("");
 	}else{
 		$("input[name='courseKpoint.videoUrl']").parent().parent().show();
+		$("#courseKpointVideoType").parent().parent().show();
 	}
 }
 

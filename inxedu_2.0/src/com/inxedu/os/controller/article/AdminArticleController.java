@@ -1,10 +1,14 @@
 package com.inxedu.os.controller.article;
 
-import java.util.Date;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
+import com.inxedu.os.common.constants.CacheConstans;
+import com.inxedu.os.common.controller.BaseController;
+import com.inxedu.os.common.entity.PageEntity;
+import com.inxedu.os.common.service.cache.EHCacheUtil;
+import com.inxedu.os.common.util.WebUtils;
+import com.inxedu.os.entity.article.Article;
+import com.inxedu.os.entity.article.ArticleContent;
+import com.inxedu.os.entity.article.QueryArticle;
+import com.inxedu.os.service.article.ArticleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +20,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.inxedu.os.common.controller.BaseController;
-import com.inxedu.os.common.entity.PageEntity;
-import com.inxedu.os.common.util.WebUtils;
-import com.inxedu.os.entity.article.Article;
-import com.inxedu.os.entity.article.ArticleContent;
-import com.inxedu.os.entity.article.QueryArticle;
-import com.inxedu.os.service.article.ArticleService;
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin/article")
@@ -121,6 +121,8 @@ public class AdminArticleController extends BaseController {
 	private void deleteArticle(String[] artidArr) {
 		// 删除数据中记录
 		articleService.deleteArticleByIds(artidArr);
+		EHCacheUtil.remove(CacheConstans.ARTICLE_GOOD_RECOMMEND);
+
 	}
 
 	/**

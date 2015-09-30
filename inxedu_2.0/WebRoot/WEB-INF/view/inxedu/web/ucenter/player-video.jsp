@@ -9,13 +9,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>学习大厅-北京因酷时代科技有限公司</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
-<meta name="title" content="">
-<meta name="author" content="北京因酷时代科技有限公司">
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"> 
+<title>播放大厅-${websitemap.web.company}-${websitemap.web.title}</title>
+<meta name="author" content="${websitemap.web.author}" />
+<meta name="keywords" content="${websitemap.web.keywords}" />
+<meta name="description" content="${websitemap.web.description}" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href="${ctx}/static/inxweb/css/reset.css">
+<link rel="stylesheet" type="text/css" href="${ctx}/static/inxweb/css/theme.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/static/inxweb/css/global.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/static/inxweb/css/web.css">
 <link href="${ctx}/static/inxweb/css/mw_320_768.css" rel="stylesheet" type="text/css" media="screen and (min-width: 320px) and (max-width: 768px)">
@@ -54,7 +54,9 @@
 				<!-- /学习进度条 结束-->
 				
 					<div class="p-h-video of">
-						<section class="p-h-video-box" id="videoPlay"></section>
+						<section class="p-h-video-box" id="videoPlay">
+							<!-- <script src='http://p.bokecc.com/player?vid=28410965A68FCF5B9C33DC5901307461&siteid=F9C3434C51509878&autoStart=true&width=100%&height=100%&playerid=51A2AD3118ACAD37&playertype=1' type='text/javascript'></script> -->
+						</section>
 						<section class="p-h-video-tip">
 							<img src="/static/inxweb/img/v-loading.gif">
 							<p class="hLh20"><span style="color: #A6B8CC;">加载中...</span></p>
@@ -105,11 +107,11 @@
 																>
 																	<c:forEach items="${parentKpoint.kpointList}" var="sonKpoint">
 																		<li class="lh-menu-second ml30">
-																			<a href="javascript:void(0)" onclick="play('${sonKpoint.videoUrl }','${sonKpoint.name }',${sonKpoint.kpointId },this)" class="" title="">
+																			<a href="javascript:void(0)" onclick="getPlayerHtml(${sonKpoint.kpointId },'${sonKpoint.name }',this)" class="" title="">
 																				<span class="fr">
-																					<c:if test="${sonKpoint.free==1 }">
+																					<%-- <c:if test="${sonKpoint.free==1 }">
 																						<tt class="free-icon vam mr10">免费试听</tt>
-																					</c:if>
+																					</c:if> --%>
 																					<c:if test="${!empty sonKpoint.playTime}">
 																						<em class="lh-p-icon icon14 ml5">&nbsp;</em>
 																						${sonKpoint.playTime}
@@ -124,11 +126,11 @@
 														<c:if test="${parentKpoint.kpointType==1 }"><!-- 视频 -->
 															<li class="lh-menu-stair">
 																<ul class="lh-menu-ol no-parent-node">
-																	<li class="lh-menu-second"><a title="" onclick="play('${parentKpoint.videoUrl }','${parentKpoint.name }',${parentKpoint.kpointId },this)" href="javascript:void(0)">
+																	<li class="lh-menu-second"><a title="" onclick="getPlayerHtml(${parentKpoint.kpointId },'${parentKpoint.name }',this)" href="javascript:void(0)">
 																			<span class="fr"> 
-																				<c:if test="${parentKpoint.free==1 }">
+																				<%-- <c:if test="${parentKpoint.free==1 }">
 																					<tt class="free-icon vam mr10">免费试听</tt>
-																				</c:if>
+																				</c:if> --%>
 																				<c:if test="${!empty parentKpoint.playTime}">
 																					<em class="lh-p-icon icon14 ml5">&nbsp;</em>
 																					${parentKpoint.playTime}
@@ -247,12 +249,13 @@
 	</div>
 	</div>
 	
-	<script type="text/javascript" src="${ctx}/static/common/jquery-1.7.2.min.js"></script>
-	
+
 	<!-- 公共底引入 -->
 	<jsp:include page="/WEB-INF/layouts/web/footer.jsp" />
 	<!-- 公共底引入 -->
-	
+	<script type="text/javascript" src="${ctx}/static/common/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="${ctx}/static/common/jquery-1.11.1.min.js"></script>
+
 	<script type="text/javascript" src="${ctx}/static/common/webutils.js"></script>
 	<script type="text/javascript" src="${ctx }/static/inxweb/js/common.js" ></script>
 	<script src="/static/inxweb/comment/comment.js" type="text/javascript"></script><!-- 评论js -->

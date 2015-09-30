@@ -8,15 +8,19 @@
 <script type="text/javascript" src="${ctximg}/kindeditor/kindeditor-all.js"></script>
 <link type="text/css" rel="stylesheet" href="${ctx}/static/common/ztree/css/zTreeStyle.css" />
 <script type="text/javascript" src="${ctx}/static/common/ztree/jquery.ztree.core-3.5.min.js"></script>
-
 <script type="text/javascript" src="${ctximg}/static/admin/teacher/teacher.js"></script>
+
+<link rel="stylesheet" href="${ctx}/static/common/nice-validator/jquery.validator.css"></link>
+<script type="text/javascript" src="${ctx}/static/common/nice-validator/jquery.validator.js"></script>
+<script type="text/javascript" src="${ctx}/static/common/nice-validator/local/zh-CN.js"></script>
+
 <script type="text/javascript">
 	subjectList='${subjectList}'
 	</script>
 </head>
 <body>
 	<div class="pad20" style="background-color: #f0f0f0;">
-		<form action="${ctx}/admin/teacher/update" method="post" id="saveTeacherForm">
+		<form action="${ctx}/admin/teacher/update" method="post" id="saveTeacherForm" data-validator-option="{stopOnError:false, timely:false}">
 			<input type="hidden" name="teacher.id" value="${teacher.id}" />
 			<input type="hidden" name="teacher.picPath" id="imagesUrl" value="${teacher.picPath}" />
 			<table>
@@ -25,7 +29,7 @@
 						<font color="red">*</font>讲师名称:
 					</td>
 					<td style="text-align: left;">
-						<input name="teacher.name" value="${teacher.name}" type="text" style="width: 580px;" />
+						<input name="teacher.name" value="${teacher.name}" type="text" style="width: 580px;" data-rule="required;"/>
 					</td>
 				</tr>
 				<tr>
@@ -33,7 +37,7 @@
 						<font color="red">*</font>讲师资历：
 					</td>
 					<td style="text-align: left;">
-						<textarea name="teacher.education" style="width: 580px; height: 30px;">${teacher.education}</textarea>
+						<textarea name="teacher.education" style="width: 580px; height: 30px;" data-rule="required;">${teacher.education}</textarea>
 					</td>
 				</tr>
 				<tr>
@@ -49,7 +53,7 @@
 				<tr>
 					<td>讲师等级：</td>
 					<td style="text-align: left;">
-						<select class="dropdown" name="teacher.isStar">
+						<select class="dropdown" name="teacher.isStar" >
 							<option <c:if test="${teacher.isStar==1}">selected="selected"</c:if> value="1">高级讲师</option>
 							<option <c:if test="${teacher.isStar==2}">selected="selected"</c:if> value="2">首席讲师</option>
 						</select>
@@ -58,7 +62,7 @@
 				<tr>
 					<td>讲师排序：</td>
 					<td style="text-align: left;">
-						<input name="teacher.sort" value="${teacher.sort}" />
+						<input name="teacher.sort" value="${teacher.sort}" data-rule="required;integer[+0]"/>
 					</td>
 				</tr>
 				<tr>
@@ -66,7 +70,7 @@
 						<font color="red">*</font>讲师简介：
 					</td>
 					<td style="text-align: left;">
-						<textarea style="width: 580px; height: 80px;" id="career" name="teacher.career">${teacher.career}</textarea>
+						<textarea style="width: 580px; height: 80px;" id="career" name="teacher.career" data-rule="required;">${teacher.career}</textarea>
 					</td>
 				</tr>
 				<tr>

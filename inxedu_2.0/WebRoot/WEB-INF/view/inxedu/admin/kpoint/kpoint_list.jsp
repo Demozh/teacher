@@ -77,6 +77,17 @@
 						</td>
 					</tr>
 					<tr style="display:none">
+						<td>视频类型:</td>
+						<td style="text-align: left;">
+							<select id="courseKpointVideoType" name="courseKpoint.videoType">
+								<option value="">--请选择--</option>
+								<option value="IFRAME">IFRAME(56,SWF)</option>
+								<option value="CC">CC视频</option>
+								<option value="LETV">乐视云</option>
+							</select>
+						</td>
+					</tr>
+					<tr style="display:none">
 						<td>视频节点URL:</td>
 						<td style="text-align: left;">
 							<input type="text" name="courseKpoint.videoUrl" value="" />
