@@ -3,7 +3,7 @@
 技术交流QQ群：468278040</br>
 官网:http://www.inxedu.com/</br>
 演示站:http://demo1.inxedu.com/</br>
-账号:demo@test.com</br>
+账号:demo@inxedu.com</br>
 密码:111111</br>
 </br>
 网站功能模块:</br>
