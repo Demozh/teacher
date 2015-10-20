@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.common.util.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.asual.lesscss.LessEngine;
 import com.inxedu.os.common.controller.BaseController;
-import com.inxedu.os.common.util.StringUtils;
 
 /**
  * 教师管理
@@ -33,7 +33,7 @@ public class AdminThemeController extends BaseController {
     public String toUpdateTheme(HttpServletRequest request) {
         return to_update_theme;
     }
-    /** 到主题色修改页面 */
+    /** 修改主题色 */
     @RequestMapping("/theme/update")
     public String updateTheme(HttpServletRequest request,@RequestParam String color) {
     	//获得项目根目录

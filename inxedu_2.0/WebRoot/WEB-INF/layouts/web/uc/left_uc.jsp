@@ -5,7 +5,7 @@
 		<dt> 
 			<section class="of">
 				<div class="u-face-pic">
-					<img src="/static/inxweb/img/avatar-boy.gif" alt="" class="userImgPhoto">
+					<img src="${ctx }/static/inxweb/img/avatar-boy.gif" alt="" class="userImgPhoto">
 					<a href="${ctx}/uc/initUpdateUser/1" title="" class="c-fff">修改头象</a>
 				</div>
 				<h4 class="mt10"><span class="fsize16 c-666 userNameClass"><!-- 用户名 --></span></h4>

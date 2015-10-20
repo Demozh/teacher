@@ -98,10 +98,10 @@
 											<section class="course-img">
 												<c:choose>
 													<c:when test="${not empty course.logo }">
-														<img xSrc="<%=staticImage%>${course.logo}" src="/static/inxweb/img/default-img.gif" class="img-responsive" alt="">
+														<img xSrc="<%=staticImage%>${course.logo}" src="${ctx }/static/inxweb/img/default-img.gif" class="img-responsive" alt="">
 													</c:when>
 													<c:otherwise>
-														<img xSrc="/static/inxweb/img/default-img.gif" src="/static/inxweb/img/default-img.gif" class="img-responsive" alt="">
+														<img xSrc="/static/inxweb/img/default-img.gif" src="${ctx }/static/inxweb/img/default-img.gif" class="img-responsive" alt="">
 													</c:otherwise>
 												</c:choose>
 												<div class="cc-mask">

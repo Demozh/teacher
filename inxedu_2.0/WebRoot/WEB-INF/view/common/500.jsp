@@ -38,7 +38,7 @@
 					<h4>OH，有错误发生！！</h4>
 					<p class="e-4-t-1">很抱歉，系统暂时无法处理您的访问请求！</p>
 					<p class="e-4-t-1">&nbsp;</p>
-					<p class="e-4-t-1">或返回 <a href="/" title="">网站首页</a>&nbsp;&nbsp;<a href="javascript:window.location.reload();" title="">H5刷新当前页</a></p>
+					<p class="e-4-t-1">或返回 <a href="${ctx }" title="">网站首页</a>&nbsp;&nbsp;<a href="javascript:window.location.reload();" title="">H5刷新当前页</a></p>
 				</div>
 			</div>
 		</div>

@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.common.entity.PageEntity;
+import org.springframework.common.util.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -15,15 +17,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.util.ObjectUtils;
 
 import com.inxedu.os.common.constants.CacheConstans;
 import com.inxedu.os.common.constants.CommonConstants;
 import com.inxedu.os.common.controller.BaseController;
-import com.inxedu.os.common.entity.PageEntity;
-import com.inxedu.os.common.service.cache.EHCacheUtil;
-import com.inxedu.os.common.util.ObjectUtils;
+import org.springframework.cache.EHCacheUtil;
 import com.inxedu.os.common.util.SingletonLoginUtils;
-import com.inxedu.os.common.util.StringUtils;
 import com.inxedu.os.entity.questions.Questions;
 import com.inxedu.os.entity.questions.QuestionsComment;
 import com.inxedu.os.entity.questions.QuestionsTag;

@@ -10,9 +10,9 @@
 				<div>
 					<section class="c-infor-tabTitle c-tab-title">
 						<a href="javascript: void(0)" title="Wo的订单" style="cursor: default;">Wo的订单</a>
-						<a href="/uc/order/myOrderList/SUCCESS" title="已完成" <c:if test="${state=='SUCCESS'}">class="current"</c:if> >已完成</a>
-						<a href="/uc/order/myOrderList/INIT" title="未完成" <c:if test="${state=='INIT'}">class="current"</c:if> >未完成</a>
-						<a href="/uc/order/myOrderList/CANCEL" title="已取消" <c:if test="${state=='CANCEL'}">class="current"</c:if> >已取消</a>
+						<a href="${ctx }/uc/order/myOrderList/SUCCESS" title="已完成" <c:if test="${state=='SUCCESS'}">class="current"</c:if> >已完成</a>
+						<a href="${ctx }/uc/order/myOrderList/INIT" title="未完成" <c:if test="${state=='INIT'}">class="current"</c:if> >未完成</a>
+						<a href="${ctx }/uc/order/myOrderList/CANCEL" title="已取消" <c:if test="${state=='CANCEL'}">class="current"</c:if> >已取消</a>
 					</section>
 				</div>
 				<div class="mt40">
@@ -35,17 +35,17 @@
 									<dd class="u-order-list mt15">
 										<section class="col-7 fl">
 											<div class="ml10">
-												<a href="/front/couinfo/${order.courseId }" title="" class="u-ol-pic">
+												<a href="${ctx }/front/couinfo/${order.courseId }" title="" class="u-ol-pic">
 													<c:choose>
 														<c:when test="${not empty order.courseLogo }">
 															<img src="<%=staticImage %>${order.courseLogo}" alt="">
 														</c:when>
 														<c:otherwise>
-															<img src="/static/inxweb/img/default-img.gif" alt="">
+															<img src="${ctx }/static/inxweb/img/default-img.gif" alt="">
 														</c:otherwise>
 													</c:choose>	
 												</a>
-												<h6 class="hLh30 txtOf"><a href="/front/couinfo/${order.courseId }" title="" class="fsize14 c-666">${order.courseName }</a></h6>
+												<h6 class="hLh30 txtOf"><a href="${ctx }/front/couinfo/${order.courseId }" title="" class="fsize14 c-666">${order.courseName }</a></h6>
 												<section class="hLh30 txtOf">
 													<p class="c-999 f-fA">${order.courseTitle }</p>
 												</section>
@@ -56,7 +56,7 @@
 												<p class="hLh30"><span class="fsize16 c-666 f-fG">￥${order.sumMoney }</span></p>
 												<c:if test="${order.states=='SUCCESS'}">
 													<p class="hLh20"><span class="c-999">已完成订单</span></p>
-													<p class="hLh20"><a href="/uc/play/${order.courseId }" class="c-green">立即学习</a></p>
+													<p class="hLh20"><a href="${ctx }/uc/play/${order.courseId }" class="c-green">立即学习</a></p>
 												</c:if>
 												<c:if test="${order.states=='INIT'}">
 													<p class="hLh20 c-999 f-fA"><a href="${ctx}/zfbpay/order/againpay/${order.orderId}" target="_blank" class="c-blue f-fM">继续支付</a></p>

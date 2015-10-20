@@ -3,7 +3,7 @@ package com.inxedu.os.controller.course;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.inxedu.os.common.controller.BaseController;
-import com.inxedu.os.common.util.ObjectUtils;
+import org.springframework.web.util.ObjectUtils;
 import com.inxedu.os.common.util.SingletonLoginUtils;
 import com.inxedu.os.constants.enums.WebSiteProfileType;
 import com.inxedu.os.entity.course.Course;
@@ -60,6 +60,9 @@ public class CourseKpointController extends BaseController {
 	@RequestMapping("/front/ajax/getKopintHtml")
 	public String getKopintHtml(Model model, HttpServletRequest request) {
 		try {
+			if(ObjectUtils.isNull(request.getParameter("kpointId"))){
+				return getKopintHtml;
+			}
 			int kpointId = Integer.parseInt(request.getParameter("kpointId"));
 			// 查询节点
 			CourseKpoint courseKpoint = courseKpointService.queryCourseKpointById(kpointId);

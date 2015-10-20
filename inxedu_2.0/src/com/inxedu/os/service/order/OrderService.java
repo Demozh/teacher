@@ -3,7 +3,8 @@ package com.inxedu.os.service.order;
 import java.util.List;
 import java.util.Map;
 
-import com.inxedu.os.common.entity.PageEntity;
+import org.springframework.common.entity.PageEntity;
+
 import com.inxedu.os.entity.order.Order;
 import com.inxedu.os.entity.order.QueryOrder;
 

@@ -2,8 +2,11 @@ package com.inxedu.os.common.util;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.common.util.StringUtils;
+import org.springframework.web.util.ObjectUtils;
+
 import com.inxedu.os.common.constants.CacheConstans;
-import com.inxedu.os.common.service.cache.EHCacheUtil;
+import org.springframework.cache.EHCacheUtil;
 import com.inxedu.os.entity.system.SysUser;
 import com.inxedu.os.entity.user.User;
 
@@ -35,7 +38,6 @@ public class SingletonLoginUtils {
 		String userKey = WebUtils.getCookie(request, CacheConstans.LOGIN_MEMCACHE_PREFIX);
 		if (StringUtils.isNotEmpty(userKey)) {
 			SysUser sysUser = (SysUser) EHCacheUtil.get(userKey);
-			//SysUser sysUser = (SysUser) request.getSession().getAttribute(userKey);
 			if (ObjectUtils.isNotNull(sysUser)) {
 				return sysUser;
 			}

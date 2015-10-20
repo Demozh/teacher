@@ -78,19 +78,19 @@
 														<label class="hand"><input type="checkbox" style="vertical-align: -2px;" name="favouriteId" value="${favorite.favouriteId}"></label> <br>
 														<a href="${ctx}/uc/deleteFaveorite/${favorite.favouriteId}" title="" class="c-blue">取消收藏</a>
 													</div>
-													<a href="/front/couinfo/${favorite.courseId }" title="">
+													<a href="${ctx }/front/couinfo/${favorite.courseId }" title="">
 														<c:choose>
 															<c:when test="${not empty favorite.logo }">
 																<img src="<%=staticImage %>${favorite.logo}" width="120" alt="">
 															</c:when>
 															<c:otherwise>
-																<img src="/static/inxweb/img/default-img.gif" width="120" alt="">
+																<img src="${ctx }/static/inxweb/img/default-img.gif" width="120" alt="">
 															</c:otherwise>
 														</c:choose>
 													</a>
 												</div>
 												<div class="hLh30 txtOf">
-													<a href="/front/couinfo/${favorite.courseId }" class="c-666 fsize14">${favorite.courseName }</a>
+													<a href="${ctx }/front/couinfo/${favorite.courseId }" class="c-666 fsize14">${favorite.courseName }</a>
 												</div>
 											</section>
 										</dd>

@@ -154,7 +154,7 @@
 								<img id="showImage" width="278px" height="155" src="<%=staticImage%>${course.logo}" />
 							</c:when>
 							<c:otherwise>
-								<img id="showImage" width="278px" height="155" src="/static/admin/assets/logo.png" />
+								<img id="showImage" width="278px" height="155" src="${ctx }/static/admin/assets/logo.png" />
 							</c:otherwise>
 						</c:choose>
 						<input type="button" value="上传" id="imageFile" />

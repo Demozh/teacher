@@ -50,7 +50,7 @@
 															<img src="<%=staticImage %>${question.picImg }" alt="">
 														</c:when>
 														<c:otherwise>
-															<img src="/static/inxweb/img/avatar-boy.gif" alt="">
+															<img src="${ctx }/static/inxweb/img/avatar-boy.gif" alt="">
 														</c:otherwise>
 													</c:choose>
 													<p class="hLh30 txtOf">
@@ -59,7 +59,7 @@
 													</p>
 												</aside>
 												<section class="q-txt-box">
-													<a class="replyBrowseNum" href="/questions/info/${question.id }" title="">
+													<a class="replyBrowseNum" href="${ctx }/questions/info/${question.id }" title="">
 														<div class="replyNum">
 															<span class="r-b-num">${question.replyCount }</span>
 															<p class="hLh30">
@@ -75,7 +75,7 @@
 													</a>
 													<h3 class="hLh30 txtOf">
 														<em class="icon16 q-tw">&nbsp;</em>
-														<a href="/questions/info/${question.id }" title="" class="fsize16 c-333 vam">${question.title }</a>
+														<a href="${ctx }/questions/info/${question.id }" title="" class="fsize16 c-333 vam">${question.title }</a>
 													</h3>
 													<h3 class="hLh30 txtOf mt5">
 														<em class="icon16 q-hd">&nbsp;</em>
@@ -86,15 +86,16 @@
 														<c:if test="${not empty question.questionsCommentList }">
 															<c:if test="${question.status==0 }">
 																<span class="fsize12 c-999 vam"> <tt class="c-ccc f-fM mr5">[最新回答]</tt> <c:forEach items="${question.questionsCommentList }" var="questionsComment">
-																		${questionsComment.content }
+																		<c:out value="${questionsComment.content }"></c:out>
 																	</c:forEach>
 																</span>
 																<!-- 有回答时显示最新一条的回答内容 -->
 															</c:if>
 
 															<c:if test="${question.status==1 }">
-																<span class="fsize12 c-999 vam"> <tt class="c-green f-fM mr5">[最佳回答]</tt> <c:forEach items="${question.questionsCommentList }" var="questionsComment">
-																		${questionsComment.content }
+																<span class="fsize12 c-999 vam"> <tt class="c-green f-fM mr5">[最佳回答]</tt> 
+																<c:forEach items="${question.questionsCommentList }" var="questionsComment">
+																	<c:out value="${questionsComment.content }"></c:out>
 																	</c:forEach>
 																</span>
 																<!-- 采纳最佳显示最佳答案内容 -->

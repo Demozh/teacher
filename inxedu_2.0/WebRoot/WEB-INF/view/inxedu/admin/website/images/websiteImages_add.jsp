@@ -68,14 +68,14 @@
 						<font color="red">*</font>图片：
 					</td>
 					<td style="text-align: left;">
-						<img id="imagesUrl" width="400px" height="210px" src="/static/admin/assets/logo.png">
+						<img id="imagesUrl" width="400px" height="210px" src="${ctx }/static/admin/assets/logo.png">
 						<input type="button" value="上传" id="imageFile" />
 					</td>
 				</tr>
 				<tr>
 					<td>略缩图片：</td>
 					<td style="text-align: left;">
-						<img id="previewUrl" width="200px" height="120px" src="/static/admin/assets/logo.png">
+						<img id="previewUrl" width="200px" height="120px" src="${ctx }/static/admin/assets/logo.png">
 						<input type="button" value="上传" id="previewFile" />
 					</td>
 				</tr>

@@ -7,8 +7,8 @@ import org.apache.commons.httpclient.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.inxedu.os.common.entity.PageEntity;
-import com.inxedu.os.common.util.ObjectUtils;
+import org.springframework.common.entity.PageEntity;
+import org.springframework.web.util.ObjectUtils;
 import com.inxedu.os.dao.course.CourseStudyhistoryDao;
 import com.inxedu.os.entity.course.Course;
 import com.inxedu.os.entity.course.CourseStudyhistory;

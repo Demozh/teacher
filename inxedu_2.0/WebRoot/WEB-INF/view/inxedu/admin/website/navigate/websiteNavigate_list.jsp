@@ -8,7 +8,7 @@
 	function delNavigate(id){
 		if(confirm("真的要删除吗？")==true){
 			$.ajax({
-				url:"${cxt}/admin/website/delNavigate/"+id,
+				url:"${ctx}/admin/website/delNavigate/"+id,
 				type:"post",
 				dataType:"json",
 				success:function(result){
@@ -23,7 +23,7 @@
 	//冻结或解冻导航
 	function freezeNavigate(id,status){
 		$.ajax({
-			url:"${cxt}/admin/website/freezeNavigate",
+			url:"${ctx}/admin/website/freezeNavigate",
 			type:"post",
 			data:{"websiteNavigate.id":id,"websiteNavigate.status":status},
 			dataType:"json",
@@ -61,7 +61,7 @@
 							</p>
 							<p class="fl czBtn">
 								<span class="ml10">
-									<a href="${cxt}/admin/website/doAddNavigates" class="button tooltip">
+									<a href="${ctx}/admin/website/doAddNavigates" class="button tooltip">
 										<span class="ui-icon ui-icon-newwin"></span>
 										添加
 									</a>
@@ -118,7 +118,7 @@
 									</td>
 									<td class="c_666 czBtn" align="center">
 										<button type="button" class="ui-state-default ui-corner-all"
-											onclick="window.location.href='${cxt}/admin/website/doUpdateNavigate/${navigate.id}'">修改</button>
+											onclick="window.location.href='${ctx}/admin/website/doUpdateNavigate/${navigate.id}'">修改</button>
 										<button type="button" class="ui-state-default ui-corner-all" onclick="javascript:delNavigate(${navigate.id})">删除</button>
 										<c:if test="${navigate.status==0}">
 											<button type="button" class="ui-state-default ui-corner-all" onclick="javascript:freezeNavigate(${navigate.id},1)">冻结</button>

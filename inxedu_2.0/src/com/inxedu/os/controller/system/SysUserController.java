@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.common.entity.PageEntity;
+import org.springframework.common.util.MD5;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -19,8 +21,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.inxedu.os.common.controller.BaseController;
-import com.inxedu.os.common.entity.PageEntity;
-import com.inxedu.os.common.util.MD5;
 import com.inxedu.os.common.util.WebUtils;
 import com.inxedu.os.entity.system.QuerySysUser;
 import com.inxedu.os.entity.system.SysRole;
@@ -202,6 +202,14 @@ public class SysUserController extends BaseController {
 			boolean isExist = sysUserService.validateLoginName(sysuser.getLoginName());
 			if(!isExist){
 				this.setJson(false, "该帐户号已经存在", null);
+				return json;
+			}
+			if(sysuser.getTel()==null || sysuser.getTel().trim().length()==0 || !WebUtils.checkMobile(sysuser.getTel())){
+				this.setJson(false, "请输入正确的手机号", null);
+				return json;
+			}
+			if(sysuser.getEmail()==null || sysuser.getEmail().trim().length()==0 || !WebUtils.checkEmail(sysuser.getEmail(), 50)){
+				this.setJson(false, "请输入正确的邮箱号", null);
 				return json;
 			}
 			sysuser.setLoginName(sysuser.getLoginName().trim());

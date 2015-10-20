@@ -4,6 +4,9 @@
 <html>
 <head>
 <title>首页</title>
+<script>
+	var theme_color = '${theme_color}';
+</script>
 </head> 
 <body>
 	<div class="i-slide">
@@ -14,9 +17,9 @@
 			<!-- 图片位置 -->
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
-					<c:forEach var="image" items="${websiteImages.type_1}" varStatus="status">
+					<c:forEach var="image" items="${websiteImagesList}" varStatus="status">
 						<div class="swiper-slide" style="background: <c:if test="${empty image.color}">#EF550F;</c:if><c:if test="${!empty image.color}">${image.color}</c:if>;">
-							<img src="<%=staticImage%>${image.imagesUrl}" alt="${image.title}">
+							<img class="imgload" src="<%=staticImage%>${image.imagesUrl}" alt="${image.title}">
 						</div>
 					</c:forEach>
 				</div>
@@ -38,46 +41,7 @@
 				</header>
 				<article class="comm-course-list">
 					<ul class="of" id="weinituijian">
-						<c:if test="${not empty courseDtoList}">
-							<c:forEach items="${courseDtoList}" var="course" varStatus="index">
-								<li>
-									<div class="cc-l-wrap">
-										<section class="course-img">
-											<c:if test="${not empty course.logo&&course.logo!='' }">
-												<img xsrc="<%=staticImage%>${course.logo }" src="${ctx}/static/inxweb/img/default-img.gif" class="img-responsive" alt="${course.courseName }">
-											</c:if>
-											<c:if test="${empty course.logo ||course.logo==''}">
-												<img xsrc="${ctx}/static/inxweb/img/default-img.gif" src="${ctx}/static/inxweb/img/default-img.gif" class="img-responsive" alt="${course.courseName }">
-											</c:if>
-											<div class="cc-mask">
-												<a href="${ctx}/front/couinfo/${course.courseId}" title="开始学习" class="comm-btn c-btn-1">开始学习</a>
-											</div>
-										</section>
-										<h3 class="hLh30 txtOf mt10">
-											<a href="${ctx}/front/couinfo/${course.courseId}" title="${course.courseName }" class="course-title fsize18 c-333">${course.courseName }</a>
-										</h3>
-										<section class="mt10 hLh20 of">
-											<c:if test="${course.currentPrice=='0.00' }">
-												<span class="fr jgTag bg-green"><tt class="c-fff fsize12 f-fA">免费</tt></span>
-											</c:if>
-											<c:if test="${course.currentPrice!='0.00' }">
-												<span class="fr jgTag bg-orange"><tt class="c-fff fsize14 f-fG">￥${course.currentPrice }</tt></span>
-											</c:if>
-											<span class="fl jgAttr c-ccc f-fA"> <tt class="c-999 f-fA">
-													<c:if test="${course.currentPrice=='0.00' }">${course.pageViewcount }</c:if>
-													<c:if test="${course.currentPrice!='0.00' }">${course.pageBuycount }</c:if>
-													人学习
-												</tt> | <tt class="c-999 f-fA">
-													<c:if test="${course.currentPrice=='0.00' }">${course.pageViewcount }</c:if>
-													<c:if test="${course.currentPrice!='0.00' }">${course.pageViewcount }</c:if>
-													评论
-												</tt>
-											</span>
-										</section>
-									</div>
-								</li>
-							</c:forEach>
-						</c:if>
+						
 					</ul>
 					<div class="clear"></div>
 				</article>
@@ -129,7 +93,7 @@
 										<section class="i-q-l-wrap">
 											<div class="u-face">
 												<c:if test="${empty com.picImg }">
-													<img width="50" height="50" class="picImg" src="/static/inxweb/img/avatar-boy.gif">
+													<img width="50" height="50" class="picImg" src="${ctx }/static/inxweb/img/avatar-boy.gif">
 												</c:if>
 												<c:if test="${!empty com.picImg }">
 													<img width="50" height="50" class="picImg" src="<%=staticImage%>${com.picImg }">
@@ -238,8 +202,9 @@
 		</div>
 		<!-- /网校名师 结束 -->
 	</div>
-	<script type="text/javascript" src="${ctx}/static/inxweb/front/index.js"></script>
 	<script type="text/javascript" src="${ctx}/static/inxweb/js/swiper-2.1.0.js"></script>
+	<script type="text/javascript" src="${ctx}/static/inxweb/front/index.js"></script>
+	<script type="text/javascript" src="${ctx}/static/inxweb/front/index_theme_color.js"></script><!-- 换肤 -->
 	<script>
 		$(function() {
 			sSwiperFun(); //幻灯片调取

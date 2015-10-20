@@ -61,7 +61,7 @@ function confirmSelect(){
 		courseIds+=courseArr[i].value+",";
 	}
 	$.ajax({
-		url:'/admin/detail/addrecommendCourse',
+		url:baselocation +'/admin/detail/addrecommendCourse',
 		type:'post',
 		dataType:'json',
 		data:{'courseIds':courseIds,"recommendId":recommendId},

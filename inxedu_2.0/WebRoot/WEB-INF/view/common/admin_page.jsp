@@ -12,7 +12,7 @@
 							<c:choose>
 								<c:when test="${page.first}">
 									<li class="disabled">
-										<a href="#">首页</a>
+										<a href="${ctx }">首页</a>
 									</li>
 									<li id="backpage" class="disabled">
 										<a href="javascript:void(0)">←上一页</a>

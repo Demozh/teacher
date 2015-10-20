@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.inxedu.os.common.controller.BaseController;
-import com.inxedu.os.common.entity.PageEntity;
+import org.springframework.common.entity.PageEntity;
 import com.inxedu.os.common.util.WebUtils;
 import com.inxedu.os.entity.website.WebsiteCourse;
 import com.inxedu.os.entity.website.WebsiteCourseDetail;

@@ -39,7 +39,7 @@
 					<h4>请尝试以下操作：</h4>
 					<p class="e-4-t-1">1、尝试按F5进行页面刷新</p>
 					<p class="e-4-t-1">2、重新键入URL地址进入访问</p>
-					<p class="e-4-t-1">3、或返回 <a href="/" title="">网站首页</a></p>
+					<p class="e-4-t-1">3、或返回 <a href="${ctx }" title="">网站首页</a></p>
 				</div>
 			</div>
 		</div>

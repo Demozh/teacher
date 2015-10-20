@@ -50,7 +50,7 @@
 													</tt></span>
 												<div class="fl">
 													<span> <a class="noter-dy vam" title="回答" href="${ctx }/front/articleinfo/${article.articleId}.html">
-															<em class="icon18">&nbsp;</em>(${article.commentNum })
+															<em class="icon18">&nbsp;</em>(<span>${article.commentNum }</span>)
 														</a> <tt title="赞一下" class="noter-zan vam ml10 f-fM" onclick="addPraise('${article.articleId}',3)">
 															<em class="icon18">&nbsp;</em>(<span class="addPraise${article.articleId}_3 praiseCount">${article.praiseCount }</span>)
 														</tt>

@@ -65,47 +65,47 @@ function addQuestions(){
 	var type=$(".q-c-list .q-sort-wrap span.current").attr("name");
 	var title=$("input[name='questions.title']").val().trim();
 	if(title.trim()==""){
-		$("input[name='questions.title']").parent().next().html('<img width="16" height="16" alt="错误" src="/static/inxweb/img/c-icon.png">');
+		$("input[name='questions.title']").parent().next().html('<img width="16" height="16" alt="错误" src="'+ctx+'/static/inxweb/img/c-icon.png">');
 		dialog('提示信息',"问答标题不能为空",1);
 		return;
 	}else if(title.length<16){
-		$("input[name='questions.title']").parent().next().html('<img width="16" height="16" alt="错误" src="/static/inxweb/img/c-icon.png">'); 
+		$("input[name='questions.title']").parent().next().html('<img width="16" height="16" alt="错误" src="'+ctx+'/static/inxweb/img/c-icon.png">'); 
 		dialog('提示信息',"问答标题长度不能小于16个字",1);
 		return;
 	}else{
-		$("input[name='questions.title']").parent().next().html('<img width="16" height="16" alt="正确" src="/static/inxweb/img/d-icon.png">');
+		$("input[name='questions.title']").parent().next().html('<img width="16" height="16" alt="正确" src="'+ctx+'/static/inxweb/img/d-icon.png">');
 	}
 	
 	var questionsContent=$("textarea[name='questions.content']").val();
 	if(questionsContent.trim()==""){
-		$("textarea[name='questions.content']").next().html('<img width="16" height="16" alt="错误" src="/static/inxweb/img/c-icon.png">');
+		$("textarea[name='questions.content']").next().html('<img width="16" height="16" alt="错误" src="'+ctx+'/static/inxweb/img/c-icon.png">');
 		dialog('提示信息',"问答内容不能为空",1);
 		return;
 	}else{
-		$("textarea[name='questions.content']").next().html('<img width="16" height="16" alt="正确" src="/static/inxweb/img/d-icon.png">');
+		$("textarea[name='questions.content']").next().html('<img width="16" height="16" alt="正确" src="'+ctx+'/static/inxweb/img/d-icon.png">');
 	}
 	
 	var questionsTag=$("#questionsTag").val().trim();
 	if(questionsTag==""){
-		$("#tags-content").next().html('<img width="16" height="16" alt="错误" src="/static/inxweb/img/c-icon.png">');
+		$("#tags-content").next().html('<img width="16" height="16" alt="错误" src="'+ctx+'/static/inxweb/img/c-icon.png">');
 		dialog('提示信息',"请至少选择一个标签",1);
 		return;
 	}else{
-		$("#tags-content").next().html('<img width="16" height="16" alt="正确" src="/static/inxweb/img/d-icon.png">');
+		$("#tags-content").next().html('<img width="16" height="16" alt="正确" src="'+ctx+'/static/inxweb/img/d-icon.png">');
 	}
 	
 	var randomCode=$("input[name='randomCode']").val();
 	if(randomCode.trim()==""){
-		$("input[name='randomCode']").parent().next().next().html('<img width="16" height="16" alt="错误" src="/static/inxweb/img/c-icon.png">');
+		$("input[name='randomCode']").parent().next().next().html('<img width="16" height="16" alt="错误" src="'+ctx+'/static/inxweb/img/c-icon.png">');
 		dialog('提示信息',"请输入验证码",1);
 		return;
 	}else{
-		$("input[name='randomCode']").parent().next().next().html('<img width="16" height="16" alt="正确" src="/static/inxweb/img/d-icon.png">');
+		$("input[name='randomCode']").parent().next().next().html('<img width="16" height="16" alt="正确" src="'+ctx+'/static/inxweb/img/d-icon.png">');
 	}
 	
 	
 	$.ajax({
-		url:"/questions/ajax/add",
+		url:baselocation + "/questions/ajax/add",
 		data:{
 			"questions.title":title,
 			"questions.content":questionsContent,
@@ -130,9 +130,9 @@ function addQuestions(){
 function checkTitleLength(obj){
 	var title=$(obj).val().trim();
 	if(title.length<16){
-		$(obj).parent().next().html('<img width="16" height="16" alt="错误" src="/static/inxweb/img/c-icon.png">');
+		$(obj).parent().next().html('<img width="16" height="16" alt="错误" src="'+ctx+'/static/inxweb/img/c-icon.png">');
 	}else{
-		$(obj).parent().next().html('<img width="16" height="16" alt="正确" src="/static/inxweb/img/d-icon.png">');
+		$(obj).parent().next().html('<img width="16" height="16" alt="正确" src="'+ctx+'/static/inxweb/img/d-icon.png">');
 	}
 }
 
@@ -143,8 +143,9 @@ function checkTitleLength(obj){
 function checkQuestionContent(obj){
 	var title=$(obj).val().trim();
 	if(title==""){
-		$(obj).next().html('<img width="16" height="16" alt="错误" src="/static/inxweb/img/c-icon.png">');
+		$(obj).next().html('<img width="16" height="16" alt="错误" src="'+ctx+'/static/inxweb/img/c-icon.png">');
 	}else{
-		$(obj).next().html('<img width="16" height="16" alt="正确" src="/static/inxweb/img/d-icon.png">');
+		alert(); 
+		$(obj).next().html('<img width="16" height="16" alt="正确" src="'+ctx+'/static/inxweb/img/d-icon.png">');
 	}
 }

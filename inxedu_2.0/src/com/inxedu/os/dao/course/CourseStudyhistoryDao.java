@@ -1,7 +1,8 @@
 package com.inxedu.os.dao.course;
 import java.util.List;
 
-import com.inxedu.os.common.entity.PageEntity;
+import org.springframework.common.entity.PageEntity;
+
 import com.inxedu.os.entity.course.CourseDto;
 import com.inxedu.os.entity.course.CourseStudyhistory;
 

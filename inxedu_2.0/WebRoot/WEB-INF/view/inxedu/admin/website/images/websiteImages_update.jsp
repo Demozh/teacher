@@ -71,7 +71,7 @@ $(function(){
 					<td style="text-align: left;">
 						<c:choose>
 							<c:when test="${websiteImages.imagesUrl==null || websiteImages.imagesUrl==''}">
-								<img id="imagesUrl" width="400px" height="210px" src="/static/admin/assets/logo.png">
+								<img id="imagesUrl" width="400px" height="210px" src="${ctx }/static/admin/assets/logo.png">
 							</c:when>
 							<c:otherwise>
 								<img id="imagesUrl" width="400px" height="210px" src="<%=staticImage%>${websiteImages.imagesUrl}">
@@ -85,7 +85,7 @@ $(function(){
 					<td style="text-align: left;">
 						<c:choose>
 							<c:when test="${websiteImages.previewUrl==null || websiteImages.previewUrl==''}">
-								<img id="previewUrl" width="200px" height="120px" src="/static/admin/assets/logo.png">
+								<img id="previewUrl" width="200px" height="120px" src="${ctx }/static/admin/assets/logo.png">
 							</c:when>
 							<c:otherwise>
 								<img id="previewUrl" width="200px" height="120px" src="<%=staticImage%>${websiteImages.previewUrl}">

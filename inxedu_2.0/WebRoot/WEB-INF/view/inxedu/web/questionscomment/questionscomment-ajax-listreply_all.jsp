@@ -10,7 +10,7 @@
 								<img src="<%=staticImage %>${questionsComment.picImg }" alt="" width="50" height="50">
 							</c:when>
 							<c:otherwise>
-								<img src="/static/inxweb/img/avatar-boy.gif" alt="" width="50" height="50">
+								<img src="${ctx }/static/inxweb/img/avatar-boy.gif" alt="" width="50" height="50">
 							</c:otherwise>
 						</c:choose>
 					</aside>
@@ -22,7 +22,7 @@
 						</font> <font class="fsize12 c-999 ml5">回复：</font></span>
 					</div>
 					<div class="noter-txt mt5">
-						<p>${questionsComment.content }</p>
+						<p><c:out value="${questionsComment.content }"></c:out></p>
 					</div>
 					<div class="of mt5">
 						<span class="fr"><font class="fsize12 c-999 ml5"> <!-- <a href="" class="c-blue mr10">删除</a> --> <fmt:formatDate type="both" value="${questionsComment.addTime }" pattern="yyyy-MM-dd HH:mm" />
@@ -44,7 +44,7 @@
 														<img src="<%=staticImage %>${questionsComment.picImg }" alt="">
 													</c:when>
 													<c:otherwise>
-														<img src="/static/inxweb/img/avatar-boy.gif" alt="">
+														<img src="${ctx }/static/inxweb/img/avatar-boy.gif" alt="">
 													</c:otherwise>
 												</c:choose>
 										</aside>
@@ -56,7 +56,7 @@
 												</font><font class="fsize12 c-999 ml5">评论：</font></span>
 										</div>
 										<div class="noter-txt mt5">
-											<p>${questionsComment.content }</p>
+											<p><c:out value="${questionsComment.content }"></c:out></p>
 										</div>
 										<div class="of mt5">
 											<span class="fr"><font class="fsize12 c-999 ml5"><fmt:formatDate type="both" value="${questionsComment.addTime }" pattern="yyyy-MM-dd HH:mm"/></font></span>

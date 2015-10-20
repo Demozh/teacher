@@ -4,8 +4,8 @@
 <html>
 <head>
 <title>修改前台主题色</title>
-<link rel="stylesheet" type="text/css" href="http://127.0.0.1:8080/static/common/bigcolorpicker/jquery.bigcolorpicker.css" />
-<script type="text/javascript" src="http://127.0.0.1:8080/static/common/bigcolorpicker/jquery.bigcolorpicker.js"></script>
+<link rel="stylesheet" type="text/css" href="${ctx }/static/common/bigcolorpicker/jquery.bigcolorpicker.css" />
+<script type="text/javascript" src="${ctx }/static/common/bigcolorpicker/jquery.bigcolorpicker.js"></script>
 <script>
 	$(function() {
 		$("#imageColor").bigColorpicker("imageColor", "L", 10);

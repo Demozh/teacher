@@ -7,10 +7,9 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.common.entity.PageEntity;
+import org.springframework.common.entity.PageOL;
 import org.springframework.stereotype.Repository;
-
-import com.inxedu.os.common.entity.PageEntity;
-import com.inxedu.os.common.entity.PageOL;
 
 @Repository("genericDao")
 public abstract class GenericDaoImpl implements GenericDao {

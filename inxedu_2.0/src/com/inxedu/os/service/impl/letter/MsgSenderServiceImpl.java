@@ -7,7 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.inxedu.os.common.entity.PageEntity;
+import org.springframework.common.entity.PageEntity;
 import com.inxedu.os.dao.letter.MsgSenderDao;
 import com.inxedu.os.entity.letter.MsgSender;
 import com.inxedu.os.entity.user.User;

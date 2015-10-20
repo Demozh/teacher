@@ -115,7 +115,7 @@ $(function(){
 													<img src="<%=staticImage%>${user.picImg}" width="100%" height="100%" alt="头像加载中..." class="dis pictureWrap" id="picture" />
 												</c:when>
 												<c:otherwise>
-													<img src="${ctx}/static/web/images/uc/uploadDefaultPic.jpg" width="100%" height="100%" alt="头像加载中..." class="dis pictureWrap"
+													<img src="${ctx}/static/inxweb/img/avatar-boy.gif" width="100%" height="100%" alt="头像加载中..." class="dis pictureWrap"
 														id="picture" />
 												</c:otherwise>
 											</c:choose>
@@ -126,7 +126,7 @@ $(function(){
 															<img src="<%=staticImage%>${user.picImg}" class="jcrop-preview" alt="头像加载中..." width="100%" />
 														</c:when>
 														<c:otherwise>
-															<img src="${ctx}/static/web/images/uc/uploadDefaultPic.jpg" class="jcrop-preview" alt="头像加载中..." width="100%" />
+															<img src="${ctx}/static/inxweb/img/avatar-boy.gif" class="jcrop-preview" alt="头像加载中..." width="100%" />
 														</c:otherwise>
 													</c:choose>
 												</div>
@@ -139,7 +139,7 @@ $(function(){
 															<img src="<%=staticImage%>${user.picImg}" class="jcrop-preview" alt="头像加载中..." width="100%" />
 														</c:when>
 														<c:otherwise>
-															<img src="${ctx}/static/web/images/uc/uploadDefaultPic.jpg" class="jcrop-preview" alt="头像加载中..." width="100%" />
+															<img src="${ctx}/static/inxweb/img/avatar-boy.gif" class="jcrop-preview" alt="头像加载中..." width="100%" />
 														</c:otherwise>
 													</c:choose>
 												</div>
@@ -152,7 +152,7 @@ $(function(){
 															<img src="<%=staticImage%>${user.picImg}" class="jcrop-preview" alt="头像加载中..." width="100%" />
 														</c:when>
 														<c:otherwise>
-															<img src="${ctx}/static/web/images/uc/uploadDefaultPic.jpg" class="jcrop-preview" alt="头像加载中..." width="100%" />
+															<img src="${ctx}/static/inxweb/img/avatar-boy.gif" class="jcrop-preview" alt="头像加载中..." width="100%" />
 														</c:otherwise>
 													</c:choose>
 												</div>

@@ -12,9 +12,9 @@
 				<div class="fl col-7">
 					<section class="mr30 pt10">
 						<section class="path-wrap">
-							<a href="/" title="" class="c-999 fsize14">首页</a>
+							<a href="${ctx }" title="" class="c-999 fsize14">首页</a>
 							\
-							<a href="/questions/list" title="" class="c-999 fsize14">全部问答</a>
+							<a href="${ctx }/questions/list" title="" class="c-999 fsize14">全部问答</a>
 							\ <span class="c-333 fsize14">${questions.title }</span>
 						</section>
 						<!-- /问题详情 开始 -->
@@ -27,7 +27,7 @@
 												<img src="<%=staticImage %>${questions.picImg }" alt="">
 											</c:when>
 											<c:otherwise>
-												<img src="/static/inxweb/img/avatar-boy.gif" alt="">
+												<img src="${ctx }/static/inxweb/img/avatar-boy.gif" alt="">
 											</c:otherwise>
 										</c:choose>
 										<p class="hLh30 txtOf"></p>
@@ -60,7 +60,7 @@
 										</div>
 										<div class="i-q-txt mt15">
 											<p>
-												<span class="c-999 f-fA">${questions.content }</span>
+												<span class="c-999 f-fA"><c:out value="${questions.content}"></c:out></span>
 											</p>
 										</div>
 										<div class="mt20 pr10">

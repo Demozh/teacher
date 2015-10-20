@@ -1,5 +1,7 @@
 package com.inxedu.os.common.constants;
 
+import org.springframework.common.constants.CommonConstantsBase;
+
 /**
  * @ClassName com.yizhilu.os.inxedu.common.entity.CommonConstant
  * @Create Date : 2015-3-17

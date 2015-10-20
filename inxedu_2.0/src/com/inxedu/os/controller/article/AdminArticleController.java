@@ -1,17 +1,14 @@
 package com.inxedu.os.controller.article;
 
-import com.inxedu.os.common.constants.CacheConstans;
-import com.inxedu.os.common.controller.BaseController;
-import com.inxedu.os.common.entity.PageEntity;
-import com.inxedu.os.common.service.cache.EHCacheUtil;
-import com.inxedu.os.common.util.WebUtils;
-import com.inxedu.os.entity.article.Article;
-import com.inxedu.os.entity.article.ArticleContent;
-import com.inxedu.os.entity.article.QueryArticle;
-import com.inxedu.os.service.article.ArticleService;
+import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.common.entity.PageEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -20,9 +17,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-import java.util.List;
+import com.inxedu.os.common.constants.CacheConstans;
+import com.inxedu.os.common.controller.BaseController;
+import org.springframework.cache.EHCacheUtil;
+import com.inxedu.os.common.util.WebUtils;
+import com.inxedu.os.entity.article.Article;
+import com.inxedu.os.entity.article.ArticleContent;
+import com.inxedu.os.entity.article.QueryArticle;
+import com.inxedu.os.service.article.ArticleService;
 
 @Controller
 @RequestMapping("/admin/article")

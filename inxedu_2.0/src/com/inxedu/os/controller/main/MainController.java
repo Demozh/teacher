@@ -12,11 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.util.ObjectUtils;
 
 import com.inxedu.os.common.constants.CacheConstans;
 import com.inxedu.os.common.controller.BaseController;
-import com.inxedu.os.common.service.cache.EHCacheUtil;
-import com.inxedu.os.common.util.ObjectUtils;
+import org.springframework.cache.EHCacheUtil;
 import com.inxedu.os.common.util.SingletonLoginUtils;
 import com.inxedu.os.entity.system.SysFunction;
 import com.inxedu.os.entity.system.SysUser;

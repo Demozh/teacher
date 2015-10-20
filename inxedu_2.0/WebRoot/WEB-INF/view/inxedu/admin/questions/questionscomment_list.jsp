@@ -98,7 +98,7 @@ $(function(){
 						<td align="center">
 							<a href="javascript:void(0)" onclick="delQuestionsComment('${questionsComment.id}')" class="button tooltip">删除</a>
 							<a href="javascript:void(0)" onclick='getCommentContent("${questionsComment.id}")' class="button tooltip">修改</a>
-							<a href="/admin/questionscomment/querybycommentid/${questionsComment.id}" class="button tooltip">查看评论</a>
+							<a href="${ctx }/admin/questionscomment/querybycommentid/${questionsComment.id}" class="button tooltip">查看评论</a>
 							<c:if test="${questionsComment.questionsStatus==0}">
 								<a href="javascript:void(0)" onclick="acceptComment(${questionsComment.id})" class="button tooltip">采纳为最佳</a>
 							</c:if>

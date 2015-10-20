@@ -50,7 +50,6 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring-tx-3.2.12.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/spring-webmvc-3.2.12.RELEASE.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/ehcache-2.10.0.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/ehcache-web-2.0.4.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/ant-1.9.3.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/poi-2.5.1-final-20040804.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/sitemesh-2.5.jar"/>

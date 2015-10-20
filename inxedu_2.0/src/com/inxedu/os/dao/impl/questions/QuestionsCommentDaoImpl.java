@@ -2,10 +2,10 @@ package com.inxedu.os.dao.impl.questions;
 
 import java.util.List;
 
+import org.springframework.common.entity.PageEntity;
 import org.springframework.stereotype.Repository;
 
 import com.inxedu.os.common.dao.GenericDaoImpl;
-import com.inxedu.os.common.entity.PageEntity;
 import com.inxedu.os.dao.questions.QuestionsCommentDao;
 import com.inxedu.os.entity.questions.QuestionsComment;
 

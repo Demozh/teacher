@@ -6,7 +6,7 @@
 				<li>
 					<aside class="noter-pic">
 						<c:if test="${empty parentComment.picImg }">
-							<img width="50" height="50" class="picImg" src="/static/inxweb/img/avatar-boy.gif">
+							<img width="50" height="50" class="picImg" src="${ctx }/static/inxweb/img/avatar-boy.gif">
 						</c:if>
 						<c:if test="${!empty parentComment.picImg }">
 							<img width="50" height="50" class="picImg" src="<%=staticImage%>${parentComment.picImg }">
@@ -25,7 +25,7 @@
 						<font class="fsize12 c-999 ml5">评论：</font></span>
 					</div>
 					<div class="noter-txt mt5">
-						<p>${parentComment.content }</p>
+						<p><c:out value="${parentComment.content}"></c:out></p>
 					</div>
 					<div class="of mt5">
 						<span class="fr"><font class="fsize12 c-999 ml5"><fmt:formatDate value="${parentComment.addTime}" pattern="yyyy/MM/dd HH:mm" /></font></span> <span class="fl"> <a class="noter-dy vam" title="回复" href="javascript: void(0)">
@@ -42,7 +42,7 @@
 									<dd>
 										<aside class="n-reply-pic">
 											<c:if test="${empty ac.picImg }">
-												<img width="50" height="50" class="picImg" src="/static/inxweb/img/avatar-boy.gif">
+												<img width="50" height="50" class="picImg" src="${ctx }/static/inxweb/img/avatar-boy.gif">
 											</c:if>
 											<c:if test="${!empty ac.picImg }">
 												<img width="50" height="50" class="picImg" src="<%=staticImage%>${ac.picImg }">
@@ -59,7 +59,7 @@
 											</font><font class="fsize12 c-999 ml5" >回复：</font></span>
 										</div>
 										<div class="noter-txt mt5">
-											<p>${ac.content }</p>
+											<p><c:out value="${ac.content}"></c:out></p>
 										</div>
 										<div class="of mt5">
 											<span class="fr"><font class="fsize12 c-999 ml5"><fmt:formatDate value="${ac.addTime}" pattern="yyyy/MM/dd HH:mm" /></font></span> <span class="fl"> 

@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.inxedu.os.common.controller.BaseController;
-import com.inxedu.os.common.entity.PageEntity;
-import com.inxedu.os.common.util.ObjectUtils;
+import org.springframework.common.entity.PageEntity;
+import org.springframework.web.util.ObjectUtils;
 import com.inxedu.os.common.util.SingletonLoginUtils;
 import com.inxedu.os.entity.course.Course;
 import com.inxedu.os.entity.course.CourseDto;
