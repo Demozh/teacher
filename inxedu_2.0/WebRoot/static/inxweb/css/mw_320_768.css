@@ -8,6 +8,8 @@
 */
 /* #mobile style
 ================================================== */
+html,body{-webkit-overflow-scrolling:touch;}
+body{overflow-x: hidden;}
 .u-body .uMenu {display: none;}
 .u-body {margin: 0 0 -40px;}
 #header {padding: 15px 0;}
@@ -118,3 +120,4 @@ html.active .in-wrap  {transform: translate3d(-240px, 0, 0);-webkit-transform: t
 .ei-item-box a{top:-9px;right: 50px;}
 #triangle-bottomright {border-bottom:20px solid #ef550f;border-left: 20px solid transparent;height: 0;right: 0;bottom: 0;width: 0;}
 .loging img{width: 20px;height: 20px;margin-top: 0px;display: block;position: absolute;top:5px;left: 37px;}
+.box-boy-in-i {display: block;overflow: hidden;position: relative;margin: 10px 0px 20px;}
