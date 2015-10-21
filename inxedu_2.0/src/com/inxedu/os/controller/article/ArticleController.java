@@ -88,6 +88,8 @@ public class ArticleController extends BaseController {
 		}
 		return json;
 	}
+	
+
 
 	/**
 	 * 查询好文推荐（文章按浏览书排行）

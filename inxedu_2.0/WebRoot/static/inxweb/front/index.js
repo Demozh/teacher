@@ -1,7 +1,6 @@
 //首页响应式幻灯片调取方法
 function sSwiperFun() {
     var _sWrap = $('.swiper-container');
-   
     var mySwiper = _sWrap.swiper({
         loop: true, //无缝连接滚动
         autoplay : 5000, //自动滚动
@@ -18,7 +17,11 @@ function sSwiperFun() {
         e.preventDefault();
         mySwiper.swipeNext();
     });
-    $(".i-slide").css("height",$(".swiper-slide").height());
+    
+    $(".imgload").eq(0).get(0).onload=function(){
+    	$(".i-slide").css("height",$(".imgload").eq(0).height());
+    }
+    
 };
 
 var lodingHtml = '<div class="tac"><img width="100" height="108" alt="" src="/static/inxweb/img/loading.gif"></div>',

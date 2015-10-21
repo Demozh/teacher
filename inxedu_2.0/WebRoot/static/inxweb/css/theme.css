@@ -1,9 +1,9 @@
 @charset "utf-8";
 .c-master {
-  color: #009ed9;
+  color: #ea562e;
 }
 .bg-orange {
-  background-color: #009ed9;
+  background-color: #ea562e;
 }
 .nav li.current a,
 .nav li a:hover,
@@ -19,8 +19,8 @@
 .u-m-dd ul li a:hover,
 .u-m-dd ul li.current a,
 .d-s-head-tab a.current {
-  border-color: #009ed9;
-  color: #009ed9;
+  border-color: #ea562e;
+  color: #ea562e;
 }
 .lh-menu ul li.lh-menu-stair ol li.lh-menu-second a.current-2,
 .lh-menu ul li.lh-menu-stair li.lh-menu-second a.current-2,
@@ -30,6 +30,6 @@
 #t-infor-menu p a.current,
 .i-art-title:hover,
 .q-sort-wrap span.current {
-  border-color: #009ed9;
-  color: #009ed9;
+  border-color: #ea562e;
+  color: #ea562e;
 }

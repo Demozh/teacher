@@ -58,10 +58,28 @@ public class BaseController {
 	 *            返回数据结果对象
 	 */
 	public void setJson(boolean success, String message, Object entity) {
+		json = new HashMap<String, Object>(4);
 		this.json.put("success", Boolean.valueOf(success));
 		this.json.put("message", message);
 		this.json.put("entity", entity);
 	}
+	
+	/**
+	 * 设置ajax请返回结果
+	 * 
+	 * @param success
+	 *            请求状态
+	 * @param message
+	 *            提示信息
+	 * @param entity
+	 *            返回数据结果对象
+	 */
+	public void setJson1(boolean success, String message, Object entity) {
+		this.json.put("success1", Boolean.valueOf(success));
+		this.json.put("message1", message);
+		this.json.put("entity1", entity);
+	}
+	
     
 	/**
 	 * 异常跳转
