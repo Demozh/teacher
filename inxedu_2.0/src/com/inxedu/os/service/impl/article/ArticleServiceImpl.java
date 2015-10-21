@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.common.entity.PageEntity;
 import org.springframework.stereotype.Service;
 
-import com.inxedu.os.common.entity.PageEntity;
 import com.inxedu.os.dao.article.ArticleDao;
 import com.inxedu.os.entity.article.Article;
 import com.inxedu.os.entity.article.ArticleContent;

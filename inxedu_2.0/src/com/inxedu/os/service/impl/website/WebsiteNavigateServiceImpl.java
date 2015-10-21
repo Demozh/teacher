@@ -11,8 +11,8 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 import com.inxedu.os.common.constants.CacheConstans;
-import com.inxedu.os.common.service.cache.EHCacheUtil;
-import com.inxedu.os.common.util.ObjectUtils;
+import org.springframework.cache.EHCacheUtil;
+import org.springframework.web.util.ObjectUtils;
 import com.inxedu.os.dao.website.WebsiteNavigateDao;
 import com.inxedu.os.entity.website.WebsiteNavigate;
 import com.inxedu.os.service.website.WebsiteNavigateService;

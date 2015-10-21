@@ -71,7 +71,7 @@
 					<td>
 						<c:choose>
 							<c:when test="${article.imageUrl==null || article.imageUrl==''}">
-								<img id="showImage" width="180" height="100" src="/static/admin/assets/logo.png">
+								<img id="showImage" width="180" height="100" src="${ctx }/static/admin/assets/logo.png">
 							</c:when>
 							<c:otherwise>
 								<img id="showImage" width="180" height="100" src="<%=staticImage%>${article.imageUrl}">

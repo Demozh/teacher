@@ -12,7 +12,7 @@
 <meta name="author" content="${websitemap.web.author}" />
 <meta name="keywords" content="${websitemap.web.keywords}" />
 <meta name="description" content="${websitemap.web.description}" />
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="${ctx}/favicon.ico" type="image/x-icon">
 <!-- Libraries -->
 <link type="text/css" href="${ctx}/static/admin/css/login.css" rel="stylesheet" />
 <script type="text/javascript">

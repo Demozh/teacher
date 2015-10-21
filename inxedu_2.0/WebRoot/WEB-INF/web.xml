@@ -5,7 +5,7 @@
 	<!-- 编码 -->
 	<filter>
 		<filter-name>encoding</filter-name>
-		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<filter-class>org.springframework.web.filter.CharacterEncodingfilter</filter-class>
 		<init-param>
 			<param-name>encoding</param-name>
 			<param-value>utf-8</param-value>
@@ -36,15 +36,13 @@
 	</context-param>
 
 	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+		<listener-class>org.springframework.web.context.ContextLoaderlistener</listener-class>
 	</listener>
 
 	<listener>
-		<listener-class>org.springframework.web.util.IntrospectorCleanupListener
+		<listener-class>org.springframework.web.util.IntrospectorCleanuplistener
 		</listener-class>
 	</listener>
-
-
 
 	<servlet>
 		<servlet-name>springmvc</servlet-name>

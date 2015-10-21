@@ -1,5 +1,7 @@
 package com.inxedu.os.common.constants;
 
+import org.springframework.common.constants.CacheConstansbBase;
+
 /**
  * @description cache缓存相关常量
  */

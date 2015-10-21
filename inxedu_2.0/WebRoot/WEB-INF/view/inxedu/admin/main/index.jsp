@@ -18,7 +18,7 @@ function drawCartogramLogin(days) {
     var dateTime = '';
     var studentNum =  "" ;
     $.ajax({
-        url:"/admin/statistics/web/detailajax",
+        url:baselocation +"/admin/statistics/web/detailajax",
         type:"post",
         data:{"days":days,"type":"LOGIN_NUM"},
         dataType:"json",

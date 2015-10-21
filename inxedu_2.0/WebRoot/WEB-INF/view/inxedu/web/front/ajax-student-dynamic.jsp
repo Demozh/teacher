@@ -4,7 +4,7 @@
 	<li>
 		<div class="u-face">
 			<c:if test="${empty order.picImg}">
-				<img src="/static/inxweb/img/avatar-boy.gif" width="50" height="50" alt="">
+				<img src="${ctx }/static/inxweb/img/avatar-boy.gif" width="50" height="50" alt="">
 			</c:if>
 			<c:if test="${!empty order.picImg}">
 				<img src="<%=staticImage%>${order.picImg }" width="50" height="50" alt="">

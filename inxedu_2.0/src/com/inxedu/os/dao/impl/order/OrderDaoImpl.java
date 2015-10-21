@@ -3,10 +3,10 @@ package com.inxedu.os.dao.impl.order;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.common.entity.PageEntity;
 import org.springframework.stereotype.Repository;
 
 import com.inxedu.os.common.dao.GenericDaoImpl;
-import com.inxedu.os.common.entity.PageEntity;
 import com.inxedu.os.dao.order.OrderDao;
 import com.inxedu.os.entity.order.Order;
 import com.inxedu.os.entity.order.QueryOrder;

@@ -105,12 +105,12 @@
 					<p class="e-4-t-1">2、重新键入URL地址进入访问</p>
 					<p class="e-4-t-1">
 						3、或者去
-						<a href="/" title="首页">首页</a>
+						<a href="${ctx }" title="首页">首页</a>
 						,
 						<a href="javascript:window.history.go(-1)" title="返回">返回</a>
 					</p>
 					<p class="e-4-t-1">
-						<a href="#" onclick="showOrCloseErrorInfo()" class="c-green"> 查看详细异常</a>
+						<a href="javascript:void(0)" onclick="showOrCloseErrorInfo()" class="c-green"> 查看详细异常</a>
 					</p>
 				</div>
 			</div>

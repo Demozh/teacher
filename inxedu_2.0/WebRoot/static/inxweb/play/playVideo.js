@@ -195,8 +195,6 @@ function getPlayerHtml(kpointId,name,obj) {
 		dataType : "text",
 		async:false,
 		success : function(result) {
-			//alert(result);
-			//$("#videoPlay").html("1111"+"<script src='http://p.bokecc.com/player?vid=28410965A68FCF5B9C33DC5901307461&siteid=F9C3434C51509878&autoStart=true&width=100%&height=100%&playerid=51A2AD3118ACAD37&playertype=1' type='text/javascript'></script>"+result);
 			$("#videoPlay").html(result);
 			// 添加播放记录
 			setTimeoutflag = setTimeout('addPlayTimes(' + otherId + ',' + currentKpointId + ')', Number(countPlayTimeOut) * 1000);
@@ -211,7 +209,7 @@ function getPlayerHtml(kpointId,name,obj) {
  */
 function favorites(courseId,obj) {
 	$.ajax({
-		url : '/front/createfavorites/' + courseId,
+		url : baselocation + '/front/createfavorites/' + courseId,
 		type : 'post',
 		dataType : 'json',
 		success : function(result) {

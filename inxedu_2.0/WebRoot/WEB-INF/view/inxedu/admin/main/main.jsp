@@ -13,7 +13,7 @@
 <meta name="author" content="${websitemap.web.author}" />
 <meta name="keywords" content="${websitemap.web.keywords}" />
 <meta name="description" content="${websitemap.web.description}" />
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="${ctx}/favicon.ico" type="image/x-icon">
 
 <script type="text/javascript" src="${ctx}/static/admin/js/easyTooltip.js"></script>
 <script type="text/javascript" src="${ctx}/static/admin/js/jquery-ui-1.7.2.custom.min.js"></script>

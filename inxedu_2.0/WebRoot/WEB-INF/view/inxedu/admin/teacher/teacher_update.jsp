@@ -81,7 +81,7 @@
 								<img src="<%=staticImage%>${teacher.picPath}" alt="" id="subjcetpic" width="288px" height="288px"/>
 							</c:when>
 							<c:otherwise>
-								<img src="/static/common/admin/images/default_head.jpg" alt="" id="subjcetpic" width="288px" height="288px" />
+								<img src="${ctx }/static/common/admin/images/default_head.jpg" alt="" id="subjcetpic" width="288px" height="288px" />
 							</c:otherwise>
 						</c:choose>
 						<input type="button" value="上传" id="fileuploadButton" />

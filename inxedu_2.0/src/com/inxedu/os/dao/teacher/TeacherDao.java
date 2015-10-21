@@ -4,7 +4,8 @@ package com.inxedu.os.dao.teacher;
 import java.util.List;
 import java.util.Map;
 
-import com.inxedu.os.common.entity.PageEntity;
+import org.springframework.common.entity.PageEntity;
+
 import com.inxedu.os.entity.teacher.QueryTeacher;
 import com.inxedu.os.entity.teacher.Teacher;
 

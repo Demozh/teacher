@@ -16,7 +16,7 @@
 <meta name="author" content="${websitemap.web.author}" />
 <meta name="keywords" content="${websitemap.web.keywords}" />
 <meta name="description" content="${websitemap.web.description}" />
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="${ctx}/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href="${ctx}/static/inxweb/css/reset.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/static/inxweb/css/theme.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/static/inxweb/css/global.css">

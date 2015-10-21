@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import com.inxedu.os.common.util.StringUtils;
+import org.springframework.common.util.StringUtils;
 
 import lombok.Data;
 

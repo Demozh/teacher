@@ -4,7 +4,7 @@
 <header id="header">
 	<section class="container">
 		<h1 id="logo">
-			<a href="/" title="${websitemap.web.company}">
+			<a href="${ctx }/" title="${websitemap.web.company}">
 				<img src="<%=staticImage%>${logomap.logo.url}" width="100%" alt="${websitemap.web.company}">
 			</a>
 		</h1>
@@ -19,11 +19,11 @@
 				<li class="undis" id="no-login"><a href="javascript:lrFun()" title="登录">
 						<em class="icon18 login-icon">&nbsp;</em><span class="vam ml5">登录</span>
 					</a></li>
-					<li class="mr10 undis" id="is-login-one"><a href="/uc/letter" title="消息" id="headerMsgCountId">
+					<li class="mr10 undis" id="is-login-one"><a href="${ctx}/uc/letter" title="消息" id="headerMsgCountId">
 							<em class="icon18 news-icon">&nbsp;</em>
 						</a><q class="red-point" style="display: none">&nsbp;</q></li>
-					<li class="h-r-user undis" id="is-login-two"><a href="/uc/index" title="">
-							<img src="/static/inxweb/img/avatar-boy.gif" width="30" height="30" class="vam picImg" alt="">
+					<li class="h-r-user undis" id="is-login-two"><a href="${ctx}/uc/index" title="">
+							<img src="${ctx }/static/inxweb/img/avatar-boy.gif" width="30" height="30" class="vam picImg" alt="">
 							<span class="vam disIb" id="userName"></span>
 						</a>
 						<a href="javascript:void(0)" title="退出" onclick="exit();" class="ml5">退出</a></li>
@@ -50,8 +50,8 @@
 	<div class="head-mobile-box">
 		<section class="clearfix">
 			<div class="u-face-pic">
-				<img src="/static/inxweb/img/avatar-boy.gif" alt="" class="userImgPhoto">
-				<a href="/uc/initUpdateUser/1" title="" class="c-fff">修改头象</a>
+				<img src="${ctx }/static/inxweb/img/avatar-boy.gif" alt="" class="userImgPhoto">
+				<a href="${ctx }/uc/initUpdateUser/1" title="" class="c-fff">修改头象</a>
 			</div>
 			<h4 class="hLh30 txtOf">
 				<span class="fsize16 c-ccc userNameClass">
@@ -59,7 +59,7 @@
 				</span>
 			</h4>
 			<div class="hLh30">
-				<a href="/uc/initUpdateUser/0" title="个人资料设置" class="c-999">个人资料设置</a>
+				<a href="${ctx }/uc/initUpdateUser/0" title="个人资料设置" class="c-999">个人资料设置</a>
 			</div>
 		</section>
 		<nav class="mw-nav">
@@ -74,10 +74,10 @@
 				<li>
 					<span>Wo的学习</span> 
 					<ol>
-						<li class="current"><a href="${ctx }/uc/index" title="">Wo的课程</a></li>
-						<li><a href="${ctx }/uc/order/myOrderList/SUCCESS" title="">Wo的订单</a></li>
-						<li><a href="${ctx }/front/showcoulist" title="">选课中心</a></li>
-						<li><a href="${ctx }/uc/myFavorites" title="">Wo的收藏</a></li>
+						<li class="current"><a href="javascript:void()" onclick="mobileHrefCheckLogin('${ctx }/uc/index')" title="">Wo的课程</a></li>
+						<li><a href="javascript:void()" onclick="mobileHrefCheckLogin('${ctx }/uc/order/myOrderList/SUCCESS')" title="">Wo的订单</a></li>
+						<li><a href="javascript:void()" onclick="mobileHrefCheckLogin('${ctx }/front/showcoulist')" title="">选课中心</a></li>
+						<li><a href="javascript:void()" onclick="mobileHrefCheckLogin('${ctx }/uc/myFavorites')" title="">Wo的收藏</a></li>
 					</ol>
 				</li>
 			</ul>
@@ -85,8 +85,8 @@
 				<li>
 					<span>Wo的问答</span>
 					<ol>
-						<li><a href="${ctx }/uc/myquestions/list" title="">Wo的提问</a></li>
-						<li><a href="${ctx }/uc/myrepquestions/list" title="">Wo的回答</a></li>
+						<li><a href="javascript:void()" onclick="mobileHrefCheckLogin('${ctx }/uc/myquestions/list')" title="">Wo的提问</a></li>
+						<li><a href="javascript:void()" onclick="mobileHrefCheckLogin('${ctx }/uc/myrepquestions/list')" title="">Wo的回答</a></li>
 					</ol>
 				</li>
 			</ul>
@@ -94,9 +94,9 @@
 				<li>
 					<span>Wo的资料</span>
 					<ol>
-						<li><a href="${ctx }/uc/initUpdateUser/0" title="">基本资料</a></li>
-						<li><a href="${ctx }/uc/initUpdateUser/1" title="">个人头象</a></li>
-						<li><a href="${ctx }/uc/initUpdateUser/2" title="">密码设置</a></li>
+						<li><a href="javascript:void()" onclick="mobileHrefCheckLogin('${ctx }/uc/initUpdateUser/0')" title="">基本资料</a></li>
+						<li><a href="javascript:void()" onclick="mobileHrefCheckLogin('${ctx }/uc/initUpdateUser/1')" title="">个人头象</a></li>
+						<li><a href="javascript:void()" onclick="mobileHrefCheckLogin('${ctx }/uc/initUpdateUser/2')" title="">密码设置</a></li>
 					</ol>
 				</li>
 			</ul>
@@ -104,7 +104,7 @@
 				<li>
 					<span>Wo的消息</span>
 					<ol>
-						<li><a href="/uc/letter" title="">系统消息</a></li>
+						<li><a href="javascript:void()" onclick="mobileHrefCheckLogin('${ctx }/uc/letter')" title="">系统消息</a></li>
 					</ol>
 				</li>
 			</ul>

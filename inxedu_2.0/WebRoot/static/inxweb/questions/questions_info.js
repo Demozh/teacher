@@ -28,7 +28,7 @@ function addComment(obj){
 			return;
 		}
 		$.ajax({
-			url:"/questionscomment/ajax/add",
+			url:baselocation + "/questionscomment/ajax/add",
 			data:{
 				"questionsComment.questionId":questionsId,
 				"questionsComment.content":questionsCommentContent
@@ -66,7 +66,7 @@ function addReply(obj){
 			return;
 		}
 		$.ajax({
-			url:"/questionscomment/ajax/addReply",
+			url:baselocation + "/questionscomment/ajax/addReply",
 			data:{
 				"questionsComment.commentId":commentId,
 				"questionsComment.content":replyCotent
@@ -98,7 +98,7 @@ function addReply(obj){
 /**采纳为最佳答案**/
 function acceptComment(commentId){
 	$.ajax({
-		url:"/questionscomment/ajax/acceptComment",
+		url:baselocation + "/questionscomment/ajax/acceptComment",
 		data:{
 			"questionsComment.commentId":commentId,
 			"questionsComment.questionId":questionsId
@@ -122,7 +122,7 @@ function acceptComment(commentId){
 */
 function getCommentById(obj,commentId){
 	$.ajax({
-		url:"/questionscomment/ajax/getCommentById/"+commentId,
+		url:baselocation + "/questionscomment/ajax/getCommentById/"+commentId,
 		data:{
 		},
 		type:"post",

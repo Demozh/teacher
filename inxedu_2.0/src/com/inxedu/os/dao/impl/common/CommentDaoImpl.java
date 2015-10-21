@@ -3,10 +3,10 @@ package com.inxedu.os.dao.impl.common;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.common.entity.PageEntity;
 import org.springframework.stereotype.Repository;
 
 import com.inxedu.os.common.dao.GenericDaoImpl;
-import com.inxedu.os.common.entity.PageEntity;
 import com.inxedu.os.dao.common.CommentDao;
 import com.inxedu.os.entity.common.Comment;
 /**

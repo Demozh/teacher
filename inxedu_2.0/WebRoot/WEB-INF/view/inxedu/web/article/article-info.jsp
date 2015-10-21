@@ -4,8 +4,8 @@
 <html>
 <head>
 <title>文章详情</title>
-<script src="/static/inxweb/acticle/acticle.js" type="text/javascript"></script>
-<script src="/static/inxweb/comment/comment.js" type="text/javascript"></script>
+<script src="${ctx }/static/inxweb/acticle/acticle.js" type="text/javascript"></script>
+<script src="${ctx }/static/inxweb/comment/comment.js" type="text/javascript"></script>
 <script type="text/javascript">
 	//全局变量 
 	var otherId = '${article.articleId}';
@@ -27,7 +27,7 @@
 				<div class="fl col-7">
 					<section class="mr30">
 						<section class="path-wrap">
-							<a href="/" title="首页" class="c-999 fsize14">首页</a>
+							<a href="${ctx }" title="首页" class="c-999 fsize14">首页</a>
 							\
 							<a href="${ctx}/front/articlelist" title="" class="c-999 fsize14">文章列表</a>
 							\ <span class="c-333 fsize14">${article.title }</span>

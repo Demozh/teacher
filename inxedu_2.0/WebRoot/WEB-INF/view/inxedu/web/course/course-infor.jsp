@@ -14,9 +14,9 @@
 		<!-- /课程详情 开始 -->
 		<section class="container">
 			<section class="path-wrap">
-				<a href="/" title="" class="c-999 fsize14">首页</a>
+				<a href="${ctx }" title="" class="c-999 fsize14">首页</a>
 				\
-				<a href="/front/showcoulist" title="" class="c-999 fsize14">课程列表</a>
+				<a href="${ctx }/front/showcoulist" title="" class="c-999 fsize14">课程列表</a>
 				\ <span class="c-333 fsize14">${course.courseName}</span>
 			</section>
 			<div>
@@ -36,7 +36,7 @@
 						</a>
 					</section>
 					<section class="p-h-video-tip">
-						<img src="/static/inxweb/img/v-loading.gif">
+						<img src="${ctx }/static/inxweb/img/v-loading.gif">
 						<p class="hLh20"><span class="c-999">加载中...</span></p>
 					</section>
 				</article>
@@ -230,19 +230,19 @@
 									<ul style="height: auto;">
 										<li>
 											<div class="u-face">
-												<a href="/front/teacher/${tea.id }">
+												<a href="${ctx }/front/teacher/${tea.id }">
 													<c:choose>
 														<c:when test="${not empty tea.picPath }">
-															<img src="${tea.picPath }" width="50" height="50" alt="">
+															<img src="<%=staticImage%>${tea.picPath }" width="50" height="50" alt="">
 														</c:when>
 														<c:otherwise>
-															<img src="/static/inxweb/img/avatar-boy.gif" width="50" height="50" alt="">
+															<img src="${ctx }/static/inxweb/img/avatar-boy.gif" width="50" height="50" alt="">
 														</c:otherwise>
 													</c:choose>
 												</a>
 											</div>
 											<section class="hLh30 txtOf">
-												<a class="c-333 fsize16 fl" href="/front/teacher/${tea.id }">${tea.name }</a>
+												<a class="c-333 fsize16 fl" href="${ctx }/front/teacher/${tea.id }">${tea.name }</a>
 											</section>
 											<section class="hLh20 txtOf">
 												<span class="c-999">${tea.education }</span>
@@ -259,7 +259,7 @@
 					<div class="i-box mt20">
 						<div  id="courseLearnedUserDiv">
 							<section class="c-infor-tabTitle c-tab-title">
-								<a title="" href="">学过此课的人（0）</a>
+								<a title="" href="javascript:void(0)">学过此课的人（0）</a>
 							</section>
 							<section class="no-data-wrap"><em class="icon30 no-data-ico">&nbsp;</em><span class="c-666 fsize14 ml10 vam">还没有人学过此课程，快去学习吧...</span></section>
 						</div>
@@ -267,7 +267,7 @@
 					<div class="i-box mt20">
 						<div>
 							<section class="c-infor-tabTitle c-tab-title">
-								<a title="" href="">猜你想学</a>
+								<a title="" href="javascript:void(0)">猜你想学</a>
 							</section>
 							<c:if test="${empty courseList}">
 								<section class="no-data-wrap">
@@ -286,7 +286,7 @@
 																<img alt="" src="<%=staticImage%>${interfixCourse.logo}" />
 															</c:when>
 															<c:otherwise>
-																<img alt="" src="/static/inxweb/img/default-img.gif" />
+																<img alt="" src="${ctx }/static/inxweb/img/default-img.gif" />
 															</c:otherwise>
 														</c:choose>
 													</a>
@@ -319,7 +319,7 @@
 		</section>
 		<!-- /课程详情 结束 -->
 	</div>
-	<script type="text/javascript" src="${ctx}/static/common/jquery-1.11.1.min.js"></script>
+	<%-- <script type="text/javascript" src="${ctx}/static/common/jquery-1.11.1.min.js"></script> --%>
 	<script type="text/javascript" src="${ctx}/static/inxweb/front/courseInfo.js"></script>
 	<script type="text/javascript" src="${ctx}/static/inxweb/comment/comment.js"></script>
 	<script>

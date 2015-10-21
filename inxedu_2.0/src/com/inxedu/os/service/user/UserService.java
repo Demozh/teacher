@@ -4,7 +4,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import com.inxedu.os.common.entity.PageEntity;
+import org.springframework.common.entity.PageEntity;
+
 import com.inxedu.os.entity.user.QueryUser;
 import com.inxedu.os.entity.user.User;
 

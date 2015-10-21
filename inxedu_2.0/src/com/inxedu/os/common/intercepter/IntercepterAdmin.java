@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.EHCacheUtil;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.web.util.ObjectUtils;
 
 import com.google.gson.Gson;
 import com.inxedu.os.common.constants.CacheConstans;
-import com.inxedu.os.common.service.cache.EHCacheUtil;
-import com.inxedu.os.common.util.ObjectUtils;
 import com.inxedu.os.common.util.SingletonLoginUtils;
 import com.inxedu.os.common.util.WebUtils;
 import com.inxedu.os.entity.system.SysFunction;

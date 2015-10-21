@@ -12,8 +12,8 @@
 			<div>
 				<section class="c-infor-tabTitle c-tab-title">
 					<a href="javascript: void(0)" title="Wo的课程" style="cursor: default;">Wo的课程</a>
-					<a href="/uc/index" title="收费课程">收费</a>
-					<a href="/uc/freeCourseList" title="免费课程" class="current">免费</a>
+					<a href="${ctx }/uc/index" title="收费课程">收费</a>
+					<a href="${ctx }/uc/freeCourseList" title="免费课程" class="current">免费</a>
 				</section>
 			</div>
 			<div class="mt40">

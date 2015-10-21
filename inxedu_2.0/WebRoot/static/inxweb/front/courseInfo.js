@@ -146,11 +146,11 @@ function favorites(courseId,obj){
 
 //视频试听播放方法
 function vedioClick(freeVideoId){
-	if(freeVideoId!=""&&freeVideoId!=0)
+	if(freeVideoId!=""&&freeVideoId!=0&&freeVideoId!=null)
 	{
 		// 播放视频
 		getPlayerHtml(freeVideoId,1,"");
 	}else{
-		dialog('提示',"该课程暂不支持试听,请购买后观看!",1);
+		dialog('提示',"该课程暂不支持试听!",1);
 	}
 }

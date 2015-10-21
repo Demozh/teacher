@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.inxedu.os.common.controller.BaseController;
-import com.inxedu.os.common.entity.PageEntity;
+import org.springframework.common.entity.PageEntity;
 import com.inxedu.os.common.util.SingletonLoginUtils;
 import com.inxedu.os.entity.common.Comment;
 import com.inxedu.os.entity.user.User;

@@ -354,5 +354,27 @@
 .p-h-r-menu .lh-menu-i-2 {background: none;border-color: #2D4155;}
 .p-h-r-menu .lh-menu-second a span.fr {color: #616365;}
 .p-h-r-menu .lh-menu ul li a:hover {text-shadow: 0 0 1px rgba(255,255,255,.1);}*/
+/* Skin-peeler
+================================================== */
+.ei-item-box{+height:50px;}
+.ei-item-box a{display: block;height: 50px;width: 55px;z-index: 99999;color: #fff;position: absolute;top:-8px;right: 0;transition: .5s;-webkit-transition: .5s;-ms-transition: .5s;-o-transition: .5s;}
+.ei-item-box a img{width: 55px;height: 50px;}
+.ei-item-box a:hover{top:0px;-webkit-transition: top 500ms;-moz-transition: top 500ms;-ms-transition: top 500ms;-o-transition: top 500ms;transition: top 500ms;}
+.ei-i-dialog {background: url(../img/black-bg-hf.png) repeat top left;width: 100%;transition: .3s;-webkit-transition: .3s;-o-transition: .3s;-moz-transition: .3s;-ms-transition: .3s;}
+.ei-i-dialog-box-tit{border-bottom: 1px solid #333;height: 32px;background: url(../img/black-bg-hf.png) repeat top left;}
+.ei-i-dialog-box-tit span{font:14px/32px 'Microsoft YaHei';color: #fff;}
+.ei-i-close {background-color: #111;color: #f0742e;font: 14px/29px "Microsoft YaHei";right: 0px;text-align: center;top: 0;width: 80px;}
+.ei-i-close:hover{text-decoration: none;}
+.ei-i-dialog-box-boy .dialog-box-boy-in ul li {float: left;width: 33.33%;+width:33.30%;}
+.box-boy-in-i{display: block;overflow: hidden;position: relative;margin: 30px 0px 50px;}
+.box-boy-in-i a{display: block;width: 93%;border: 3px solid transparent;}
+.box-boy-in-i a .pic{display: block;max-width: 100%;height: auto;}
+.dialog-box-boy-in ul li .xz {bottom: 0px;display: none;height: 40px;position: absolute;right:0px;width: 40px;}
+.dialog-box-boy-in ul li a .name{display: block;width: 100%;height: 32px;background: url(../img/black-name.png) repeat top left;font:14px/32px 'Microsoft YaHei'; color: #fff;text-align: center;bottom: 0px;left: 0;}
+.dialog-box-boy-in ul li:hover .box-boy-in-i a,.ei-i-dialog-box-boy .dialog-box-boy-in ul li .current a{border-color: #ef550f;}
+.dialog-box-boy-in ul li:hover .box-boy-in-i .xz,.ei-i-dialog-box-boy .dialog-box-boy-in ul li .current .xz{display: block;}
+#triangle-bottomright {border-bottom: 50px solid #ef550f;border-left: 50px solid transparent;height: 0;right: 0;bottom: 0;width: 0;}
+.loging {position: absolute;top:0;left: 0;width: 100%;height: 100%;text-align: center;line-height: 200px;}
+.loging img{width: 62px;height: 62px;margin-top: 72px;+margin-top: 15px;}
 @media (min-width: 992px) and (max-width: 1199px) {.c-attr-mt,.c-attr-jg {margin-top: 15px;}.c-attr-time {display: none;}}
 @media (min-width: 768px) and (max-width: 991px) {.i-teacher-list ul li {width: 50%}.thr-attr-ol li {float: left;width: 33.3%;height: 80px;}.c-attr-mt,.c-attr-jg {margin-top: 15px;}.c-attr-undis,.c-attr-time {display: none;}.buy-cin-list span {width: 10%;}.all-teacher-title h2 {float: none;margin-bottom: 15px;}.t-infor-menu {float: none;width: 100%;}.t-infor-menu .c-tab-title {margin-bottom: 10px;}.t-infor-box {width: 100%;}.t-infor-box .ml20 {margin-left: 10px;}.i-article-list li {padding-right: 150px;}.i-article-pic {width: 130px;}}

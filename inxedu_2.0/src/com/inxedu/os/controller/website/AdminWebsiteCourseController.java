@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.inxedu.os.common.controller.BaseController;
-import com.inxedu.os.common.util.ObjectUtils;
+import org.springframework.web.util.ObjectUtils;
 import com.inxedu.os.entity.website.WebsiteCourse;
 import com.inxedu.os.service.website.WebsiteCourseService;
 

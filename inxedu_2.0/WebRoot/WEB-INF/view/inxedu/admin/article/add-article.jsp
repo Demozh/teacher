@@ -79,7 +79,7 @@
 				<tr>
 					<td>封面图片：</td>
 					<td>
-						<img id="showImage" width="180" height="100" src="/static/admin/assets/logo.png">
+						<img id="showImage" width="180" height="100" src="${ctx }/static/admin/assets/logo.png">
 						<input type="button" value="上传" id="imageFile" />
 						<font color="red">(请上传宽高为： 640*357 的图片)</font>
 					</td>

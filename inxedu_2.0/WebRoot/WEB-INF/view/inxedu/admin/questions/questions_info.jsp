@@ -28,7 +28,7 @@ function updQuestions(){
 	}
 	
 	$.ajax({
-		url:"/admin/questions/updQuestions",
+		url:baselocation +"/admin/questions/updQuestions",
 		data:{
 			"questions.id":id,
 			"questions.title":title,
@@ -115,7 +115,7 @@ function updQuestions(){
 								<font color="red">*</font>最佳答案:
 							</td>
 							<td style="text-align: left;">
-								${questionsComment.content }
+								<c:out value="${questionsComment.content }"></c:out>
 							</td>
 						</tr>
 						<tr>

@@ -8,7 +8,7 @@
     //删除分类
 	function del(id){
 		if(confirm("确定删除该分类吗？")){
-			document.location="${cxt}/admin/website/delWebsiteCourseById/"+id;
+			document.location="${ctx}/admin/website/delWebsiteCourseById/"+id;
 		}
 	}
 </script>
@@ -18,7 +18,7 @@
 	<!-- /tab1 begin-->
 	<div class="mt20">
 		<div class="commonWrap">
-			<a href="${cxt}/admin/website/doAddWebsiteCourse" class="button tooltip" title="添加">
+			<a href="${ctx}/admin/website/doAddWebsiteCourse" class="button tooltip" title="添加">
 				<span class="ui-icon ui-icon-newwin"></span>
 				添加
 			</a>
@@ -63,7 +63,7 @@
 								</td>
 								<td class="c_666 czBtn" align="center">
 									<button type="button" class="ui-state-default ui-corner-all"
-										onclick="window.location.href='${cxt}/admin/website/doUpdateWebsiteCourse/${websiteCourse.id}'">修改</button>
+										onclick="window.location.href='${ctx}/admin/website/doUpdateWebsiteCourse/${websiteCourse.id}'">修改</button>
 									<button type="button" class="ui-state-default ui-corner-all" onclick="javascript:del(${websiteCourse.id})">删除</button>
 								</td>
 							</tr>

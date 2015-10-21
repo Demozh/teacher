@@ -3,10 +3,10 @@ package com.inxedu.os.dao.impl.letter;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.common.entity.PageEntity;
 import org.springframework.stereotype.Repository;
 
 import com.inxedu.os.common.dao.GenericDaoImpl;
-import com.inxedu.os.common.entity.PageEntity;
 import com.inxedu.os.dao.letter.MsgReceiveDao;
 import com.inxedu.os.entity.letter.MsgReceive;
 import com.inxedu.os.entity.letter.QueryMsgReceive;

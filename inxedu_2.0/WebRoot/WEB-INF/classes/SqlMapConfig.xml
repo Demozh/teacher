@@ -17,7 +17,7 @@
 	<!-- Mapper.xml无需挨个引入，全部命名规范：以Mapper.xml结尾会自动引入 如：publicMapper.xm -->
 
 	<plugins>
-		<plugin interceptor="com.inxedu.os.common.intercepter.PageInterceptor">
+		<plugin interceptor="org.springframework.intercepter.PageInterceptor">
 
 		</plugin>
 

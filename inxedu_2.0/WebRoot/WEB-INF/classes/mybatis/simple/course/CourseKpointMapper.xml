@@ -66,6 +66,7 @@
 	<!-- 查询通过视频节点ID，查询节点详情 -->
 	<select id="queryCourseKpointById" parameterType="int" resultType="CourseKpointDto">
 	SELECT EDU_COURSE_KPOINT.KPOINT_ID as kpointId,
+	EDU_COURSE_KPOINT.COURSE_ID as courseId,
 	EDU_COURSE_KPOINT.NAME as name,
 	EDU_COURSE_KPOINT.SORT as sort,
 	EDU_COURSE_KPOINT.PLAY_COUNT as playCount,

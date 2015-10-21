@@ -4,10 +4,10 @@ package com.inxedu.os.dao.impl.teacher;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.common.entity.PageEntity;
 import org.springframework.stereotype.Repository;
 
 import com.inxedu.os.common.dao.GenericDaoImpl;
-import com.inxedu.os.common.entity.PageEntity;
 import com.inxedu.os.dao.teacher.TeacherDao;
 import com.inxedu.os.entity.teacher.QueryTeacher;
 import com.inxedu.os.entity.teacher.Teacher;

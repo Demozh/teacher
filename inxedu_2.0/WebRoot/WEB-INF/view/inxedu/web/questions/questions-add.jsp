@@ -79,11 +79,11 @@
 									<span class="c-999 fsize14">&nbsp;</span>
 								</dt>
 								<dd class="pr">
-									<label class=""><input type="text" style="width: 80px;" name="randomCode" placeholder="输入验证码" value="" onkeyup='$(this).parent().next().next().html("<img width=\"16\" height=\"16\" alt=\"正确\" src=\"/static/inxweb/img/d-icon.png\">")'></label>
+									<label class=""><input type="text" style="width: 80px;" name="randomCode" placeholder="输入验证码" value="" onkeyup='$(this).parent().next().next().html("<img width=\"16\" height=\"16\" alt=\"正确\" src=\"${ctx }/static/inxweb/img/d-icon.png\">")'></label>
 									<div class="v-code-pic">
 										<img src="${ctx}/ran/random" alt="验证码，点击图片更换" onclick="this.src='${ctx}/ran/random?random='+Math.random();" width="80" height="34" class="vam">
 										<span class="c-999">看不清</span>
-										<a href="javascript:void(0)" onclick="$(this).prev().prev().prev().click();" title="" class="c-green"> 换一换 </a>
+										<a href="javascript:void(0)" onclick="$(this).prev().prev().click();" title="" class="c-green"> 换一换 </a>
 									</div>
 									<aside class="q-c-jy"></aside>
 								</dd>
@@ -105,7 +105,7 @@
 				<aside class="fl col-3">
 					<div class="mt30 pl10">
 						<section class="q-tip-pic col-3">
-							<img src="/static/inxweb/img/tipQe.png" width="100%" alt="亲，您要提问吧？">
+							<img src="${ctx }/static/inxweb/img/tipQe.png" width="100%" alt="亲，您要提问吧？">
 						</section>
 						<h5 class="pt10">
 							<span class="fsize18 c-333 vam">亲，您要提问吧？<br>

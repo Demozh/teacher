@@ -45,7 +45,7 @@ function avaliable(courseId,type,em){
 		return;
 	}
 	$.ajax({
-		url:'/admin/cou/avaliable/'+courseId+'/'+type,
+		url:baselocation +'/admin/cou/avaliable/'+courseId+'/'+type,
 		type:'post',
 		dataType:'json',
 		success:function(result){

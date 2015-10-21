@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.inxedu.os.common.entity.PageEntity;
+import org.springframework.common.entity.PageEntity;
 import com.inxedu.os.dao.questions.QuestionsCommentDao;
 import com.inxedu.os.entity.questions.QuestionsComment;
 import com.inxedu.os.service.questions.QuestionsCommentService;

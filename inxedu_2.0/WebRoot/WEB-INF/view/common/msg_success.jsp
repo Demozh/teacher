@@ -23,7 +23,7 @@
 		<div class="pathwray">
 			<ol class="clearfix c-master f-fM fsize14">
 				<li>
-					<a href="/" title="首页" class="c-master">首页</a>
+					<a href="${ctx }" title="首页" class="c-master">首页</a>
 					&gt;
 				</li>
 				<li>

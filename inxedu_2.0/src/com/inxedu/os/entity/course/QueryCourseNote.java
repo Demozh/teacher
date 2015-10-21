@@ -2,7 +2,8 @@ package com.inxedu.os.entity.course;
 
 import java.io.Serializable;
 
-import com.inxedu.os.common.util.StringUtils;
+import org.springframework.common.util.StringUtils;
+
 import com.inxedu.os.common.util.WebUtils;
 
 import lombok.Data;

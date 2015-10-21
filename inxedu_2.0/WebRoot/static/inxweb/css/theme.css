@@ -1,9 +1,9 @@
 @charset "utf-8";
 .c-master {
-  color: #ea562e;
+  color: #009ed9;
 }
 .bg-orange {
-  background-color: #ea562e;
+  background-color: #009ed9;
 }
 .nav li.current a,
 .nav li a:hover,
@@ -19,8 +19,8 @@
 .u-m-dd ul li a:hover,
 .u-m-dd ul li.current a,
 .d-s-head-tab a.current {
-  border-color: #ea562e;
-  color: #ea562e;
+  border-color: #009ed9;
+  color: #009ed9;
 }
 .lh-menu ul li.lh-menu-stair ol li.lh-menu-second a.current-2,
 .lh-menu ul li.lh-menu-stair li.lh-menu-second a.current-2,
@@ -30,6 +30,6 @@
 #t-infor-menu p a.current,
 .i-art-title:hover,
 .q-sort-wrap span.current {
-  border-color: #ea562e;
-  color: #ea562e;
+  border-color: #009ed9;
+  color: #009ed9;
 }

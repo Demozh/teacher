@@ -18,7 +18,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.inxedu.os.common.constants.CacheConstans;
-import com.inxedu.os.common.service.cache.EHCacheUtil;
+import org.springframework.cache.EHCacheUtil;
 import com.inxedu.os.constants.enums.WebSiteProfileType;
 import com.inxedu.os.dao.statistics.StatisticsDayDao;
 import com.inxedu.os.entity.statistics.StatisticsDay;

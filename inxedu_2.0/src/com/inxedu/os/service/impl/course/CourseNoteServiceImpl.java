@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.inxedu.os.common.entity.PageEntity;
-import com.inxedu.os.common.util.ObjectUtils;
+import org.springframework.common.entity.PageEntity;
+import org.springframework.web.util.ObjectUtils;
 import com.inxedu.os.dao.course.CourseNoteDao;
 import com.inxedu.os.entity.course.CourseNote;
 import com.inxedu.os.entity.course.QueryCourseNote;

@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.inxedu.os.common.constants.CacheConstans;
-import com.inxedu.os.common.entity.PageEntity;
-import com.inxedu.os.common.service.cache.EHCacheUtil;
+import org.springframework.common.entity.PageEntity;
+import org.springframework.cache.EHCacheUtil;
 import com.inxedu.os.dao.course.CourseDao;
 import com.inxedu.os.entity.course.Course;
 import com.inxedu.os.entity.course.CourseDto;

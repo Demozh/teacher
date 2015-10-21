@@ -97,8 +97,8 @@
 						</td>
 						<td align="center">
 							<a href="javascript:void(0)" onclick="delQuestions('${questions.id}')" class="button tooltip">删除</a>
-							<a href="/admin/questions/info/${questions.id}" class="button tooltip">修改</a>
-							<a href="/admin/questionscomment/list?questionsComment.questionId=${questions.id}" class="button tooltip">查看回复</a>
+							<a href="${ctx }/admin/questions/info/${questions.id}" class="button tooltip">修改</a>
+							<a href="${ctx }/admin/questionscomment/list?questionsComment.questionId=${questions.id}" class="button tooltip">查看回复</a>
 						</td>
 					</tr>
 				</c:forEach>

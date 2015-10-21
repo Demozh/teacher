@@ -13,7 +13,7 @@
 <meta name="author" content="${websitemap.web.author}" />
 <meta name="keywords" content="${websitemap.web.keywords}" />
 <meta name="description" content="${websitemap.web.description}" />
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="${ctx}/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href="${ctx}/static/inxweb/css/reset.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/static/inxweb/css/theme.css">
 <link rel="stylesheet" type="text/css" href="${ctx}/static/inxweb/css/global.css">
@@ -58,7 +58,7 @@
 							<!-- <script src='http://p.bokecc.com/player?vid=28410965A68FCF5B9C33DC5901307461&siteid=F9C3434C51509878&autoStart=true&width=100%&height=100%&playerid=51A2AD3118ACAD37&playertype=1' type='text/javascript'></script> -->
 						</section>
 						<section class="p-h-video-tip">
-							<img src="/static/inxweb/img/v-loading.gif">
+							<img src="${ctx }/static/inxweb/img/v-loading.gif">
 							<p class="hLh20"><span style="color: #A6B8CC;">加载中...</span></p>
 						</section>
 					</div>
@@ -206,7 +206,7 @@
 																<img alt="" src="<%=staticImage%>${interfixCourse.logo}" />
 															</c:when>
 															<c:otherwise>
-																<img alt="" src="/static/inxweb/img/default-img.gif" />
+																<img alt="" src="${ctx }/static/inxweb/img/default-img.gif" />
 															</c:otherwise>
 														</c:choose>
 													</a>
@@ -254,7 +254,7 @@
 	<jsp:include page="/WEB-INF/layouts/web/footer.jsp" />
 	<!-- 公共底引入 -->
 	<script type="text/javascript" src="${ctx}/static/common/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript" src="${ctx}/static/common/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="${ctx}/static/common/jquery-1.11.1.min.js"></script>
 
 	<script type="text/javascript" src="${ctx}/static/common/webutils.js"></script>
 	<script type="text/javascript" src="${ctx }/static/inxweb/js/common.js" ></script>

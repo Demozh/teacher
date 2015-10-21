@@ -76,7 +76,7 @@
 				<tr>
 					<td>讲师头像：</td>
 					<td style="text-align: left;">
-						<img src="/static/common/admin/images/default_head.jpg" alt="" id="subjcetpic" width="288px" height="288px" />
+						<img src="${ctx }/static/common/admin/images/default_head.jpg" alt="" id="subjcetpic" width="288px" height="288px" />
 						<input type="button" value="上传" id="fileuploadButton" />
 						<font color="red">(请上传 288*288(长X宽)像素 的图片)</font>
 					</td>

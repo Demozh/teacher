@@ -12,9 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.inxedu.os.common.constants.CacheConstans;
-import com.inxedu.os.common.entity.PageEntity;
-import com.inxedu.os.common.service.cache.EHCacheUtil;
-import com.inxedu.os.common.util.ObjectUtils;
+import org.springframework.common.entity.PageEntity;
+import org.springframework.cache.EHCacheUtil;
+import org.springframework.web.util.ObjectUtils;
 import com.inxedu.os.dao.letter.MsgReceiveDao;
 import com.inxedu.os.dao.letter.MsgSystemDao;
 import com.inxedu.os.entity.letter.LetterConstans;

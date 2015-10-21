@@ -4,6 +4,9 @@
 <html>
 <head>
 <title>首页</title>
+<script>
+	var theme_color = '${theme_color}';
+</script>
 </head> 
 <body>
 	<div class="i-slide">
@@ -14,9 +17,9 @@
 			<!-- 图片位置 -->
 			<div class="swiper-container">
 				<div class="swiper-wrapper">
-					<c:forEach var="image" items="${websiteImages.type_1}" varStatus="status">
+					<c:forEach var="image" items="${websiteImagesList}" varStatus="status">
 						<div class="swiper-slide" style="background: <c:if test="${empty image.color}">#EF550F;</c:if><c:if test="${!empty image.color}">${image.color}</c:if>;">
-							<img src="<%=staticImage%>${image.imagesUrl}" alt="${image.title}">
+							<img class="imgload" src="<%=staticImage%>${image.imagesUrl}" alt="${image.title}">
 						</div>
 					</c:forEach>
 				</div>
@@ -90,7 +93,7 @@
 										<section class="i-q-l-wrap">
 											<div class="u-face">
 												<c:if test="${empty com.picImg }">
-													<img width="50" height="50" class="picImg" src="/static/inxweb/img/avatar-boy.gif">
+													<img width="50" height="50" class="picImg" src="${ctx }/static/inxweb/img/avatar-boy.gif">
 												</c:if>
 												<c:if test="${!empty com.picImg }">
 													<img width="50" height="50" class="picImg" src="<%=staticImage%>${com.picImg }">
@@ -199,8 +202,9 @@
 		</div>
 		<!-- /网校名师 结束 -->
 	</div>
-	<script type="text/javascript" src="${ctx}/static/inxweb/front/index.js"></script>
 	<script type="text/javascript" src="${ctx}/static/inxweb/js/swiper-2.1.0.js"></script>
+	<script type="text/javascript" src="${ctx}/static/inxweb/front/index.js"></script>
+	<script type="text/javascript" src="${ctx}/static/inxweb/front/index_theme_color.js"></script><!-- 换肤 -->
 	<script>
 		$(function() {
 			sSwiperFun(); //幻灯片调取

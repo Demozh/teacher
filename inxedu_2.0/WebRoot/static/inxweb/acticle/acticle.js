@@ -14,7 +14,7 @@ function articleRecommend() {
 // 增加文章浏览量
 function updateArticleClickNum() {
 	jQuery.ajax({
-		url : '/front/updateArticleClickNum/' + articleId,
+		url : baselocation+'/front/updateArticleClickNum/' + articleId,
 		type : 'post',
 		dataType : 'json',
 		success : function(result) {

@@ -2,24 +2,10 @@ package com.inxedu.os.common.dao;
 
 import java.util.List;
 
-import com.inxedu.os.common.entity.PageEntity;
+import org.springframework.common.entity.PageEntity;
 
-public abstract interface GenericDao {
-	/**
-	 * 公共添加记录
-	 * @param paramString mybatis配置ID
-	 * @param paramObject SQL查询条件
-	 * @return 新增记录ID
-	 */
-	public abstract Long insert(String paramString, Object paramObject);
 
-	/**
-	 * 公共删除记录
-	 * @param paramString mybatis配置ID
-	 * @param paramObject SQL查询条件
-	 * @return 删除记录ID
-	 */
-	public abstract Long delete(String paramString, Object paramObject);
+public abstract interface GenericDao extends org.springframework.dao.GenericDao{
 
 	/**
 	 * 公共更新记录

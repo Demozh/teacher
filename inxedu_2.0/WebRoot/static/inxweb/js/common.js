@@ -108,7 +108,7 @@ function replyFun() {
                 qxFun();
             };
         });
-        _this.find(".qxBtn").live("click", function() {qxFun();});
+        _this.find(".qxBtn").bind("click", function() {qxFun();});
     });
 }
 //选项卡公共方法
@@ -243,7 +243,7 @@ function goPageAjax(pageNum){
 function addPraise(targetId,type,obj){
 	if(isLogin()){
 		$.ajax({
-			url:"/praise/ajax/add",
+			url:baselocation + "/praise/ajax/add",
 			data:{
 				"praise.targetId":targetId,
 				"praise.type":type
@@ -603,3 +603,14 @@ function getCourseLearnedUser(courseId){
 		}
 	});
 };
+
+/**
+ *手机用户个人中心登录拦截跳转
+ */
+function mobileHrefCheckLogin(hrefUrl){
+	if(isLogin()){
+		window.location.href=hrefUrl;
+	}else{
+		lrFun();
+	}
+}

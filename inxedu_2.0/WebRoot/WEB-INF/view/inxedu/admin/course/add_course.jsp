@@ -142,7 +142,7 @@
 				<tr>
 					<td>课程图片：</td>
 					<td style="text-align: left;">
-						<img id="showImage" width="278px" height="155" src="/static/admin/assets/logo.png" />
+						<img id="showImage" width="278px" height="155" src="${ctx }/static/admin/assets/logo.png" />
 						<input type="button" value="上传" id="imageFile" />
 						<font color="red">(请上传 640*357(长X宽)像素 的图片)</font>
 					</td>

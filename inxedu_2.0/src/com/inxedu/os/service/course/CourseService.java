@@ -4,7 +4,8 @@ package com.inxedu.os.service.course;
 import java.util.List;
 import java.util.Map;
 
-import com.inxedu.os.common.entity.PageEntity;
+import org.springframework.common.entity.PageEntity;
+
 import com.inxedu.os.entity.course.Course;
 import com.inxedu.os.entity.course.CourseDto;
 import com.inxedu.os.entity.course.QueryCourse;

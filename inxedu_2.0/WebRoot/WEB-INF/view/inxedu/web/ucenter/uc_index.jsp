@@ -12,8 +12,8 @@
 				<div>
 					<section class="c-infor-tabTitle c-tab-title">
 						<a href="javascript: void(0)" title="Wo的课程" style="cursor: default;">Wo的课程</a>
-						<a href="/uc/index" title="收费课程" class="current">收费</a>
-						<a href="/uc/freeCourseList" title="免费课程">免费</a>
+						<a href="${ctx }/uc/index" title="收费课程" class="current">收费</a>
+						<a href="${ctx }/uc/freeCourseList" title="免费课程">免费</a>
 					</section>
 				</div>
 				<div class="mt40">
@@ -50,7 +50,7 @@
 												<section class="mt10 of">
 													<div class="time-bar-wrap">
 														<div class="lev-num-wrap" title="已学${course.studyPercent}%">
-															<aside class="lev-num-bar bg-green" style="width: ${course.studyPercent}%;"></aside>
+															<aside class='lev-num-bar <c:if test="${course.studyPercent>=100}">bg-orange</c:if> <c:if test="${course.studyPercent<100}">bg-green</c:if>' style="width: ${course.studyPercent}%;"></aside>
 															<span class="lev-num"><big>${course.studyPercent}%</big>/<small>100%</small></span>
 														</div>
 													</div>
