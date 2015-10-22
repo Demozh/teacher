@@ -140,6 +140,7 @@ function initUpdateKpoint(treeId, treeNode){
 			$("#courseKpointKpointType").val(obj.kpointType);
 			$("#courseKpointKpointType").change();
 			$("#courseKpointVideoType").val(obj.videoType);
+			$("#courseKpointVideoType").change();
 			$("input[name='courseKpoint.videoUrl']").val(obj.videoUrl);
 			$("input[name='courseKpoint.sort']").val(obj.sort);
 			$("input[name='courseKpoint.playCount']").val(obj.playCount);
@@ -355,4 +356,86 @@ function getKpointType(parentId){
 		}
 	});
 	return isTrue;
+}
+
+/*
+ * 视频类型 下拉改变
+ */
+function videoTypeChange(obj){
+	var viddeoType=$(obj).val();
+	if(viddeoType=="CC"){
+		$("input[name='courseKpoint.videoUrl']").attr("readonly","readonly");
+		$(".uploadCCVideo").show();
+		$("#up").html("无");
+	}else{
+		$("input[name='courseKpoint.videoUrl']").removeAttr("readonly");
+		$(".uploadCCVideo").hide();
+	}
+}
+
+//-------------------
+//文件选择成功后，Flash 会调用
+//调用者：flash
+//功能：选中上传文件，获取文件名函数
+//时间：2010-12-22
+//说明：用户可以加入相应逻辑
+//-------------------
+function on_spark_selected_file(filename) {
+	$("#upload_title").val(filename);
+	$("#upload_tag").val(filename);
+	$("#upload_desp").val(filename);
+	
+	$.ajax({
+		url:baselocation+'/admin/ajax/kpoint/ccVideoTHQSData',
+		data:{"filename":filename},
+		type:'post',
+		dataType:'json',
+		async:false,
+		success:function(result){
+			if(result.success==true){
+				$("#uploadswf")[0].start_upload(result.message);
+			}
+		},
+		error:function(error){
+			isTrue=false;
+			alert("系统繁忙，请稍后再操作！");
+		}
+	});
+}
+
+//	-------------------
+//调用者：flash
+//功能：验证上传是否正常进行函数
+//时间：2010-12-22
+//说明：用户可以加入相应逻辑
+//-------------------
+function on_spark_upload_validated(status, videoid) {
+	if (status == "OK") {
+		//alert("上传正常,videoid:" + videoid);
+		$("input[name='courseKpoint.videoUrl']").val(videoid);//视频id
+	} else if (status == "NETWORK_ERROR") {
+		alert("网络错误");
+	} else {
+		alert("api错误码：" + status);
+	}
+}
+
+//-------------------
+//调用者：flash
+//功能：通知上传进度函数
+//时间：2010-12-22
+//说明：用户可以加入相应逻辑
+//-------------------
+function on_spark_upload_progress(progress) {
+	var uploadProgress = document.getElementById("up");
+	if (progress == -1) {
+		uploadProgress.innerHTML = "上传出错：" + progress;
+		//alert( "上传出错：" + progress);
+	} else if (progress == 100) {
+		uploadProgress.innerHTML = "进度：100% 上传完成";
+		//alert("进度：100% 上传完成");
+	} else {
+		uploadProgress.innerHTML = "进度：" + progress + "%";
+		//alert( "进度：" + progress + "%");
+	}
 }

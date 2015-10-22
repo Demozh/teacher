@@ -1,6 +1,7 @@
 package com.inxedu.os.controller.course;
 
 
+import java.net.URLEncoder;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.common.util.MD5;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -20,9 +22,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.inxedu.os.common.controller.BaseController;
+import com.inxedu.os.constants.enums.WebSiteProfileType;
 import com.inxedu.os.entity.kpoint.CourseKpoint;
 import com.inxedu.os.entity.kpoint.CourseKpointDto;
 import com.inxedu.os.service.course.CourseKpointService;
+import com.inxedu.os.service.website.WebsiteProfileService;
 
 /**
  * CourseKpoint管理接口
@@ -43,6 +47,8 @@ public class AdminKpointController extends BaseController {
 
     @Autowired
     private CourseKpointService courseKpointService;
+    @Autowired
+	private WebsiteProfileService websiteProfileService;
     
     
     @RequestMapping("/kpoint/updateparentid/{parentId}/{kpointId}")
@@ -147,6 +153,37 @@ public class AdminKpointController extends BaseController {
             model.setViewName(this.setExceptionRequest(request, e));
         }
         return model;
+    }
+    
+    /**
+     *  生成cc视频参数按照 THQS 算法处理
+     */
+    @RequestMapping("/ajax/kpoint/ccVideoTHQSData")
+    @ResponseBody
+    public Object ccVideoTHQSData(HttpServletRequest request){
+    	try{
+    		//cc视频配置
+    		Map<String,Object> ccConfigMap=(Map<String,Object>)websiteProfileService.getWebsiteProfileByType(WebSiteProfileType.cc.toString()).get("cc");
+    		//上传视频名
+    		String filename=request.getParameter("filename");
+    		filename=URLEncoder.encode(filename,"UTF-8");
+    		String infoStr="description="+"inxedu_upload_"+filename//视频描述
+					+"&tag=null"//视频标签 	可选
+					+"&title="+"inxedu_upload_"+filename//视频标题
+					+"&userid="+(String)ccConfigMap.get("ccappID")//用户ID 	必选
+					+"&time="+System.currentTimeMillis()/1000L//当前时间的 Unix  时间戳
+					;
+			String infoStrSalt=infoStr+"&salt="+(String)ccConfigMap.get("ccappKEY");// Spark API Key 值
+																																	   
+			String hash=MD5.getMD5(infoStrSalt);
+			infoStr+="&hash="+hash;
+    		this.setJson(true, infoStr, null);
+    	}catch (Exception e) {
+    		this.setAjaxException();
+			logger.error("deleteKpoint()---error",e);
+			this.setJson(false, "", null);
+		}
+    	return json;
     }
 
 

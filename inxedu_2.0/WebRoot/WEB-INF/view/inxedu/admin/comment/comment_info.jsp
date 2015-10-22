@@ -41,7 +41,7 @@
 			<tr>
 				<td>评论内容：</td>
 				<td>
-					<input type="text" value="${comment.content}" name="content">
+					<input type="text" value="<c:out value="${comment.content}"></c:out>" name="content">
 				</td>
 			</tr>
 			<tr>

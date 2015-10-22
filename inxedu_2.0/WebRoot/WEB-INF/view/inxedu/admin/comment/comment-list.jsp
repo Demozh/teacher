@@ -94,7 +94,7 @@ $(function(){
 							<td align="center">
 								<fmt:formatDate value="${com.addTime}" pattern="yyyy/MM/dd HH:mm:ss" />
 							</td>
-							<td align="center">${com.content}</td>
+							<td align="center"><c:out value="${com.content}"></c:out></td>
 							<td align="center">
 								<a href="${ctx}/admin/commentreply/info/${com.commentId}" class="button tooltip">修改</a>
 								<a href="javascript:delcomment('${com.commentId}')" class="button tooltip">删除</a>

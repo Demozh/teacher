@@ -204,14 +204,7 @@ public class SysUserController extends BaseController {
 				this.setJson(false, "该帐户号已经存在", null);
 				return json;
 			}
-			if(sysuser.getTel()==null || sysuser.getTel().trim().length()==0 || !WebUtils.checkMobile(sysuser.getTel())){
-				this.setJson(false, "请输入正确的手机号", null);
-				return json;
-			}
-			if(sysuser.getEmail()==null || sysuser.getEmail().trim().length()==0 || !WebUtils.checkEmail(sysuser.getEmail(), 50)){
-				this.setJson(false, "请输入正确的邮箱号", null);
-				return json;
-			}
+			
 			sysuser.setLoginName(sysuser.getLoginName().trim());
 			sysuser.setLoginPwd(MD5.getMD5(sysuser.getLoginPwd()));
 			sysuser.setCreateTime(new Date());
@@ -248,7 +241,7 @@ public class SysUserController extends BaseController {
 			this.setJson(false, "请输入正确的邮箱号", null);
 			return json;
 		}
-		if(sysuser.getTel()!=null && !sysuser.getTel().trim().equals("") && WebUtils.checkMobile(sysuser.getTel())){
+		if(sysuser.getTel()!=null && !sysuser.getTel().trim().equals("") && !WebUtils.checkMobile(sysuser.getTel())){
 			this.setJson(false, "请输入正确的电话号码", null);
 			return json;
 		}
