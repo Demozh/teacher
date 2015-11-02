@@ -6,6 +6,7 @@ public interface EmailService {
 	 * @param title 邮件标题
 	 * @param context 内容
 	 * @param email 接收邮箱号
+	 * @author www.inxedu.com
 	 */
 	public void sendMail(String title,String context,String email) throws Exception;
 }

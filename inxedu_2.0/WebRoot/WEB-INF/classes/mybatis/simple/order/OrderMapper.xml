@@ -65,6 +65,7 @@
 		EDU_ORDERS.DESCRIBE as `describe`,
 		EDU_ORDERS.CREATE_TIME as createTime,
 		EDU_ORDERS.PAY_TIME as payTime,
+		EDU_ORDERS.EXPIRE_TIME as expireTime,
 		EDU_USER.EMAIL as email,
 		EDU_USER.MOBILE as mobile,
 		SYS_USER.LOGIN_NAME as loginName,
@@ -163,7 +164,8 @@
 		EDU_ORDERS.DESCRIBE as `describe`,
 		EDU_ORDERS.CREATE_TIME as createTime,
 		EDU_ORDERS.PAY_TIME as payTime,
-		EDU_ORDERS.SYS_USER_ID as sysUserId
+		EDU_ORDERS.SYS_USER_ID as sysUserId,
+		EDU_ORDERS.EXPIRE_TIME as expireTime
 		FROM EDU_ORDERS WHERE EDU_ORDERS.ORDER_ID=#{value}
 	</select>
 
@@ -176,7 +178,7 @@
 		<include refid="edu_orders_column" />,
 		EDU_ORDERS.CREATE_TIME as createTime,
 		edu_user.email ,
-		edu_user.USER_NAME userName,
+		edu_user.SHOW_NAME userName,
 		edu_user.PIC_IMG  picImg,
 		EDU_COURSE.COURSE_NAME  courseName
 		FROM EDU_ORDERS 
@@ -188,4 +190,12 @@
 				limit #{limitNum}
 		</if>
 	</select>
+	
+	<!-- 更新订单 -->
+	<update id="updateOrder" parameterType="Order">
+		UPDATE EDU_ORDERS SET
+		EDU_ORDERS.EXPIRE_TIME=#{expireTime},
+		EDU_ORDERS.STATES=#{states}
+		WHERE EDU_ORDERS.ORDER_NO=#{orderNo}
+	</update>
 </mapper>

@@ -69,7 +69,7 @@ function initKindEditor_addblog(id, width, height,param,pressText) {
 		height : height,
 		minWidth : '10px',
 		minHeight : '10px',
-		uploadJson : keuploadSimpleUrl+'&param='+param+'&fileType=jpg,gif,png&pressText='+pressText,// 图片上传路径
+		uploadJson : keuploadSimpleUrl+'&param='+param+'&fileType=jpg,gif,png,jpeg&pressText='+pressText,// 图片上传路径
 		afterBlur : function() {
 			this.sync();
 		},
@@ -94,7 +94,7 @@ function initSimpleImageUpload(btnId,param,callback,pressText){
 		var uploadbutton = K.uploadbutton({
 			button : K('#'+btnId+'')[0],
 			fieldName : "uploadfile",
-			url : uploadSimpleUrl+'&param='+param+'&fileType=jpg,gif,png&pressText='+pressText,
+			url : uploadSimpleUrl+'&param='+param+'&fileType=jpg,gif,png,jpeg&pressText='+pressText,
 			afterUpload : function(data) {
 				if (data.error == 0) {
 					var url = K.formatUrl(data.url, 'absolute');//absolute,domain
@@ -123,7 +123,7 @@ function webImageUpload(btnId,param,callback){
 		var uploadbutton = KindEditor.uploadbutton({
 			button : KindEditor('#'+btnId+'')[0],
 			fieldName : "uploadfile",
-			url : uploadSimpleUrl+'&param='+param+'&fileType=jpg,gif,png',
+			url : uploadSimpleUrl+'&param='+param+'&fileType=jpg,gif,png,jpeg',
 			afterUpload : function(data) {
 				if (data.error ==0) {
 					var url = KindEditor.formatUrl(data.url, 'absolute');//absolute,domain

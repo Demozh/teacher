@@ -105,7 +105,7 @@ function uploadImg(btnid,fieldName){
 	var uploadbutton = KindEditor.uploadbutton({
 		button : KindEditor('#'+btnid+'')[0],
 		fieldName : fieldName,
-		url : uploadSimpleUrl+"&param=temp&fileType=jpg,gif,png",
+		url : uploadSimpleUrl+"&param=temp&fileType=jpg,gif,png,jpeg",
 		afterUpload : function(data) {
 			if (data.error == 0) {
                 //销毁图片插件

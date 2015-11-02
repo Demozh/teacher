@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="sitemesh"%>
+<%@ taglib uri="http://htmlcompressor.googlecode.com/taglib/compressor" prefix="compress" %>
 <%@ include file="/base.jsp"%>
+<compress:html  compressJavaScript="false" >
 <!DOCTYPE HTML>
 <!--[if lt IE 7]>      <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="lt-ie9 lt-ie8"> <![endif]-->
@@ -112,3 +114,4 @@
 	${tongjiemap.censusCode.censusCodeString}
 </body>
 </html>
+</compress:html>

@@ -26,6 +26,10 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.inxedu.os.common.constants.CommonConstants;
 
+/**
+ * @author www.inxedu.com
+ *
+ */
 @Controller
 @RequestMapping("/image")
 public class ImageUploadController extends BaseController{
@@ -186,20 +190,21 @@ public class ImageUploadController extends BaseController{
 	@RequestMapping(value="/deletefile",method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String,Object> deleteFile(HttpServletRequest request,@RequestParam(value="filePath",required=true) String filePath){
+		Map<String,Object> json = new HashMap<String,Object>();
 		try{
 			if(filePath!=null && filePath.trim().length()>0 && filePath.startsWith("/images/upload/")){
 				File file = new File(CommonConstants.projectRootDir+filePath);
 				if(file.exists()){
 					file.delete();
-					this.setJson(true, "文件删除成功", null);
+					json = this.setJson(true, "文件删除成功", null);
 				}else{
-					this.setJson(false, "文件不存在，删除失败", null);
+					json = this.setJson(false, "文件不存在，删除失败", null);
 				}
 			}else{
-				this.setJson(false, "删除失败", null);
+				json = this.setJson(false, "删除失败", null);
 			}
 		}catch (Exception e) {
-			this.setJson(false, "系统繁忙，文件删除失败", null);
+			json = this.setJson(false, "系统繁忙，文件删除失败", null);
 			logger.error("deleteFile()--error",e);
 		}
 		return json;

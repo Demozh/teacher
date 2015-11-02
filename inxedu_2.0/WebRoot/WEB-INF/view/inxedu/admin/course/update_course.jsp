@@ -109,7 +109,7 @@
 					</td>
 					<td style="text-align: left;">
 						<input name="course.endTime" value="<fmt:formatDate value="${course.endTime}" pattern="yyyy-MM-dd HH:mm:ss"/>" readonly="readonly"
-							id="endTime" type="text" style="width: 140px;" data-rule="required;"/>
+							id="endTime" type="text" style="width: 140px;"/>
 					</td>
 				</tr>
 				<tr class="loseTimeShow" style="display: none;">

@@ -112,7 +112,7 @@ function replyFun() {
     });
 }
 //选项卡公共方法
-function cardChange(oTitle, oCont, current) {
+function cardChange(oTitle, oCont, current, callback) {
     var oTitle = $(oTitle),
         oCont = $(oCont),
         _index;
@@ -120,6 +120,7 @@ function cardChange(oTitle, oCont, current) {
         _index = oTitle.index(this);
         $(this).addClass(current).siblings().removeClass(current);
         oCont.eq(_index).show().siblings().hide();
+        if(typeof callback === "function") {callback();};
     }).eq(0).click();
 }
 // scrollLoad 滚动响应加载调用图片方法
@@ -386,7 +387,6 @@ function lrFun() {
             '</div>'
         ];
     $("#lrEleWrap").html(rlEle[0]);
-    cardChange("#d-s-head-tab>a", "#d-s-head-cont>section", "current");
     placeholderFun();//placeholder兼容IE方法
     var dTop = (parseInt(document.documentElement.clientHeight, 10)/2) + (parseInt(document.documentElement.scrollTop || document.body.scrollTop, 10)),
         dH = dialogEle.height(),
@@ -394,6 +394,10 @@ function lrFun() {
         dHead = $(".dialog-ele>h4");
     dialogEle.css({"top" : (dTop-(dH/2)) , "margin-left" : -(dW/2)});
     dHead.css({"width" : (dW-"12")}); //ie7下兼容性;
+    cardChange("#d-s-head-tab>a", "#d-s-head-cont>section", "current", function() {
+    	var dH = dialogEle.height();
+    	dialogEle.css({"top" : (dTop-(dH/2)) , "margin-left" : -(dW/2)});
+    });
     $(".dClose").bind("click", function() {dialogEle.remove();oBg.remove();});
 }
 //placeholder兼容IE方法

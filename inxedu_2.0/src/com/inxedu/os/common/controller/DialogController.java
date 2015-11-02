@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 弹框
+ *  @author www.inxedu.com
  */
 @Controller
 public class DialogController extends BaseController{

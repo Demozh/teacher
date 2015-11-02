@@ -20,6 +20,7 @@ import org.springframework.common.util.FileUtilException;
 
 /**
  * @author Administrator 文件管理操作实用类
+ * @author www.inxedu.com
  */
 public class FileUtils {
 	/**

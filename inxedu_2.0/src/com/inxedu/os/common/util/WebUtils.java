@@ -18,6 +18,10 @@ import nl.bitwalker.useragentutils.Browser;
 import nl.bitwalker.useragentutils.OperatingSystem;
 import nl.bitwalker.useragentutils.UserAgent;
 
+/**
+ * @author www.inxedu.com
+ *
+ */
 public class WebUtils {
 	public static void main(String[] args) {
 		// Instantiates a new LessEngine

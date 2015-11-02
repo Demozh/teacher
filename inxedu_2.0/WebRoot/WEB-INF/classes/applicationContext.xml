@@ -110,7 +110,7 @@
     	 <!-- 通配符指定Mapper.xml -->
 		<property name="mapperLocations" value="classpath:/mybatis/**/*Mapper.xml" />
 		<!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
-		 <property name="typeAliasesPackage" value="com.inxedu.os.common.entity,com.inxedu.os.entity" />
+		 <property name="typeAliasesPackage" value="com.inxedu.os.edu.entity,com.inxedu.os.app.entity" />
 	</bean>
 	<bean id="sqlSessionMain" class="org.mybatis.spring.SqlSessionTemplate">  
     	<constructor-arg index="0" ref="sqlSessionFactory"/>  

@@ -97,9 +97,10 @@
 		select
 		<include refid="edu_course_studyhistory_columns" />
 		from edu_course_studyhistory
+		left join edu_course_kpoint on edu_course_kpoint.KPOINT_ID = edu_course_studyhistory.KPOINT_ID
 		where
-		edu_course_studyhistory.USER_ID =
-		#{userId}
+		edu_course_kpoint.KPOINT_ID is not null and edu_course_kpoint.KPOINT_TYPE=1
+		and edu_course_studyhistory.USER_ID = #{userId}
 		and edu_course_studyhistory.COURSE_ID = #{courseId}
 		<if test="kpointId!=null and kpointId>0">
 			and

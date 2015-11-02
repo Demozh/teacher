@@ -8,6 +8,10 @@ import org.springframework.mail.javamail.JavaMailsenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+/**
+ * @author www.inxedu.com
+ *
+ */
 @Service("emailService")
 public class EmailServiceImpl implements EmailService{
 	@Autowired

@@ -21,6 +21,7 @@ import com.inxedu.os.common.constants.CommonConstants;
 
 /**
  * 生成验证图片Controller 
+ *  @author www.inxedu.com
  */
 @Controller
 public class RandomCodeController {

@@ -74,8 +74,8 @@ $(function(){
 									<label class="u-a-title">
 										<span class="fsize16 c-999">性 别</span>
 									</label>
-									<input type="radio" name="user.sex" <c:if test="${user.sex==1}">checked="checked"</c:if> value="1" /> 男
-									<input type="radio" name="user.sex" <c:if test="${user.sex==2}">checked="checked"</c:if> value="2" />女
+									<input type="radio" name="user.sex" <c:if test="${user.sex==1}">checked="checked"</c:if> value="1"/><span class="vam fsize14 c-666">男</span>
+									<input type="radio" name="user.sex" <c:if test="${user.sex==2}">checked="checked"</c:if> value="2"/><span class="vam fsize14 c-666">女</span>
 									<!-- <span class="u-a-error"><em class="u-a-zq icon16">&nbsp;</em></span> -->
 								</li>
 								<li>

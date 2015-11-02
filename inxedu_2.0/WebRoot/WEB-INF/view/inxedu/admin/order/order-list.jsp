@@ -59,8 +59,9 @@
 					<td align="center">创建时间</td>
 					<td align="center">状态</td>
 					<td align="center">支付时间</td>
+					<td align="center">到期时间</td>
 					<td align="center" width="230">描述</td>
-					<td align="center">审核人</td>
+					<td align="center">开通人</td>
 					<td align="center">操作</td>
 				</tr>
 			</thead>
@@ -72,7 +73,7 @@
 						<td align="center">${order.mobile}</td>
 						<td align="center">${order.sumMoney}</td>
 						<td align="center">
-							<fmt:formatDate value="${order.createTime}" pattern="yyyy/MM/dd HH:mm" />
+							<fmt:formatDate value="${order.createTime}" pattern="yyyy/MM/dd" />
 						</td>
 						<td align="center">
 							<c:if test="${order.states=='INIT'}">
@@ -82,11 +83,27 @@
 								<font color="#00e33b">已支付</font>
 							</c:if>
 							<c:if test="${order.states=='CANCEL'}">已取消</c:if>
+							<c:if test="${order.states=='CLOSED'}">
+								<font color="orange">已关闭</font>
+							</c:if>
 						</td>
 						<td align="center">
 							<c:choose>
 								<c:when test="${order.payTime!=null}">
-									<fmt:formatDate value="${order.payTime}" pattern="yyyy/MM/dd HH:mm" />
+									<fmt:formatDate value="${order.payTime}" pattern="yyyy/MM/dd" />
+								</c:when>
+								<c:otherwise>--</c:otherwise>
+							</c:choose>
+						</td>
+						<td align="center">
+							<c:choose>
+								<c:when test="${order.expireTime!=null}">
+									<span><fmt:formatDate value="${order.expireTime}" pattern="yyyy-MM-dd HH:mm" /></span>
+									<span style="display:none;">
+										<input type="text" value='<fmt:formatDate value="${order.expireTime}" pattern="yyyy-MM-dd HH:mm" />' class="expireTime" style="width: 101px;"/>
+										<a onclick="clickStopTIme(this,${order.orderId})" href="javascript:void(0)">提交</a>
+										<a onclick="clickStopTImequxiao(this)" href="javascript:void(0)">取消</a>
+									</span>
 								</c:when>
 								<c:otherwise>--</c:otherwise>
 							</c:choose>
@@ -101,7 +118,7 @@
 						<td align="center">
 							<samp id="auditing${order.orderId}">
 								<c:if test="${order.states=='INIT'}">
-									<a href="javascript:void(0)" onclick="auditing('${order.orderNo}',this)" class="button tooltip">审核</a>
+									<a href="javascript:void(0)" onclick="auditing('${order.orderNo}',this)" class="button tooltip">开通</a>
 								</c:if>
 							</samp>
 							<samp id="initcancel${order.orderId}">
@@ -112,7 +129,13 @@
 									<a href="javascript:void(0)" onclick="cancelOrRegain('INIT',${order.orderId},'${order.orderNo}',this)" class="button tooltip">恢复</a>
 								</c:if>
 							</samp>
-							<c:if test="${order.states=='SUCCESS'}">--</c:if>
+							<c:if test="${order.states=='SUCCESS'}">
+								<a href="javascript:void(0)" onclick="delayCourse(this)" class="button tooltip">延期</a>
+								<a href="javascript:void(0)" onclick="closeOrder(${order.orderId})" class="button tooltip">关闭</a>
+							</c:if>
+							<c:if test="${order.states=='CLOSED'}">
+								--
+							</c:if>
 
 						</td>
 					</tr>

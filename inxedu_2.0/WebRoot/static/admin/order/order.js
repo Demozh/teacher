@@ -1,5 +1,5 @@
 $(function(){
-	$("#beginCreateTime,#endCreateTime,#beginPayTime,#endPayTime").datetimepicker({
+	$("#beginCreateTime,#endCreateTime,#beginPayTime,#endPayTime,.expireTime").datetimepicker({
 		regional:"zh-CN",
         changeMonth: true,
         dateFormat:"yy-mm-dd",
@@ -73,6 +73,91 @@ function cancelOrRegain(state,orderId,orderNo,em){
 			},
 			error:function(error){
 				alert("系统繁忙，请稍后再操作！");
+			}
+		});
+	}
+}
+
+
+/**
+* 课程延期 订单状态成功  流水状态过期  才可以进行延期
+* @param orderState detailState
+*/
+function delayCourse(em) {
+	$(em).parent().prev().prev().prev().find("span").eq(0).hide();
+	$(em).parent().prev().prev().prev().find("span").eq(1).show();
+	
+}
+
+function clickStopTIme(obj,detailId) {
+	var stopTime = $(obj).prev().val();
+	if (stopTime == "") {
+		alert("延期时间不能为空！");
+		return false;
+	}
+	var daoqishijian = $(obj).parent().prev().html();
+	if (stopTime <= daoqishijian) {
+		alert('延期时间必须大于到期时间！');
+		return false;
+	}
+	if(confirm("确定延期吗?")){
+		$.ajax({
+			url : baselocation+"/admin/order/delayorder",
+			data : {
+				"order.orderId" : detailId,
+				"order.expireTime" : stopTime
+			},
+			dataType : "json",
+			type : "post",
+			async : false,
+			success : function(result) {
+				if (result.success == true) {
+					alert("已延期");
+					$(obj).parent().prev().show();
+					$(obj).parent().prev().html(stopTime);
+					$(obj).parent().hide();
+				}else{
+					alert(result.message);
+				}
+			},
+			error : function(error) {
+				alert("error");
+			}
+
+		});
+	}
+}
+
+/*
+* 取消延期
+*/
+function clickStopTImequxiao(obj){
+	$(obj).parent().hide();
+	$(obj).parent().prev().show();
+}
+
+/*
+*关闭订单
+*/
+function closeOrder(orderId){
+	if(confirm("确定关闭此课程订单吗?")){
+		$.ajax({
+			url : baselocation+"/admin/order/closeCourse/"+orderId,
+			data : {
+			},
+			dataType : "json",
+			type : "post",
+			async : false,
+			success : function(result) {
+				if (result.success == true) {
+					alert("关闭订单成功");
+					window.location.reload();
+				}else{
+					alert(result.message);
+				}
+			},
+			error : function(error) {
+				alert("error");
 			}
 		});
 	}

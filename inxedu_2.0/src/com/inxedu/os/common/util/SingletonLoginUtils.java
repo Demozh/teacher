@@ -7,9 +7,13 @@ import org.springframework.web.util.ObjectUtils;
 
 import com.inxedu.os.common.constants.CacheConstans;
 import org.springframework.cache.EHCacheUtil;
-import com.inxedu.os.entity.system.SysUser;
-import com.inxedu.os.entity.user.User;
+import com.inxedu.os.edu.entity.system.SysUser;
+import com.inxedu.os.edu.entity.user.User;
 
+/**
+ * @author www.inxedu.com
+ *
+ */
 public class SingletonLoginUtils {
 	
 	

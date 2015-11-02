@@ -12,6 +12,8 @@
 		<result property="praiseCount" column="PRAISE_COUNT" />
 		<result property="replyCount" column="REPLY_COUNT" />
 		<result property="type" column="TYPE" />
+		<result property="email" column="email" />
+		<result property="userName" column="showName" />
 	</resultMap>
 
 	<sql id="edu_comment_column">
@@ -51,6 +53,7 @@
 	<select id="queryCommentInteraction" parameterType="java.util.Map" resultMap="CommentResult">
 		select
 		<include refid="edu_comment_column" />
+		,edu_user.SHOW_NAME showName
 		,edu_user.EMAIL email,edu_user.PIC_IMG picImg,
 		edu_course.COURSE_NAME courseName,
 		edu_course.COURSE_ID courseId

@@ -100,9 +100,9 @@
 						<td>上传CC视频:</td>
 						<td style="text-align: left;">
 							<div id="swfDiv" style="*position:absolute; z-index:2;float:left;z-index: 1000;cursor: pointer; margin-top:5px;"></div><input type="button" value="上传" id="btn_width" style="width: 80px; height: 25px;"/>
-							<input type="hidden" class="" placeholder="(required)" id="upload_title" minlength="0">
-							<input type="hidden" class="form-control" placeholder="(required)" id="upload_tag" minlength="0">
-							<input type="hidden" class="form-control" placeholder="(required)" id="upload_desp" minlength="0">
+							<input type="hidden" id="upload_title" minlength="0">
+							<input type="hidden"  id="upload_tag" minlength="0">
+							<input type="hidden"  id="upload_desp" minlength="0">
 							<script type="text/javascript">
 								// 加载上传flash ------------- start
 									var swfobj=new SWFObject('http://union.bokecc.com/flash/api/uploader.swf', 'uploadswf', '80', '25', '8');

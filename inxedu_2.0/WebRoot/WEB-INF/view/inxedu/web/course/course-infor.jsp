@@ -27,7 +27,7 @@
 								<img src="<%=staticImage%>${course.logo}" alt="${course.courseName}" class="dis c-v-pic" />
 							</c:when>
 							<c:otherwise>
-								<img src="${ctx}/static/web/images/shopDefaultImage.png" alt="${course.courseName}" class="dis c-v-pic" />
+								<img src="${ctx}/static/inxweb/img/default-img.gif" alt="${course.courseName}" class="dis c-v-pic" />
 							</c:otherwise>
 						</c:choose>
 	

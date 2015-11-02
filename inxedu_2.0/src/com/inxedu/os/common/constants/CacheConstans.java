@@ -4,6 +4,7 @@ import org.springframework.common.constants.CacheConstansbBase;
 
 /**
  * @description cache缓存相关常量
+ *  @author www.inxedu.com
  */
 public class CacheConstans extends CacheConstansbBase{
 	

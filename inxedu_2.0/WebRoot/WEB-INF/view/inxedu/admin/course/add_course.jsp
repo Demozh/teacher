@@ -102,7 +102,7 @@
 						<font color="red">*</font>有效期结束时间:
 					</td>
 					<td style="text-align: left;">
-						<input name="course.endTime" readonly="readonly" id="endTime" type="text" style="width: 140px;" data-rule="required;"/>
+						<input name="course.endTime" readonly="readonly" id="endTime" type="text" style="width: 140px;"/>
 					</td>
 				</tr>
 				<tr class="loseTimeShow" style="display: none;">

@@ -61,6 +61,9 @@
 			<div class="hLh30">
 				<a href="${ctx }/uc/initUpdateUser/0" title="个人资料设置" class="c-999">个人资料设置</a>
 			</div>
+			<div class="hLh20 undis" id="mobileExitDiv">
+				<a href="javascript:void(0)" title="退出" onclick="exit();" class="c-999">退出</a>
+			</div>
 		</section>
 		<nav class="mw-nav">
 			<ul class="clearfix">

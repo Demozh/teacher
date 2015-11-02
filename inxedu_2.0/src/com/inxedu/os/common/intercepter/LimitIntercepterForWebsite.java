@@ -14,14 +14,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.inxedu.os.constants.enums.WebSiteProfileType;
-import com.inxedu.os.entity.website.WebsiteImages;
-import com.inxedu.os.service.website.WebsiteImagesService;
-import com.inxedu.os.service.website.WebsiteNavigateService;
-import com.inxedu.os.service.website.WebsiteProfileService;
+import com.inxedu.os.edu.constants.enums.WebSiteProfileType;
+import com.inxedu.os.edu.entity.website.WebsiteImages;
+import com.inxedu.os.edu.service.website.WebsiteImagesService;
+import com.inxedu.os.edu.service.website.WebsiteNavigateService;
+import com.inxedu.os.edu.service.website.WebsiteProfileService;
 
 /**
  * 网站配置管理拦截器
+ * @author www.inxedu.com
  */
 public class LimitIntercepterForWebsite extends HandlerInterceptorAdapter{
 	 //logger

@@ -17,13 +17,13 @@ import com.google.gson.Gson;
 import com.inxedu.os.common.constants.CacheConstans;
 import com.inxedu.os.common.util.SingletonLoginUtils;
 import com.inxedu.os.common.util.WebUtils;
-import com.inxedu.os.entity.system.SysFunction;
-import com.inxedu.os.entity.system.SysUser;
-import com.inxedu.os.service.system.SysFunctionService;
+import com.inxedu.os.edu.entity.system.SysFunction;
+import com.inxedu.os.edu.entity.system.SysUser;
+import com.inxedu.os.edu.service.system.SysFunctionService;
 
 /**
  * 后台用户登录与权限拦截器
- *
+ *@author www.inxedu.com
  */
 public class IntercepterAdmin extends HandlerInterceptorAdapter{
 	@Autowired

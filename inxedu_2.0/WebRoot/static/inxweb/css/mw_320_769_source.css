@@ -332,12 +332,6 @@ html.active .in-wrap {
 	margin: 0
 }
 
-.c-infor-tabTitle.c-tab-title a {
-	font-size: .88rem;
-	margin: 0;
-	padding: 0 5px
-}
-
 .c-attr-mt .c-btn-3 {
 	width: 100px;
 	font-size: 18px
@@ -390,15 +384,6 @@ html.active .in-wrap {
 
 .q-tip-pic.col-3 {
 	width: 30%
-}
-
-.u-ol-pic {
-	width: 100px;
-	margin-right: 5px
-}
-
-.u-ol-pic img {
-	margin-left: -10px
 }
 
 .q-c-list dl {
@@ -902,6 +887,10 @@ html.active .in-wrap {
 	padding: 0 5px
 }
 
+.c-infor-tabTitle.cnew-tab-title a {
+	font-size:0.74rem
+}
+
 .c-attr-mt .c-btn-3 {
 	width: 100px;
 	font-size: 18px
@@ -961,9 +950,6 @@ html.active .in-wrap {
 	margin-right: 5px
 }
 
-.u-ol-pic img {
-	margin-left: -10px
-}
 
 .q-c-list dl {
 	padding-left: 64px
@@ -1124,3 +1110,5 @@ html.active .in-wrap {
 	position: relative;
 	margin: 10px 0 20px
 }
+
+.js-tap li a { padding:0 15px;}

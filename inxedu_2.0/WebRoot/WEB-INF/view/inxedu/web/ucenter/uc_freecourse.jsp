@@ -38,7 +38,7 @@
 														<img src="<%=staticImage%>${course.logo}" class="img-responsive" alt="${course.courseName}" />
 													</c:when>
 													<c:otherwise>
-														<img src="${ctx}/static/web/images/shopDefaultImage.png" class="img-responsive" alt="${course.courseName}" />
+														<img src="${ctx}/static/inxweb/img/default-img.gif" class="img-responsive" alt="${course.courseName}" />
 													</c:otherwise>
 												</c:choose>
 												<div class="cc-mask">
@@ -48,6 +48,14 @@
 											<h3 class="hLh30 txtOf mt10">
 												<a href="${ctx}/uc/play/${course.courseId}" title="${course.courseName}" class="course-title fsize18 c-333">${course.courseName}</a>
 											</h3>
+											<section class="mt10 of">
+												<div class="time-bar-wrap">
+													<div class="lev-num-wrap" title="已学${course.studyPercent}%">
+														<aside class='lev-num-bar <c:if test="${course.studyPercent>=100}">bg-orange</c:if> <c:if test="${course.studyPercent<100}">bg-green</c:if>' style="width: ${course.studyPercent}%;"></aside>
+														<span class="lev-num"><big>${course.studyPercent}%</big>/<small>100%</small></span>
+													</div>
+												</div>
+											</section>
 										</div>
 									</li>
 								</c:forEach>

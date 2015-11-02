@@ -11,6 +11,10 @@ import org.springframework.common.entity.PageEntity;
 import org.springframework.common.entity.PageOL;
 import org.springframework.stereotype.Repository;
 
+/**
+ * @author www.inxedu.com
+ *
+ */
 @Repository("genericDao")
 public abstract class GenericDaoImpl implements GenericDao {
 	public SqlSession sqlSession;

@@ -22,7 +22,6 @@ function showUserInfo() {
 			useImg = imagesPath + useImg;
 		}
 		$("#userName").text(showName);
-		$("#is-login-one,#is-login-two").show();
 		$(".userImgPhoto").attr("src", useImg);
 		$(".userImgPhoto").attr("alt", showName);
 		$(".userNameClass").html(showName);
@@ -32,7 +31,7 @@ function showUserInfo() {
 		// 头部显示
 		$("#userName").text(showName);
 		$("#userName").attr('title', showName);
-		$("#is-login-one,#is-login-two").show();
+		$("#is-login-one,#is-login-two,#mobileExitDiv").show();
 		$(".picImg").attr("src", useImg);
 	} else {
 		$("#no-login").show();

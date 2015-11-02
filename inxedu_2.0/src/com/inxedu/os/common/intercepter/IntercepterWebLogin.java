@@ -7,11 +7,11 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.inxedu.os.common.util.SingletonLoginUtils;
-import com.inxedu.os.entity.user.User;
+import com.inxedu.os.edu.entity.user.User;
 
 /**
  * 前台用户登录拦截器
- *
+ * @author www.inxedu.com
  */
 public class IntercepterWebLogin extends HandlerInterceptorAdapter{
 

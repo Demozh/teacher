@@ -37,7 +37,7 @@
 															<img src="<%=staticImage%>${course.logo}" class="img-responsive" alt="${course.courseName}" />
 														</c:when>
 														<c:otherwise>
-															<img src="${ctx}/static/web/images/shopDefaultImage.png" class="img-responsive" alt="${course.courseName}" />
+															<img src="${ctx}/static/inxweb/img/default-img.gif" class="img-responsive" alt="${course.courseName}" />
 														</c:otherwise>
 													</c:choose>
 													<div class="cc-mask">
