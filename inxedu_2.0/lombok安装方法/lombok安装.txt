@@ -1,7 +1,0 @@
-lombok 的官方网址：http://projectlombok.org/  
-	lombok 安装
-	    1. 将 lombok.jar 复制到 myeclipse.ini / eclipse.ini 所在的文件夹目录下
-	    2. 打开 eclipse.ini / myeclipse.ini，在最后面插入以下两行并保存：
-		-Xbootclasspath/a:lombok.jar
-		-javaagent:lombok.jar
-	    3.重启 eclipse / myeclipse
