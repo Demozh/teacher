@@ -69,9 +69,10 @@
 							<tr class="odd">
 								<td align="center">${type.typeId}</td>
 								<td align="center">${type.typeName}</td>
-								<td align="center">
+								<td align="center" width="217px">
 									<a href="javascript:void(0)" onclick="deleteType(${type.typeId})" class="button tooltip">删除</a>
 									<a href="javascript:void(0)" onclick="updateType(${type.typeId},this)" class="button tooltip">修改名称</a>
+									<a href="${ctx}/admin/website/imagesPage?websiteImages.typeId=${type.typeId}" class="button tooltip">查看广告图</a>
 								</td>
 							</tr>
 						</c:forEach>

@@ -69,15 +69,26 @@
 						<section class="c-attr-mt">
 							<c:choose>
 								<c:when test="${isok==false && course.currentPrice>0}">
-									<a href="javascript:void(0)" title="购买" class="comm-btn c-btn-3" onclick="buy('${course.courseId}')">购买课程</a>
+									<a href="javascript:void(0)" id="cou-shopcar" title="购买" class="comm-btn c-btn-3" onclick="buy('${course.courseId}')">购买课程</a>
 								</c:when>
 								<c:otherwise>
-									<a href="javascript:void(0)" title="立即观看" onclick="if(isLogin()){ window.location.href='/uc/play/${course.courseId }'} else{lrFun();} " class="comm-btn c-btn-3">立即观看</a>
+									<a href="javascript:void(0)" id="cou-shopcar" title="立即观看" onclick="if(isLogin()){ window.location.href='/uc/play/${course.courseId }'} else{lrFun();} " class="comm-btn c-btn-3">立即观看</a>
 								</c:otherwise>
 							</c:choose>
-							<span class="ml10"><tt class="c-yellow f-fM">*咨询 ${websitemap.web.phone}</tt></span>
+							<section class="ml15 c-shop-car-wrap disIb">
+								<a class=" c-fff f-fM btnCart" id="cou-shopcar">加入购物车</a>
+								<div class="fly_item" id="flyItem">
+				                    <img width="50" height="50" src="/static/inxweb/img/avatar-boy.gif">
+				                </div>
+							</section>
 						</section>
-						<section class="c-attr-mt of ml10">
+						<section class="c-attr-mt of ml5">
+							<c:if test="${isFavorites==true }">
+								<span class="ml20 vam sc-end "><em class="icon18 scIcon"></em><a class="c-fff vam" title="收藏" onclick="" href="javascript:void(0)">已收藏</a></span>
+							</c:if>
+							<c:if test="${isFavorites!=true }">
+								<span class="ml20 vam"><em class="icon18 scIcon"></em><a class="c-fff vam" title="收藏" onclick="favorites(${course.courseId},this)" href="javascript:void(0)">收藏</a></span>
+							</c:if>
 							<section class="kcShare pr fl hand vam">
 								<tt>
 									<em class="icon18 shareIcon"></em><span class="vam c-fff f-fM">分享</span>
@@ -85,16 +96,6 @@
 								<div id="bdshare" class="bdsharebuttonbox"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a></div>
 								<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 							</section>
-							<%-- <span class="ml20 vam"><em class="icon18 scIcon"></em>
-							<a class="c-fff" title="收藏" onclick="favorites('${course.courseId}')" href="javascript:void(0)">收藏</a></span>
-							 <span class="ml20 vam sc-end"><em class="icon18 scIcon"></em>
-							<a class="c-fff" title="收藏" onclick="" href="javascript:void(0)">已收藏</a></span> --%>
-							<c:if test="${isFavorites==true }">
-										<span class="ml10 vam sc-end"><em class="icon18 scIcon"></em><a class="c-fff vam" title="收藏" onclick="" href="javascript:void(0)">已收藏</a></span>
-									</c:if>
-									<c:if test="${isFavorites!=true }">
-										<span class="ml10 vam"><em class="icon18 scIcon"></em><a class="c-fff vam" title="收藏" onclick="favorites(${course.courseId},this)" href="javascript:void(0)">收藏</a></span>
-									</c:if>
 						</section>
 					</section>
 				</aside>
@@ -324,6 +325,7 @@
 	<%-- <script type="text/javascript" src="${ctx}/static/common/jquery-1.11.1.min.js"></script> --%>
 	<script type="text/javascript" src="${ctx}/static/inxweb/front/courseInfo.js"></script>
 	<script type="text/javascript" src="${ctx}/static/inxweb/comment/comment.js"></script>
+	<script type="text/javascript" src="${ctx}/static/inxweb/js/parabola.js"></script>
 	<script>
 		//评论课程id
 		var otherId = '${course.courseId}';
@@ -345,6 +347,7 @@
 		    ctbodyFun();
 		  	//课程封面图适配尺寸
 		    cvPic();
+		    cShopcar();//购物车飞入效果
 		});
 		//课程详情收起展开
 		var ctbodyFun = function() {
@@ -370,6 +373,39 @@
 			$(".c-v-pic-wrap").css("height" , $(".c-v-pic").height());
 		}
 		window.onresize = function() {cvPic();};
+		var cShopcar=function(){
+            // 元素以及其他一些变量
+            var eleFlyElement = document.querySelector("#flyItem"), eleShopCart = document.querySelector("#shopCart");
+            var numberItem = 0;
+            // 抛物线运动
+            var myParabola = funParabola(eleFlyElement, eleShopCart, {
+                speed: 400, //抛物线速度
+                curvature: 0.0008, //控制抛物线弧度
+                complete: function() {
+                    eleFlyElement.style.visibility = "hidden";
+                    eleShopCart.querySelector("tt").innerHTML = ++numberItem;
+                }
+            });
+            // 绑定点击事件
+            if (eleFlyElement && eleShopCart) {
+
+                [].slice.call(document.getElementsByClassName("btnCart")).forEach(function(button) {
+                    button.addEventListener("click", function(event) {
+                        var src = $(this).parent().parent().parent().parent().siblings(".c-v-pic-wrap").find('.p-h-video-box').find("img").attr("src");
+                        $("#flyItem").find("img").attr("src", src);
+                        // 滚动大小
+                        var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+                                scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0;
+                        eleFlyElement.style.left = event.clientX + scrollLeft + "px";
+                        eleFlyElement.style.top = event.clientY + scrollTop + "px";
+                        eleFlyElement.style.visibility = "visible";
+
+                        // 需要重定位
+                        myParabola.position().move();
+                    });
+                });
+            }
+		}
 	</script>
 </body>
 </html>

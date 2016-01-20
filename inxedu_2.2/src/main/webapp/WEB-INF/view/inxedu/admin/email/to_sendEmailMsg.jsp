@@ -35,7 +35,7 @@
                 timeFormat: 'HH:mm:ss',
                 timeFormat: 'HH:mm:ss'
             });
-            initKindEditor_addblog('message', 580, 350,'courseContxt','true');
+            initKindEditor_addblog('message', 720, 300,'email','true');
         });
 
         function sendmessage() {
@@ -62,7 +62,7 @@
             var startTime = $("#startTime").val();
             var type = $("#type").val();
             $.ajax({
-                url: "${ctx}/admin/user/sendEmailMsg",
+                url: "${ctx}/admin/email/sendEmailMsg",
                 data: {
                     "linksman": sendLinkss,
                     "content": sendInfo,
@@ -74,18 +74,22 @@
                 async: false,
                 dataType: "json",  //返回json数据
                 success: function (result) {
-                    if (result.message == '发送成功'&&type==1) {
-                        window.location.href = "/admin/email/progressbar?type=1";
+                    if (result.message == '发送成功') {
+                    	if(type==1){
+                    		window.location.href = "/admin/email/progressbar?type=1";
+                    	}else if(type==2){
+                    		window.location.href = "/admin/email/sendEmaillist";
+                    	}
                     } else {
                         alert(result.message);
-                        window.location.href = "/admin/email/sendEmaillist";
+                        return;
                     }
                 }
             });
         }
         //选择用户邮箱号
         function showNewwin() {
-            window.open('${ctx}/admin/email/select_userlist', 'newwindow', 'toolbar=no,scrollbars=yes,location=no,resizable=no,top=200,left=300,width=800,height=600');
+            window.open('${ctx}/admin/user/select_userlist/2', 'newwindow', 'toolbar=no,scrollbars=yes,location=no,resizable=no,top=200,left=300,width=800,height=600');
         }
         //显示 去重
         function addnewUserId(newUserPhoneArr) {
@@ -128,7 +132,7 @@
 	            $(this).ajaxSubmit({  
 	                type:"post",  //提交方式  
 	                dataType:"json", //数据类型  
-	                url:"${ctx}/admin/email/importMsgExcel", //请求url  
+	                url:"${ctx}/admin/email/importMsgExcel/2", //请求url  
 	                success:function(result){ //提交成功的回调函数  
 	                	if(result.success==true){
 	                		alert("导入成功");
@@ -146,20 +150,21 @@
 </head>
 <body>
 <div class="pad20" style="background-color: #f0f0f0;">
-		<form action="/admin/user/importMsgExcel/" method="post" id="importP" enctype="multipart/form-data">
+		<form action="/admin/email/importMsgExcel/2" method="post" id="importP" enctype="multipart/form-data">
 			<table style="line-height: 35px;">
 					<tr>
-						<td><font color="red">*</font>添加联系人</td>
+						<td width="77px;"><font color="red">*</font>添加联系人：</td>
 						<td>
 							<textarea name="numerStr" style="height: 80px;" id="pepole"></textarea>
 						</td>
 						<td>
-							<input onclick="showNewwin()" class="button" type="button" value="添 加" />
+							<input onclick="showNewwin()" class="button" type="button" value="添加" />
 							<font color="red">
-							批量导入&nbsp;&nbsp;&nbsp;&nbsp;<a href="/static/common/admin/masterplate/email.xls">示例模版</a><br />
+							批量导入&nbsp;&nbsp;&nbsp;&nbsp;<br />
 							1、必须是excel格式,详情请参照模版sheet1<br/>
 							2、格式不能有误<br/>
 							3、记录要挨着输入，不能有空行<br/>
+							4、导入excel批量导入<a href="/static/common/admin/masterplate/email.xls">示例模版</a>下载
 							</font>
 							<input id="myFile" type="file" value="" name="myFile" />
 							<input type="button" value="提交" class="button"  onclick="importExcel()"/>
@@ -180,21 +185,21 @@
 						</td>
 					</tr>
 					<tr>
-						<td align="center"><font color="red">*</font>&nbsp;邮箱标题</td>
+						<td align="center"><font color="red">*</font>&nbsp;邮箱标题：</td>
 						<td>
 							<input name="" type="text" id="title" />
 						</td>
 						<td>&nbsp;</td>
 					</tr>
 					<tr>
-						<td align="center"><font color="red">*</font>&nbsp;正文内容</td>
+						<td align="center"><font color="red">*</font>&nbsp;正文内容：</td>
 						<td>
 							<textarea name="" style="width: 80%;height: 98px;" id="message"></textarea>
 						</td>
 						<td>&nbsp;</td>
 					</tr>
                     <tr>
-                        <td align="center"><font color="red">*</font>邮箱类型</td>
+                        <td align="center"><font color="red">*</font>邮箱类型：</td>
                         <td>
                             <select name="type" id="type">
                                 <option value="1">正常</option>
@@ -203,8 +208,8 @@
                         </td>
                         <td>&nbsp;</td>
                     </tr>
-                    <tr class="undis" id="sendtime">
-                        <td align="center"><font color="red">*</font>发送时间</td>
+                    <tr style="display: none;" id="sendtime">
+                        <td align="center"><font color="red">*</font>发送时间：</td>
                         <td>
                             <input type="text" class="" readonly="readonly" value="" id="startTime" name=""/>
                         </td>
@@ -215,14 +220,6 @@
 							<input onclick="sendmessage()" class="button" type="button" value="发 送" />
 						</td>
 					</tr>
-					<%-- <tr>
-						<td colspan="2">
-							 <c:if test="${userEmailMsg.type==2&&userEmailMsg.status==2}">
-								<input onclick="update()" class="button" type="button" value="修 改" />
-							 </c:if>
-							<input onclick="history.go(-1);" class="button" type="button" value="返回" />	
-						</td>
-					</tr> --%>
 			</table>
 		</form>
 	</div>

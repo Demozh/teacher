@@ -11,7 +11,7 @@ function submitForm(type,keyWord){
 	}else if(type==3){
 		$("input[name='queryCourse.order']").val(keyWord);
 	}else if(type==4){
-		if(keyWord=='ONE'||keyWord=='NEW'||keyWord=='FOLLOW'){
+		if(keyWord=='ONE'||keyWord=='NEW'||keyWord=='FOLLOW'||keyWord=='FREE'){
 			$("input[name='queryCourse.order']").val('DESCENDING');
 		}else if(keyWord=='DESCENDING'){
 			$("input[name='queryCourse.order']").val('ASCENDING');

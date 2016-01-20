@@ -2,6 +2,7 @@ package com.inxedu.os.edu.service.email;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.common.entity.PageEntity;
 
@@ -39,7 +40,32 @@ public interface UserEmailMsgService {
 	public void addUserEmailMsg(List<UserEmailMsg> userEmailMsgList);
 	
 	/**
+     * 更新 UserEmailMsg
+     */
+    public void updateUserEmailMsgById(UserEmailMsg userEmailMsg);
+    
+    /**
+     * 删除发送邮件记录
+     */
+    public void delUserEmailMsgById(Long id);
+    
+    /**
+     * 发送邮件和短信定时service
+     */
+    public void queryTimingSendEmailMsg()throws Exception;
+	
+	/**
      * 起四个线程批量发送邮件
      */
     public void batchSendEmail(java.lang.String[] mailto, java.lang.String text, java.lang.String title,int num);
+    
+    /**
+	 * 验证邮箱格式 去重
+	 */
+	public Map<String, Object> checkEmail(String emailStr);
+	
+	/**
+	 * 验证手机格式 去掉重复的方法
+	 */
+	public Map<String, Object> checkMobile(String mobileArr);
 }

@@ -514,6 +514,7 @@ public class UserController extends BaseController{
 		try{
 			String account = request.getParameter("account");
 			String password = request.getParameter("password");
+			String ipForget = request.getParameter("ipForget");
 			if(!StringUtils.isNotEmpty(account)){
 				json = this.setJson(false, "请输入登录帐号", null);
 				return json;
@@ -539,13 +540,20 @@ public class UserController extends BaseController{
 			//当前时间戳
 			Long currentTimestamp=System.currentTimeMillis();
 			user.setLoginTimeStamp(currentTimestamp);
-			//缓存用户
-			EHCacheUtil.set(uuid, user,CacheConstans.USER_TIME);
-			//缓存用户的登录时间
-			EHCacheUtil.set(CacheConstans.USER_CURRENT_LOGINTIME+user.getUserId(), currentTimestamp.toString(), CacheConstans.USER_TIME);
 
-			//request.getSession().setAttribute(CacheConstans.WEB_USER_LOGIN_PREFIX+user.getUserId(), user);
-			WebUtils.setCookie(response, CacheConstans.WEB_USER_LOGIN_PREFIX, uuid, 1);
+			if("true".equals(ipForget)){
+				//缓存用户
+				EHCacheUtil.set(uuid, user,CacheConstans.USER_TIME);
+				//缓存用户的登录时间
+				EHCacheUtil.set(CacheConstans.USER_CURRENT_LOGINTIME+user.getUserId(), currentTimestamp.toString(), CacheConstans.USER_TIME);
+				WebUtils.setCookie(response, CacheConstans.WEB_USER_LOGIN_PREFIX, uuid, (CacheConstans.USER_TIME/60/60/24));
+			}else{
+				//缓存用户
+				EHCacheUtil.set(uuid, user,86400);
+				//缓存用户的登录时间
+				EHCacheUtil.set(CacheConstans.USER_CURRENT_LOGINTIME+user.getUserId(), currentTimestamp.toString(), 86400);
+				WebUtils.setCookie(response, CacheConstans.WEB_USER_LOGIN_PREFIX, uuid, 1);
+			}
 			
 			UserLoginLog loginLog =new UserLoginLog();
 			loginLog.setIp(WebUtils.getIpAddr(request));

@@ -1,17 +1,19 @@
 package com.inxedu.os.edu.entity.order;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.springframework.common.util.DateUtils;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-
-import org.springframework.common.util.DateUtils;
-import lombok.Data;
 
 /**
  * 课程订单
  * @author www.inxedu.com
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class Order implements Serializable{
 	private static final long serialVersionUID = 7687324559966427231L;
 	/**订单ID*/

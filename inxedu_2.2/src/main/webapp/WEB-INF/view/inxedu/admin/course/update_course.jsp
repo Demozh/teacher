@@ -167,7 +167,13 @@
 						<textarea name="course.context" id="content" data-rule="required;">${course.context}</textarea>
 					</td>
 				</tr>
-
+				<tr>
+					<td>序号:</td>
+					<td style="text-align: left;">
+						<input name="course.sequence" data-rule="required;integer[+0]" value="${course.sequence}" type="text" style="width: 140px;" />
+						<span><font color="red">以降序排列</font></span>
+					</td>
+				</tr>
 				<tr>
 					<td colspan="2" align="center">
 						<input onclick="saveCourse()" class="button" type="button" value="保存" />

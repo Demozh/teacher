@@ -14,7 +14,7 @@ $(function(){
 	  $( "#startDate,#endDate" ).datepicker(
 		{regional:"zh-CN",
 		changeMonth: true,
-		dateFormat:"yy-mm-dd "
+		dateFormat:"yy-mm-dd"
 		});
 	
 });
@@ -99,7 +99,7 @@ function clean(){
 						<td align="center" class="c_666 czBtn" align="center">
                         <a class="ml10 btn smallbtn btn-y" title="查看" href="${ctx}/admin/email/sendEmailMsgInfo/${msg.id }">查看</a>
                         <c:if test="${msg.type==2&&msg.status==2}">
-                        <a class="ml10 btn smallbtn btn-y" title="删除" href="${ctx}/admin/sendEmail/del?id=${msg.id }">删除</a>
+                        <a class="ml10 btn smallbtn btn-y" title="删除" href="${ctx}/admin/email/sendEmail/del?id=${msg.id }">删除</a>
                         </c:if>
 						</td>
 					</tr>

@@ -23,14 +23,14 @@ public class EmailServiceImpl implements EmailService{
 	private JavaMailsenderImpl javaMailsender;
 	private static final Log logger = LogFactory.getLog(EmailServiceImpl.class);
 
-	public void sendMail(String title,String context, String email) throws Exception {
+	public void sendMail(String mailto, String text, String title) throws Exception {
 	 	MimeMessage mimeMessage = this.javaMailsender.createMimeMessage();
 	    MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
 
 	    messageHelper.setFrom(new InternetAddress(this.javaMailsender.getUsername()));
 	    messageHelper.setSubject(title);
-	    messageHelper.setText(context, true);
-	    messageHelper.setTo(new InternetAddress(email));
+	    messageHelper.setText(text, true);
+	    messageHelper.setTo(new InternetAddress(mailto));
 	    mimeMessage = messageHelper.getMimeMessage();
 
 	    EmailThread et = new EmailThread(mimeMessage);

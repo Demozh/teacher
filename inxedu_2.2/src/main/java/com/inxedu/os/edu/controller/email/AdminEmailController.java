@@ -44,11 +44,11 @@ import com.inxedu.os.edu.entity.email.UserEmailMsg;
 import com.inxedu.os.edu.entity.system.SysUser;
 import com.inxedu.os.edu.entity.user.User;
 import com.inxedu.os.edu.service.email.EmailThread;
-import com.inxedu.os.edu.service.email.SmsBatchThread;
 import com.inxedu.os.edu.service.email.UserEmailMsgService;
-import com.inxedu.os.edu.service.user.UserService;
+import com.inxedu.os.edu.service.mobile.SmsBatchThread;
 
 /**
+ * 邮件
  * @author www.inxedu.com
  *
  */
@@ -58,16 +58,13 @@ public class AdminEmailController extends BaseController{
 	
 	private static Logger logger = LoggerFactory.getLogger(AdminUserController.class);
 	
-	private static final String sendEmailMsgList = getViewPath("/admin/email/sendEmail_list");// 短信管理页面
+	private static final String sendEmailMsgList = getViewPath("/admin/email/sendEmail_list");// 邮件管理页面
 	private static final String sendEmailMsgInfo = getViewPath("/admin/email/sendEmail_info");// 邮件管理页面
 	private static final String toSendEmailMsg = getViewPath("/admin/email/to_sendEmailMsg");// 发送邮件页面
-	private static final String toSelectUserList = getViewPath("/admin/email/select_user_list");// 短信发送
 	private static final String progressbar = getViewPath("/admin/email/progressbar");// 进度
 	
 	@Autowired
 	private UserEmailMsgService userEmailMsgService;
-	@Autowired
-	private UserService userService;
 	
 	@InitBinder("userEmailMsg")
 	public void initBinderEmail(WebDataBinder binder) {
@@ -105,6 +102,20 @@ public class AdminEmailController extends BaseController{
 	}
 	
 	/**
+	 * 删除发送邮件记录
+	 */
+	@RequestMapping("/email/sendEmail/del")
+	public String delSendEmailMsg(Model model, HttpServletRequest request, @RequestParam("id") Long id) {
+		try {
+			userEmailMsgService.delUserEmailMsgById(id);
+		} catch (Exception e) {
+			logger.error("delSendEmailMsg", e);
+		}
+		return "redirect:/admin/email/sendEmaillist";
+	}
+
+	
+	/**
 	 * 跳转发送邮件页面
 	 * 
 	 * @return
@@ -115,35 +126,11 @@ public class AdminEmailController extends BaseController{
 	}
 	
 	/**
-	 * 短信邮件发送 查询用户列表集合
-	 * 
-	 * @param user
-	 * @param page
-	 * @return
-	 */
-	@RequestMapping("/email/select_userlist")
-	public ModelAndView selectUserList(@ModelAttribute User user, @ModelAttribute("page") PageEntity page) {
-		ModelAndView modelandView = new ModelAndView();
-		// 设置返回页面
-		modelandView.setViewName(toSelectUserList);
-		try {
-			// 查询学员列表
-			List<User> list = userService.getUserListPage(user, page);
-			// 把参数放到modelAndView中
-			modelandView.addObject("list", list);
-			modelandView.addObject("page", page);
-		} catch (Exception e) {
-			logger.error("AdminUserController.userList", e);
-		}
-		return modelandView;
-	}
-	
-	/**
 	 * 导入Excel 解析
 	 */
-	@RequestMapping("/email/importMsgExcel")
+	@RequestMapping("/email/importMsgExcel/{type}")
 	@ResponseBody
-	public Map<String, Object> importExcel(HttpServletRequest request, @RequestParam("myFile") MultipartFile myFile) {
+	public Map<String, Object> importExcel(HttpServletRequest request, @RequestParam("myFile") MultipartFile myFile, @PathVariable("type") int type) {
 		Map<String, Object> json = null;
 		try {
 			logger.info("myFile:" + myFile.getName());
@@ -181,13 +168,22 @@ public class AdminEmailController extends BaseController{
 				mobileStr += request.getParameter("numerStr");
 			}
 			Map<String, Object> returnMap = null;
-			// 邮箱页面
-			returnMap = checkEmail(mobileStr);
-			if (Boolean.parseBoolean(returnMap.get("flag").toString()) == false) {
-				json = this.setJson(false, returnMap.get("errorMessage").toString(), "");
-				return json;
-			} else {
-				json = this.setJson(true, "", returnMap.get("returnList"));
+			if (type == 1) {// 短信页面
+				returnMap = userEmailMsgService.checkMobile(mobileStr);
+				if (Boolean.parseBoolean(returnMap.get("flag").toString()) == false) {
+					json = this.setJson(false, returnMap.get("errorMobile").toString(), "");
+					return json;
+				} else {
+					json = this.setJson(true, "", returnMap.get("mobileList"));
+				}
+			} else {// 邮箱页面
+				returnMap = userEmailMsgService.checkEmail(mobileStr);
+				if (Boolean.parseBoolean(returnMap.get("flag").toString()) == false) {
+					json = this.setJson(false, returnMap.get("errorMessage").toString(), "");
+					return json;
+				} else {
+					json = this.setJson(true, "", returnMap.get("returnList"));
+				}
 			}
 		} catch (Exception e) {
 			logger.error("importExcel", e);
@@ -198,54 +194,12 @@ public class AdminEmailController extends BaseController{
 	}
 	
 	/**
-	 * 验证邮箱格式 去重
-	 * 
-	 * @param emailStr
-	 */
-	public Map<String, Object> checkEmail(String emailStr) {
-		Map<String, Object> returnMap = new HashMap<String, Object>();
-		emailStr = emailStr.replaceAll("\r\n", "");// 去除空格回车
-		emailStr = emailStr.replaceAll(" ", "");// 去除空格回车
-		String[] lm = emailStr.split(",");// 定义数组
-
-		List list = new ArrayList();// new一个arralist
-		Set set = new HashSet();// new 一个hashset
-		set.addAll(Arrays.asList(lm));// 将数组转为list并存入set中，就可以去掉重复项了
-		for (Iterator it = set.iterator(); it.hasNext();) {
-			list.add(it.next());// 遍历set 将所有元素键入list中
-		}
-		String noRepeatList = list.toString();
-		noRepeatList = noRepeatList.replace("[", "");
-		noRepeatList = noRepeatList.replace("]", "");
-		noRepeatList = noRepeatList.replace(" ", "");
-		noRepeatList = noRepeatList.trim();
-
-		boolean flag = true;
-		String errorMessage = "";
-		String[] lms = noRepeatList.split(",");
-		if (lms.length > 0) {
-			for (int i = 0; i < lms.length; i++) {
-				if (!lms[i].trim().matches("^\\s*\\w+(?:\\.{0,1}[\\w-]+)*@[a-zA-Z0-9]+(?:[-.][a-zA-Z0-9]+)*\\.[a-zA-Z]+\\s*$")) {
-					flag = false;
-					errorMessage = lms[i] + "格式有误";
-					break;
-				}
-			}
-		}
-
-		returnMap.put("flag", flag);
-		returnMap.put("returnList", noRepeatList);
-		returnMap.put("errorMessage", errorMessage);
-		return returnMap;
-	}
-	
-	/**
 	 * 发送邮件
 	 * 
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping("/user/sendEmailMsg")
+	@RequestMapping("/email/sendEmailMsg")
 	@ResponseBody
 	public Map<String, Object> sendEmailMsg(HttpServletRequest request) {
 		Map<String, Object> json = null;
@@ -273,7 +227,7 @@ public class AdminEmailController extends BaseController{
 
 			if (StringUtils.isNotEmpty(linksman) && StringUtils.isNotEmpty(content) && StringUtils.isNotEmpty(title)) {
 				// 验证邮箱
-				Map<String, Object> returnMap = checkEmail(linksman);
+				Map<String, Object> returnMap = userEmailMsgService.checkEmail(linksman);
 				// 错误信息
 				String errorEmail = returnMap.get("errorMessage").toString();
 				if (Boolean.parseBoolean(returnMap.get("flag").toString()) == false) {
@@ -359,6 +313,34 @@ public class AdminEmailController extends BaseController{
 			}
 		} catch (Exception e) {
 			logger.error("queryprogressbar", e);
+		}
+		return json;
+	}
+	
+	/**
+	 * 修改未发送的邮件
+	 */
+	@RequestMapping("/email/sendEmailMsg/update")
+	@ResponseBody
+	public Object updateSendEmailMsgInfo(HttpServletRequest request, UserEmailMsg userEmailMsg) {
+		Map<String, Object> json = null;
+		try {
+			String sendTime = request.getParameter("sendTime");
+			if ("".equals(sendTime)) {
+				json = this.setJson(false, "请输入发送时间", "");
+				return json;
+			}
+			SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			Date sendtime = formatDate.parse(sendTime);
+			if (!sendtime.after(new Date())) {
+				json = this.setJson(false, "定时发送的时间要大于当前日期", "");
+				return json;
+			}
+
+			userEmailMsgService.updateUserEmailMsgById(userEmailMsg);
+			json = this.setJson(true, "成功", "");
+		} catch (Exception e) {
+			logger.error("querySendMobleMsgInfo", e);
 		}
 		return json;
 	}

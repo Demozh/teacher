@@ -2,7 +2,6 @@ package com.inxedu.os.edu.entity.system;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,6 +13,7 @@ import java.util.Date;
 
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class SysUser implements Serializable{
 	private static final long serialVersionUID = 1L;
 	

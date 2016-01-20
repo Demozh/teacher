@@ -63,6 +63,7 @@ public class AdminUserController extends BaseController{
 	private static final String senSystemMessages = getViewPath("/admin/user/to_send_systemMessage");// 发送系统消息页面
 	private static final String senSystemMessagesBatch = getViewPath("/admin/user/to_send_systemMessage_batch");// 发送系统消息页面
 	private static final String batchOpen = getViewPath("/admin/user/batchOpen");// 批量开通界面
+	private static final String toSelectUserList = getViewPath("/admin/user/select_user_list");// 短信发送
 	
 	@Autowired
 	private UserService userService;
@@ -457,6 +458,27 @@ public class AdminUserController extends BaseController{
 			json = this.setJson(false, "系统异常", null);
 		}
 		return json;
+	}
+	
+	/**
+	 * 用户选择页（小页面弹出）
+	 */
+	@RequestMapping("/select_userlist/{type}")
+	public ModelAndView selectUserList(@ModelAttribute User user, @ModelAttribute("page") PageEntity page, @PathVariable("type") int type) {
+		ModelAndView modelandView = new ModelAndView();
+		// 设置返回页面
+		modelandView.setViewName(toSelectUserList);
+		try {
+			// 查询学员列表
+			List<User> list = userService.getUserListPage(user, page);
+			// 把参数放到modelAndView中
+			modelandView.addObject("list", list);
+			modelandView.addObject("page", page);
+			modelandView.addObject("type", type);// 1 短信 2邮箱
+		} catch (Exception e) {
+			logger.error("AdminUserController.userList", e);
+		}
+		return modelandView;
 	}
 	
 }

@@ -1,7 +1,6 @@
 $(function() {
 	cssNavigation();
 	showUserInfo();
-	queryUnReadNum();// 查询未读消息
 });
 
 /**
@@ -33,6 +32,8 @@ function showUserInfo() {
 		$("#userName").attr('title', showName);
 		$("#is-login-one,#is-login-two,#mobileExitDiv").show();
 		$(".picImg").attr("src", useImg);
+
+		queryUnReadNum();// 查询未读消息
 	} else {
 		$("#no-login").show();
 	}

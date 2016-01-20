@@ -1,18 +1,19 @@
 package com.inxedu.os.edu.entity.questions;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import org.springframework.common.util.DateUtils;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-
-import org.springframework.common.util.DateUtils;
-
-import lombok.Data;
 
 /**
  * 问答
  * @author www.inxedu.com
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class Questions implements Serializable {
 	private static final long serialVersionUID = 7687324559966427231L;
     private Long id;// 主键

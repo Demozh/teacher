@@ -6,7 +6,8 @@ html,body {position: relative;height: 100%;overflow: hidden;}
 body {
 	background: #fff url('../assets/load-bg.jpg') 50% 50% no-repeat;
 	background-size: cover;
-	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
+	background-origin: padding-box;background-clip: border-box;filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/static/admin/assets/load-bg.jpg',sizingMethod='scale');
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ï¿½ï¿½ï¿½Åºï¿½","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 img {
@@ -75,7 +76,7 @@ p.main label {
 	text-align: center;
 	margin: -15px 0 30px;
 	padding-bottom: 15px;
-	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ï¿½ï¿½ï¿½Åºï¿½","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 p.main {
@@ -90,7 +91,7 @@ p.main INPUT {
 	padding: 5px;
 	float: left;
 	width: 200px;
-	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ï¿½ï¿½ï¿½Åºï¿½","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 p.main INPUT:focus {
@@ -99,7 +100,7 @@ p.main INPUT:focus {
 }
 
 p.main label {
-	font: 14px/20px "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;;
+	font: 14px/20px "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ï¿½ï¿½ï¿½Åºï¿½","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;;
 }
 
 p.main .yzm-pic {
@@ -121,7 +122,7 @@ input.login {
 	display: inline;
 	margin-right: 50px;
 	cursor: pointer;
-	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ï¿½ï¿½ï¿½Åºï¿½","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 input.login:hover {

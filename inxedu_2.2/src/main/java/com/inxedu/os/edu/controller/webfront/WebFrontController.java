@@ -9,6 +9,7 @@ import com.inxedu.os.common.controller.BaseController;
 import com.inxedu.os.edu.entity.common.Comment;
 import com.inxedu.os.edu.entity.course.CourseDto;
 import com.inxedu.os.edu.entity.course.QueryCourse;
+import com.inxedu.os.edu.entity.help.HelpMenu;
 import com.inxedu.os.edu.entity.order.Order;
 import com.inxedu.os.edu.entity.teacher.QueryTeacher;
 import com.inxedu.os.edu.entity.teacher.Teacher;
@@ -17,10 +18,10 @@ import com.inxedu.os.edu.entity.user.WebLoginUser;
 import com.inxedu.os.edu.entity.website.WebsiteImages;
 import com.inxedu.os.edu.service.comment.CommentService;
 import com.inxedu.os.edu.service.course.CourseService;
+import com.inxedu.os.edu.service.help.HelpMenuService;
 import com.inxedu.os.edu.service.order.OrderService;
 import com.inxedu.os.edu.service.teacher.TeacherService;
 import com.inxedu.os.edu.service.website.WebsiteImagesService;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,8 @@ public class WebFrontController extends BaseController {
 	private static String getIndexpage = getViewPath("/web/front/index");
 	private static String huanyihuan = getViewPath("/web/front/ajax-course-recommend");
 	private static String bna = getViewPath("/web/front/ajax-course-bna");
+	//帮助中心
+	private static String getHelpCenter = getViewPath("/web/front/helpCenter");
 	//学员动态
 	private static String studentDynamic = getViewPath("/web/front/ajax-student-dynamic");
 	//忘记密码
@@ -69,6 +72,8 @@ public class WebFrontController extends BaseController {
 	private OrderService orderService;
 	@Autowired
 	private CommentService commentService;
+	@Autowired
+	private HelpMenuService helpMenuService;
 	
 	/**
 	 * 首页获取网站首页数据
@@ -279,4 +284,49 @@ public class WebFrontController extends BaseController {
 		
 		return json;
     }
+
+
+	/**
+	 * 帮助中心
+	 *
+	 * @param request
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/front/helpCenter")
+	public String getHelpCenter(HttpServletRequest request, Model model) {
+		try {
+			// 右侧显示内容的二级菜单id
+			String id = request.getParameter("id");
+			// 帮助中心菜单集合，不含内容
+			List<List<HelpMenu>> helpMenus = helpMenuService.getHelpMenuAll();
+			model.addAttribute("helpMenus", helpMenus);
+
+			// 右侧显示内容
+			HelpMenu helpMenuContent = null;
+			if (id != null && !id.equals("")) {
+				helpMenuContent = helpMenuService.getHelpMenuById(Long.parseLong(id));
+			} else if (helpMenus.size() > 0 && helpMenus.get(0).get(1) != null) {
+				helpMenuContent = helpMenuService.getHelpMenuById(helpMenus.get(0).get(1).getId());
+			}
+			model.addAttribute("helpMenuContent", helpMenuContent);//显示的
+
+		} catch (Exception e) {
+			logger.error("WebFrontController.getHelpCenter", e);
+			return setExceptionRequest(request, e);
+		}
+		return getHelpCenter;
+	}
+    
+    /**
+	 * 跳转找回密码页面
+	 */
+	@RequestMapping("/front/youhuijuan")
+	public String youhuijuan(){
+		return getViewPath("/web/front/youhuijuan");
+	}
+	@RequestMapping("/front/placeOrder")
+	public String placeOrder(){
+		return getViewPath("/web/front/placeOrder");
+	}
 }

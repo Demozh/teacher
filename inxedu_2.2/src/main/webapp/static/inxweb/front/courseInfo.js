@@ -87,7 +87,7 @@ $(function(){
  */
 function shareShow() {
 	$(".kcShare").hover(function() {
-		$(this).stop().animate({"width" : "205px"}, 200);
+		$(this).stop().animate({"width" : "190px"}, 200);
 		$(this).siblings("span").css({"width" : "60px"});
 		$(this).children("#bdshare").stop().animate({"right" : "0"}, 200);
 	}, function() {

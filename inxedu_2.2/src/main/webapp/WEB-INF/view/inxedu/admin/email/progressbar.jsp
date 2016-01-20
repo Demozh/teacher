@@ -63,17 +63,17 @@
 
 <div class="mt20">
     <div class="commonWrap">
-        <table width="100%" cellspacing="0" cellpadding="0" border="0" class="commonTab01">
-            <caption>&nbsp;</caption>
+        <table style="line-height: 35px;" width="100%">
+           <!--  <caption>&nbsp;</caption>
             <thead>
             <tr>
-                <th colspan="3" align="left"><span>发送进度</span></th>
+                <th><span>发送进度</span></th>
             </tr>
             </thead>
-            <tbody>
+            <tbody> -->
             <tr>
-                <td width="20%"><font color="red">*</font>&nbsp;发送进度</td>
-                <td width="50%">
+                <td align="center" width="5%"><font color="red">*</font>&nbsp;发送进度</td>
+                <td width="30%">
                     <div id="progressbar"></div>
                     <span id="num"></span>
                 </td>
@@ -86,14 +86,14 @@
             <tr>
                 <td colspan="3" align="center">
                     <c:if test="${type==1}">
-                        <a href="/admin/user/sendEmaillist" title="返回" class="btn btn-danger">返回</a>
+                    	<input onclick="window.location.href='${ctx}/admin/email/sendEmaillist'" class="button" type="button" value="返回" />
                     </c:if>
                     <c:if test="${type==2}">
-                        <a href="/admin/user/sendMsglist" title="返回" class="btn btn-danger">返回</a>
+                    	<input onclick="window.location.href='${ctx}/admin/mobile/sendMsglist'" class="button" type="button" value="返回" />
                     </c:if>
                 </td>
             </tr>
-            </tbody>
+            <!-- </tbody> -->
         </table>
     </div>
 </div>

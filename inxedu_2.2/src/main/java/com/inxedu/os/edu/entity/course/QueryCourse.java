@@ -22,7 +22,7 @@ public class QueryCourse implements Serializable{
     private int teacherId;
     private int count;
     private String order;
-    private String isFree;//查询免费课程
+	private String isFree;//查询免费课程
     
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date beginCreateTime;//查询 开始添加时间

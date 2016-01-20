@@ -628,3 +628,5 @@ html.active .in-wrap {
 .i-q-txt p {height:40px;line-height:20px;}
 .cc-l-wrap section.mt10 {margin-top:5px;}
 .n-reply-wrap textarea {width: 94%;}
+#flyItem {display: none;}
+#cou-shopcar{width: 126px;height: 32px; line-height: 32px;}

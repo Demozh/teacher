@@ -143,6 +143,7 @@ a.current-2 .lh-p-icon {background-position: 0 -254px;}
 .r-fixed-ul li a em.r-f-icon-1 {background-position: -180px -55px;}
 .r-fixed-ul li a em.r-f-icon-2 {background-position: -180px -105px;}
 .r-fixed-ul li a em.r-f-icon-3 {background-position: -178px -155px;}
+.r-fixed-ul li a em.r-f-icon-4 {background-position: -183px -204px;}
 .open-o-c .o-c-icon,.open-o-c.o-c-btn a:hover .o-c-icon {background-position: -142px -131px;}
 .o-c-btn a:hover .o-c-icon {background-position: -142px -151px;}
 .lt-ie9.lt-ie8 .cc-mask,.lt-ie9 .cc-mask,.u-face-pic a {background: url(../img/black-mask.png) repeat 0 0;}
@@ -310,6 +311,9 @@ a.current-2 .lh-p-icon {background-position: 0 -254px;}
 .u-m-dd ul li ol li a {font-size: 14px;color: #777;}
 .u-m-dd ul li a:hover {text-decoration: none;}
 .u-r-cont {border-left: 1px dotted #ddd;padding-left: 40px;min-height: 820px;}
+.c-shop-car-wrap a { border: 1px solid #fc0;color: #fc0;text-align:center;border-radius: 20px;padding: 0 8px; display: inline-block;font: 18px/36px "Hiragino Sans GB","Microsoft YaHei","΢���ź�";height: 36px;cursor: pointer;position: relative;width: 140px;transition: all 0.3s ease 0s;}
+.c-shop-car-wrap a:hover { opacity:0.92;text-decoration: none;}
+.fly_item { border: 2px solid #888; border-radius: 100%;height: 48px; opacity: 0.9; overflow: hidden; position: absolute;visibility: hidden; width: 48px;}
 /*========== global login register ==========*/
 .lrWrap {width: 320px;}
 .d-s-head-tab {display: block;height: 40px;}
@@ -335,6 +339,7 @@ a.current-2 .lh-p-icon {background-position: 0 -254px;}
 .r-fixed-ul li a span {display: none;width: 32px;line-height: 22px;font-size: 14px;color: #fff;margin: 0 auto;}
 .r-fixed-ul li a:hover span,.r-fixed-ul li a:hover {display: block;text-decoration: none;}
 .r-fixed-ul li a:hover em {display: none;}
+.r-fixed-ul li a:hover em.r-f-icon-4 {display: block;}
 /*========== global footer ==========*/
 #footer {background-color: #323232;border-top-width: 5px;border-top-style: solid;color: #999;width: 100%;overflow: hidden;padding-top: 30px;}
 .flink-list li {float: left;margin: 15px 30px 0 0;}
@@ -347,6 +352,7 @@ a.current-2 .lh-p-icon {background-position: 0 -254px;}
 .gf-tx-ewm {position: absolute;left: 50%;top: 0;margin-left: -80px;opacity: 0;-moz-opacity: 0;filter:alpha(opacity=0);z-index: 3;transition: .3s;}
 .gf-tx-ewm img {display: block;width: 160px;height: 160px;}
 .gf-tx:hover .gf-tx-ewm {opacity: 1;-moz-opacity: 1;filter:alpha(opacity=100);top: -160px;} 
+.shop-car-num {position: absolute; left: 27px; top: 2px;color: #fff; font-size: 12px; font-family: "Georgia";width: 14px;height: 14px;display: inline-block; text-align: center; background-color: #f1c40f;border-radius: 8px;}
 /*========== article info xiugai ==========*/
 /*========== article info xiugai ==========*/
 .share-fir-icon,.share-sec-icon,.share-thr-icon { width:70px;height:70px;display:inline-block;vertical-align:middle;}
@@ -388,6 +394,7 @@ a.current-2 .lh-p-icon {background-position: 0 -254px;}
   .thr-attr-box {width: 120px;height: 346px;}
   .c-attr-wrap {width: 380px;height: 346px;}
   .u-course-list .comm-course-list li {width: 33.33%;}
+  #cou-shopcar {width: 120px; height: 28px;font-size: 14px;line-height: 28px;}
 }
 @media (min-width: 992px) and (max-width: 1199px) {
   .container {
@@ -402,6 +409,7 @@ a.current-2 .lh-p-icon {background-position: 0 -254px;}
   .thr-attr-box {width: 120px;height: 262px;}
   .c-attr-wrap {width: 380px;height: 262px;}
   .u-course-list .comm-course-list li {width: 33.33%;}
+  #cou-shopcar {width: 120px; height: 28px;font-size: 14px;line-height: 28px;}
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .container {
@@ -416,4 +424,5 @@ a.current-2 .lh-p-icon {background-position: 0 -254px;}
   .c-infor-box .col-7,.c-infor-box .col-3 {width: 100%;}
   .c-infor-box .col-7 {margin: 0 0 20px 0;}
   .c-infor-box .col-7 .mr30 {margin: 0;}
+  #cou-shopcar {width: 120px; height: 28px;font-size: 14px;line-height: 28px;}
 }

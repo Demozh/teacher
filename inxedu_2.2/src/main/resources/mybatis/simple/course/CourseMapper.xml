@@ -23,6 +23,7 @@
 	
 	<result property="loseType" column="LOSETYPE"/>
 	<result property="loseTime" column="LOSE_TIME"/>
+	<result property="sequence" column="SEQUENCE"/>
 	</resultMap>
 	
 	<resultMap type="CourseDto" id="CourseDtoResult" extends="CourseResult">
@@ -78,7 +79,8 @@
 	EDU_COURSE.PAGE_VIEWCOUNT,
 	EDU_COURSE.END_TIME,
 	EDU_COURSE.LOSETYPE,
-	EDU_COURSE.LOSE_TIME
+	EDU_COURSE.LOSE_TIME,
+	EDU_COURSE.SEQUENCE
 	</sql>
 	
 	<sql id="edu_course_properties">
@@ -99,7 +101,8 @@
 	#{pageViewcount},
 	#{endTime},
 	#{loseType},
-	#{loseTime}
+	#{loseTime},
+	#{sequence}
 	</sql>
 	
 	<insert id="createCourse" parameterType="Course" useGeneratedKeys="true" keyProperty="courseId" keyColumn="COURSE_ID">
@@ -135,6 +138,7 @@
 			AND <![CDATA[EDU_COURSE.ADD_TIME <= #{e.endCreateTime}]]>
 		</if>
 	</where>
+	ORDER BY EDU_COURSE.SEQUENCE DESC
 	<include refid="publicMapper.pageEnd"/>
 	</select>
 	<select id="queryCourseListPageCount" parameterType="java.util.Map" resultType="int">
@@ -163,7 +167,7 @@
 			AND <![CDATA[EDU_COURSE.ADD_TIME <= #{e.endCreateTime}]]>
 		</if>
 	</where>
-	</select>
+	</select> 
 	<!-- 分页查询课程，结束,后台专用-->
 	
 	<!-- 通过ID，查询课程数据 -->
@@ -188,7 +192,8 @@
 	EDU_COURSE.PAGE_VIEWCOUNT=#{pageViewcount},
 	EDU_COURSE.END_TIME=#{endTime},
 	EDU_COURSE.LOSETYPE=#{loseType},
-	EDU_COURSE.LOSE_TIME=#{loseTime}
+	EDU_COURSE.LOSE_TIME=#{loseTime},
+	EDU_COURSE.SEQUENCE=${sequence}
 	WHERE EDU_COURSE.COURSE_ID=#{courseId}
 	</update>
 	
@@ -253,6 +258,9 @@
 	<if test="e.isFree=='true'"><!-- 查询免费课程 -->
 	and EDU_COURSE.CURRENT_PRICE=0
 	</if>
+	<if test="e.order=='FREE'"><!-- 查询免费课程 -->
+	and EDU_COURSE.CURRENT_PRICE=0
+	</if>
 	</where>
 	<if test="e.order=='FOLLOW'">
 	ORDER BY EDU_COURSE.PAGE_VIEWCOUNT DESC
@@ -265,6 +273,9 @@
 	</if>
 	<if test="e.order=='DESCENDING'">
 	ORDER BY EDU_COURSE.CURRENT_PRICE DESC
+	</if>
+	<if test="e.order==null or e.order==''">
+	ORDER BY EDU_COURSE.SEQUENCE DESC
 	</if>
 	<include refid="publicMapper.pageEnd"/>
 	</select>
@@ -291,6 +302,9 @@
 	AND EDU_COURSE_TEACHER.TEACHER_ID=#{e.teacherId}
 	</if>
 	<if test="e.isFree=='true'"><!-- 查询免费课程 -->
+	and EDU_COURSE.CURRENT_PRICE=0
+	</if>
+	<if test="e.order=='FREE'"><!-- 查询免费课程 -->
 	and EDU_COURSE.CURRENT_PRICE=0
 	</if>
 	</where>
@@ -346,10 +360,21 @@
 	
 	<!-- 根据RecommendId查询推荐课程 -->
 	<select id="queryRecommenCourseListByRecommendId" resultMap="CourseDtoRecommenCourseResult" parameterType="map">
-	SELECT <include refid="edu_recommen_course_columns"/> FROM EDU_WEBSITE_COURSE_DETAIL
-	LEFT JOIN EDU_COURSE ON EDU_COURSE.COURSE_ID = EDU_WEBSITE_COURSE_DETAIL.COURSE_ID
-	WHERE EDU_COURSE.IS_AVALIABLE=1 AND EDU_WEBSITE_COURSE_DETAIL.RECOMMEND_ID=#{recommendId} AND EDU_COURSE.END_TIME>NOW()
-	ORDER BY RAND() 
+	SELECT 
+		<include refid="edu_recommen_course_columns"/> 
+	FROM 
+		EDU_WEBSITE_COURSE_DETAIL
+	LEFT JOIN 
+		EDU_COURSE 
+	ON 
+		EDU_COURSE.COURSE_ID = EDU_WEBSITE_COURSE_DETAIL.COURSE_ID
+	WHERE 
+		EDU_COURSE.IS_AVALIABLE=1 
+	AND 
+		EDU_WEBSITE_COURSE_DETAIL.RECOMMEND_ID=#{recommendId} 
+	AND 
+		EDU_COURSE.END_TIME>NOW()
+	ORDER BY RAND()
 	<if test="count>0 and count!=null">
 	LIMIT #{count}
 	</if>
@@ -368,7 +393,10 @@
 	ORDER BY EDU_COURSE.PAGE_VIEWCOUNT DESC
 	</if>
 	<if test="order=='NEW'">
-	ORDER BY EDU_COURSE.ADD_TIME DESC
+	ORDER BY EDU_COURSE.COURSE_ID DESC
+	</if>
+	<if test="order==null or order==''">
+	order by EDU_COURSE.SEQUENCE DESC
 	</if>
 	</select>
 </mapper>

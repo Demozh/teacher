@@ -19,31 +19,8 @@
                 timeFormat : 'HH:mm:ss',
                 timeFormat : 'HH:mm:ss'
             });
-        });
-
-        //加载编辑器
-        var editor;
-        KindEditor.ready(function(K) {
-            editor = K.create('textarea[id="content,textareaemail"]',{
-                resizeType : 1,
-                filterMode : false,//true时过滤HTML代码，false时允许输入任何代码。
-                allowPreviewEmoticons : false,
-                allowUpload : true,//允许上传
-                syncType : 'auto',
-                width : '720px',
-                minWidth : '10px',
-                minHeight : '10px',
-                height : '300px',
-                urlType : 'domain',//absolute
-                newlineTag : 'br',//回车换行br|p
-                uploadJson : '<%=keImageUploadUrl%>'+'&param=sendEmail',// 图片上传路径
-                allowFileManager : false,
-                afterBlur : function() {
-                    editor.sync();
-                },
-                afterChange : function() {
-                }
-            });
+            initKindEditor_addblog('content', 720, 300,'email','true');
+            initKindEditor_addblog('textareaemail', 720, 300,'email','true');
         });
 
         function update(){
@@ -59,12 +36,12 @@
                 return false;
             }
 
-            if(confirm('确定发送?')==false){
+            if(confirm('确定修改?')==false){
                 return false;
             }
             var startTime = $("#startTime").val();
             $.ajax({
-                url : "${ctx}/admin/user/sendEmailMsg/update",
+                url : "${ctx}/admin/email/sendEmailMsg/update",
                 data : {
                     "id" : '${userEmailMsg.id}',
                     "content" : content,
@@ -77,7 +54,7 @@
                 success:function (result){
                     alert(result.message);
                     if(result.message=='成功'){
-                        window.location.href="/admin/user/sendEmaillist";
+                        window.location.href="/admin/email/sendEmaillist";
                     }
                 }
             });
@@ -109,7 +86,7 @@
 		            </tr>
 		            <c:if test="${userEmailMsg.type==2}">
 		            <tr>
-		                <td><font color="red">*</font>&nbsp;定时发送时间：</td>
+		                <td width="93px;"><font color="red">*</font>&nbsp;定时发送时间：</td>
 		                <td>
 		                    <input type="text" class="" readonly="readonly" <c:if test="${userEmailMsg.status!=2&&userEmailMsg.type!=2 }">disabled="disabled"</c:if> value="<fmt:formatDate value="${userEmailMsg.sendTime}" type="both"/>" id="startTime" name=""/>
 		

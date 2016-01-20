@@ -1,15 +1,18 @@
 package com.inxedu.os.edu.entity.questions;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-import lombok.Data;
 /**
  * 问答评论
  *@author www.inxedu.com
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class QuestionsComment implements Serializable {
 	private static final long serialVersionUID = 7687324559966427231L;
     private Long id;// 主键自增

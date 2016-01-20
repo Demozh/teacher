@@ -60,6 +60,12 @@
 				<em class="r-f-icon-3">&nbsp;</em><span>返回顶部</span>
 			</a>
 		</li>
+		<li class="foot-zixun" id="shopCart">
+			<a href="" title="查看详情" class="bg-orange pr">
+				<em class="r-f-icon-4">&nbsp;</em><!-- <span>查看详情</span> -->
+				<tt class="shop-car-num">1</tt>
+			</a>
+		</li>
 		<li class="foot-zixun">
 			<a href="" title="在线咨询" class="bg-orange">
 				<em class="r-f-icon-1">&nbsp;</em><span>在线咨询</span>

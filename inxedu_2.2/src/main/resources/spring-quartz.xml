@@ -22,6 +22,26 @@
             <value>0 10 0 * * ?</value><!-- 每天0点10触发 -->
         </property>
     </bean>
+    
+    <!-- 邮箱每1分钟查询一次数据库进行发送邮箱 -->
+    <bean id="sendEmailMsg" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+        <property name="jobDetail">
+            <bean class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+                <property name="targetObject">
+                    <ref bean="userEmailMsgService" />
+                </property>
+                <property name="targetMethod">
+                    <value>queryTimingSendEmailMsg</value>
+                </property>
+                <property name="concurrent">
+                    <value>false</value>
+                </property>
+            </bean>
+        </property>
+        <property name="cronExpression">
+            <value>0 */1 * * * ?</value><!-- 每天的每分钟 -->
+        </property>
+    </bean>
 
 	<!-- 定时器配置 lazy-init='false'-->
     <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean"  lazy-init="false" autowire="no"> 
@@ -29,6 +49,8 @@
 			<list> 
                <!-- 统计数据每天晚上生成statisticsJob-->
                <ref bean="statisticsJob"/>
+               <!-- 定时发送邮件 -->
+               <ref bean="sendEmailMsg"/>
 			</list>
 		</property> 
 	</bean>

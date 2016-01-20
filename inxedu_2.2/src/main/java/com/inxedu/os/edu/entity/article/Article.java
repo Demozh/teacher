@@ -1,9 +1,10 @@
 package com.inxedu.os.edu.entity.article;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import java.io.Serializable;
 import java.util.Date;
-
-import lombok.Data;
 
 
 /**
@@ -11,6 +12,7 @@ import lombok.Data;
  * @author www.inxedu.com
  */
 @Data
+@EqualsAndHashCode(callSuper = false)
 public class Article implements Serializable{
 	private static final long serialVersionUID = -760228884438140694L;
 	/**文章ID*/

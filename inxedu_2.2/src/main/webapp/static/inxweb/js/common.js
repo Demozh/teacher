@@ -278,9 +278,9 @@ function addPraise(targetId,type,obj){
  * 查询未读消息
  */
 function queryUnReadNum(){
-	if(!isLogin()){
+	/*if(!isLogin()){
 		return;
-	}
+	}*/
 	$.ajax({
 		type : "POST",
 		dataType : "json",

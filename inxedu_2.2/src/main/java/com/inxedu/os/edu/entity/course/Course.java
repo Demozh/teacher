@@ -33,6 +33,7 @@ public class Course implements Serializable{
     private Date endTime;//有效结束时间
     private int loseType;//有效期类型，0：到期时间，1：按天数
     private String loseTime;//有效期:商品订单过期时间点
+    private int sequence;//序列
     
     private String studyPercent;//课程学习进度百分比
 }

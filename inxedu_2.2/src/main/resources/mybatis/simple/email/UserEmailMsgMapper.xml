@@ -106,4 +106,52 @@
 		left join sys_user on edu_emailsend_history.user_id =sys_user.user_id
 		where edu_emailsend_history.id=#{id}
 	</select>
+	
+	<!-- 修改未发送的邮箱记录 -->
+	<update id="updateUserEmailMsgById" parameterType="java.util.HashMap">
+        update edu_emailsend_history set
+        title = #{title},
+        content = #{content},
+        send_time = #{sendTime}
+        where id = #{id}
+    </update>
+    
+    <!-- 删除邮箱记录 -->
+    <delete id="delUserEmailMsgById" parameterType="java.util.HashMap">
+      delete from
+		edu_emailsend_history
+		where
+		id = #{value}
+    </delete>
+    
+    <!-- 按条件查询邮箱记录 -->
+    <select id="queryUserEmailList" parameterType="java.util.HashMap" resultMap="UserEmailMsgResult">
+        select
+        <include refid="edu_Emailsend_history_columns"/>,
+        sys_user.login_name
+        from edu_emailsend_history
+        left join sys_user on edu_emailsend_history.user_id =sys_user.user_id
+        <where>
+            <if test="email !=null and email !='' ">
+                edu_emailsend_history.email like CONCAT('%',#{e.email},'%')
+            </if>
+            <if test="type !=null and type !=0 ">
+               and edu_emailsend_history.type = #{type}
+            </if>
+            <if test="status !=null and status !=0 ">
+                and edu_emailsend_history.status = #{status}
+            </if>
+            <if test="sendTime !=null ">
+                <![CDATA[  and edu_emailsend_history.send_time < #{sendTime} ]]>
+            </if>
+        </where>
+    </select>
+    
+    <!-- 更新邮箱为已发送 -->
+    <update id="updateUserEmailStatus" parameterType="java.util.HashMap">
+         update edu_emailsend_history set
+         status = #{status}
+         where id = #{id}
+
+    </update>
 </mapper>
