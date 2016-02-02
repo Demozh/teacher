@@ -96,7 +96,7 @@ public class AppApiController extends BaseController {
 			String currentTime="/"+DateUtils.toString(new Date(), "yyyyMMdd")+"/"+System.currentTimeMillis();
 			filePath+=currentTime+"."+ext;
 			
-			File file = new File(CommonConstants.projectRootDir+filePath);
+			File file = new File(request.getSession().getServletContext().getRealPath("")+filePath);
 			//如果目录不存在，则创建
 			if(!file.getParentFile().exists()){
 				file.getParentFile().mkdirs();
@@ -110,13 +110,13 @@ public class AppApiController extends BaseController {
 			//生成图片保存路径
 			String outImagePath="/ppt/ppt_to_image"+currentTime;
 			
-			file = new File(CommonConstants.projectRootDir+outImagePath);
+			file = new File(request.getSession().getServletContext().getRealPath("")+outImagePath);
 			//如果目录不存在，则创建
 			if(!file.exists()){
 				file.mkdirs();
 			}
 			//ppt转图片
-			int resultImageSum=createPPTImage(CommonConstants.projectRootDir+filePath,CommonConstants.projectRootDir+outImagePath);
+			int resultImageSum=createPPTImage(request.getSession().getServletContext().getRealPath("")+filePath,request.getSession().getServletContext().getRealPath("")+outImagePath);
 			
 			//返回数据
 			return responseData(outImagePath,0,"上传成功",resultImageSum);

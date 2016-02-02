@@ -30,7 +30,7 @@ import com.inxedu.os.edu.service.user.UserService;
 /**
  * @author xiaokun
  * @ClassName msgReceiveServiceImpl
- * @package com.yizhilu.open.sns.service.impl.letter
+ * @package com.inxedu.open.sns.service.impl.letter
  * @description 站内信的实现
  * @Create Date: 2013-12-10 下午4:14:32
  * @author www.inxedu.com

@@ -9,7 +9,7 @@ import com.inxedu.os.edu.entity.letter.MsgSender;
 
 /**
  * @author : xiaokun
- * @ClassName com.yizhilu.os.sns.dao.letter.MsgSenderDao
+ * @ClassName com.inxedu.os.sns.dao.letter.MsgSenderDao
  * @description 站内信发件箱的Dao
  * @Create Date : 2014-1-26 下午1:58:49
  * @author www.inxedu.com

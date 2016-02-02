@@ -44,18 +44,6 @@ function drawCartogramLogin(days) {
 	        xAxis: {
 	        	categories : eval("(" + dateTime + ")")
 	        },
-        /*yAxis: {
-            title: {
-                text: null
-            },
-            plotLines: [{
-                value: 0,
-                width: 1,
-                color: '#808080'
-            }],
-            min:0
-        },*/
-
         yAxis: [{ // left y axis
             title: {
                 text: null
@@ -132,18 +120,6 @@ function drawCartogramRegistered(days) {
 	        xAxis: {
 	        	categories : eval("(" + dateTime + ")")
 	        },
-        /*yAxis: {
-            title: {
-                text: null
-            },
-            plotLines: [{
-                value: 0,
-                width: 1,
-                color: '#808080'
-            }],
-            min:0
-        },*/
-
         yAxis: [{ // left y axis
             title: {
                 text: null
@@ -282,6 +258,7 @@ function drawCartogramOrder(days) {
 
 //今天登录人数
 function logintoday(){
+	alert('${todayloginnum}');
  $('#container').highcharts({
         chart: {
             type: 'column'
@@ -440,15 +417,6 @@ function orderday(){
         },
         xAxis: {
         	categories: [ '订单数', '已支付订单数', '未支付订单数', '已取消订单数']
-            /* type: 'category',
-            labels: {
-                rotation: 0,
-                style: {
-                    fontSize: '13px',
-                    fontFamily: 'Verdana, sans-serif'
-                }
-            } */
-            
         },
         yAxis: {
             min: 0,
@@ -463,79 +431,6 @@ function orderday(){
             pointFormat: '今天订单数: <b>{point.y} 人</b>'
         },
         series: [{data: [orderNum, orderSuccessNum, orderInitNum,orderClosedNum]}]
-        	/* [{
-            name: 'orderNum',
-            data: [
-                ['订单数', orderNum]
-            ],
-            dataLabels: {
-                enabled: true,
-                rotation: -360,
-                color: '#FFFFFC',
-                align: 'right',
-                x: 4,
-                y: 10,
-                style: {
-                    fontSize: '13px',
-                    fontFamily: 'Verdana, sans-serif',
-                    textShadow: '0 0 3px black'
-                }
-            }
-        },{
-            name: 'orderSuccessNum',
-            data: [
-                ['已支付订单数', orderSuccessNum]
-            ],
-            dataLabels: {
-                enabled: true,
-                rotation: -360,
-                color: '#FFFFFB',
-                align: 'right',
-                x: 4,
-                y: 10,
-                style: {
-                    fontSize: '13px',
-                    fontFamily: 'Verdana, sans-serif',
-                    textShadow: '0 0 3px black'
-                }
-            }
-        },{
-            name: 'orderInitNum',
-            data: [
-                ['未支付订单数', orderInitNum]
-            ],
-            dataLabels: {
-                enabled: true,
-                rotation: -360,
-                color: '#FFFFFD',
-                align: 'right',
-                x: 4,
-                y: 10,
-                style: {
-                    fontSize: '13px',
-                    fontFamily: 'Verdana, sans-serif',
-                    textShadow: '0 0 3px black'
-                }
-            }
-        },{
-            name: 'orderClosedNum',
-            data: [
-                ['已取消订单数', orderClosedNum]
-            ],
-            dataLabels: {
-                enabled: true,
-                rotation: -360,
-                color: '#FFFFFE',
-                align: 'right',
-                x: 4,
-                y: 10,
-                style: {
-                    fontSize: '13px',
-                    fontFamily: 'Verdana, sans-serif',
-                    textShadow: '0 0 3px black'
-                }
-            }
-        }] */
     });
 }
 function xuanze(str){
@@ -621,6 +516,7 @@ function xuanze(str){
 			<b>订单数:</b> ${webCountMap.orderCount}&nbsp;
 			<b>已支付订单:</b> ${webCountMap.orderSuccessCount}&nbsp;
 			<b>未支付订单:</b> ${webCountMap.orderInitCount}&nbsp;
+			<b>视频数量:</b> ${webCountMap.videoCount}&nbsp;
 		</span>
 		<fieldset>
 			<legend>

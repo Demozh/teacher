@@ -118,7 +118,7 @@
 											</section>
 											<section class="i-q-txt">
 												<p>
-													<span class="c-999 f-fA"> ${comment.content} </span>
+													<span class="c-999 f-fA txtOf"> ${comment.content} </span>
 												</p>
 											</section>
 										</section>

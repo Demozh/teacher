@@ -63,7 +63,7 @@ public class ImageUploadController extends BaseController{
 			//获取文件路径
 			String filePath = getPath(request,ext,param);
 			
-			File file = new File(CommonConstants.projectRootDir+filePath);
+			File file = new File(request.getSession().getServletContext().getRealPath("")+filePath);
 			//如果目录不存在，则创建
 			if(!file.getParentFile().exists()){
 				file.getParentFile().mkdirs();
@@ -115,7 +115,7 @@ public class ImageUploadController extends BaseController{
 			//获取文件路径
 			String filePath = getPath(request,ext,param);
 			
-			File file = new File(CommonConstants.projectRootDir+filePath);
+			File file = new File(request.getSession().getServletContext().getRealPath("")+filePath);
 			//如果目录不存在，则创建
 			if(!file.getParentFile().exists()){
 				file.getParentFile().mkdirs();
@@ -150,7 +150,7 @@ public class ImageUploadController extends BaseController{
 			int imageHeight = Integer.parseInt(request.getParameter("txt_height"));
 			
 			//因页面显示关系，需要转换图片大小（转成现页面显示的图片大小）
-			FileUploadUtils.changeSize(CommonConstants.projectRootDir+photoPath,CommonConstants.projectRootDir+photoPath,imageWidth,imageHeight);
+			FileUploadUtils.changeSize(request.getSession().getServletContext().getRealPath("")+photoPath,request.getSession().getServletContext().getRealPath("")+photoPath,imageWidth,imageHeight);
 			
 			//选中区域距离顶部的大小
 			int cutTop = Integer.parseInt(request.getParameter("txt_top"));
@@ -164,10 +164,10 @@ public class ImageUploadController extends BaseController{
 			
 			String ext = FileUploadUtils.getSuffix(photoPath); 
 			String newPath = getPath(request,ext,"customer");
-			FileUploadUtils.cut(CommonConstants.projectRootDir+photoPath, CommonConstants.projectRootDir+newPath, cutLeft, cutTop, dropWidth, dropHeight);
+			FileUploadUtils.cut(request.getSession().getServletContext().getRealPath("")+photoPath, request.getSession().getServletContext().getRealPath("")+newPath, cutLeft, cutTop, dropWidth, dropHeight);
 			
 			//上传剪裁完成后，删除模板图片
-			File file = new File(CommonConstants.projectRootDir+photoPath);
+			File file = new File(request.getSession().getServletContext().getRealPath("")+photoPath);
 			if(file.exists()){
 				file.delete();
 			}
@@ -193,7 +193,7 @@ public class ImageUploadController extends BaseController{
 		Map<String,Object> json = new HashMap<String,Object>();
 		try{
 			if(filePath!=null && filePath.trim().length()>0 && filePath.startsWith("/images/upload/")){
-				File file = new File(CommonConstants.projectRootDir+filePath);
+				File file = new File(request.getSession().getServletContext().getRealPath("")+filePath);
 				if(file.exists()){
 					file.delete();
 					json = this.setJson(true, "文件删除成功", null);

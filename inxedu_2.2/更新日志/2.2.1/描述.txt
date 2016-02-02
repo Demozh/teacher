@@ -1,5 +1,4 @@
 ﻿edu_emailsend_history.sql	邮件管理
 edu_mobilesend_history.sql	短信管理
 edu_website_ehcache.sql		缓存管理
-edu_course.sql                  课程
-edu_help_menu.sql               帮助中心
+edu_course.sql                      课程

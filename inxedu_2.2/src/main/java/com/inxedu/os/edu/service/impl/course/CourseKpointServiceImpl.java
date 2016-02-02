@@ -66,5 +66,11 @@ public class CourseKpointServiceImpl implements CourseKpointService {
 	public int getSecondLevelKpointCount(Long courseId) {
 		return courseKpointDao.getSecondLevelKpointCount(courseId);
 	}
+
+
+	@Override
+	public Long getKpointCountByKpointType() {
+		return courseKpointDao.getKpointCountByKpointType();
+	}
     
 }

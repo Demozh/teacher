@@ -23,6 +23,7 @@ import com.inxedu.os.common.util.SingletonLoginUtils;
 import com.inxedu.os.edu.entity.system.SysFunction;
 import com.inxedu.os.edu.entity.system.SysUser;
 import com.inxedu.os.edu.service.article.ArticleService;
+import com.inxedu.os.edu.service.course.CourseKpointService;
 import com.inxedu.os.edu.service.course.CourseService;
 import com.inxedu.os.edu.service.order.OrderService;
 import com.inxedu.os.edu.service.questions.QuestionsService;
@@ -54,6 +55,8 @@ public class MainController extends BaseController{
 	private QuestionsService questionsService;
 	@Autowired
 	private OrderService orderService;
+	@Autowired
+	private CourseKpointService courseKpointService;
 	
 	private List<SysFunction> functionList =null;
 	/**
@@ -174,6 +177,9 @@ public class MainController extends BaseController{
 				//未支付订单数
 				int orderInitCount=orderService.queryOrderSuccessCount("INIT");
 				webCountMap.put("orderInitCount", orderInitCount);//所有未支付订单数
+				//所有视频数量
+				Long videoCount=courseKpointService.getKpointCountByKpointType();
+				webCountMap.put("videoCount", videoCount);
 				EHCacheUtil.set(CacheConstans.WEB_COUNT, webCountMap,CacheConstans.WEB_COUNT_TIME);
 				model.addObject("webCountMap",webCountMap);
 			}else{

@@ -1,6 +1,8 @@
 package com.inxedu.os.edu.entity.statistics;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -51,4 +53,20 @@ public class StatisticsDay implements Serializable{
      * 已取消的订单数
      */
     private Long orderClosedNum;
+    /**
+     * 营收额
+     */
+    private BigDecimal income;
+    /**
+     * 每日播放视频数
+     */
+    private Long videoViewingNum;
+    /**
+     * 每日用户数
+     */
+    private Long dailyUserNumber;
+    /**
+     * 每日课程数
+     */
+    private Long dailyCourseNumber;
 }

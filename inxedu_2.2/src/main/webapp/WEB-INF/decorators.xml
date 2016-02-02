@@ -16,6 +16,14 @@
 		<pattern>/zfbpay/*/*</pattern>
 		<pattern>/uc/play/*</pattern>
 		<pattern>/base1.jsp</pattern>
+		<pattern>/admin/statistics/login</pattern>
+		<pattern>/admin/statistics/registered</pattern>
+		<pattern>/admin/statistics/order</pattern>
+		<pattern>/admin/statistics/income</pattern>
+		<pattern>/admin/statistics/videoViewingNum</pattern>
+		<pattern>/admin/statistics/dailyUserNumber</pattern>
+		<pattern>/admin/statistics/dailyCourseNumber</pattern>
+		
 	</excludes>
 	<!-- 后台管理布局 -->
 	<decorator name="admindefault" page="admin/default.jsp">

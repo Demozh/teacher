@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * 用户短信消息
- * @ClassName  com.yizhilu.os.edu.entity.user.UserMobileMsg
+ * @ClassName  com.inxedu.os.edu.entity.user.UserMobileMsg
  * @description
  * @author : XuJunBao
  * @Create Date : 2014年9月21日 下午9:19:01

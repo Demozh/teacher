@@ -9,7 +9,7 @@ import com.inxedu.os.edu.entity.email.UserEmailMsg;
 
 /**
  * 
- * @ClassName com.yizhilu.os.edu.dao.user.UserEmailMsgDao
+ * @ClassName com.inxedu.os.edu.dao.user.UserEmailMsgDao
  * @description
  * @author : 
  * @Create Date : 2015年1月6日 下午

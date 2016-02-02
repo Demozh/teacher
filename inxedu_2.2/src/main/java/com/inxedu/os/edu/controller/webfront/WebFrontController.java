@@ -329,4 +329,9 @@ public class WebFrontController extends BaseController {
 	public String placeOrder(){
 		return getViewPath("/web/front/placeOrder");
 	}
+
+	@RequestMapping("/front/paySucess")
+	public String paySucess(){
+		return getViewPath("/web/front/paySucess");
+	}
 }

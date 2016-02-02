@@ -25,7 +25,7 @@ import com.inxedu.os.edu.service.mobile.UserMobileMsgService;
 
 /**
  * 
- * @ClassName  com.yizhilu.os.edu.service.impl.user.UserEmailMsgServiceImpl
+ * @ClassName  com.inxedu.os.edu.service.impl.user.UserEmailMsgServiceImpl
  * @description
  * @author : 
  * @Create Date : 2015年1月6日 下午

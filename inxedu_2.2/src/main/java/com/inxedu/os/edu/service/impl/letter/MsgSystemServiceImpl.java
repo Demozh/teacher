@@ -18,7 +18,7 @@ import com.inxedu.os.edu.service.user.UserService;
 
 /**
  * @author : xiaokun
- * @ClassName com.yizhilu.os.sns.service.impl.letter.MsgSystemServiceImpl
+ * @ClassName com.inxedu.os.sns.service.impl.letter.MsgSystemServiceImpl
  * @description 系统消息
  * @Create Date : 2014-1-26 下午1:55:11
  * @author www.inxedu.com

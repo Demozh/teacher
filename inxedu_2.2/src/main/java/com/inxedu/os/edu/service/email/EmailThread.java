@@ -14,7 +14,7 @@ import com.inxedu.os.common.service.email.EmailService;
 
 /**
  * 
- * @ClassName  com.yizhilu.os.edu.service.user.SmsThread
+ * @ClassName  com.inxedu.os.edu.service.user.SmsThread
  * @description
  * @author :xujunbao
  * @Create Date : 2014年9月22日 下午5:32:52

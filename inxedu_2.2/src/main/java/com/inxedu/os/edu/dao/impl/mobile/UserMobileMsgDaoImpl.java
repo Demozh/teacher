@@ -13,7 +13,7 @@ import com.inxedu.os.edu.entity.mobile.UserMobileMsg;
 
 /**
  * 
- * @ClassName  com.yizhilu.os.edu.dao.impl.user.UserMobileMsgDaoImpl
+ * @ClassName  com.inxedu.os.edu.dao.impl.user.UserMobileMsgDaoImpl
  * @description
  * @author : XuJunBao
  * @Create Date : 2014年9月21日 下午9:38:15

@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * @author : xiaokun
- * @ClassName com.yizhilu.os.core.entity.letter.QueryMsgReceive
+ * @ClassName com.inxedu.os.core.entity.letter.QueryMsgReceive
  * @description 站内信查询类
  * @Create Date : 2013-12-13 下午12:45:28
  * @author www.inxedu.com

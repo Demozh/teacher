@@ -18,15 +18,25 @@
 				<a class="c-999 fsize14" title="" href="http://127.0.0.1">首页</a>
 				 \<span class="c-333 fsize14">购物车</span> 
 			</section>
-			<article class="mt30">
+			<article class="mt30 place-o-box">
 				<div class="order-step-bg-2 order-step"></div>
 				<div class="mt30">
 					<header class=""><span class="fsize24 c-333">确认课程</span></header>
 					<dl class="c-order-list of">
 						<dd>
-							<ul class="c-o-head clearfix of">
-								<li class="c-head-li-16"><span>2015-06-25 09:36</span></li>
-								<li class="c-head-li-80"><span>订单号：14012215325266252</span></li>
+							<ul class="c-o-head ml10 clearfix">
+								<li class="col52">
+									<div class="c-t-wz"><span class="c-666">课程</span></div>
+								</li>
+								<li>
+									<div class="c-t-wz"><span class="c-666">讲师</span></div>
+								</li>
+								<li>
+									<div class="c-t-wz"><span class="c-666">价格</span></div>
+								</li>
+								<li class="c-head-li-10">
+									<div class="c-t-wz"><a href="javascript:;" class="c-666">操作</a></div>
+								</li>
 							</ul>
 							<ul class="c-o-tbody clearfix of">
 								<li class="c-head-li-16"><div class="c-o-t-img"><img src="http://127.0.0.1/images/upload/course/20150915/1442295379715.jpg" Xsrc="/static/inxweb/img/pic/1.jpg" class="img-responsive"></div></li>
@@ -44,15 +54,25 @@
 								<li>
 									<div class="c-t-wz"><span class="c-666">￥88.00</span></div>
 								</li>
-								<li>
+								<li class="c-head-li-10">
 									<div class="c-t-wz"><a href="javascript:;" class="c-666">取消</a></div>
 								</li>
 							</ul>
 						</dd>
 						<dd>
-							<ul class="c-o-head clearfix of">
-								<li class="c-head-li-16"><span>2015-06-25 09:36</span></li>
-								<li class="c-head-li-80"><span>订单号：14012215325266252</span></li>
+							<ul class="c-o-head ml10 clearfix">
+								<li class="col52">
+									<div class="c-t-wz"><span class="c-666">课程</span></div>
+								</li>
+								<li>
+									<div class="c-t-wz"><span class="c-666">讲师</span></div>
+								</li>
+								<li>
+									<div class="c-t-wz"><span class="c-666">价格</span></div>
+								</li>
+								<li class="c-head-li-10">
+									<div class="c-t-wz"><a href="javascript:;" class="c-666">操作</a></div>
+								</li>
 							</ul>
 							<ul class="c-o-tbody clearfix of">
 								<li class="c-head-li-16"><div class="c-o-t-img"><img src="http://127.0.0.1/images/upload/course/20150915/1442295379715.jpg" Xsrc="/static/inxweb/img/pic/1.jpg" class="img-responsive"></div></li>
@@ -70,15 +90,25 @@
 								<li>
 									<div class="c-t-wz"><span class="c-666">￥88.00</span></div>
 								</li>
-								<li>
+								<li class="c-head-li-10">
 									<div class="c-t-wz"><a href="javascript:;" class="c-666">取消</a></div>
 								</li>
 							</ul>
 						</dd>
 						<dd>
-							<ul class="c-o-head clearfix of">
-								<li class="c-head-li-16"><span>2015-06-25 09:36</span></li>
-								<li class="c-head-li-80"><span class="ml20">订单号：14012215325266252</span></li>
+							<ul class="c-o-head ml10 clearfix">
+								<li class="col52">
+									<div class="c-t-wz"><span class="c-666">课程</span></div>
+								</li>
+								<li>
+									<div class="c-t-wz"><span class="c-666">讲师</span></div>
+								</li>
+								<li>
+									<div class="c-t-wz"><span class="c-666">价格</span></div>
+								</li>
+								<li class="c-head-li-10">
+									<div class="c-t-wz"><a href="javascript:;" class="c-666">操作</a></div>
+								</li>
 							</ul>
 							<ul class="c-o-tbody clearfix of">
 								<li class="c-head-li-16"><div class="c-o-t-img"><img src="http://127.0.0.1/images/upload/course/20150915/1442295379715.jpg" Xsrc="http://127.0.0.1/images/upload/course/20150915/1442295379715.jpg" class="img-responsive"></div></li>
@@ -96,7 +126,7 @@
 								<li>
 									<div class="c-t-wz"><span class="c-666">￥88.00</span></div>
 								</li>
-								<li>
+								<li class="c-head-li-10">
 									<div class="c-t-wz"><a href="javascript:;" class="c-666">取消</a></div>
 								</li>
 							</ul>
@@ -116,7 +146,7 @@
 									</div>
 								</div>
 								<div class="c-p-right">
-									<img src="/static/inxweb/img/coucard.png">
+									<img src="/static/inxweb/img/coucard.png" class="img-responsive">
 								</div>
 							</div>
 						</div>
@@ -177,6 +207,9 @@
 				</div>
 			</article>
 		</div>
+	</div>
+	<div class="payment-dialog">
+		<div></div>
 	</div>
 	<script type="text/javascript" src="${ctx}/static/inxweb/js/swiper-2.1.0.js"></script>
 	<script type="text/javascript" src="${ctx}/static/inxweb/front/index.js"></script>

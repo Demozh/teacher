@@ -62,8 +62,8 @@
 				<tr>
 					<td>讲师排序：</td>
 					<td style="text-align: left;">
-						<input name="teacher.sort" value="${teacher.sort}" data-rule="required;integer[+0]"/>
 						<span><font color="red">以降序排列</font></span>
+						<input name="teacher.sort" value="${teacher.sort}" data-rule="required;integer[+0]"/>
 					</td>
 				</tr>
 				<tr>

@@ -75,12 +75,12 @@
 									<a href="javascript:void(0)" id="cou-shopcar" title="立即观看" onclick="if(isLogin()){ window.location.href='/uc/play/${course.courseId }'} else{lrFun();} " class="comm-btn c-btn-3">立即观看</a>
 								</c:otherwise>
 							</c:choose>
-							<section class="ml15 c-shop-car-wrap disIb">
+							<%--<section class="ml15 c-shop-car-wrap disIb">
 								<a class=" c-fff f-fM btnCart" id="cou-shopcar">加入购物车</a>
 								<div class="fly_item" id="flyItem">
 				                    <img width="50" height="50" src="/static/inxweb/img/avatar-boy.gif">
 				                </div>
-							</section>
+							</section>--%>
 						</section>
 						<section class="c-attr-mt of ml5">
 							<c:if test="${isFavorites==true }">

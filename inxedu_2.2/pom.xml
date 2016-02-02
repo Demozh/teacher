@@ -65,11 +65,11 @@
 			  <groupId>org.apache.maven.plugins</groupId>  
 			  <artifactId>maven-compiler-plugin</artifactId>  
 			  <!-- 指定最新插件的版本号-->
-			  <version>3.1</version>  
+			  <version>3.1</version>
 			  <configuration>  
 			 <!-- 指定高版本的源码和编译后的字节码文件-->
-			    <source>${jdk.version}</source>  
-			    <target>${jdk.version}</target>  
+			    <source>${jdk.version}</source>
+			    <target>${jdk.version}</target>
 			    <optimize>true</optimize>  
 			    <debug>true</debug>  
 			    <showDeprecation>false</showDeprecation>  
@@ -414,13 +414,13 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.6</version>
+            <version>1.16.2</version>
         </dependency>
         <!-- druid -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.0.4</version>
+            <version>1.0.1</version>
         </dependency>
         <!-- Gson -->
         <dependency>

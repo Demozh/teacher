@@ -6,7 +6,7 @@ import org.apache.commons.httpclient.methods.PostMethod;
 
 /**
  * 
- * @ClassName  com.yizhilu.os.edu.service.user.SmsServiceStub
+ * @ClassName  com.inxedu.os.edu.service.user.SmsServiceStub
  * @description
  * @author :xujunbao
  * @Create Date : 2014年9月22日 下午5:30:39

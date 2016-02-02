@@ -5,9 +5,11 @@
 <head>
 <title>邮箱列表</title>
 
-<link rel="stylesheet" type="text/css" href="${ctximg}/static/common/jquery-ui-1.10.4/css/ui-lightness/jquery-ui-1.10.4.custom.css?v=${v}"/>
-<script type="text/javascript" src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery-ui-1.10.4.custom.js?v=${v}"></script>
-<script type="text/javascript" src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery.ui.datepicker-zh-CN.js?v=${v}"></script>
+<!-- 时间控件 -->
+<script src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery-ui-1.10.4.custom.js"></script>
+<script src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery.ui.datepicker-zh-CN.js"></script>
+<script type="text/javascript" src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery-ui-timepicker-zh-CN.js"></script>
 
 <script type="text/javascript">
 $(function(){
@@ -54,9 +56,9 @@ function clean(){
 			<script>
 			$("#status").val('${userEmailMsg.status}');
 			</script>
-			<span class="ddTitle"><font>发送时间：</font></span>
+			发送时间：
 			<input type="text" name="userEmailMsg.startDate" value="${userEmailMsg.startDate}"  id="startDate" class="AS-inp"/>
-			<span class="ddTitle"><font>结束时间：</font></span>
+			<b>-</b>&nbsp;&nbsp;&nbsp;
 			<input type="text" name="userEmailMsg.endDate" value="${userEmailMsg.endDate}"  id="endDate" class="AS-inp"/>
 			<a title="查询" onclick="submitSearch()"
 				class="button tooltip" href="javascript:void(0)">

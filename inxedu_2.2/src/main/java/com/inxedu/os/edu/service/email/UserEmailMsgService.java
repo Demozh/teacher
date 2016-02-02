@@ -10,7 +10,7 @@ import com.inxedu.os.edu.entity.email.UserEmailMsg;
 
 /**
  * 
- * @ClassName com.yizhilu.os.edu.service.user.UserEmailMsgService
+ * @ClassName com.inxedu.os.edu.service.user.UserEmailMsgService
  * @description
  * @author : 
  * @Create Date : 2015年1月6日 下午10:00:56

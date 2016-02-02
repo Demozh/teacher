@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * 
- * @ClassName  com.yizhilu.os.edu.dao.impl.user.UserEmailMsgDaoImpl
+ * @ClassName  com.inxedu.os.edu.dao.impl.user.UserEmailMsgDaoImpl
  * @description
  * @author : 
  * @Create Date : 2015年1月6日 下午

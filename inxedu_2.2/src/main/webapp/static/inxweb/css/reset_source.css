@@ -27,6 +27,7 @@ html,body{
      -webkit-touch-callout: none; /*禁止或显示系统默认菜单*/
      -webkit-user-select: none; /*禁止长按复制选择*/
      -webkit-tap-highlight-color: rgba(0,0,0,0);/*禁止触摸a标签高亮 这个特别实用*/
+     overflow-y: scroll;
  }
 ol, ul, li { list-style: none; }
 blockquote, q { quotes: none; }

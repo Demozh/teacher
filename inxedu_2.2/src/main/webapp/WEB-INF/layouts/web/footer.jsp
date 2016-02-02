@@ -1,5 +1,73 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ include file="/base.jsp"%>
+<script type="text/javascript">
+$(function(){
+	scPos();
+	sideNav();
+	goTopFun2()
+})
+$(window).resize(function() {scPos();});
+function scPos() {
+	var winW = $(window).height();
+	$("#s-car-box-middle").css({"height" : winW-110 + "px","overflow-y" : "auto","overflow-x" : "hidden"});
+}
+function sideNav(){
+	var browserRedirect = function() {
+		var sUserAgent = navigator.userAgent.toLowerCase();
+		var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+		var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+		var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+		var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+		var bIsAndroid = sUserAgent.match(/android/i) == "android";
+		var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+		var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+		if (bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+			return false;
+		} else {
+			var vBtn=$("#v-nav-first"),
+				naxBox=$(".r-fixed-wrap");
+				vBtn2=$("#v-nav-close"),
+			vBtn.click(function(e) {
+				if(!vBtn.hasClass("vBtnCurr")){
+					naxBox.stop().animate({"right" : "0"}, 400);
+					vBtn.addClass("vBtnCurr");
+					$("html").addClass("onScroll");
+				}else{
+					ccrFun();
+				};
+				stopFunc(e);
+			});
+			vBtn2.click(function(e) {
+				ccrFun();
+				stopFunc(e);
+			})
+			$(document).click(function() {
+				ccrFun();
+			});
+			function ccrFun() {
+				naxBox.stop().animate({"right" : "-279px"}, 400);
+				vBtn.removeClass("vBtnCurr");
+				$("html").removeClass("onScroll");
+			};
+			function stopFunc(e) {
+				 document.all ? event.cancelBubble = true : e.stopPropagation();
+			} 
+
+		}
+	}
+}
+function goTopFun2() {
+    var _gt = $("#goTopBtn2");
+    _gt.bind("click", function() {
+        $("html,body").animate({"scrollTop" : 0}, 500);
+    })
+    var goTop = function() {
+        var sTop = $(document).scrollTop();
+        (sTop > 120) ? _gt.fadeIn(50) : _gt.fadeOut(50);
+    }
+    $(window).bind("scroll" , goTop);
+}
+</script>
 <footer id="footer">
 	<section class="container">
 		<div class="">
@@ -54,27 +122,25 @@
 	</section>
 </footer>
 <div class="r-fixed-wrap">
+	<div class="pr r-fix-box">
+		<ul class="r-fixed-ul">
+			<li id="goTopBtn" >
+				<a href="javascript: void(0)" title="返回顶部" class="bg-orange">
+					<em class="r-f-icon-3">&nbsp;</em><span>返回顶部</span>
+				</a>
+			</li>
+		</ul>
+
+	</div>
+</div>
+<!--手机端回到顶部 开始-->
+ <div class="m-go-top-box">
 	<ul class="r-fixed-ul">
-		<li id="goTopBtn" class="undis">
+		<li id="goTopBtn2" class="">
 			<a href="javascript: void(0)" title="返回顶部" class="bg-orange">
 				<em class="r-f-icon-3">&nbsp;</em><span>返回顶部</span>
 			</a>
 		</li>
-		<li class="foot-zixun" id="shopCart">
-			<a href="" title="查看详情" class="bg-orange pr">
-				<em class="r-f-icon-4">&nbsp;</em><!-- <span>查看详情</span> -->
-				<tt class="shop-car-num">1</tt>
-			</a>
-		</li>
-		<li class="foot-zixun">
-			<a href="" title="在线咨询" class="bg-orange">
-				<em class="r-f-icon-1">&nbsp;</em><span>在线咨询</span>
-			</a>
-		</li>
-		<li class="foot-zixun">
-			<a href="" title="扫描关注" class="bg-orange">
-				<em class="r-f-icon-2">&nbsp;</em><span>扫描关注</span>
-			</a>
-		</li>
 	</ul>
-</div>
+</div> 
+<!--手机端回到顶部 开始-->

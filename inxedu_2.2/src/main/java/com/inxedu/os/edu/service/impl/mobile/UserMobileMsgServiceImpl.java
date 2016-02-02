@@ -19,7 +19,7 @@ import com.inxedu.os.edu.service.mobile.UserMobileMsgService;
 
 /**
  * 
- * @ClassName  com.yizhilu.os.edu.service.impl.user.UserMobileMsgServiceImpl
+ * @ClassName  com.inxedu.os.edu.service.impl.user.UserMobileMsgServiceImpl
  * @description
  * @author : XuJunBao
  * @Create Date : 2014年9月21日 下午10:08:33

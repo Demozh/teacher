@@ -58,12 +58,9 @@
 					<span class="vam ml5" style="cursor:pointer;" onclick="lrFun(1)">登录</span>
 				</span>
 			</h4>
-			<div class="hLh30">
-				<a href="${ctx }/uc/initUpdateUser/0" title="个人资料设置" class="c-999">个人资料设置</a>
-			</div>
-			<div class="hLh20 undis" id="mobileExitDiv">
-				<a href="javascript:void(0)" title="退出" onclick="exit();" class="c-999">退出</a>
-			</div>
+			<%--<div class="hLh30">
+				<a href="${ctx }/uc/initUpdateUser/0" title="购物车" class="c-999 u-c-shopcar">购物车</a>
+			</div>--%>
 		</section>
 		<nav class="mw-nav">
 			<ul class="clearfix">
@@ -81,6 +78,7 @@
 						<li><a href="javascript:void()" onclick="mobileHrefCheckLogin('${ctx }/uc/order/myOrderList/SUCCESS')" title="">Wo的订单</a></li>
 						<li><a href="javascript:void()" onclick="mobileHrefCheckLogin('${ctx }/front/showcoulist')" title="">选课中心</a></li>
 						<li><a href="javascript:void()" onclick="mobileHrefCheckLogin('${ctx }/uc/myFavorites')" title="">Wo的收藏</a></li>
+						<li><a href="javascript:void()" onclick="mobileHrefCheckLogin('${ctx }/uc/myFavorites')" title="">Wo的优惠券</a></li>
 					</ol>
 				</li>
 			</ul>
@@ -111,6 +109,9 @@
 					</ol>
 				</li>
 			</ul>
+			<div  id="mobileExitDiv" class="mt15 undis tac">
+				<a href="javascript:void(0)" title="退出" onclick="exit();" class="u-loginout">退出登录</a>
+			</div>
 		</section>
 	</div>
 </div>

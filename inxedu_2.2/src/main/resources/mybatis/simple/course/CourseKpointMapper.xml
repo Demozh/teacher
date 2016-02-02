@@ -114,4 +114,9 @@
 	where 
 		edu_course_kpoint.COURSE_ID=#{value} and edu_course_kpoint.KPOINT_TYPE=1
 	</select>
+	
+	<!-- 网校视频数量 -->
+	<select id="getKpointCountByKpointType" resultType="long">
+		select ifnull(count(1),0) from edu_course_kpoint where KPOINT_TYPE=1
+	</select>
 </mapper>

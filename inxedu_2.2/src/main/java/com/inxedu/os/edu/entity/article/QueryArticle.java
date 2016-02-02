@@ -1,18 +1,17 @@
 package com.inxedu.os.edu.entity.article;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import java.io.Serializable;
 import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import lombok.Data;
 
 /**
  * @author www.inxedu.com
  *
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
 public class QueryArticle implements Serializable {
 	private static final long serialVersionUID = -3888944756009060820L;
 	private String queryKey;

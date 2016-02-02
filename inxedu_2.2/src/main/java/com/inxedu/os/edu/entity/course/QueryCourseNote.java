@@ -11,7 +11,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * 
- * @ClassName com.yizhilu.os.edu.entity.course.QueryCourseNote
+ * @ClassName com.inxedu.os.edu.entity.course.QueryCourseNote
  * @description
  * @author www.inxedu.com
  */

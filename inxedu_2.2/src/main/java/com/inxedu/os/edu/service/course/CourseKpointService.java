@@ -54,4 +54,11 @@ public interface CourseKpointService {
      * 获取课程的 二级视频节点总数(只支持二级)
      */
     public int getSecondLevelKpointCount(Long courseId);
+
+    /**
+     * 网校总视频数
+     * @return
+     */
+    public Long getKpointCountByKpointType();
+    
 }

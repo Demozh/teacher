@@ -60,4 +60,10 @@ public class CourseKpointDaoImpl extends GenericDaoImpl implements CourseKpointD
 		return this.selectOne("CourseKpointMapper.getSecondLevelKpointCount", courseId);
 	}
 
+
+	@Override
+	public Long getKpointCountByKpointType() {
+		return selectOne("CourseKpointMapper.getKpointCountByKpointType", null);
+	}
+
 }

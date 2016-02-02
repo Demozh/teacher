@@ -114,7 +114,7 @@ public class MsgSender implements Serializable {
     }
 
     public String toString() {
-        return "com.yizhilu.os.inxedu.entity.letter.MsgSender(id=" + this.id + ", cusId=" + this.cusId + ", content=" + this.content + ", receivingCusId=" + this.receivingCusId + ", addTime=" + this.addTime + ", updateTime=" + this.updateTime + ", type=" + this.type + ", status=" + this.status + ", showname=" + this.showname + ", userExpandDto=" + this.userExpandDto + ")";
+        return "com.inxedu.os.inxedu.entity.letter.MsgSender(id=" + this.id + ", cusId=" + this.cusId + ", content=" + this.content + ", receivingCusId=" + this.receivingCusId + ", addTime=" + this.addTime + ", updateTime=" + this.updateTime + ", type=" + this.type + ", status=" + this.status + ", showname=" + this.showname + ", userExpandDto=" + this.userExpandDto + ")";
     }
 
     public boolean equals(Object o) {

@@ -67,4 +67,24 @@ public interface StatisticsDayService {
 	 * @return
 	 */
 	public Map<String, Object> getTodayOrderNum(Date date);
+	
+	/**
+	 * 网校课程数
+	 */
+	public int getEudCouresCount();
+	
+	/**
+	 * 网校总用户数
+	 */
+	public int getEudUserCount();
+	
+	/**
+	 * 按时间段查询统计
+	 */
+	public List<StatisticsDay> getStatisticsDayList(Date startDate,Date endDate);
+	
+	/**
+	 * 收入
+	 */
+	public Double getEveryDayIncome(Date startDate,Date endDate);
 }

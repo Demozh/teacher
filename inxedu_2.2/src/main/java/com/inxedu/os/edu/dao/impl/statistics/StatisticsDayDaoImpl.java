@@ -150,4 +150,42 @@ public class StatisticsDayDaoImpl extends GenericDaoImpl implements StatisticsDa
 		map.put("orderClosedNum", this.selectOne("StatisticsDayMapper.statistics_orderClosedNumToday", date));
 		return map;
 	}
+	
+	/**
+	 * 网校课程数
+	 */
+	@Override
+	public int getEudCouresCount() {
+		return selectOne("StatisticsDayMapper.getEudCouresCount", null);
+	}
+	
+	/**
+	 * 网校总用户数
+	 */
+	@Override
+	public int getEudUserCount() {
+		return selectOne("StatisticsDayMapper.getEudUserCount", null);
+	}
+	
+	/**
+	 * 按时间段查询统计
+	 */
+	@Override
+	public List<StatisticsDay> getStatisticsDayList(Date startDate, Date endDate) {
+		Map<String, Object> map=new HashMap<String, Object>();
+		map.put("startDate", startDate);
+		map.put("endDate", endDate);
+		return selectList("StatisticsDayMapper.getStatisticsDayList", map);
+	}
+	
+	/**
+	 * 收入
+	 */
+	@Override
+	public Double getEveryDayIncome(Date startDate, Date endDate) {
+		Map<String, Object> map=new HashMap<String,Object>();
+		map.put("startDate", startDate);
+		map.put("endDate", endDate);
+		return selectOne("StatisticsDayMapper.getEveryDayIncome", map);
+	}
  }

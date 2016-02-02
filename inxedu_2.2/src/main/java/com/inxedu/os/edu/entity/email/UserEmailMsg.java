@@ -8,7 +8,7 @@ import java.util.Date;
 
 /**
  * 用户邮件消息
- * @ClassName  com.yizhilu.os.edu.entity.user.UserEmailMsg
+ * @ClassName  com.inxedu.os.edu.entity.user.UserEmailMsg
  * @description
  * @author : 
  * @Create Date : 2015年1月6日 下午

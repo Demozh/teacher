@@ -210,4 +210,36 @@ public class StatisticsDayServiceImpl implements StatisticsDayService{
 		return statisticsDayDao.getTodayOrderNum(date);
 	}
 
+	/**
+	 * 网校课程数
+	 */
+	@Override
+	public int getEudCouresCount() {
+		return statisticsDayDao.getEudCouresCount();
+	}
+
+	/**
+	 * 网校总用户数
+	 */
+	@Override
+	public int getEudUserCount() {
+		return statisticsDayDao.getEudUserCount();
+	}
+
+	/**
+	 * 按时间段查询统计
+	 */
+	@Override
+	public List<StatisticsDay> getStatisticsDayList(Date startDate, Date endDate) {
+		return statisticsDayDao.getStatisticsDayList(startDate, endDate);
+	}
+
+	/**
+	 * 每日收入(条件没有用上)
+	 */
+	@Override
+	public Double getEveryDayIncome(Date startDate, Date endDate) {
+		return statisticsDayDao.getEveryDayIncome(startDate, endDate);
+	}
+
 }

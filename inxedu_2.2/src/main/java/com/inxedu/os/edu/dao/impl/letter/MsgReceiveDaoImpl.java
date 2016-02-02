@@ -14,7 +14,7 @@ import com.inxedu.os.edu.entity.letter.QueryMsgReceive;
 /**
  * @author xiaokun
  * @ClassName msgReceiveDaoImpl
- * @package com.yizhilu.open.sns.dao.impl.weibo
+ * @package com.inxedu.open.sns.dao.impl.weibo
  * @description
  * @Create Date: 2013-12-10 下午4:21:21
  * @author www.inxedu.com

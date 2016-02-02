@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * 
- * @ClassName com.yizhilu.os.inxedu.entity.course.CourseStudyhistory
+ * @ClassName com.inxedu.os.inxedu.entity.course.CourseStudyhistory
  * @description 记录播放记录
  * @author www.inxedu.com
  */
