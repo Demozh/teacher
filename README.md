@@ -21,7 +21,7 @@
 问题总结:
 项目导入如果get set报错请添加lombok插件就可以正常使用了</br>
 
-**技术框架**</br>
+**技术框架**  </br>
 核心框架：Spring Framework</br>
 视图框架：Spring MVC </br>
 持久层框架：MyBatis 3</br>
