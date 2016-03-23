@@ -52,8 +52,14 @@ JS框架：jQuery</br>
 建议开发者使用以下环境，这样避免版本带来的问题</br>
 
 IDE:eclipse，idea</br>
+
 DB:Mysql5.5</br>
+
 JDK:JAVA 7</br>
+
 tomcat:tomcat 7.0.68已上</br>
 
 **系统美图**
+
+![输入图片说明](http://git.oschina.net/uploads/images/2016/0323/163323_c22814d9_133935.png "首页")
+
