@@ -59,7 +59,9 @@ JDK:JAVA 7</br>
 
 tomcat:tomcat 7.0.68已上</br>
 
+项目文档：
+http://note.youdao.com/groupshare/?token=673A1F2BB3B64A81A72CBD0AFE2D1F86&gid=9574975
+
 **系统美图**
 
 ![输入图片说明](http://git.oschina.net/uploads/images/2016/0323/163323_c22814d9_133935.png "首页")
-
