@@ -129,6 +129,9 @@ public class CourseController extends BaseController {
             Course course = courseService.queryCourseById(courseId);
             if(course!=null){
             	model.addObject("course", course);
+                //更新课程的浏览量
+                courseService.updateCourseCount("pageViewcount",courseId);
+
             	//查询课程老师
             	List<Map<String,Object>> teacherList = teacherService.queryCourseTeacerList(courseId);
             	model.addObject("teacherList", teacherList);

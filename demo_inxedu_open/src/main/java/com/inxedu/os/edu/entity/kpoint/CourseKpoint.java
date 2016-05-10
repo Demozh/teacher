@@ -1,12 +1,12 @@
 package com.inxedu.os.edu.entity.kpoint;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * @author www.inxedu.com
@@ -44,4 +44,7 @@ public class CourseKpoint implements Serializable{
     private String videoType;
     /**节点list*/
     private List<CourseKpoint> kpointList=new ArrayList<CourseKpoint>();
+    private String fileType;//节点文件格式
+    private String content;//文本内容
+
 }

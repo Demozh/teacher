@@ -16,9 +16,15 @@
 			</ul>
 			<!-- / nav -->
 			<ul class="h-r-login">
-				<li class="undis" id="no-login"><a href="javascript:lrFun(1)" title="登录">
+				<li class="undis" id="no-login">
+					<a href="javascript:lrFun(1)" title="登录">
 						<em class="icon18 login-icon">&nbsp;</em><span class="vam ml5">登录</span>
-					</a></li>
+					</a>
+					|
+					<a href="javascript:lrFun(2)" title="注册">
+						</em><span class="vam ml5">注册</span>
+					</a>
+				</li>
 					<li class="mr10 undis" id="is-login-one"><a href="${ctx}/uc/letter" title="消息" id="headerMsgCountId">
 							<em class="icon18 news-icon">&nbsp;</em>
 						</a><q class="red-point" style="display: none">&nbsp;</q></li>

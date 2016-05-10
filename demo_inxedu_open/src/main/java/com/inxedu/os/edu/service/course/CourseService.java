@@ -113,4 +113,13 @@ public interface CourseService {
 	 * @return
 	 */
 	public List<CourseDto> queryCourse(QueryCourse queryCourse);
+
+	/**
+	 * 更新课程数据（浏览数，购买数）
+	 * @param type pageViewcount浏览数 pageBuycount购买数
+	 * @param courseId 课程id
+	 */
+	public void updateCourseCount(String type,int courseId);
+
+
 }

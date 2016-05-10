@@ -201,4 +201,57 @@
 		update EDU_USER set LAST_SYSTEM_TIME=#{date} where
 		USER_ID=#{cusId}
 	</update>
+
+	<select id="getUserListPage" resultMap="UserResult" parameterType="java.util.HashMap">
+		select
+		<include refid="edu_user_column" />
+		from edu_user
+		<where>
+			<if test="e.userId !=null and e.userId > 0 ">
+				AND EDU_USER.USER_ID = #{e.userId}
+			</if>
+			<if test="e.email !=null and e.email !='' ">
+				AND EDU_USER.EMAIL like CONCAT('%',#{e.email},'%')
+			</if>
+			<if test="e.mobile !=null and e.mobile !='' ">
+				AND EDU_USER.MOBILE like CONCAT('%',#{e.mobile},'%')
+			</if>
+			<if test="e.userName !=null and e.userName !='' ">
+				AND EDU_USER.USER_NAME like CONCAT('%',#{e.userName},'%')
+			</if>
+			<if test="e.showName !=null and e.showName !='' ">
+				AND EDU_USER.SHOW_NAME like CONCAT('%',#{e.showName},'%')
+			</if>
+			<if test="e.sex !=null and e.sex > 0 ">
+				AND EDU_USER.SEX=#{e.sex}
+			</if>
+		</where>
+		order by EDU_USER.USER_ID desc
+		<include refid="publicMapper.pageEnd" />
+	</select>
+	<select id="getUserListPageCount" resultType="int" parameterType="java.util.HashMap">
+		select
+		count(1)
+		from edu_user
+		<where>
+			<if test="e.userId !=null and e.userId > 0 ">
+				AND EDU_USER.USER_ID = #{e.userId}
+			</if>
+			<if test="e.email !=null and e.email !='' ">
+				AND EDU_USER.EMAIL like CONCAT('%',#{e.email},'%')
+			</if>
+			<if test="e.mobile !=null and e.mobile !='' ">
+				AND EDU_USER.MOBILE like CONCAT('%',#{e.mobile},'%')
+			</if>
+			<if test="e.userName !=null and e.userName !='' ">
+				AND EDU_USER.USER_NAME like CONCAT('%',#{e.userName},'%')
+			</if>
+			<if test="e.showName !=null and e.showName !='' ">
+				AND EDU_USER.SHOW_NAME like CONCAT('%',#{e.showName},'%')
+			</if>
+			<if test="e.sex !=null and e.sex > 0 ">
+				AND EDU_USER.SEX=#{e.sex}
+			</if>
+		</where>
+	</select>
 </mapper>

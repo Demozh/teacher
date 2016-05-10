@@ -1,3 +1,4 @@
+<%@ page import="com.inxedu.os.common.listener.MySessionListener" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ include file="/base.jsp"%>
 <!DOCTYPE html>
@@ -498,6 +499,7 @@ function xuanze(str){
 		</div>
 		<br/><br/><br/><br/><br/><br/>
 		<span>
+            <b>全站在线人数:</b> <%=MySessionListener.num%>&nbsp;
 			<b>文章数:</b> ${webCountMap.articleCount}&nbsp;
 			<b>课程数:</b> ${webCountMap.courseCount}&nbsp;
 			<b>用户数:</b> ${webCountMap.userCount}&nbsp;

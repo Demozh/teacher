@@ -114,4 +114,13 @@ public class CourseServiceImpl implements CourseService {
 	public List<CourseDto> queryCourse(QueryCourse queryCourse) {
 		return courseDao.queryCourse(queryCourse);
 	}
+
+	/**
+	 * 更新课程数据（浏览数，购买数）
+	 * @param type pageViewcount浏览数 pageBuycount购买数
+	 * @param courseId 课程id
+	 */
+	public void updateCourseCount(String type,int courseId){
+		this.courseDao.updateCourseCount(type,courseId);
+	}
 }

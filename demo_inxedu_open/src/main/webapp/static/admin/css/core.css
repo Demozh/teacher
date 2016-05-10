@@ -6,7 +6,7 @@
 
 /* Global declarations */
 body {
-	font: 12px/150% "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
+	font: 12px/150% "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ï¿½ï¿½ï¿½Åºï¿½","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 	position: relative;
 }
 
@@ -190,7 +190,7 @@ INPUT[type="checkbox"], INPUT[type="radio"] {
 	margin-bottom: 10px;
 	margin-top: 10px;
 	color: #111;
-	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ï¿½ï¿½ï¿½Åºï¿½","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 .meta ul {
@@ -219,7 +219,7 @@ INPUT[type="checkbox"], INPUT[type="radio"] {
 p.mid {
 	text-align: center;
 	margin-top: 20px;
-	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ï¿½ï¿½ï¿½Åºï¿½","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 p.mid a {
@@ -352,7 +352,7 @@ ul.nav li li a {
 
 #sidebar p {
 	margin-bottom: 0;
-	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ï¿½ï¿½ï¿½Åºï¿½","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 #sidebar .sort {
@@ -397,8 +397,10 @@ ul.nav li li a {
 	width: 100%;
 	margin-left: -320px;
 	position: relative;
-	background: url('../assets/siderep.png') 185px 0 repeat-y;
+	background: url('') 185px 0 repeat-y;
 	padding-bottom: 30px;
+	margin-top:26px;
+	line-height:normal;
 }
 
 #main {
@@ -480,7 +482,7 @@ table.fullwidth thead, table.normal thead {
 
 table.fullwidth thead td {
 	font-size: 14px;
-	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ÈíÑÅºÚ","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
+	font-family: "Lantinghei SC","Open Sans",Arial,"Hiragino Sans GB","Microsoft YaHei","Î¢ï¿½ï¿½ï¿½Åºï¿½","STHeiti","WenQuanYi Micro Hei",SimSun,sans-serif;
 }
 
 table.fullwidth td, table.normal td {

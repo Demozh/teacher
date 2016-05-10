@@ -3,6 +3,7 @@ package com.inxedu.os.edu.controller.course;
 
 import com.inxedu.os.common.controller.BaseController;
 import com.inxedu.os.common.util.MD5;
+import com.inxedu.os.common.util.ObjectUtils;
 import com.inxedu.os.edu.constants.enums.WebSiteProfileType;
 import com.inxedu.os.edu.entity.kpoint.CourseKpoint;
 import com.inxedu.os.edu.entity.kpoint.CourseKpointDto;
@@ -153,6 +154,11 @@ public class AdminKpointController extends BaseController {
     	try {
     		model.setViewName(kpointList);
     		List<CourseKpoint> kpointList = courseKpointService.queryCourseKpointByCourseId(courseId);
+			if(ObjectUtils.isNotNull(kpointList)){
+				for(CourseKpoint ck:kpointList){
+					ck.setContent("");
+				}
+			}
     		model.addObject("kpointList", gson.toJson(kpointList));
     		model.addObject("courseId", courseId);
     	} catch (Exception e) {

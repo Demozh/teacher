@@ -1,12 +1,5 @@
 package com.inxedu.os.edu.service.impl.website;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.inxedu.os.common.cache.EHCacheUtil;
@@ -15,6 +8,12 @@ import com.inxedu.os.common.util.ObjectUtils;
 import com.inxedu.os.edu.dao.website.WebsiteProfileDao;
 import com.inxedu.os.edu.entity.website.WebsiteProfile;
 import com.inxedu.os.edu.service.website.WebsiteProfileService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * 网站管理配置service
@@ -29,6 +28,12 @@ public class WebsiteProfileServiceImpl implements WebsiteProfileService {
 
 	
 	public void updateWebsiteProfile(WebsiteProfile websiteProfile) throws Exception {
+		Map<String, Object> map = getWebsiteProfileByType(websiteProfile.getType());
+		//如果不存在则添加
+		if(ObjectUtils.isNull(map)){
+			websiteProfile.setExplain(websiteProfile.getType());
+			websiteProfileDao.addWebsiteProfileByType(websiteProfile);
+		}
 		websiteProfileDao.updateWebsiteProfile(websiteProfile);
 		EHCacheUtil.remove(CacheConstans.WEBSITE_PROFILE+websiteProfile.getType());
 	}
@@ -80,6 +85,10 @@ public class WebsiteProfileServiceImpl implements WebsiteProfileService {
 			EHCacheUtil.set(CacheConstans.WEBSITE_PROFILE+type, websiteProfileStr, CacheConstans.WEBSITE_PROFILE_TIME);//设置key 时间一天
 		}
 		WebsiteProfile websiteProfile=gson.fromJson(websiteProfileStr, WebsiteProfile.class);//转回对象
+
+		if(ObjectUtils.isNull(websiteProfile)){
+			return new HashMap<>();
+		}
 		String desciption=websiteProfile.getDesciption();
 		//把json数据转化为Map
 		Map<String,Object> map1=gson.fromJson(checkString(desciption), new TypeToken<Map<String, Object>>() {}.getType());

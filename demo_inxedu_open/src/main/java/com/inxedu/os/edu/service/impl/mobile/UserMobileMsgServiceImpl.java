@@ -53,13 +53,6 @@ public class UserMobileMsgServiceImpl implements UserMobileMsgService {
     public void delUserMobileMsg(Long id){
     	userMobileMsgDao.delUserMobileMsg(id);
     }
-    @PostConstruct
-    public  void dcheck() {
-        try {
-            UserEmailMsgServiceImpl.timer();
-        } catch (Exception e) {
-        }
-    }
 
     /**
      * 修改短信

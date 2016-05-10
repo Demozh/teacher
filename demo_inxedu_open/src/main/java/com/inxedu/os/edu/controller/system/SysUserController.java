@@ -3,6 +3,7 @@ package com.inxedu.os.edu.controller.system;
 import com.inxedu.os.common.controller.BaseController;
 import com.inxedu.os.common.entity.PageEntity;
 import com.inxedu.os.common.util.MD5;
+import com.inxedu.os.common.util.SingletonLoginUtils;
 import com.inxedu.os.common.util.WebUtils;
 import com.inxedu.os.edu.entity.system.QuerySysUser;
 import com.inxedu.os.edu.entity.system.SysRole;
@@ -73,20 +74,24 @@ public class SysUserController extends BaseController {
 		}
 		return model;
 	}
-	
+
 	/**
-	 * 禁用或启用用户
-	 * @param request
-	 * @param userId 用户ID
-	 * @param type 2禁用  1启用
-	 * @return Map<String,Object> 
+	 * 禁用或启用 和 删除用户(修改状态为2)
 	 */
 	@RequestMapping("/disableOrstart/{userId}/{type}")
 	@ResponseBody
 	public Map<String,Object> disableOrstart(HttpServletRequest request,@PathVariable("userId") int userId,@PathVariable("type") int type){
 		Map<String,Object> json = new HashMap<String,Object>();
 		try{
-			if(userId>0){
+			if(type==3){
+				//当前登录系统用户
+				int loginUserId= SingletonLoginUtils.getLoginSysUserId(request);
+				if(userId==loginUserId){
+					json = this.setJson(false, "不能删除当前登录的用户", null);
+					return json;
+				}
+			}
+			if((type==1||type==2||type==3)&&userId>0){
 				sysUserService.updateDisableOrstartUser(userId, type);
 				json = this.setJson(true, "操作成功", null);
 			}else{
@@ -207,7 +212,7 @@ public class SysUserController extends BaseController {
 			sysuser.setLoginPwd(MD5.getMD5(sysuser.getLoginPwd()));
 			sysuser.setCreateTime(new Date());
 			sysUserService.createSysUser(sysuser);
-			json = this.setJson(true, "用户保成功", null);
+			json = this.setJson(true, "用户保存成功", null);
 		}catch (Exception e) {
 			this.setAjaxException(json);
 			logger.error("createSysUser()--error",e);
@@ -226,8 +231,8 @@ public class SysUserController extends BaseController {
 			return json;
 		}else{
 			
-			if(WebUtils.checkLoginName(sysuser.getLoginName().trim())){
-				json = this.setJson(false, "请输入6到20位字母数字组合的帐号", null);
+			if(!WebUtils.checkLoginName(sysuser.getLoginName().trim())){
+				json = this.setJson(false, "请输入6到20位字母或者和数字组合的帐号", null);
 				return json;
 			}
 		}

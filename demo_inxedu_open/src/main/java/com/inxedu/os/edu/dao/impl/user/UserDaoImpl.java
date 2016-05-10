@@ -116,5 +116,10 @@ public class UserDaoImpl extends GenericDaoImpl implements UserDao{
         map.put("date", date);
         this.update("UserMapper.updateCusForLST", map);
 	}
+
+	@Override
+	public List<User> getUserListPage(User user, PageEntity page) {
+		return this.queryForListPage("UserMapper.getUserListPage", user, page);
+	}
 	
 }

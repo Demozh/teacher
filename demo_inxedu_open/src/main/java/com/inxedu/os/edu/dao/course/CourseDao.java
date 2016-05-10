@@ -1,13 +1,12 @@
 package com.inxedu.os.edu.dao.course;
 
-import java.util.List;
-import java.util.Map;
-
 import com.inxedu.os.common.entity.PageEntity;
-
 import com.inxedu.os.edu.entity.course.Course;
 import com.inxedu.os.edu.entity.course.CourseDto;
 import com.inxedu.os.edu.entity.course.QueryCourse;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Course管理接口
@@ -111,4 +110,11 @@ public interface CourseDao {
 	 * @return
 	 */
 	public List<CourseDto> queryCourse(QueryCourse queryCourse);
+
+	/**
+	 * 更新课程数据（浏览数，购买数）
+	 * @param type pageViewcount浏览数 pageBuycount购买数
+	 * @param courseId 课程id
+     */
+	public void updateCourseCount(String type,int courseId);
 }

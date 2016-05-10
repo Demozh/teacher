@@ -378,4 +378,12 @@
 	ORDER BY EDU_COURSE.ADD_TIME DESC
 	</if>
 	</select>
+
+	<!-- 更新课程的数据数量 -->
+	<update id="updateCourseCount" parameterType="map" >
+		update EDU_COURSE
+		<if test="type=='pageViewcount'">set PAGE_VIEWCOUNT = PAGE_VIEWCOUNT + 1 </if>
+		<if test="type=='pageBuycount'">set PAGE_BUYCOUNT = PAGE_BUYCOUNT + 1</if>
+		where COURSE_ID=#{courseId}
+	</update>
 </mapper>

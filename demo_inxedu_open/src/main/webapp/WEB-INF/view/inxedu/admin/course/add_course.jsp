@@ -8,6 +8,7 @@
 <script type="text/javascript" src="${ctximg}/static/common/multilevel.js"></script>
 <script type="text/javascript" src="${ctximg}/static/common/uploadify/swfobject.js"></script>
 <script type="text/javascript" src="${ctximg}/static/common/uploadify/jquery.uploadify.v2.1.4.min.js"></script>
+	<link rel="stylesheet" href="${ctx}/kindeditor/themes/default/default.css"/>
 <script type="text/javascript" src="${ctximg}/kindeditor/kindeditor-all.js"></script>
 <script src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery-ui-1.10.4.custom.js"></script>
 <script src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery.ui.datepicker-zh-CN.js"></script>
@@ -20,6 +21,9 @@
 <link rel="stylesheet" href="${ctx}/static/common/nice-validator/jquery.validator.css"></link>
 <script type="text/javascript" src="${ctx}/static/common/nice-validator/jquery.validator.js"></script>
 <script type="text/javascript" src="${ctx}/static/common/nice-validator/local/zh-CN.js"></script>
+<%--ue编辑器--%>
+<script type="text/javascript" charset="utf-8" src="${ctx}/static/common/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="${ctx}/static/common/ueditor/ueditor.all.js"></script>
 <script type="text/javascript">
     subjectList='${subjectList}';
     $(function(){

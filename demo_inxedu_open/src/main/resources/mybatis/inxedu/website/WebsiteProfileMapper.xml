@@ -38,4 +38,12 @@
 		SELECT <include refid="edu_website_profile_columns" />
 		FROM EDU_WEBSITE_PROFILE WHERE EDU_WEBSITE_PROFILE.TYPE = #{value}
 	</select>
+	<insert id="addWebsiteProfileByType" parameterType="WebsiteProfile" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+		INSERT INTO EDU_WEBSITE_PROFILE(
+		<include refid="edu_website_profile_columns" />
+		)
+		VALUE(
+		<include refid="edu_website_profile_properties" />
+		)
+	</insert>
 </mapper>

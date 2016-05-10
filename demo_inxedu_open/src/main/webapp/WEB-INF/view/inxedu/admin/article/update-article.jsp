@@ -18,9 +18,14 @@
 <script type="text/javascript" src="${ctx}/static/common/nice-validator/jquery.validator.js"></script>
 <script type="text/javascript" src="${ctx}/static/common/nice-validator/local/zh-CN.js"></script>
 
+	<%--ue编辑器--%>
+	<script type="text/javascript" charset="utf-8" src="${ctx}/static/common/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="${ctx}/static/common/ueditor/ueditor.all.js"></script>
 <script type="text/javascript">
 	$(function() {
-		initKindEditor_addblog('content', 580, 400, 'articleContent', 'true');
+		//实例化编辑器 UE编辑器
+		initUEEditor("content",'580','350');
+		//initKindEditor_addblog('content', 580, 400, 'articleContent', 'true');
 		initSimpleImageUpload('imageFile', 'article', callback);
 
 		$("#publishTime").datetimepicker({
@@ -90,7 +95,7 @@
 				<tr>
 					<td>发布时间：</td>
 					<td>
-						<input name="article.publishTime" data-rule="required;" id="publishTime" readonly="readonly" type="text" style="width: 140px;" value="<fmt:formatDate value="${article.publishTime}" pattern="yyyy-MM-dd HH:mm:ss"/>" />
+						<input name="article.publishTime" data-rule="required;" id="publishTime" readonly="readonly" type="text" style="width: 140px;z-index: 1000;position:relative;" value="<fmt:formatDate value="${article.publishTime}" pattern="yyyy-MM-dd HH:mm:ss"/>" />
 					</td>
 				</tr>
 				<tr>

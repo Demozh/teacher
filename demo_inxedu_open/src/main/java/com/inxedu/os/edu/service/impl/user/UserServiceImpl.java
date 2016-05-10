@@ -289,4 +289,14 @@ public class UserServiceImpl implements UserService{
 		}
 	}
 
+	/**
+	 * 根据条件获取User列表  带课程名称
+	 * @param user  用户
+	 * @param page   分页参数
+	 * @return
+	 */
+	public List<User> getUserListPage(User user, PageEntity page) {
+		return userDao.getUserListPage(user, page);
+	}
+
 }

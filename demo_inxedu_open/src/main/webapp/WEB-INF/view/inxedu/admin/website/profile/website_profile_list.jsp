@@ -71,8 +71,8 @@
 								<button type="button" class="ui-state-default ui-corner-all" onclick="window.location.href='${ctx}/admin/websiteProfile/find/cc'"
 									id="web">CC视频配置</button>
 								&nbsp;&nbsp;&nbsp;
-								<button type="button" class="ui-state-default ui-corner-all" onclick="window.location.href='${ctx}/admin/websiteProfile/find/letv'"
-									id="web">乐视云</button>
+								<button type="button" class="ui-state-default ui-corner-all" onclick="window.location.href='${ctx}/admin/websiteProfile/find/inxeduVideo'"
+										id="web">因酷云视频配置</button>
 								&nbsp;&nbsp;&nbsp;
 								<button type="button" class="ui-state-default ui-corner-all" onclick="window.location.href='${ctx}/admin/websiteProfile/find/web'"
 									id="web">基本信息</button>
@@ -190,18 +190,6 @@
 							</tr>
 						</tbody>
 					</c:if>
-					<c:if test="${type=='letv'}">
-						<tbody id="tabS_alipay" align="center">
-							<tr class="odd">
-								<td>用户唯一标识码</td>
-								<td>${webSiteMap.letv.user_unique}</td>
-							</tr>
-							<tr>
-								<td>秘钥</td>
-								<td>${webSiteMap.letv.secret_key}</td>
-							</tr>
-						</tbody>
-					</c:if>
 					<c:if test="${type=='cc'}">
 						<tbody id="tabS_alipay" align="center">
 							<tr class="odd">
@@ -212,6 +200,22 @@
 								<td>CC appKEY</td>
 								<td>${webSiteMap.cc.ccappKEY}</td>
 							</tr>
+						</tbody>
+					</c:if>
+					<c:if test="${type=='inxeduVideo'}">
+						<tbody align="center">
+						<tr class="odd">
+							<td>因酷云UserId</td>
+							<td>${webSiteMap.inxeduVideo.UserId}</td>
+						</tr>
+						<tr class="odd">
+							<td>因酷云SecretKey</td>
+							<td>${webSiteMap.inxeduVideo.SecretKey}</td>
+						</tr>
+						<tr>
+							<td>因酷云AccessKey</td>
+							<td>${webSiteMap.inxeduVideo.AccessKey}</td>
+						</tr>
 						</tbody>
 					</c:if>
 				</form>

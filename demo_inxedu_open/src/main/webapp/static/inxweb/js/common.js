@@ -308,7 +308,10 @@ function queryUnReadNum(){
 	});
 }
 
-//快捷登录/注册
+/*
+* 快捷登录/注册
+* type 1 头部点击登陆 2 注册 选中
+*/
 function lrFun(type) {
     var oBg = $('<div class="bMask"></div>').appendTo($("body")),
         dialogEle = $('<div class="dialogWrap" style="position: absolute;"><div class="dialog-ele"><h4 class="d-s-head pr"><a href="javascript:void(0)" title="关闭" class="dClose icon16 pa">&nbsp;</a><span id="d-s-head-tab" class="d-s-head-tab"><a href="javascript:void(0)" class="current">登录</a><a href="javascript:void(0)">注册</a></span></h4><div class="of"><div id="lrEleWrap" class="mt10 mb20 ml20"></div></div></div></div>').appendTo($("body")),
@@ -399,6 +402,9 @@ function lrFun(type) {
     	dialogEle.css({"top" : (dTop-(dH/2)) , "margin-left" : -(dW/2)});
     });
     $(".dClose").bind("click", function() {dialogEle.remove();oBg.remove();});
+	if(type==2){
+        $("#d-s-head-tab").find("a:eq(1)").click();
+    }
 }
 //placeholder兼容IE方法
 function placeholderFun() {

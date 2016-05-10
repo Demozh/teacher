@@ -10,6 +10,9 @@
 <script type="text/javascript" src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery-ui-timepicker-zh-CN.js?v=${v}"></script>
 <script type="text/javascript" src="${ctximg}/static/common/jquery-form.js"></script>
 <script type="text/javascript" src="${ctximg}/kindeditor/kindeditor-all.js?v=1410957986989"></script>
+	<%--ue编辑器--%>
+	<script type="text/javascript" charset="utf-8" src="${ctx}/static/common/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="${ctx}/static/common/ueditor/ueditor.all.js"></script>
 <script type="text/javascript">
 	$(function(){
 		  $( "#sendDate" ).datetimepicker({
@@ -18,7 +21,9 @@
 		      dateFormat:"yy-mm-dd ",
 		      timeFormat: "HH:mm:ss"
 		  });
-		  initKindEditor_addblog('message', 720, 300,'mobile','true');
+		  //initKindEditor_addblog('message', 720, 300,'mobile','true');
+		//实例化编辑器 UE编辑器
+		initUEEditor("message",'720','300');
 	});
 	
 	function sendmessage(){
@@ -28,7 +33,7 @@
 		 	 return false;
 		 }
 		 var valL = sendLinkss.split(",").length - 1;
-		 var sendInfo=$("#message").val();
+		 var sendInfo=$("textarea[name='message']").val();
 		 if(sendInfo.trim()==''){
 		 	 alert('短信内容不能为空！');
 		 	 return false;
@@ -189,7 +194,7 @@
 					<tr>
 						<td align="center"><font color="red">*</font>&nbsp;发送的内容：</td>
 						<td>
-							<textarea name="message" style="width: 80%;height: 98px;" id="message"></textarea>
+							<textarea name="message" style="width: 80%;height: 98px;line-height: normal" id="message"></textarea>
 						</td>
 						<td>&nbsp;</td>
 					</tr>

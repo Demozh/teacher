@@ -100,6 +100,12 @@ public class AdminWebsiteProfileController extends BaseController {
 					map.put("ccappID", request.getParameter("ccappID"));
 					map.put("ccappKEY", request.getParameter("ccappKEY"));
 				}
+				// 因酷云视频
+				if (type.equals(WebSiteProfileType.inxeduVideo.toString())) {
+					map.put("UserId", request.getParameter("UserId"));
+					map.put("SecretKey", request.getParameter("SecretKey"));
+					map.put("AccessKey", request.getParameter("AccessKey"));
+				}
 				// 将map转化json串
 				JsonObject jsonObject = jsonParser.parse(gson.toJson(map)).getAsJsonObject();
 				if (ObjectUtils.isNotNull(jsonObject) && StringUtils.isNotEmpty(jsonObject.toString())) {// 如果不为空进行更新

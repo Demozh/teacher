@@ -16,10 +16,14 @@
 <link rel="stylesheet" href="${ctx}/static/common/nice-validator/jquery.validator.css"></link>
 <script type="text/javascript" src="${ctx}/static/common/nice-validator/jquery.validator.js"></script>
 <script type="text/javascript" src="${ctx}/static/common/nice-validator/local/zh-CN.js"></script>
-
+	<%--ue编辑器--%>
+	<script type="text/javascript" charset="utf-8" src="${ctx}/static/common/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="${ctx}/static/common/ueditor/ueditor.all.js"></script>
 <script type="text/javascript">
 	$(function() {
-		initKindEditor_addblog('content', 580, 400, 'articleContent', 'true');
+		//实例化编辑器 UE编辑器
+		initUEEditor("content",'580','400');
+		//initKindEditor_addblog('content', 580, 400, 'articleContent', 'true');
 		initSimpleImageUpload('imageFile', 'article', callback);
 		
 		$("#publishTime").datetimepicker({
@@ -73,7 +77,7 @@
 				<tr>
 					<td>发布时间：</td>
 					<td>
-						<input name="article.publishTime" id="publishTime"   readonly="readonly"  type="text" style="width: 140px;" data-rule="required;"/>
+						<input name="article.publishTime" id="publishTime"   readonly="readonly"  type="text" style="width: 140px;z-index: 1000;position:relative;" data-rule="required;"/>
 					</td>
 				</tr>
 				<tr>
@@ -89,7 +93,7 @@
 						<font color="red">*</font>内容：
 					</td>
 					<td>
-						<textarea name="articleContent.content" id="content" data-rule="required;"></textarea>
+						<textarea name="articleContent.content" id="content" data-rule="required;" style="background-image: none;margin-top:26px;"></textarea>
 					</td>
 				</tr>
 				<tr>

@@ -12,4 +12,5 @@ public enum WebSiteProfileType {
     online,//在线咨询
     letv,//乐视云
     cc,//cc视频配置
+    inxeduVideo,//因酷云视频配置
 }

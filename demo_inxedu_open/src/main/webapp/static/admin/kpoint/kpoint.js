@@ -142,11 +142,19 @@ function initUpdateKpoint(treeId, treeNode){
 			$("#courseKpointVideoType").val(obj.videoType);
 			$("#courseKpointVideoType").change();
 			$("input[name='courseKpoint.videoUrl']").val(obj.videoUrl);
+			$("#fileType").val(obj.fileType);
+			$("#fileType").change();
+			//清空文本内容
+			EditorObject.html("");
+			//设置HTML内容
+			EditorObject.html(obj.content);
 			$("input[name='courseKpoint.sort']").val(obj.sort);
 			$("input[name='courseKpoint.playCount']").val(obj.playCount);
 			$("input[name='courseKpoint.teacherId']").val(obj.teacherId);
 			$("input[name='courseKpoint.playTime']").val(obj.playTime);
-			$("#teacher").text(obj.teacherName);
+
+			$("#teacher").text(obj.teacherName==null?'':obj.teacherName);
+
 			$("input[name='courseKpoint.isFree']").attr('checked',false);
 			if(obj.free==1){
 				$($("input[name='courseKpoint.free']")[0]).attr('checked',true);
@@ -181,14 +189,26 @@ function updateKpoint(){
 		alert('排序必须是正整数！');
 		return false;
 	}
+
+	if($("#courseKpointKpointType").val()==1) {//章节专属验证
+		var fileType = $("#fileType").val();
+		if (fileType == 'TXT') {
+			if (isEmpty($("#content").val())) {
+				alert("文本内容必填！");
+				return;
+			}
+			var content = encodeURIComponent($("#content").val());
+			params += "courseKpoint.content=" + content + "&";
+		} else if (fileType == "VIDEO" && isEmpty($("#videourl").val())) {
+			alert("请填写视频地址");
+			return;
+		}
+	}
+
+
 	var playCount =$('input[name="courseKpoint.playCount"]').val();
 	if(!reg.test(playCount)){
 		alert('播放数必须是正整数！');
-		return false;
-	}
-	var teacherId = $("input[name='courseKpoint.teacherId']").val();
-	if(teacherId<=0){
-		alert('请选择老师');
 		return false;
 	}
 
@@ -196,7 +216,8 @@ function updateKpoint(){
 	params+="courseKpoint.kpointType="+kpointType+"&";
 	var videoType=$("#courseKpointVideoType").val();
 	params+="courseKpoint.videoType="+videoType+"&";
-	
+	var fileType=$("#fileType").val();
+	params+="courseKpoint.fileType="+fileType+"&";
 	$.ajax({
 		url:baselocation+'/admin/kpoint/updateKpoint',
 		type:'post',
@@ -321,15 +342,14 @@ function closeData(){
 /**
  * 视频节点类型 下拉改变
  */
-function kpointTypeChange(obj){
-	var kpointType=$(obj).val();
+function kpointTypeChange(){
+	$(".tr_all").hide();
+	var kpointType=$("#courseKpointKpointType").val();
 	if(kpointType==0){
-		$("input[name='courseKpoint.videoUrl']").parent().parent().hide();
-		$("#courseKpointVideoType").parent().parent().hide();
 		$("input[name='courseKpoint.videoUrl']").val("");
 	}else{
-		$("input[name='courseKpoint.videoUrl']").parent().parent().show();
-		$("#courseKpointVideoType").parent().parent().show();
+		$(".tr_all").show();
+		$("#fileType").change();
 	}
 }
 
@@ -356,21 +376,6 @@ function getKpointType(parentId){
 		}
 	});
 	return isTrue;
-}
-
-/*
- * 视频类型 下拉改变
- */
-function videoTypeChange(obj){
-	var viddeoType=$(obj).val();
-	if(viddeoType=="CC"){
-		$("input[name='courseKpoint.videoUrl']").attr("readonly","readonly");
-		$(".uploadCCVideo").show();
-		$("#up").html("无");
-	}else{
-		$("input[name='courseKpoint.videoUrl']").removeAttr("readonly");
-		$(".uploadCCVideo").hide();
-	}
 }
 
 //-------------------
@@ -438,4 +443,36 @@ function on_spark_upload_progress(progress) {
 		uploadProgress.innerHTML = "进度：" + progress + "%";
 		//alert( "进度：" + progress + "%");
 	}
+}
+
+
+/**
+ * 选择课件格式 控制页面效果的切换
+ */
+function chooseFileType(){
+	////先隐藏所有
+	$(".tr_all").hide();
+	var kpointType=$("#courseKpointKpointType").val();//节点类型
+	//课件类型
+	var fileType= $.trim($("#fileType").val());
+	//章节类型才会继续处理
+	if(kpointType==0){//章节类型 处理显示
+		return;
+	}
+
+	$("#fileType").parent().parent().show();
+	if(fileType=='VIDEO'){//选择视频格式
+		$(".videoType").show();
+		var videoType=$("#videotype").val();
+	}else if(fileType=='TXT'){//选择文本格式
+		$(".txtContent").show();
+		$("input[name='courseKpoint.free']:eq(1)").prop("checked","checked");
+	}
+}
+/**
+ * 取消树的选中状态
+ */
+function ztreeCancelSelectedNode(){
+	ztreeObject = $.fn.zTree.getZTreeObj("kpointList");
+	ztreeObject.cancelSelectedNode();
 }

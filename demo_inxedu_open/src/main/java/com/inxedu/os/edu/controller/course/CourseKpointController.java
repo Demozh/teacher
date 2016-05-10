@@ -2,6 +2,8 @@ package com.inxedu.os.edu.controller.course;
 
 import com.inxedu.os.common.controller.BaseController;
 import com.inxedu.os.common.util.ObjectUtils;
+import com.inxedu.os.common.util.StringUtils;
+import com.inxedu.os.common.util.inxeduvideo.InxeduVideo;
 import com.inxedu.os.edu.constants.enums.WebSiteProfileType;
 import com.inxedu.os.edu.entity.course.Course;
 import com.inxedu.os.edu.entity.kpoint.CourseKpoint;
@@ -14,8 +16,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
 import java.util.Map;
 
 /**
@@ -29,62 +34,78 @@ public class CourseKpointController extends BaseController {
 
 	private static final String getKopintHtml = getViewPath("/web/course/videocode");// 课程播放
 	private static final String callBack56Uploading = getViewPath("/course/callBack56_uploading");//56视频上传回调
-
+	private static final String playTxtAjax=getViewPath("/web/playCourse/play_txt_ajax");//加载播放大厅文本
 	@Autowired
 	private CourseKpointService courseKpointService;
 	@Autowired
 	private CourseService courseService;
 	@Autowired
 	private WebsiteProfileService websiteProfileService;
-	
+
 	/**
 	 * 获得视频播放的html
 	 * @return
 	 */
 	@RequestMapping("/front/ajax/getKopintHtml")
-	public String getKopintHtml(Model model, HttpServletRequest request) {
+	public String getKopintHtml(Model model, HttpServletRequest request,@RequestParam("kpointId")int kpointId, HttpServletResponse response) {
+		response.setContentType("text/html;charset=utf-8");
+
 		try {
-			if(ObjectUtils.isNull(request.getParameter("kpointId"))){
-				return getKopintHtml;
-			}
-			int kpointId = Integer.parseInt(request.getParameter("kpointId"));
-			// 查询节点
+			PrintWriter out=response.getWriter();
 			CourseKpoint courseKpoint = courseKpointService.queryCourseKpointById(kpointId);
 			// 当传入数据不正确时直接返回
 			if (ObjectUtils.isNull(courseKpoint)) {
-				return getKopintHtml;
+				out.println("<script>var noCover=true; dialog dialog('提示','参数错误！',1);</script>");
+				return null;
 			}
-						
+
 			//获取课程
 			Course course = courseService.queryCourseById(courseKpoint.getCourseId());
 			if (course==null) {
 				logger.info("++isok:" + false);
 				return getKopintHtml;
 			}
+			model.addAttribute("courseKpoint",courseKpoint);
+			model.addAttribute("course",course);
+			//视频
+			if("VIDEO".equals(courseKpoint.getFileType())){
+				// 视频url
+				String videourl = courseKpoint.getVideoUrl();
+				// 播放类型
+				String videotype = courseKpoint.getVideoType();
+				//查询inxeduVideo的key
+				if(courseKpoint.getVideoType().equalsIgnoreCase(WebSiteProfileType.inxeduVideo.toString())){
+					Map<String,Object> map=(Map<String,Object>)websiteProfileService.getWebsiteProfileByType(WebSiteProfileType.inxeduVideo.toString()).get(WebSiteProfileType.inxeduVideo.toString());
+					String play_url = "http://vod.baofengcloud.com/" + map.get("UserId") + "/player/cloud.swf";
+					String url = "servicetype=1&uid="+map.get("UserId")+"&fid="+videourl;
+					play_url += "?" + url;
+					//如果因酷云的key不为空则按加密播放如果为空则不加密
+					if(StringUtils.isNotEmpty(map.get("SecretKey").toString())&&StringUtils.isNotEmpty(map.get("AccessKey").toString())){
+						String token = InxeduVideo.createPlayToken(videourl,map.get("SecretKey").toString(),map.get("AccessKey").toString());
+						play_url += "&tk=" + token;
+					}
+					play_url += "&auto=" + 1;
+					videourl=play_url;
+				}
+				//查询cc的appId key
+				if(courseKpoint.getVideoType().equalsIgnoreCase(WebSiteProfileType.cc.toString())){//如果cc
+					Map<String,Object> map=websiteProfileService.getWebsiteProfileByType(WebSiteProfileType.cc.toString());
+					model.addAttribute("ccwebsitemap", map);
+				}
+				// 放入数据
+				model.addAttribute("videourl", videourl);
+				model.addAttribute("videotype", videotype);
+				return getKopintHtml;
+			}
+			//文本
+			if("TXT".equals(courseKpoint.getFileType())){
+				return playTxtAjax;
+			}
 
-			// 视频url
-			String videourl = courseKpoint.getVideoUrl();
-			// 播放类型
-			String videotype = courseKpoint.getVideoType();
-			
-			
-			//查询cc的appId key
-			if(courseKpoint.getVideoType().equalsIgnoreCase(WebSiteProfileType.cc.toString())){//如果cc
-				Map<String,Object> map=websiteProfileService.getWebsiteProfileByType(WebSiteProfileType.cc.toString());
-				model.addAttribute("ccwebsitemap", map);
-			}
-			//查询乐视的appId key
-			if(courseKpoint.getVideoType().equalsIgnoreCase(WebSiteProfileType.letv.toString())){//如果乐视
-    			Map<String,Object>	lmap=websiteProfileService.getWebsiteProfileByType(WebSiteProfileType.letv.toString());
-    			model.addAttribute("websiteLetvmap", lmap);
-			}
-			
             //判断是否为手机浏览器
             boolean isMoblie = JudgeIsMoblie(request);
             model.addAttribute("isMoblie", isMoblie);
-			// 放入数据
-			model.addAttribute("videourl", videourl);
-			model.addAttribute("videotype", videotype);
+
 			return getKopintHtml;
 		} catch (Exception e) {
 			logger.error("CourseKpointController.getKopintHtml", e);

@@ -15,7 +15,7 @@
 			</legend>
 			<div class="mt20">
 				<p>
-					<label for="lf"><span>
+					<label ><span>
 							<tt class="c_666 ml20 fsize12">
 								（<font color="red">*</font>&nbsp;为必填项）
 							</tt>
@@ -24,47 +24,47 @@
 				</p>
 				<c:if test="${type=='web' }">
 					<p>
-						<label for="lf"><font color="red">*</font>&nbsp;网站title(网站头部)</label>
+						<label ><font color="red">*</font>&nbsp;网站title(网站头部)</label>
 						<input type="text" name="title" value="${webSiteMap.web.title}" class="lf" />
 						<span class="field_desc"></span>
 					</p>
 					<p>
-						<label for="lf"><font color="red">*</font>&nbsp;网校名称(网站头部)</label>
+						<label ><font color="red">*</font>&nbsp;网校名称(网站头部)</label>
 						<input type="text" name="company" value="${webSiteMap.web.company}" class="lf" />
 						<span class="field_desc"></span>
 					</p>
 					<p>
-						<label for="lf"><font color="red">*</font>&nbsp;网站作者</label>
+						<label ><font color="red">*</font>&nbsp;网站作者</label>
 						<input type="text" name="author" value="${webSiteMap.web.author}" class="lf" />
 						<span class="field_desc"></span>
 					</p>
 					<p>
-						<label for="lf"><font color="red">*</font>&nbsp;关键词</label>
+						<label ><font color="red">*</font>&nbsp;关键词</label>
 						<input type="text" name="keywords" value="${webSiteMap.web.keywords}" style="width: 75%" class="lf" />
 						<span class="field_desc"></span>
 					</p>
 					<p>
-						<label for="lf"><font color="red">*</font>&nbsp;描述</label>
+						<label ><font color="red">*</font>&nbsp;描述</label>
 						<input type="text" name="description" value="${webSiteMap.web.description}" style="width: 75%" class="lf" />
 						<span class="field_desc"></span>
 					</p>
 					<p>
-						<label for="lf"><font color="red">*</font>&nbsp;联系邮箱</label>
+						<label ><font color="red">*</font>&nbsp;联系邮箱</label>
 						<input type="text" name="email" value="${webSiteMap.web.email}" class="lf" />
 						<span class="field_desc"></span>
 					</p>
 					<p>
-						<label for="lf"><font color="red">*</font>&nbsp;24小时客服服务热线</label>
+						<label ><font color="red">*</font>&nbsp;24小时客服服务热线</label>
 						<input type="text" name="phone" value="${webSiteMap.web.phone}" class="lf" />
 						<span class="field_desc"></span>
 					</p>
 					<p>
-						<label for="lf"><font color="red">*</font>&nbsp;工作时间</label>
+						<label ><font color="red">*</font>&nbsp;工作时间</label>
 						<input type="text" name="workTime" value="${webSiteMap.web.workTime}" class="lf" />
 						<span class="field_desc"></span>
 					</p>
 					<p>
-						<label for="lf"><font color="red">*</font>&nbsp;版权以及备案号(网站底部)</label>
+						<label ><font color="red">*</font>&nbsp;版权以及备案号(网站底部)</label>
 						<input type="text" name="copyright" value="${webSiteMap.web.copyright}" style="width: 75%" class="lf" />
 						<span class="field_desc"></span>
 					</p>
@@ -72,32 +72,38 @@
 				</c:if>
 				<c:if test="${type=='censusCode'}">
 					<p>
-						<label for="sf"><font color="red">*</font>&nbsp;统计代码</label>
+						<label ><font color="red">*</font>&nbsp;统计代码</label>
 						<textarea rows="6" cols="60" name="censusCodeString">${webSiteMap.censusCode.censusCodeString}</textarea>
 						<span class="field_desc"></span>
 					</p>
 				</c:if>
-				<c:if test="${type=='letv'}">
-					<p>
-						<label for="sf"><font color="red">*</font>&nbsp;用户唯一标识码</label>
-						<input type="text" name="user_unique" value="${webSiteMap.letv.user_unique}" style="width: 15%" class="sf" />
-						<span class="field_desc"></span>
-					</p>
-					<p>
-						<label for="sf"><font color="red">*</font>&nbsp;秘钥</label>
-						<input type="text" name="secret_key" value="${webSiteMap.letv.secret_key}" style="width: 15%" class="sf" />
-						<span class="field_desc"></span>
-					</p>
-				</c:if>
+
 				<c:if test="${type=='cc'}">
 					<p>
-						<label for="sf"><font color="red">*</font>&nbsp;CC appID</label>
+						<label ><font color="red">*</font>&nbsp;CC appID</label>
 						<input type="text" name="ccappID" value="${webSiteMap.cc.ccappID}" style="width: 15%" class="sf" />
 						<span class="field_desc"></span>
 					</p>
 					<p>
-						<label for="sf"><font color="red">*</font>&nbsp;CC appKEY</label>
+						<label ><font color="red">*</font>&nbsp;CC appKEY</label>
 						<input type="text" name="ccappKEY" value="${webSiteMap.cc.ccappKEY}" style="width: 15%" class="sf" />
+						<span class="field_desc"></span>
+					</p>
+				</c:if>
+				<c:if test="${type=='inxeduVideo'}">
+					<p>
+						<label ><font color="red">*</font>&nbsp;因酷云UserId</label>
+						<input type="text" name="UserId" value="${webSiteMap.inxeduVideo.UserId}" style="width: 15%" class="sf" />
+						<span class="field_desc"></span>
+					</p>
+					<p>
+						<label ><font color="red">*</font>&nbsp;因酷云SecretKey</label>
+						<input type="text" name="SecretKey" value="${webSiteMap.inxeduVideo.SecretKey}" style="width: 15%" class="sf" />
+						<span class="field_desc"></span>
+					</p>
+					<p>
+						<label ><font color="red">*</font>&nbsp;因酷云AccessKey</label>
+						<input type="text" name="AccessKey" value="${webSiteMap.inxeduVideo.AccessKey}" style="width: 15%" class="sf" />
 						<span class="field_desc"></span>
 					</p>
 				</c:if>

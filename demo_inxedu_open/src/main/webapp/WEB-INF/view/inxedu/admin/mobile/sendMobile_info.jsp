@@ -10,6 +10,9 @@
 <script type="text/javascript" src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery.ui.datepicker-zh-CN.js?v=${v}"></script>
 <script type="text/javascript" src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery-ui-timepicker-addon.js?v=${v}"></script>
 <script type="text/javascript" src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery-ui-timepicker-zh-CN.js?v=${v}"></script>
+	<%--ue编辑器--%>
+	<script type="text/javascript" charset="utf-8" src="${ctx}/static/common/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="${ctx}/static/common/ueditor/ueditor.all.js"></script>
 
 <script type="text/javascript">
 	$(function(){
@@ -19,7 +22,9 @@
 		      dateFormat:"yy-mm-dd ",
 		      timeFormat: "HH:mm:ss"
 		  });
-		  initKindEditor_addblog('textareamobile', 720, 300,'mobile','true');
+		  //initKindEditor_addblog('textareamobile', 720, 300,'mobile','true');
+		//实例化编辑器 UE编辑器
+		initUEEditor("textareamobile",'720','300');
 		  
 	});
 	function updateSubmit(){
@@ -97,7 +102,7 @@
 				<tr>
 					<td align="center"><font color="red">*</font>&nbsp;接收人：</td>
 					<td>
-						<textarea id="textareamobile" <c:if test="${userMobileMsg.status!=2&&userMobileMsg.type!=2 }">disabled="disabled" readonly="readonly"</c:if> rows="6" cols="80" >${userMobileMsg.mobile}</textarea>
+						<textarea id="textareamobile" <c:if test="${userMobileMsg.status!=2&&userMobileMsg.type!=2 }">disabled="disabled" readonly="readonly"</c:if> rows="6" cols="80" style="line-height: normal;">${userMobileMsg.mobile}</textarea>
 					</td>
 				</tr>
 				<tr>

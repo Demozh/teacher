@@ -1,12 +1,11 @@
 package com.inxedu.os.edu.dao.impl.website;
 
-import java.util.List;
-
-import org.springframework.stereotype.Repository;
-
 import com.inxedu.os.common.dao.GenericDaoImpl;
 import com.inxedu.os.edu.dao.website.WebsiteProfileDao;
 import com.inxedu.os.edu.entity.website.WebsiteProfile;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /** 网站配置 
  * @author www.inxedu.com
@@ -19,7 +18,12 @@ public class WebsiteProfileDaoImpl extends GenericDaoImpl implements WebsiteProf
 		return this.selectOne("WebsiteProfileMapper.getWebsiteProfileByType", type);
 	}
 
-	
+	/**
+	 * 添加查询网站配置
+	 */
+	public void addWebsiteProfileByType(WebsiteProfile websiteProfile){
+		this.insert("WebsiteProfileMapper.addWebsiteProfileByType",websiteProfile);
+	}
 	public void updateWebsiteProfile(WebsiteProfile websiteProfile) {
 		this.update("WebsiteProfileMapper.updateWebsiteProfile", websiteProfile);
 	}

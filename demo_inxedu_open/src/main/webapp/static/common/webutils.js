@@ -83,6 +83,54 @@ function initKindEditor_addblog(id, width, height,param,pressText) {
 }
 
 /**
+ * ue编辑器
+ * @param id 文本域ID
+ * @param width 编辑器的宽
+ * @param height 编辑器的高
+ * @param keImageUploadUrl 上传图片服务的URL
+ */
+function initUEEditor(id,width,height){
+	//实例化编辑器
+	var ue = UE.getEditor(''+id,{
+		toolbars: [
+			[
+				'fontfamily', //字体
+				'fontsize', //字号
+				'undo', //撤销
+				'redo', //重做
+				'|',
+				'emotion', //表情
+				'forecolor', //字体颜色
+				'backcolor', //背景色
+				'bold', //加粗
+				'underline', //下划线
+				'strikethrough', //删除线
+				'|',
+				'justifyleft', //居左对齐
+				'justifyright', //居右对齐
+				'justifycenter', //居中对齐
+				'|',
+				'link', //超链接
+				'unlink', //取消链接
+				'simpleupload', //单图上传
+				'insertimage', //多图上传
+				//'music', //音乐
+				//'insertvideo', //视频
+				'removeformat', //清除格式
+				'formatmatch', //格式刷
+				'source', //源代码
+			]
+		],
+		enableAutoSave:false,
+		autoHeightEnabled: true,
+		autoFloatEnabled: true,
+		initialFrameWidth:width,
+		initialFrameHeight:height,
+		scaleEnabled:true//滚动条
+	});
+}
+
+/**
  * 后台专用图片上传
  * @param btnId 上传组件的ID
  * @param param 图片上传目录名
@@ -189,3 +237,25 @@ function setCookie(name,value){
 	document.cookie = name + "=" + escape(value) + ";expires="+ exp.toGMTString() + ";path=/";
 }
 
+
+function isEmpty(str){
+	if(str==null || str=="" || str.trim()==''){
+		return true;
+	}
+	return false;
+}
+
+function isNotEmpty(str){
+	return !isEmpty(str);
+}
+
+function isNotNull(object){
+	return !isNull(object);
+}
+
+function isNull(object){
+	if(typeof(object)=="undefined" || object==null ||  object==''){
+		return true;
+	}
+	return false;
+}

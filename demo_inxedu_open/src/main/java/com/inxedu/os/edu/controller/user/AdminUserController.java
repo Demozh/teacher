@@ -330,4 +330,25 @@ public class AdminUserController extends BaseController{
 		return modelandView;
 	}
 
+	/**
+	 * 用户选择页（小页面弹出）
+	 */
+	@RequestMapping("/select_userlist/{type}")
+	public ModelAndView selectUserList(@ModelAttribute User user, @ModelAttribute("page") PageEntity page, @PathVariable("type") int type) {
+		ModelAndView modelandView = new ModelAndView();
+		// 设置返回页面
+		modelandView.setViewName(getViewPath("/admin/user/select_user_list"));
+		try {
+			// 查询学员列表
+			List<User> list = userService.getUserListPage(user, page);
+			// 把参数放到modelAndView中
+			modelandView.addObject("list", list);
+			modelandView.addObject("page", page);
+			modelandView.addObject("type", type);// 1 短信 2邮箱
+		} catch (Exception e) {
+			logger.error("AdminUserController.userList", e);
+		}
+		return modelandView;
+	}
+
 }

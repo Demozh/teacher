@@ -115,4 +115,12 @@ public interface UserDao {
 	 * 更新用户的上传统计系统消息时间
 	 */
 	public void updateCusForLST(Long cusId, Date date);
+
+	/**
+	 * 根据条件获取User列表  带课程名称
+	 * @param user  用户
+	 * @param page   分页参数
+	 * @return
+	 */
+	public List<User> getUserListPage(User user, PageEntity page);
 }

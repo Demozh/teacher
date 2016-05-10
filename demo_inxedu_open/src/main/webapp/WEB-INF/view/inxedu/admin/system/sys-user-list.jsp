@@ -36,7 +36,7 @@
 					<td align="center">最后登录时间</td>
 					<td align="center">最后登录IP</td>
 					<td align="center">状态</td>
-					<td align="center" width="260">操作</td>
+					<td align="center" width="330">操作</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -85,6 +85,7 @@
 							<c:if test="${sysuser.status==1}">冻结</c:if>
 						</td>
 						<td align="center">
+							<a href="javascript:void(0)" onclick="delUser(${sysuser.userId})" class="button tooltip">删除</a>
 							<a href="javascript:void(0)" onclick="initUser(${sysuser.userId})" class="button tooltip">修改</a>
 							<a href="javascript:void(0)" onclick="updatePwd(${sysuser.userId})" class="button tooltip">修改密码</a>
 							<samp>

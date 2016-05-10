@@ -10,6 +10,9 @@
     <script type="text/javascript" src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery.ui.datepicker-zh-CN.js?v=${v}"></script>
     <script type="text/javascript" src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery-ui-timepicker-zh-CN.js?v=${v}"></script>
     <script type="text/javascript" src="${ctximg}/kindeditor/kindeditor-all.js?v=1410957986989"></script>
+	<%--ue编辑器--%>
+	<script type="text/javascript" charset="utf-8" src="${ctx}/static/common/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="${ctx}/static/common/ueditor/ueditor.all.js"></script>
     <script type="text/javascript">
         $(function(){
             $("#startTime").datetimepicker({
@@ -19,8 +22,12 @@
                 timeFormat : 'HH:mm:ss',
                 timeFormat : 'HH:mm:ss'
             });
-            initKindEditor_addblog('content', 720, 300,'email','true');
-            initKindEditor_addblog('textareaemail', 720, 300,'email','true');
+            //initKindEditor_addblog('content', 720, 300,'email','true');
+			//实例化编辑器 UE编辑器
+			initUEEditor("content",'720','300');
+            //initKindEditor_addblog('textareaemail', 720, 300,'email','true');
+			//实例化编辑器 UE编辑器
+			initUEEditor("textareaemail",'720','300');
         });
 
         function update(){
@@ -115,7 +122,7 @@
 					<tr>
 						<td><font color="red">*</font>&nbsp;接收人：</td>
 						<td >
-		                    <textarea id="textareaemail" rows="6" cols="80" >${userEmailMsg.email}</textarea>
+		                    <textarea id="textareaemail" rows="6" cols="80" style="line-height:normal; ">${userEmailMsg.email}</textarea>
 						</td>
 					</tr>
 					<tr>

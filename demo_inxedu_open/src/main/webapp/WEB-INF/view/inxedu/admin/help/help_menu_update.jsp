@@ -7,13 +7,18 @@
 	<title></title>
 <script type="text/javascript" src="${ctximg}/kindeditor/kindeditor-all.js?v=${v}"></script>
 <link rel="stylesheet" type="text/css" href="${ctximg}/kindeditor/themes/default/default.css?v=${v}" />
+	<%--ue编辑器--%>
+	<script type="text/javascript" charset="utf-8" src="${ctx}/static/common/ueditor/ueditor.config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="${ctx}/static/common/ueditor/ueditor.all.js"></script>
 <script type="text/javascript">
 $(function(){
 	$("#menuName").keyup(function(){
 		$("#menuNameCount").text($.trim($(this).val()).length);
 	});
 	//初始化 Kindeditor
-	initKindEditor_addblog('content', 580, 350,'helpcontent','true');
+	//initKindEditor_addblog('content', 580, 350,'helpcontent','true');
+	//实例化编辑器 UE编辑器
+	initUEEditor("content",'580','350');
 });
 				
 
@@ -28,7 +33,8 @@ function updateSubmit(){
 			alert("请选择一级菜单");
 			return;
 		}
-		if($("#content").val()==null||$("#content").val()==''){
+		var content=$("textarea[name='helpMenu.content']").val();
+		if(content==null||content==''){
 			alert("请填写帮助内容");
 			return;
 		}
@@ -73,7 +79,7 @@ function updateSubmit(){
 					<tr>
 						<td ><font color="red"></font>&nbsp;帮助内容：</td>
 						<td>
-							<textarea id="content" name="helpMenu.content" cols="100" rows="8" style="width:560px;height:365px;visibility:hidden;">${helpMenu.content}</textarea>
+							<textarea id="content" name="helpMenu.content">${helpMenu.content}</textarea>
 						</td>
 					</tr>
 					<tr>

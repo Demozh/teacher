@@ -164,8 +164,12 @@ function createSysUser(){
 		success:function(result){
 			if(result.success==true){
 				closedData();
+				alert(result.message);
+				window.location.reload();
+			}else{
+				alert(result.message);
 			}
-			alert(result.message);
+
 		},
 		error:function(error){
 			alert("系统繁忙，请稍后再操作！");
@@ -180,4 +184,28 @@ function closedData(){
 	$("input:password").val('');
 	$("select").val(0);
 	$("#updateWin,#createWin,#updatePwdWin").hide();
+}
+/**
+ * 删除用户
+ * @param userId
+ */
+function delUser(userId){
+	closedData();
+	if(confirm("确定删除吗？")){
+		$.ajax({
+			url:baselocation+'/admin/sysuser/disableOrstart/'+userId+'/3',
+			data:{},
+			type:'post',
+			dataType:'json',
+			success:function(result){
+				if(result.success==true){
+					alert("删除成功");
+					window.location.reload();
+				}
+			},
+			error:function(error){
+				alert("系统繁忙，请稍后再操作！");
+			}
+		});
+	}
 }

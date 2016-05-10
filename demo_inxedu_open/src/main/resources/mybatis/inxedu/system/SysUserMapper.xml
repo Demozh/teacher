@@ -111,6 +111,9 @@
     	<if test="type==2">
     	SYS_USER.STATUS=1
     	</if>
+		<if test="type==3">
+			SYS_USER.STATUS=2
+		</if>
     	WHERE SYS_USER.USER_ID=#{userId}
     </update>
     

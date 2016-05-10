@@ -1,17 +1,16 @@
 package com.inxedu.os.edu.dao.impl.course;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.stereotype.Repository;
-
 import com.inxedu.os.common.dao.GenericDaoImpl;
 import com.inxedu.os.common.entity.PageEntity;
 import com.inxedu.os.edu.dao.course.CourseDao;
 import com.inxedu.os.edu.entity.course.Course;
 import com.inxedu.os.edu.entity.course.CourseDto;
 import com.inxedu.os.edu.entity.course.QueryCourse;
+import org.springframework.stereotype.Repository;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author www.inxedu.com
@@ -92,6 +91,18 @@ public class CourseDaoImpl extends GenericDaoImpl implements CourseDao {
 
 	public List<CourseDto> queryCourse(QueryCourse queryCourse) {
 		return selectList("CourseMapper.queryCourse", queryCourse);
+	}
+
+	/**
+	 * 更新课程数据（浏览数，购买数）
+	 * @param type pageViewcount浏览数 pageBuycount购买数
+	 * @param courseId 课程id
+	 */
+	public void updateCourseCount(String type,int courseId){
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("type", type);// 类型
+		map.put("courseId", courseId);// 课程id
+		this.update("CourseMapper.updateCourseCount", map);
 	}
 	
 

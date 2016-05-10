@@ -1,6 +1,9 @@
 var subjectList;
 $(function(){
-	initKindEditor_addblog('content', 580, 350,'courseContxt','true');
+	//实例化编辑器 UE编辑器
+	initUEEditor("content",'580','350');
+
+	//initKindEditor_addblog('content', 580, 350,'courseContxt','true');
 	initSimpleImageUpload('imageFile','course',callback);
 	$("#endTime").datetimepicker({
 		regional:"zh-CN",

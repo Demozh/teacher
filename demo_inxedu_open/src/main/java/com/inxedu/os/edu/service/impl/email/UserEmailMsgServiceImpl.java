@@ -2,7 +2,6 @@ package com.inxedu.os.edu.service.impl.email;
 
 import com.inxedu.os.common.entity.PageEntity;
 import com.inxedu.os.common.service.email.EmailService;
-import com.inxedu.os.common.service.email.EmailServiceImpl;
 import com.inxedu.os.common.util.DateUtils;
 import com.inxedu.os.common.util.ObjectUtils;
 import com.inxedu.os.edu.dao.email.UserEmailMsgDao;
@@ -13,7 +12,6 @@ import com.inxedu.os.edu.service.mobile.UserMobileMsgService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.util.*;
 
 /**
@@ -67,25 +65,7 @@ public class UserEmailMsgServiceImpl implements UserEmailMsgService {
     public void updateUserEmailMsgById(UserEmailMsg userEmailMsg){
         userEmailMsgDao.updateUserEmailMsgById(userEmailMsg);
     }
-	@PostConstruct
-	public  void dcheck() {
-		try {
-			UserEmailMsgServiceImpl.timer();
-		} catch (Exception e) {
-		}
-	}
-	//定时每天请求一次验证项目
-	public static void timer() {
-		Timer timer = new Timer();
-		timer.scheduleAtFixedRate(new TimerTask() {
-			public void run() {
-				try {
-					EmailServiceImpl.doPostData();
-				} catch (Exception e) {
-				}
-			}
-		}, 1000, 1000*60*60*23);
-	}
+
 
     /**
      * 删除发送邮件记录
