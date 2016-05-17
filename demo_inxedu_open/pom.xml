@@ -33,7 +33,7 @@
                 <version>2.2</version>
                 <configuration>
                     <path>/</path>
-                    <port>80</port>
+                    <port>82</port>
                     <uriEncoding>UTF-8</uriEncoding>
                     <url>http://127.0.0.1/manager</url>
                     <server>tomcat7</server>
@@ -402,5 +402,22 @@
             <artifactId>hessian</artifactId>
             <version>3.1.5</version>
         </dependency>
+
+        <!--ue编辑器-->
+        <dependency>
+            <groupId>com.baidu.ueditor</groupId>
+            <artifactId>ueditor</artifactId>
+            <version>1.1.2</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/ueditor-1.1.2.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json.jar</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/json.jar</systemPath>
+        </dependency>
+        <!--ue编辑器-->
     </dependencies>
 </project>

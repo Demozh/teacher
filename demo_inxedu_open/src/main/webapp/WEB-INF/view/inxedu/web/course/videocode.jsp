@@ -15,7 +15,7 @@
 	<c:when test="${videotype=='CC'}"> <%-- cc视频 --%>
         <script src='http://p.bokecc.com/player?vid=${videourl}&siteid=${ccwebsitemap.cc.ccappID}&autoStart=true&width=100%&height=100%&playerid=51A2AD3118ACAD37&playertype=1' type='text/javascript'></script>
 	</c:when>
-	<c:when test="${videotype=='inxeduCloud'}"> <%-- 因酷云--%>
+	<c:when test="${videotype=='INXEDUVIDEO'}"> <%-- 因酷云--%>
 		<div id="videoareaname" style="width: 100%;height: 100%"></div>
 		<script>
 			var vodparam = "${videourl}";
