@@ -213,49 +213,4 @@ public class CourseController extends BaseController {
 		}
     	return json;
     }
-
-    /**
-     * 查询课程目录
-     */
-    @RequestMapping("/front/ajax/courseKpointList/{courseId}/{type}")
-    public ModelAndView courseKpointList(HttpServletRequest request,@ModelAttribute("courseFavorites") CourseFavorites courseFavorites,@PathVariable("courseId") int courseId,@PathVariable("type") int type){
-        ModelAndView model = new ModelAndView();
-        try {
-            model.setViewName(getViewPath("/web/course/course-kpoint-list"));
-            // 查询课程详情
-            Course course = courseService.queryCourseById(courseId);
-            if(course!=null){
-                int userId = SingletonLoginUtils.getLoginUserId(request);
-                //查询目录
-                List<CourseKpoint> parentKpointList = new ArrayList<CourseKpoint>();
-                List<CourseKpoint> kpointList = courseKpointService.queryCourseKpointByCourseId(courseId);
-                if(kpointList!=null && kpointList.size()>0){
-                    for(CourseKpoint temp:kpointList){
-                        if (temp.getParentId()==0) {
-                            parentKpointList.add(temp);
-                        }
-                    }
-                    int freeVideoId=0;
-                    for(CourseKpoint tempParent:parentKpointList){
-                        for(CourseKpoint temp:kpointList){
-                            if (temp.getParentId()==tempParent.getKpointId()) {
-                                tempParent.getKpointList().add(temp);
-                            }
-                            //获取一个可以试听的视频id
-                            if (freeVideoId==0&&temp.getFree()==1&&temp.getKpointType()==1) {
-                                freeVideoId=temp.getKpointId();
-                                model.addObject("freeVideoId",freeVideoId);
-                            }
-                        }
-                    }
-                    model.addObject("parentKpointList", parentKpointList);
-                }
-            }
-            model.addObject("playFromType", type);
-        } catch (Exception e) {
-            model.setViewName(this.setExceptionRequest(request, e));
-            logger.error("courseKpointList()----error", e);
-        }
-        return model;
-    }
 }

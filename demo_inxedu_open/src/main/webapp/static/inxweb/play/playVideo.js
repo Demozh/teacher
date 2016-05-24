@@ -12,6 +12,13 @@ $(function() {
 
 	// 加载 笔记编辑器
 	initKindEditornote();
+	if (isok == false) {
+		dialog('播放提示', message, 1);
+		return false;
+	} else {
+		// 播放第一个视频节点
+		$("#lh-menu").find("ul>li:eq(0)").find("ul>li:eq(0),ol>li:eq(0)").find("a").click();
+	}
 	// 学过此课程的用户
 	getCourseLearnedUser(otherId);
 })
@@ -27,14 +34,7 @@ function comment(type, obj) {
 	}
 }
 $(window).resize(function() {
-	if(checkIsMobile()){// 移动端环境下效果
-		/*var wH = parseInt(document.documentElement.clientHeight, 10);
-		 //$("#p-h-box").css("height", wH - 258);
-		 $("#p-h-r-cont").css("height", wH - 363);
-		 $(".p-h-video").css("height", wH - 330);*/
-	}else{
-		vP();
-	}
+	vP();
 });
 
 // 学习进度动画
@@ -58,7 +58,7 @@ var sB = function(num) { // num : 进度百分比数值
 // 播放器高度动态赋值
 var vP = function() {
 	var wH = parseInt(document.documentElement.clientHeight, 10);
-	//$("#p-h-box").css("height", wH - 108);
+	$("#p-h-box").css("height", wH - 108);
 	$("#p-h-r-cont").css("height", wH - 213);
 	$(".p-h-video").css("height", wH - 180);
 }
@@ -114,7 +114,16 @@ var ocFun = function() {
 };
 // 移动端显示
 function browserRedirect() {
-	if(checkIsMobile()){// 移动端环境下效果
+	var sUserAgent = navigator.userAgent.toLowerCase();
+	var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+	var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+	var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+	var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+	var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+	var bIsAndroid = sUserAgent.match(/android/i) == "android";
+	var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+	var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+	if (bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) { // 移动端环境下效果
 		$(".p-h-box").css("padding-right", "320");
 		$(".p-h-r-ele").css("width", "320");
 		$(".p-h-r-ele").animate({
@@ -129,7 +138,7 @@ function browserRedirect() {
 		}, 500).addClass("open-o-c");
 		$("#o-c-btn").children("a").attr("title", "显示");
 		var wH = parseInt(document.documentElement.clientHeight, 10);
-		//$("#p-h-box").css("height", wH - 258);
+		$("#p-h-box").css("height", wH - 258);
 		$("#p-h-r-cont").css("height", wH - 363);
 		$(".p-h-video").css("height", wH - 330);
 
@@ -186,13 +195,6 @@ function getPlayerHtml(kpointId,name,obj) {
 		dataType : "text",
 		async:false,
 		success : function(result) {
-			if(checkIsMobile()){// 移动端环境下效果
-				//音频播放 单独还原设置  播放器高度动态赋值
-				var wH = parseInt(document.documentElement.clientHeight, 10);
-				//$("#p-h-box").css("height", wH - 258);
-				$("#p-h-r-cont").css("height", wH - 363);
-				$(".p-h-video").css("height", wH - 330);
-			}
 			$("#videoPlay").html(result);
 			// 添加播放记录
 			setTimeoutflag = setTimeout('addPlayTimes(' + otherId + ',' + currentKpointId + ')', Number(countPlayTimeOut) * 1000);
@@ -300,24 +302,25 @@ function favorites(courseId,obj) {
  		});
  	}
  };
-
+ 
 /*
  * 查询笔记
  */
-function queryNote(obj) {
-	$(obj).removeClass("current").siblings().removeClass("current");
-	$(obj).addClass("current");
+function queryNote() {
 	$.ajax({
 		url : baselocation + "/courseNote/ajax/querynote",
 		type : "post",
-		dataType : "text",
+		dataType : "json",
 		data : {
 			'kpointId' : currentKpointId,
 			"courseId" : otherId
 		},
 		success : function(result) {
-
-			$(".note_html").html(result);
+			if (result.courseNote != undefined) {
+				KindEditor.html("#notesContextId", result.courseNote.content);
+			} else {
+				KindEditor.html("#notesContextId", '');
+			}
 		}
 	});
 }
@@ -343,26 +346,4 @@ function addPlayTimes(courseId, kpointId) {
 		success : function(result) {
 		}
 	});
-}
-
-function clickNote(obj){
-	$(".note_html").html("");
-	$(".course_mulu").click();
-	$(obj).removeClass("current").siblings().removeClass("current");
-	$(obj).addClass("current");
-	$(".commentHtml").next().hide();
-	$(".commentHtml").show();
-	$.ajax({
-		url : baselocation + "/courseNote/ajax/querynote",
-		type : "post",
-		dataType : "text",
-		data : {
-			'kpointId' : currentKpointId,
-			"courseId" : otherId
-		},
-		success : function(result) {
-			$(".commentHtml").html(result);
-		}
-	});
-
 }

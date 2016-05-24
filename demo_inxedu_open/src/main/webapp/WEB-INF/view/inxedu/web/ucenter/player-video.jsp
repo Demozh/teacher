@@ -20,7 +20,6 @@
 <link rel="stylesheet" type="text/css" href="${ctx}/static/inxweb/css/web.css">
 <link href="${ctx}/static/inxweb/css/mw_320_768.css" rel="stylesheet" type="text/css" media="screen and (min-width: 320px) and (max-width: 768px)">
 <!--[if lt IE 9]><script src="js/html5.js"></script><![endif]-->
-<script src="http://vod.baofengcloud.com/html/script/bfcloud.js?v=2"></script>
 </head>
 <body>
 	<div class="of" style="background-color: #f0f0f0">
@@ -93,8 +92,8 @@
 							</section>
 							<div id="p-h-r-cont">
 								<section class="p-h-r-menu mt10">
-									<div class="lh-menu-wrap" id="courseKpointMenu">
-										<%--<menu id="lh-menu" class="lh-menu">
+									<div class="lh-menu-wrap">
+										<menu id="lh-menu" class="lh-menu">
 											<ul>
 												<c:set var="folderIndex" value="1"/>
 												<c:forEach items="${parentKpointList }" var="parentKpoint" varStatus="index">
@@ -111,9 +110,9 @@
 																		<li class="lh-menu-second ml30">
 																			<a href="javascript:void(0)" onclick="getPlayerHtml(${sonKpoint.kpointId },'${sonKpoint.name }',this)" class="" title="">
 																				<span class="fr">
-																					&lt;%&ndash; <c:if test="${sonKpoint.free==1 }">
+																					<%-- <c:if test="${sonKpoint.free==1 }">
 																						<tt class="free-icon vam mr10">免费试听</tt>
-																					</c:if> &ndash;%&gt;
+																					</c:if> --%>
 																					<c:if test="${!empty sonKpoint.playTime}">
 																						<em class="lh-p-icon icon14 ml5">&nbsp;</em>
 																						${sonKpoint.playTime}
@@ -131,9 +130,9 @@
 																<ul class="lh-menu-ol no-parent-node">
 																	<li class="lh-menu-second"><a title="" onclick="getPlayerHtml(${parentKpoint.kpointId },'${parentKpoint.name }',this)" href="javascript:void(0)">
 																			<span class="fr"> 
-																				&lt;%&ndash; <c:if test="${parentKpoint.free==1 }">
+																				<%-- <c:if test="${parentKpoint.free==1 }">
 																					<tt class="free-icon vam mr10">免费试听</tt>
-																				</c:if> &ndash;%&gt;
+																				</c:if> --%>
 																				<c:if test="${!empty parentKpoint.playTime}">
 																					<em class="lh-p-icon icon14 ml5">&nbsp;</em>
 																					${parentKpoint.playTime}
@@ -145,11 +144,11 @@
 														</c:if>
 													</c:forEach>
 											</ul>
-										</menu>--%>
+										</menu>
 									</div>	
 								</section>
 								<!-- /课程目录 -->
-								<section class="undis note_html">
+								<section class="undis">
 									<div class="mt10">
 										<!-- 课程笔记 位置 -->
 										<textarea name="notesContext" onkeyup="$('#notContextId').hide();" id="notesContextId" style="width:368px;"></textarea>
@@ -176,15 +175,12 @@
 				<section class="mr30">
 					<div class="i-box">
 						<div>
-							<section class="c-infor-tabTitle c-tab-title" id="tabTitleKpoint">
-								<a title="课程目录" class="current m-play-nav" href="javascript:void(0);" onclick="queryCourseKpointList(this)">课程目录</a>
-								<a title="课程笔记" class="m-play-nav" href="javascript:void(0);" onclick="clickNote(this)">课程笔记</a>
-								<a title="课程评论" href="javascript:void(0);" onclick="comment(1,this)">课程评论</a>
+							<section class="c-infor-tabTitle c-tab-title">
+								<a class="current" title="课程评论" href="javascript:void(0);" onclick="comment(1,this)">课程评论</a>
 								<a title="精彩评论" href="javascript:void(0);" onclick="comment(2,this)">精彩评论</a>
 							</section>
 						</div>
-						<article class="dis ml10 mr10 commentHtml"></article>
-						<article class="dis ml10 mr10 courseKpointHtml"></article>
+						<article class="ml10 mr10 commentHtml"></article>
 					</div>
 				</section>
 			</article>
@@ -278,42 +274,6 @@
 	var message="${message}";//提示信息
 	var countPlayTimeOut='15';//播放后记录播放次数的延时
 	var studyPercent="${course.studyPercent}";//学习进度百分比
-
-	getCourseKpointList("${course.courseId}",2);
-	/**
-	 * 获得课程章节目录
-	 */
-	function getCourseKpointList(courseId,type) {
-		$.ajax({
-			url : baselocation + "/front/ajax/courseKpointList/"+courseId+"/"+type,
-			data:{},
-			type : 'post',
-			dataType : 'text',
-			success : function(result) {
-				if(checkIsMobile()){// 移动端环境下效果
-					$(".courseKpointHtml").prev().hide();
-					$(".courseKpointHtml").show();
-					$(".courseKpointHtml").html(result);
-				}else{
-					$("#courseKpointMenu").html(result);
-					queryComment();// 查询课程评论
-					$("#tabTitleKpoint.c-infor-tabTitle.c-tab-title").find("a").eq(2).addClass("current").siblings().removeClass("current");
-				}
-				treeMenu(); //课程树
-			}
-		});
-	}
-	//点击查询章节
-	function queryCourseKpointList(obj){
-		$(obj).removeClass("current").siblings().removeClass("current");
-		$(obj).addClass("current");
-		if(isNotEmpty($(".courseKpointHtml").html())){
-			$(".courseKpointHtml").prev().hide();
-			$(".courseKpointHtml").show();
-		}else{
-			getCourseKpointList("${course.courseId}",2);
-		}
-	}
 	</script>
 </body>
 </html>

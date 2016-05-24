@@ -2,7 +2,6 @@ package com.inxedu.os.edu.controller.course;
 
 import com.inxedu.os.common.controller.BaseController;
 import com.inxedu.os.common.util.SingletonLoginUtils;
-import com.inxedu.os.common.util.StringUtils;
 import com.inxedu.os.edu.entity.course.CourseNote;
 import com.inxedu.os.edu.service.course.CourseNoteService;
 import org.slf4j.Logger;
@@ -29,26 +28,27 @@ public class CourseNoteController extends BaseController{
 
  	@Autowired
     private CourseNoteService courseNoteService;
-
+    
     /**
      * 查询该用户笔记
-     *
+     * 
      * @return
      */
     @RequestMapping("/courseNote/ajax/querynote")
-    public String querynote(HttpServletRequest request, @RequestParam("kpointId") Long kpointId) {
+    @ResponseBody
+    public Map<String, Object> querynote(HttpServletRequest request, @RequestParam("kpointId") Long kpointId) {
         Map<String, Object> map = new HashMap<String, Object>();
         try {
             //通过节点id和用户id查询笔记
             CourseNote courseNote = courseNoteService.getCourseNoteByKpointIdAndUserId(kpointId, Long.valueOf(SingletonLoginUtils.getLoginUserId(request)));
-            request.setAttribute("courseNote",courseNote);
-            String uuid = StringUtils.createUUID().replace("-", "");
-            request.setAttribute("uuid",uuid);
+            map.put("courseNote", courseNote);
+            map.put("courseNote1", 1);
         } catch (Exception e) {
             logger.error("CourseNoteController.querynote()", e);
-            return setExceptionRequest(request, e);
+            map.put("message", "false");
+            return map;
         }
-        return getViewPath("/web/ucenter/query_note");
+        return map;
     }
     /**
      * 添加笔记

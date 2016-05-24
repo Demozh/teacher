@@ -7,8 +7,6 @@ function queryWonderfulComment() {
 	ajaxPage("/web/comment/ajax/query", "&otherId=" + otherId + "&type=" + type+ "&order=praiseCount", 1, commentCallBack);
 }
 function commentCallBack(result) {
-	$(".commentHtml").next().hide();
-	$(".commentHtml").show();
 	$(".commentHtml").html(result);
 }
 // 查询文章评论回复
