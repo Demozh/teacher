@@ -18,7 +18,7 @@
 	function batchDelFav() {
 		var arr = $("input[name='favouriteId']:checked");
 		if (arr == null || arr.length == 0) {
-			dialog("删除提示", "请选择要删除的收藏课程！", 1);
+			dialog("删除提示", "请选择要删除的收藏课程！", 1); 
 			return;
 		}
 		var favouriteIdStr = "";

@@ -20,6 +20,7 @@
 <link rel="stylesheet" type="text/css" href="${ctx}/static/inxweb/css/web.css">
 <link href="${ctx}/static/inxweb/css/mw_320_768.css" rel="stylesheet" type="text/css" media="screen and (min-width: 320px) and (max-width: 768px)">
 <!--[if lt IE 9]><script src="js/html5.js"></script><![endif]-->
+<script src="http://vod.baofengcloud.com/html/script/bfcloud.js?v=2"></script>
 </head>
 <body>
 	<div class="of" style="background-color: #f0f0f0">

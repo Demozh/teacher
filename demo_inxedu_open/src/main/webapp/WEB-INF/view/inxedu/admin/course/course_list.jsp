@@ -16,14 +16,14 @@
 var subjectList = eval('('+'${subjectList}'+')');
 $(function(){
 	var param={ 
-			data:subjectList,	//处理的数据（必选）数据格式：[{object Object},{object Object}]  
+			data:subjectList,//处理的数据（必选）数据格式：[{object Object},{object Object}]  
 			showId:'levelId',//显示的数据标签ID（必选）
 			idKey:'subjectId',//数据的ID（必选）
 			pidKey:'parentId',//数据的父ID（必选）
 			nameKey:'subjectName',//数据显示的名（必选）
 			returnElement:'subjectId',//返回选中的值（必选 ）
 			//-----------------------------------------------------
-			initVal:${queryCourse.subjectId},
+			initVal:'${queryCourse.subjectId}',
 			defName:'请选择',//默认显示的选项名（可选，如果不设置默认显示“请选择”）
 			defValue:'0'//默认的选项值（可选，如果不设置默认是“0”）
 		};

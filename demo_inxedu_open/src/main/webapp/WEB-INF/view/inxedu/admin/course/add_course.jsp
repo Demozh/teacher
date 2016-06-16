@@ -17,7 +17,7 @@
 <script type="text/javascript" src="${ctximg}/static/admin/course/course.js"></script>
 <script type="text/javascript" src="${ctximg}/static/admin/teacher/select_teacher_list.js"></script>
 
-<%--验证框架--%>
+<%--验证框架 --%>
 <link rel="stylesheet" href="${ctx}/static/common/nice-validator/jquery.validator.css"></link>
 <script type="text/javascript" src="${ctx}/static/common/nice-validator/jquery.validator.js"></script>
 <script type="text/javascript" src="${ctx}/static/common/nice-validator/local/zh-CN.js"></script>

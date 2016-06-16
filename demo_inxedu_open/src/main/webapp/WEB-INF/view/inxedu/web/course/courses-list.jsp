@@ -29,7 +29,7 @@
 								</c:forEach>
 							</ul>
 							<aside class="c-s-more">
-								<a href="javascript: void(0)" title="" class="fsize14 c-master">[展开]</a>
+								<a href="javascript: void(0)" title="" class="fsize14 c-master">[展开]</a> 
 							</aside>
 						</dd>
 					</dl>

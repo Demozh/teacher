@@ -37,7 +37,7 @@ import java.util.Map;
 @RequestMapping("/admin")
 public class AdminCourseController extends BaseController {
 	private static final Logger logger = LoggerFactory.getLogger(AdminCourseController.class);
-
+ 
 	private static final String showCourseList = getViewPath("/admin/course/course_list");//课程列表
 	private static final String toAddCourse = getViewPath("/admin/course/add_course");//添加课程
     private static final String showRecommendCourseList = getViewPath("/admin/course/course_recommend_list");//课程列表(推荐课程)

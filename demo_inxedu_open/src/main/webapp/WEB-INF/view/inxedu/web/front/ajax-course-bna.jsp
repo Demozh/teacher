@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/base.jsp"%>
+<%@ include file="/base.jsp"%> 
 <c:if test="${not empty courseDtoBNAList }">
 	<c:forEach var="course_bna" items="${courseDtoBNAList }" varStatus="index">
 		<c:if test="${index.index<8 }">

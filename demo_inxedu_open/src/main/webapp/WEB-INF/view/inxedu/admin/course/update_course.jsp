@@ -37,7 +37,7 @@
     			returnElement:'returnId',//返回选中的值（必选 ）
     			//-----------------------------------------------------
     			returnIds:'returnIds',//返回所有级的ID，以“,”隔开（可选）
-    			initVal:${course.subjectId},//初始默认ID（可选）
+    			initVal:'${course.subjectId}',//初始默认ID（可选）
     			defName:'请选择',//默认显示的选项名（可选，如果不设置默认显示“请选择”）  
     			defValue:'0'//默认的选项值（可选，如果不设置默认是“0”）
     		};

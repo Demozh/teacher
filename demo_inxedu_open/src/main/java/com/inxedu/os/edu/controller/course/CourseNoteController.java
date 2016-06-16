@@ -26,7 +26,7 @@ public class CourseNoteController extends BaseController{
 
     private static final Logger logger = LoggerFactory.getLogger(CourseNoteController.class);
 
- 	@Autowired
+ 	@Autowired 
     private CourseNoteService courseNoteService;
     
     /**

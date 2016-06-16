@@ -39,7 +39,7 @@ public class CourseController extends BaseController {
 
     // 课程列表
     private static final String showCourseList = getViewPath("/web/course/courses-list");
-    // 课程详情
+    // 课程详情 
     private static final String couinfo = getViewPath("/web/course/course-infor");
 
     @Autowired
