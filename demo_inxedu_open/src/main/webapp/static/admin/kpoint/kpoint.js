@@ -35,7 +35,23 @@ $(function(){
 	$('.ui-dialog-titlebar-close,.closeBut').click(function(){
 		closeData();
 	});
+	courseKpointVideoTypechange();
 });
+
+/**
+ * 选择视频类型change方法
+ */
+function courseKpointVideoTypechange(){
+	$("#courseKpointVideoType").change(function(){
+		//如果为本地上传视频则显示上传插件
+		if($(this).val()=='uploadVideo'){
+			$(".uploadVideo").show();
+		}else{
+			$(".uploadVideo").hide();
+		}
+	});
+
+}
 /**
  * 初始化视频节点树
  * @param ztree 视频节点数据
@@ -162,6 +178,7 @@ function initUpdateKpoint(treeId, treeNode){
 				$($("input[name='courseKpoint.free']")[1]).attr('checked',true);
 			}
 			$("#updateWin").show();
+			uploadPicLoad('fileupload','videourl','fileQueue');
 		},
 		error:function(error){
 			alert("系统繁忙，请稍后再操作！");

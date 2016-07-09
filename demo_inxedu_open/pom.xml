@@ -61,7 +61,13 @@
                     <encoding>UTF8</encoding>
                 </configuration>
             </plugin>
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <warSourceDirectory>src/main/webapp</warSourceDirectory>
+                </configuration>
+            </plugin>
             <plugin>
                 <!--  js css 压缩插件  运行命令 yuicompressor:compress-->
                 <groupId>net.alchim31.maven</groupId>

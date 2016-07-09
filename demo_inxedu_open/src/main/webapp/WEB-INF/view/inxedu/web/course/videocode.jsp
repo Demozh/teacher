@@ -27,6 +27,19 @@
 			}
 		</script>
 	</c:when>
+	<c:when test="${videotype=='uploadVideo'}">
+		<script type="text/javascript" src="/static/common/ckplayer/ckplayer.js" charset="utf-8"></script>
+		<div id="videoareaname" style="width: 100%;height: 100%"></div>
+		<script type="text/javascript">
+			var flashvars={
+				f:'${ctx}${videourl}',
+				c:0,
+				p:1
+			};
+			var video=['${ctx}${videourl}->video/mp4'];
+			CKobject.embed('/static/common/ckplayer/ckplayer.swf','videoareaname','ckplayer_a1','100%','100%',false,flashvars,video);
+		</script>
+	</c:when>
 	<c:otherwise>
 		<!-- 错误类型的 先用iframe承接 -->
 		<iframe src="${videourl}" width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
