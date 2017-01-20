@@ -107,8 +107,11 @@ function updateSysUser(){
 		success:function(result){
 			if(result.success==true){
 				closedData();
+				alert("修改成功");
+				window.location.reload();
+			}else{
+				alert(result.message);
 			}
-			alert(result.message);
 		},
 		error:function(error){
 			alert("系统繁忙，请稍后再操作！");
