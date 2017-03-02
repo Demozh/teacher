@@ -3,11 +3,11 @@
 因酷交流群①：468278040 (满)</br>
 
 <p>因酷交流群②：164295773</p></br>
-
+<p>因酷交流群③：456673541</p></br>
 
 官网:[http://www.inxedu.com](http://http://www.inxedu.com)</br>
 
-演示站:[http://demo1.inxedu.com](http://http://demo1.inxedu.com)</br>
+演示站:[http://wx.inxedu.com](http://http://wx.inxedu.com)</br>
 
 账号:demo@inxedu.com</br>
 
