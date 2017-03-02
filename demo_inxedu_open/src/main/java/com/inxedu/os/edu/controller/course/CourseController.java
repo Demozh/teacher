@@ -164,7 +164,7 @@ public class CourseController extends BaseController {
                     			tempParent.getKpointList().add(temp);
         					}
                     		//获取一个可以试听的视频id
-                    		if (freeVideoId==0&&temp.getFree()==1&&temp.getKpointType()==1) {
+                    		if (freeVideoId==0&&temp.getKpointType()==1) {
                     			freeVideoId=temp.getKpointId();
                     			model.addObject("freeVideoId",freeVideoId);
 							}
