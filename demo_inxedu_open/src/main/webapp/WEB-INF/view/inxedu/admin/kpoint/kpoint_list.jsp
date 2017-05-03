@@ -14,9 +14,6 @@
 <script type="text/javascript" src="${ctx}/static/admin/teacher/select_teacher_list.js"></script>
 
 <script type="text/javascript" src="${ctx}/static/common/uploadify/ccswfobject.js"></script>
-
-<script type="text/javascript" src="${ctximg}/static/common/uploadify/swfobject.js"></script>
-<script type="text/javascript" src="${ctximg}/static/common/uploadify/jquery.uploadify.v2.1.4.min.js"></script>
 <style type="text/css">
 #swfDiv embed {
 	position: absolute;
@@ -30,53 +27,8 @@
 			showKpointZtree(ztree);
 			//文本编辑框
 			initKindEditor_addblog('content', 580, 350,'courseContxt','true');
-
 		});
-
-
-		//上传控件加载
-		function uploadPicLoad(fileupload,showId,fileQueue){
-			$("#fileuploadUploader").remove();
-			$("#"+fileupload).uploadify({
-				'uploader' : '/static/common/uploadify/uploadify.swf', //上传控件的主体文件，flash控件  默认值='uploadify.swf'
-				'script'  :'<%=uploadServerUrl%>/video/uploadvideo',
-				'scriptData':{"fileType":"mp4","param":"video"},
-				'queueID' : fileQueue, //文件队列ID
-				'fileDataName' : 'uploadfile', //您的文件在上传服务器脚本阵列的名称
-				'auto' : true, //选定文件后是否自动上传
-				'multi' :false, //是否允许同时上传多文件
-				'hideButton' : false,//上传按钮的隐藏
-				'buttonText' : 'Browse',//默认按钮的名字
-				'buttonImg' : '/static/common/uploadify/liulan.png',//使用图片按钮，设定图片的路径即可
-				'width' : 105,
-				'simUploadLimit' : 3,//多文件上传时，同时上传文件数目限制
-				'sizeLimit' : 5120000000,//控制上传文件的大小
-				'queueSizeLimit' : 3,//限制在一次队列中的次数（可选定几个文件）
-				'fileDesc' : '支持格式:mp4.',//出现在上传对话框中的文件类型描述
-				'fileExt' : '*.MP4;*.mp4;',//支持的格式，启用本项时需同时声明fileDesc
-				'folder' : '/upload',//您想将文件保存到的路径
-				'cancelImg' : '/static/common/uploadify/cancel.png',
-				onSelect : function(event, queueID,fileObj) {
-					fileuploadIndex = 1;
-					$("#"+fileQueue).html("");
-					if (fileObj.size > 5120000000) {
-						alert('文件太大最大限制5120000kb');
-						return false;
-					}
-				},
-				onComplete : function(event,queueID, fileObj, response,data) {
-					var obj = eval('(' + response + ')');
-					$("#"+showId).val(obj.url);
-					$("#"+showId).show();
-				},
-				onError : function(event, queueID, fileObj,errorObj) {
-					$("#"+fileQueue).html("<br/><font color='red'>"+ fileObj.name + "上传失败</font>");
-				}
-			});
-		}
-
-
-</script>
+	</script>
 </head>
 <body>
 <div class="mt20">
@@ -156,21 +108,38 @@
 										<td>视频类型:</td>
 										<td style="text-align: left;">
 											<select id="courseKpointVideoType" name="courseKpoint.videoType" >
+												<%--<option value="">--请选择--</option>--%>
 												<option value="INXEDUVIDEO">因酷云</option>
+												<%--<option value="baofeng">暴风</option>--%>
 												<option value="IFRAME">其他</option>
 												<option value="CC">CC视频</option>
-												<option value="uploadVideo">上传本地视频</option>
 											</select>
 										</td>
 									</tr>
-
-									<tr class=" tr_fileType_control uploadVideo" style="display: none;">
+									<tr class="uploadCCVideo tr_fileType_control" style="display:none">
+										<td>上传CC视频:</td>
+										<td style="text-align: left;">
+											<div id="swfDiv" style="*position:absolute; z-index:2;float:left;z-index: 1000;cursor: pointer; margin-top:5px;"></div><input type="button" value="上传" id="btn_width" style="width: 80px; height: 25px;"/>
+											<input type="hidden" id="upload_title" minlength="0">
+											<input type="hidden"  id="upload_tag" minlength="0">
+											<input type="hidden"  id="upload_desp" minlength="0">
+											<script type="text/javascript">
+												// 加载上传flash ------------- start
+												var swfobj=new SWFObject('http://union.bokecc.com/flash/api/uploader.swf', 'uploadswf', '80', '25', '8');
+												swfobj.addVariable( "progress_interval" , 1);	//	上传进度通知间隔时长（单位：s）
+												swfobj.addVariable( "notify_url" , "");	//	上传视频后回调接口
+												swfobj.addParam('allowFullscreen','true');
+												swfobj.addParam('allowScriptAccess','always');
+												swfobj.addParam('wmode','transparent');
+												swfobj.write('swfDiv');
+												// 加载上传flash ------------- end
+											</script>
+										</td>
+									</tr>
+									<tr class=" tr_fileType_control uploadCCVideo" style="display:none">
 										<td>上传进度:</td>
 										<td style="text-align: left;">
-											<input type="file" id="fileupload" class="vam"/>
-											<font color="red vam ml10">请上传mp4文件（<a target="_blank" href="http://www.ckplayer.com/manual/12/66.htm">边下边播文档</a>）</font>
-											<div id="fileQueue" class="mt10">
-											</div>
+											<span id="up">无</span>
 										</td>
 									</tr>
 									<tr style="display:none" class="tr_all videoType">

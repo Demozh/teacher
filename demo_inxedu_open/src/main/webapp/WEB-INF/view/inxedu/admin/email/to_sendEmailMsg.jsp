@@ -154,11 +154,17 @@
 
 </head>
 <body>
-<div class="pad20" style="background-color: #f0f0f0;">
+<fieldset>
+    <legend>
+        <span>邮件管理</span>
+        &gt;
+        <span>发送邮件</span>
+    </legend>
+    <div class="">
 		<form action="/admin/email/importMsgExcel/2" method="post" id="importP" enctype="multipart/form-data">
-			<table style="line-height: 35px;">
+			<table style="line-height: 35px;" width="100%">
 					<tr>
-						<td width="77px;"><font color="red">*</font>添加联系人：</td>
+						<td width="10%"><font color="red">*</font>添加联系人：</td>
 						<td>
 							<textarea name="numerStr" style="height: 80px;" id="pepole"></textarea>
 						</td>
@@ -228,5 +234,6 @@
 			</table>
 		</form>
 	</div>
+</fieldset>
 </body>
 </html>

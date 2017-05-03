@@ -27,6 +27,9 @@ public class SysFunction implements Serializable{
 	private Date createTime;
 	/**排序*/
 	private int sort;
+	//图片路径
+	private String imageUrl;
+
 	/**子级权限List*/
 	private List<SysFunction> childList;
 

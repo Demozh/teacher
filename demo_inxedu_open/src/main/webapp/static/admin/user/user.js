@@ -28,10 +28,10 @@ function frozenOrThaw(userId,type,em){
 				var td = $(em).parent('samp').parent('td').parent('tr').children('td')[7];
 				if(type==1){
 					$(td).text('正常');
-					$('#frozenOrThaw'+userId).html('<a class="button tooltip" onclick="frozenOrThaw('+userId+',2,this)" href="javascript:void(0)">冻结</a>');
+					$('#frozenOrThaw'+userId).html('<button onclick="frozenOrThaw('+userId+',2,this)" class="ui-state-default ui-corner-all" type="button">冻结</button>');
 				}else if(type==2){
 					$(td).text('冻结');
-					$('#frozenOrThaw'+userId).html('<a class="button tooltip" onclick="frozenOrThaw('+userId+',1,this)" href="javascript:void(0)">解冻</a>');
+					$('#frozenOrThaw'+userId).html('<button onclick="frozenOrThaw('+userId+',1,this)" class="ui-state-default ui-corner-all" type="button">解冻</button>');
 				}
 			}else{
 				alert(result.message);
@@ -56,7 +56,7 @@ function initUpdatePwd(userId){
  * 执行修改用户密码
  */
 function updateUserPwd(){
-	var params = ''
+	var params = '';
 	$("#updateWin input").each(function(){
 		params+=$(this).serialize()+"&";
     });

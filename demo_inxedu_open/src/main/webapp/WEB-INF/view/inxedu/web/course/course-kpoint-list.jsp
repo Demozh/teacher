@@ -5,7 +5,7 @@
 		<ul>
 			<c:set var="folderIndex" value="1"/>
 			<c:forEach items="${parentKpointList }" var="parentKpoint" varStatus="index">
-				<c:if test="${parentKpoint.kpointType==0 }"><!--   文件目录 -->
+				<c:if test="${parentKpoint.kpointType==0 }"><!-- 文件目录 -->
 					<li class="lh-menu-stair">
 						<a href="javascript: void(0)" title="${parentKpoint.name }"
 						   <c:if test="${index.first==true}">class="current-1"</c:if>

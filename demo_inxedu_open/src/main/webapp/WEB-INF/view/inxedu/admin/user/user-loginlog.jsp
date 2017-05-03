@@ -7,11 +7,11 @@
 <title>用户登录目录</title>
 </head>
 <body>
-	<div class="pad20">
+	<div class="">
 		<form action="${ctx}/admin/sysuser/looklog/${userId}" method="post" id="searchForm">
 			<input type="hidden" id="pageCurrentPage" name="page.currentPage" value="1" />
 		</form>
-		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth">
+		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth" width="100%">
 			<thead>
 				<tr>
 					<td align="center">登录时间</td>
@@ -21,8 +21,8 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${logList}" var="log">
-					<tr class="odd">
+				<c:forEach items="${logList}" var="log" varStatus="index">
+					<tr <c:if test="${index.count%2==1 }">class="odd"</c:if>>
 						<td align="center">
 							<fmt:formatDate value="${log.loginTime}" pattern="dd/MM/yyyy HH:mm:ss" />
 						</td>
@@ -39,7 +39,7 @@
 	<!-- 添加用户窗口 ,开始-->
 	<div id="createWin" aria-labelledby="ui-dialog-title-dialog" role="dialog" tabindex="-1"
 		class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable"
-		style="display: none; position: absolute; overflow: hidden; z-index: 1010; outline: 0px none; height: auto; width: 511px; top: 173px; left: 367px;">
+		style="display: none; position: absolute; overflow: hidden; z-index: 1010; outline: 0px none; height: auto; width: 511px; top: 173px; left: 367px;border: 3px solid #ececec;">
 		<div style="-moz-user-select: none;" unselectable="on" class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
 			<span style="-moz-user-select: none;" unselectable="on" id="ui-dialog-title-dialog" class="ui-dialog-title">创建新用户</span>
 			<a style="-moz-user-select: none;" unselectable="on" role="button" class="ui-dialog-titlebar-close ui-corner-all"
@@ -128,7 +128,7 @@
 	<!-- 修改用户窗口 ,开始-->
 	<div id="updateWin" aria-labelledby="ui-dialog-title-dialog" role="dialog" tabindex="-1"
 		class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable"
-		style="display: none; position: absolute; overflow: hidden; z-index: 1010; outline: 0px none; height: auto; width: 511px; top: 173px; left: 367px;">
+		style="display: none; position: absolute; overflow: hidden; z-index: 1010; outline: 0px none; height: auto; width: 511px; top: 173px; left: 367px;border: 3px solid #ececec;">
 		<div style="-moz-user-select: none;" unselectable="on" class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
 			<span style="-moz-user-select: none;" unselectable="on" id="ui-dialog-title-dialog" class="ui-dialog-title">修改用户信息</span>
 			<a style="-moz-user-select: none;" unselectable="on" role="button" class="ui-dialog-titlebar-close ui-corner-all"
@@ -199,7 +199,7 @@
 	<!-- 修改密码窗口 ,开始-->
 	<div id="updatePwdWin" aria-labelledby="ui-dialog-title-dialog" role="dialog" tabindex="-1"
 		class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable"
-		style="display: none; position: absolute; overflow: hidden; z-index: 1010; outline: 0px none; height: auto; width: 511px; top: 173px; left: 367px;">
+		style="display: none; position: absolute; overflow: hidden; z-index: 1010; outline: 0px none; height: auto; width: 511px; top: 173px; left: 367px;border: 3px solid #ececec;">
 		<div style="-moz-user-select: none;" unselectable="on" class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
 			<span style="-moz-user-select: none;" unselectable="on" id="ui-dialog-title-dialog" class="ui-dialog-title">修改用户密码</span>
 			<a style="-moz-user-select: none;" unselectable="on" role="button" class="ui-dialog-titlebar-close ui-corner-all"

@@ -119,6 +119,12 @@ function functionRename(treeId, treeNode){
 	$("#functionUrl").val(treeNode.functionUrl);
 	$("#functionType").val(treeNode.functionType);
 	$("#sort").val(treeNode.sort);
+	$("#imageUrl").val(treeNode.imageUrl);
+	var imageurl = "/static/admin/assets/logo.png";
+	if(treeNode.imageUrl!=null&&treeNode.imageUrl!=""){
+		imageurl = imagesPath+treeNode.imageUrl;
+	}
+	$("#showImage").attr('src',imageurl);
 	return false;
 	
 }

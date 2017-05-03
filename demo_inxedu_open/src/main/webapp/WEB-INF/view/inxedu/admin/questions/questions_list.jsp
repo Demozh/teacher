@@ -5,7 +5,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>问答管理列表</title>
-<link rel="stylesheet" href="${ctximg}/static/common/jquery-ui-1.10.4/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
 <script type="text/javascript" src="${ctx}/static/common/jquery-1.11.1.min.js"></script>
 <script src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery-ui-1.10.4.custom.js?v=${v}"></script>
 <script src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery.ui.datepicker-zh-CN.js?v=${v}"></script>
@@ -14,7 +13,7 @@
 <script type="text/javascript" src="${ctx}/static/admin/questions/questions.js"></script>
 </head>
 <body>
-	<div class="pad20">
+	<div class="">
 		<form action="${ctx}/admin/questions/list" method="post" id="searchForm">
 			<input type="hidden" id="pageCurrentPage" name="page.currentPage" value="1" />
 			标题:
@@ -51,16 +50,16 @@
 					}
 				})
 			</script>
-			<a title="查询问答" onclick="javascript:$('#searchForm').submit();" class="button tooltip" href="javascript:void(0)">
+			<a title="查询问答" onclick="$('#searchForm').submit();" class="button tooltip" href="javascript:void(0)">
 				<span class="ui-icon ui-icon-search"></span>
 				查询问答
 			</a>
-			<a title="清空" onclick="javascript:$('#searchForm input:text').val('');" class="button tooltip" href="javascript:void(0)">
+			<a title="清空" onclick="$('#searchForm input:text').val('');" class="button tooltip" href="javascript:void(0)">
 				<span class="ui-icon ui-icon-cancel"></span>
 				清空
 			</a>
 		</form>
-		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth">
+		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth" width="100%">
 			<thead>
 				<tr>
 					<td align="center">id</td>
@@ -76,8 +75,8 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${questionsList}" var="questions">
-					<tr class="odd">
+				<c:forEach items="${questionsList}" var="questions" varStatus="index">
+					<tr <c:if test="${index.count%2==1 }">class="odd"</c:if>>
 						<td align="center">${questions.id}</td>
 						<td align="center">${questions.email}</td>
 						<td align="center">${questions.title}</td>
@@ -96,9 +95,9 @@
 							<fmt:formatDate value="${questions.addTime}" pattern="yyyy/MM/dd HH:mm" />
 						</td>
 						<td align="center">
-							<a href="javascript:void(0)" onclick="delQuestions('${questions.id}')" class="button tooltip">删除</a>
-							<a href="${ctx }/admin/questions/info/${questions.id}" class="button tooltip">修改</a>
-							<a href="${ctx }/admin/questionscomment/list?questionsComment.questionId=${questions.id}" class="button tooltip">查看回复</a>
+							<button onclick="window.location.href='${ctx }/admin/questionscomment/list?questionsComment.questionId=${questions.id}'" class="ui-state-default ui-corner-all" type="button">查看回复</button>
+							<button onclick="window.location.href='${ctx }/admin/questions/info/${questions.id}'" class="ui-state-default ui-corner-all" type="button">修改</button>
+							<button onclick="delQuestions('${questions.id}')" class="ui-state-default ui-corner-all" type="button">删除</button>
 						</td>
 					</tr>
 				</c:forEach>

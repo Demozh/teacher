@@ -14,7 +14,8 @@
 <meta name="keywords" content="${websitemap.web.keywords}" />
 <meta name="description" content="${websitemap.web.description}" />
 <link rel="shortcut icon" href="${ctx}/favicon.ico" type="image/x-icon">
-
+	<link type="text/css" href="${ctx}/static/common/jerichotab/css/jquery.jerichotab.css" rel="stylesheet" />
+	<script type="text/javascript" src="${ctx}/static/common/jerichotab/js/jquery.jerichotab.js"></script>
 <script type="text/javascript" src="${ctx}/static/admin/js/easyTooltip.js"></script>
 <script type="text/javascript" src="${ctx}/static/admin/js/jquery-ui-1.7.2.custom.min.js"></script>
 <script type="text/javascript" src="${ctx}/static/admin/js/jquery.wysiwyg.js"></script>
@@ -22,7 +23,103 @@
 <script type="text/javascript" src="${ctx}/static/admin/js/superfish.js"></script>
 <script type="text/javascript" src="${ctx}/static/admin/js/custom.js"></script>
 <!-- End of Libraries -->
-<script type="text/javascript">
+	<script type="text/javascript">
+		var tabTitleHeight = 33; // 页签的高度
+		/*sMenu*/
+		$(function() {
+			queryheader();
+			navFun();
+			$(window).resize(function() {navFun();});
+
+			$.fn.initJerichoTab({
+				renderTo: '#right', uniqueId: 'jerichotab',
+				contentCss: { 'height': $('#right').height() - tabTitleHeight },
+				tabs: [], loadOnce: false, tabWidth: 110, titleHeight: tabTitleHeight
+			});
+			//先隐藏，第一次显示iframe
+			$("#jerichotab").hide();
+		});
+		function navFun() {
+			var winW = parseInt(document.documentElement.clientWidth, 10) + parseInt(document.documentElement.scrollLeft || document.body.scrollLeft, 10),
+					nlW = winW - 585,
+					ulW = $(".navList>ul").width()+320,
+					oPN = $('<a href="javascript: void(0)" title="左" class="prev">&nbsp;</a><a href="javascript: void(0)" title="右" class="next">&nbsp;</a>');
+			$(".navList").css("width" , nlW);
+			if (nlW > ulW) {
+				$(".prev,.next").remove();
+			} else {
+				oPN.appendTo(".nav-wrap");
+				slideScroll();
+			}
+		}
+		function slideScroll() {
+			var prev = $(".prev"),
+					next = $(".next"),
+					oUl = $(".navList>ul"),
+					w = oUl.find("li").outerWidth(true),
+					l = oUl.find("li").length;
+			oUl.css("width" , w * l + "px");
+
+			//click left
+			prev.click(function() {
+				if(!oUl.is(":animated")) {
+					oUl.animate({"margin-left" : -w}, function() {
+						oUl.find("li").eq(0).appendTo(oUl);
+						oUl.css("margin-left" , 0);
+					});
+				}
+			});
+			//click right
+			next.click(function() {
+				if(!oUl.is(":animated")) {
+					oUl.find("li:last").prependTo(oUl);
+					oUl.css("margin-left" , -w);
+					oUl.animate({"margin-left" : 0});
+				}
+			});
+		}
+
+		//查询头部
+		function queryheader(){
+			$.ajax({
+				url:baselocation+'/admin/main/header',
+				type:'post',
+				async:false,
+				dataType:'text',
+				success:function(result){
+					$(".headerhtml").html(result);
+				}
+			});
+		}
+		//查询头部
+		function queryleft(parentId){
+			$.ajax({
+				url:baselocation+'/admin/main/left?parentId='+parentId,
+				type:'post',
+				async:false,
+				dataType:'text',
+				success:function(result){
+					$("#ui-sMenu").html(result);
+				}
+			});
+		}
+
+		function addTab($this, refresh){
+			$(".jericho_tab").show();
+			$("#mainFrame").hide();
+			$.fn.jerichoTab.addTab({
+				tabFirer: $($this),
+				title: $($this).text().trim(),
+				closeable: true,
+				data: {
+					dataType: 'iframe',
+					dataLink: $($this).attr('data-href')
+				}
+			}).loadData(refresh);
+			return false;
+		}
+	</script>
+<%--<script type="text/javascript">
 	 /*sMenu*/
 	 $(function() {
 	     $("#ui-sMenu>div").each(function() {
@@ -47,12 +144,12 @@
 	         });
 	     });
 	 });
-</script>
+</script>--%>
 </head>
 <body>
 	<!-- Container -->
 	<div class="tHeader headerimg">
-		<div id="container">
+		<div>
 			<!-- Header -->
 			<div id="header">
 
@@ -65,6 +162,17 @@
 						</a>
 					</div>
 					<!-- End of Logo -->
+
+					<div class=" nav-bar headerhtml" id="menuHeader">
+						<div class="nav-wrap">
+							<div class="navList">
+								<ul>
+								</ul>
+							</div>
+							<!-- <a class="prev" title="左" href="javascript: void(0)"> </a>
+							<a class="next" title="右" href="javascript: void(0)"> </a> -->
+						</div>
+					</div>
 
 					<!-- Meta information -->
 					<div class="meta">
@@ -103,7 +211,9 @@
 			<!-- Main Content -->
 			<div id="content">
 				<div id="main">
-					<iframe name="content" scrolling="auto" frameborder="0" src="${ctx}/admin/main/index" height="750" width="100%"></iframe>
+					<div id="right">
+						<iframe id="mainFrame" name="mainFrame" src="${ctx}/admin/main/index" style="overflow:visible;" scrolling="yes" frameborder="no" width="100%" height="750"></iframe>
+					</div>
 				</div>
 			</div>
 			<!-- End of Main Content -->
@@ -111,118 +221,8 @@
 			<!-- Sidebar -->
 			<div id="sidebar">
 
-				<h2>菜单目录 / MENU</h2>
-				<!-- Accordion -->
-				<div id="ui-sMenu" class="ui-accordion ui-widget ui-helper-reset">
-					<c:forEach items="${userFunctionList}" var="uf" varStatus="index">
-						<c:choose>
-							<c:when test="${index.index==0}">
-								<div>
-									<h3 class="ui-accordion-header ui-helper-reset ui-state-active ui-corner-top">
-										<span class="ui-icon ui-icon-triangle-1-s"></span>
-										<c:choose>
-											<c:when test="${uf.functionUrl==null || uf.functionUrl==''}">
-												<a href="javascript:void(0)" title="${uf.functionName}" class="tooltip">${uf.functionName}</a>
-											</c:when>
-											<c:otherwise>
-												<a href="${ctx}${uf.functionUrl}" target="content" title="${uf.functionName}" class="tooltip">${uf.functionName}</a>
-											</c:otherwise>
-										</c:choose>
-									</h3>
-									<div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" style="display: block;">
-										<c:if test="${uf.childList!=null && uf.childList.size()>0}">
-											<c:forEach items="${uf.childList}" var="cuf">
-												<dl class="acd-sub-dl">
-													<c:choose>
-														<c:when test="${cuf.functionUrl==null || cuf.functionUrl==''}">
-															<dt>
-																<a href="javascript:void(0)" title="${cuf.functionName}">${cuf.functionName}</a>
-															</dt>
-														</c:when>
-														<c:otherwise>
-															<dt>
-																<a href="${ctx}${cuf.functionUrl}" target="content" title="${cuf.functionName}">${cuf.functionName}</a>
-															</dt>
-														</c:otherwise>
-													</c:choose>
-													<c:if test="${cuf.childList!=null && cuf.childList.size()>0}">
-														<c:forEach items="${cuf.childList}" var="ccuf">
-															<c:choose>
-																<c:when test="${ccuf.functionUrl==null || ccuf.functionUrl==''}">
-																	<dd>
-																		<a href="javascript:void(0)" title="${ccuf.functionName}">${ccuf.functionName}</a>
-																	</dd>
-																</c:when>
-																<c:otherwise>
-																	<dd>
-																		<a href="${ctx}${ccuf.functionUrl}" target="content" title="${ccuf.functionName}">${ccuf.functionName}</a>
-																	</dd>
-																</c:otherwise>
-															</c:choose>
-														</c:forEach>
-													</c:if>
-												</dl>
-											</c:forEach>
-										</c:if>
-									</div>
-								</div>
-							</c:when>
-							<c:otherwise>
-								<div>
-									<h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all">
-										<span class="ui-icon ui-icon-triangle-1-e"></span>
-										<c:choose>
-											<c:when test="${uf.functionUrl==null || uf.functionUrl==''}">
-												<a href="javascript:void(0)" title="${uf.functionName}" class="tooltip">${uf.functionName}</a>
-											</c:when>
-											<c:otherwise>
-												<a href="${ctx}${uf.functionUrl}" target="content" title="${uf.functionName}" class="tooltip">${uf.functionName}</a>
-											</c:otherwise>
-										</c:choose>
-									</h3>
-									<div class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom">
-										<c:if test="${uf.childList!=null && uf.childList.size()>0}">
-											<c:forEach items="${uf.childList}" var="cuf">
-												<dl class="acd-sub-dl">
-													<c:choose>
-														<c:when test="${cuf.functionUrl==null && cuf.functionUrl==''}">
-															<dt>
-																<a href="javascript:void(0)" title="${cuf.functionName}">${cuf.functionName}</a>
-															</dt>
-														</c:when>
-														<c:otherwise>
-															<dt>
-																<a href="${ctx}${cuf.functionUrl}" target="content" title="${cuf.functionName}">${cuf.functionName}</a>
-															</dt>
-														</c:otherwise>
-													</c:choose>
-													<c:if test="${cuf.childList!=null && cuf.childList.size()>0}">
-														<c:forEach items="${cuf.childList}" var="ccuf">
-															<c:choose>
-																<c:when test="${ccuf.functionUrl==null || ccuf.functionUrl==''}">
-																	<dd>
-																		<a href="javascript:void(0)" title="${ccuf.functionName}">${ccuf.functionName}</a>
-																	</dd>
-																</c:when>
-																<c:otherwise>
-																	<dd>
-																		<a href="${ctx}${ccuf.functionUrl}" target="content" title="${ccuf.functionName}">${ccuf.functionName}</a>
-																	</dd>
-																</c:otherwise>
-															</c:choose>
-														</c:forEach>
-													</c:if>
-												</dl>
-											</c:forEach>
-										</c:if>
-									</div>
-								</div>
-							</c:otherwise>
-						</c:choose>
-					</c:forEach>
+				<div id="ui-sMenu" class="ui-accordion ui-widget ui-helper-reset" style="height:760px;overflow-y: auto">
 				</div>
-			</div>
-			<!-- End of Sidebar -->
 
 		</div>
 		<!-- End of bgwrap -->

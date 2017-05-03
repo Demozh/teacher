@@ -28,7 +28,7 @@ a {
 
 a:hover {
 	text-decoration: underline;
-	color: #2DA2A7;
+	color: #dd491f;
 }
 
 a:focus {
@@ -83,9 +83,9 @@ table {
 	padding: 0;
 }
 
-.ddBar li {
+/*.ddBar li {
 	padding: 10px 0 10px 4em;
-}
+}*/
 
 .capHead {
 	background: none repeat scroll 0 0 #fff;

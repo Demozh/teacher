@@ -107,6 +107,23 @@
 						<span class="field_desc"></span>
 					</p>
 				</c:if>
+				<c:if test="${type=='emailConfigure'}">
+					<p>
+						<label ><font color="red">*</font>&nbsp;邮件传输协议(SMTP)</label>
+						<input type="text" name="SMTP" value="${webSiteMap.emailConfigure.SMTP}" style="width: 15%" class="sf" />
+						<span class="field_desc"></span>
+					</p>
+					<p>
+						<label ><font color="red">*</font>&nbsp;邮件账号</label>
+						<input type="text" name="username" value="${webSiteMap.emailConfigure.username}" style="width: 15%" class="sf" />
+						<span class="field_desc"></span>
+					</p>
+					<p>
+						<label ><font color="red">*</font>&nbsp;邮件密码</label>
+						<input type="text" name="password" value="${webSiteMap.emailConfigure.password}" style="width: 15%" class="sf" />
+						<span class="field_desc"></span>
+					</p>
+				</c:if>
 				<p>
 					<input class="button" type="submit" value="修改" />
 					<input class="button" type="button" value="返回" onclick="javascript:history.go(-1)" />

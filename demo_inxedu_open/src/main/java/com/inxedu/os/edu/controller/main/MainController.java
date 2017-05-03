@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -178,6 +179,95 @@ public class MainController extends BaseController{
 		model.addObject("message", "对不起，您没有操作权限！");
 		model.setViewName("/common/notFunctonMsg");
 		return model;
+	}
+
+
+	/**
+	 * 后台头部页面
+	 */
+	@RequestMapping("/header")
+	public String mainHeader(HttpServletRequest request){
+		try{
+			SysUser sysuser = SingletonLoginUtils.getLoginSysUser(request);
+			//得到缓存用户权限
+			List<SysFunction> userFunctionList =(List<SysFunction>) EHCacheUtil.get(CacheConstans.USER_FUNCTION_PREFIX+sysuser.getUserId());
+			//如果缓存中不存在则查询数据库中的用户权限
+			if(ObjectUtils.isNull(userFunctionList)){
+				userFunctionList = sysFunctionService.querySysUserFunction(sysuser.getUserId());
+				EHCacheUtil.set(CacheConstans.USER_FUNCTION_PREFIX+sysuser.getUserId(), userFunctionList);
+			}
+			//处理权限
+			List<SysFunction> functionList = handleUserFunction(userFunctionList);
+			request.setAttribute("userFunctionList", functionList);
+
+		}catch (Exception e) {
+			logger.error("mainHeader()---error",e);
+			return this.setExceptionRequest(request, e);
+		}
+		return getViewPath("/admin/main/header");
+	}
+
+	/**
+	 * 后台头部页面
+	 */
+	@RequestMapping("/left")
+	public String mainLeft(HttpServletRequest request,@RequestParam int parentId){
+		try{
+			SysUser sysuser = SingletonLoginUtils.getLoginSysUser(request);
+			//得到缓存用户权限
+			List<SysFunction> userFunctionList =(List<SysFunction>) EHCacheUtil.get(CacheConstans.USER_FUNCTION_PREFIX+sysuser.getUserId());
+			//如果缓存中不存在则查询数据库中的用户权限
+			if(ObjectUtils.isNull(userFunctionList)){
+				userFunctionList = sysFunctionService.querySysUserFunction(sysuser.getUserId());
+				EHCacheUtil.set(CacheConstans.USER_FUNCTION_PREFIX+sysuser.getUserId(), userFunctionList);
+			}
+
+			List<SysFunction> functionList = recursionFunction(userFunctionList,parentId);
+			//处理权限
+			//List<SysFunction> functionList = handleUserFunction(userFunctionList);
+			request.setAttribute("userFunctionList", functionList);
+
+		}catch (Exception e) {
+			logger.error("mainLeft()---error",e);
+			return this.setExceptionRequest(request, e);
+		}
+		return getViewPath("/admin/main/left");
+	}
+
+	/**
+	 * 递归得到每个权限的子级权限
+	 * @param userFunctionList 用户权限列表
+	 */
+	private List<SysFunction> recursionFunction(List<SysFunction> userFunctionList,int parentId){
+		List<SysFunction> childFunction = new ArrayList<SysFunction>();
+		for(SysFunction usf : userFunctionList){
+			if(parentId==usf.getParentId() && usf.getFunctionType()==1){
+				usf.setChildList(recursionFunction(userFunctionList,usf.getFunctionId()));
+				childFunction.add(usf);
+			}
+		}
+
+		//按sort排序
+		Collections.sort(childFunction, new Comparator<SysFunction>() {
+			public int compare(SysFunction arg0, SysFunction arg1) {
+				if(arg0.getSort()>arg1.getSort()){
+					return -1;
+				}
+				if(arg0.getSort()<arg1.getSort()){
+					return 1;
+				}
+				if(arg0.getSort()==arg1.getSort()){
+					if(arg0.getFunctionId()>arg1.getFunctionId()){
+						return 1;
+					}
+					if(arg0.getFunctionId()<arg1.getFunctionId()){
+						return -1;
+					}
+				}
+				return 0;
+			}
+		});
+		return childFunction;
 	}
 	
 }

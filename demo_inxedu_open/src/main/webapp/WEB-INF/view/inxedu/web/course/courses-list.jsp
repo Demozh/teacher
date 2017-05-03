@@ -29,11 +29,11 @@
 								</c:forEach>
 							</ul>
 							<aside class="c-s-more">
-								<a href="javascript: void(0)" title="" class="fsize14 c-master">[展开]</a> 
+								<a href="javascript: void(0)" title="" class="fsize14 c-master">[展开]</a>
 							</aside>
 						</dd>
 					</dl>
-					<c:if test="${sonSubjectList!=null&&sonSubjectList.size()>0 }">
+					<c:if test="${not empty sonSubjectList }">
                       	<dl>
 							<dt>
 								<span class="c-999 fsize14"></span>

@@ -8,12 +8,12 @@
 <script type="text/javascript" src="${ctx}/static/admin/questions/questions_comment.js"></script>
 </head>
 <body>
-	<div class="pad20">
+	<div class="">
 		<a title="返回" onclick="history.go(-1)" class="button tooltip" href="javascript:void(0)">
 			<span class="ui-icon ui-icon-cancel"></span>
 			返回
 		</a>
-		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth">
+		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth" width="100%">
 			<thead>
 				<tr>
 					<td align="center">发表人</td>
@@ -24,8 +24,8 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${questionsCommentList}" var="questionsComment">
-					<tr class="odd">
+				<c:forEach items="${questionsCommentList}" var="questionsComment" varStatus="index">
+					<tr <c:if test="${index.count%2==1 }">class="odd"</c:if>>
 						<td align="center">${questionsComment.email}</td>
 						<%-- <td align="center">${questionsComment.content}</td> --%>
 						<td align="center">${questionsComment.praiseCount}</td>
@@ -33,8 +33,8 @@
 							<fmt:formatDate value="${questionsComment.addTime}" pattern="yyyy/MM/dd HH:mm" />
 						</td>
 						<td align="center">
-							<a href="javascript:void(0)" onclick="delQuestionsCommentSon('${questionsComment.id}')" class="button tooltip">删除</a>
-							<a href="javascript:void(0)" onclick='getCommentContent("${questionsComment.id}")' class="button tooltip">修改</a>
+							<button onclick="getCommentContent('${questionsComment.id}')" class="ui-state-default ui-corner-all" type="button">修改</button>
+							<button onclick="delQuestionsCommentSon('${questionsComment.id}')" class="ui-state-default ui-corner-all" type="button">删除</button>
 						</td>
 					</tr>
 				</c:forEach>
@@ -45,7 +45,7 @@
 	<!-- 修改窗口 ,开始-->
 	<div id="updateWin" aria-labelledby="ui-dialog-title-dialog" role="dialog" tabindex="-1"
 		class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable"
-		style="display: none; position: absolute; overflow: hidden; z-index: 1010; outline: 0px none; height: auto; width: 600px; top: 173px; left: 367px;">
+		style="display: none; position: absolute; overflow: hidden; z-index: 1010; outline: 0px none; height: auto; width: 600px; top: 173px; left: 367px;border: 3px solid #ececec;">
 		<div style="-moz-user-select: none;" unselectable="on" class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
 			<span style="-moz-user-select: none;" unselectable="on" id="ui-dialog-title-dialog" class="ui-dialog-title">修改问答评论</span>
 			<a style="-moz-user-select: none;" unselectable="on" role="button" class="ui-dialog-titlebar-close ui-corner-all"
@@ -53,7 +53,7 @@
 				<span style="-moz-user-select: none;" unselectable="on" class="ui-icon ui-icon-closethick">close</span>
 			</a>
 		</div>
-		<div style="height: 300px; min-height: 42px; width: auto;" class="ui-dialog-content ui-widget-content">
+		<div style="height: auto; min-height: 42px; width: auto;" class="ui-dialog-content ui-widget-content">
 			<form id="updateForm">
 				<input type="hidden" name="questionsComment.id" value="0" />
 				<table style="line-height: 35px;">

@@ -68,8 +68,14 @@
 </script>
 </head>
 <body>
-<div>
-<form action="" method="post" id="statisticsForm">
+<fieldset>
+	<legend>
+		<span>统计管理</span>
+		&gt;
+		<span>生成统计</span>
+	</legend>
+	<div>
+	<form action="" method="post" id="statisticsForm">
 		<table width="100%" cellspacing="0" cellpadding="0" border="0" class="commonTab01">
 			<tbody>
 				<tr>
@@ -101,7 +107,8 @@
 				</tr>
 			</tbody>
 		</table>
-		</form>
+	</form>
 </div>
+</fieldset>
 </body>
 </html>

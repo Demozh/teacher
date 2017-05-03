@@ -32,7 +32,7 @@ $(function(){
 </script>
 </head>
 <body>
-	<div class="pad20">
+	<div class="">
 		<form action="${ctx}/admin/teacher/list" method="post" id="searchForm">
 			<input type="hidden" id="pageCurrentPage" name="page.currentPage" value="1" />
 			讲师名称：
@@ -49,17 +49,17 @@ $(function(){
 			-
 			<input placeholder="结束添加时间" id="endCreateTime" name="queryTeacher.endCreateTime"
 				value="<fmt:formatDate value="${queryTeacher.endCreateTime}" pattern="yyyy-MM-dd HH:mm:ss"/>" type="text" readonly="readonly" style="width: 128px;"/>
-			<a title="查找用户" onclick="javascript:$('#searchForm').submit();" class="button tooltip" href="javascript:void(0)">
+			<a title="查找用户" onclick="$('#searchForm').submit();" class="button tooltip" href="javascript:void(0)">
 				<span class="ui-icon ui-icon-search"></span>
 				查找
 			</a>
-			<a title="清空" onclick="javascript:$('#searchForm input:text').val('');$('#searchForm select').val(0);" class="button tooltip"
-				href="javascript:void(0)">
+			<a title="清空" onclick="$('#searchForm input:text').val('');$('#searchForm select').val(0);" class="button tooltip"
+			   href="javascript:void(0)">
 				<span class="ui-icon ui-icon-cancel"></span>
 				清空
 			</a>
 		</form>
-		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth">
+		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth" width="100%">
 			<thead>
 				<tr>
 					<td align="center">ID</td>
@@ -69,13 +69,13 @@ $(function(){
 					<td align="center" width="250">简介</td>
 					<td align="center">添加时间</td>
 					<td align="center">排序</td>
-					<td align="center" width="100">操作</td>
+					<td align="center" width="124">操作</td>
 				</tr>
 			</thead>
 
 			<tbody>
-				<c:forEach items="${teacherList}" var="tc">
-					<tr class="odd">
+				<c:forEach items="${teacherList}" var="tc" varStatus="index">
+					<tr <c:if test="${index.count%2==1 }">class="odd"</c:if>>
 						<td align="center">${tc.id}</td>
 						<td align="center">${tc.name}</td>
 						<td align="center">
@@ -89,8 +89,8 @@ $(function(){
 						</td>
 						<td align="center">${tc.sort}</td>
 						<td align="center">
-							<a href="${ctx}/admin/teacher/toUpdate/${tc.id}" class="button tooltip">修改</a>
-							<a href="javascript:void(0)" onclick="deleteTeacher(${tc.id})" class="button tooltip">删除</a>
+							<button onclick="deleteTeacher(${tc.id})" class="ui-state-default ui-corner-all" type="button">删除</button>
+							<button onclick="window.location.href='${ctx}/admin/teacher/toUpdate/${tc.id}'" class="ui-state-default ui-corner-all" type="button">修改</button>
 						</td>
 					</tr>
 				</c:forEach>

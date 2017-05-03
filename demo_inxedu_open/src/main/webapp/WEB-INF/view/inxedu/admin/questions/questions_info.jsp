@@ -51,11 +51,17 @@ function updQuestions(){
 </script>
 </head>
 <body>
-	<div class="pad20" style="background-color: #f0f0f0;">
+<fieldset>
+	<legend>
+		<span>问答管理</span>
+		&gt;
+		<span>修改问答</span>
+	</legend>
+	<div class="">
 		<form action="/admin/questions/updQuestions" method="post" id="updateForm">
-			<table style="line-height: 35px;">
+			<table style="line-height: 35px;" width="100%">
 				<tr>
-					<td>
+					<td align="center" width="10%">
 						<font color="red">*</font>问答标题:
 					</td>
 					<td>
@@ -64,7 +70,7 @@ function updQuestions(){
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>发表人昵称:
 					</td>
 					<td>
@@ -72,7 +78,7 @@ function updQuestions(){
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>发表人邮箱:
 					</td>
 					<td>
@@ -80,7 +86,7 @@ function updQuestions(){
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>问答分类:
 					</td>
 					<td style="text-align: left;">
@@ -89,7 +95,7 @@ function updQuestions(){
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>问答标签:
 					</td>
 					<td>
@@ -100,7 +106,7 @@ function updQuestions(){
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>是否采纳:
 					</td>
 					<td style="text-align: left;">
@@ -111,7 +117,7 @@ function updQuestions(){
 				<c:if test="${questions.status==1}">
 					<c:forEach items="${questions.questionsCommentList }" var="questionsComment">
 						<tr>
-							<td>
+							<td align="center">
 								<font color="red">*</font>最佳答案:
 							</td>
 							<td style="text-align: left;">
@@ -119,7 +125,7 @@ function updQuestions(){
 							</td>
 						</tr>
 						<tr>
-							<td>
+							<td align="center">
 								<font color="red">*</font>提供者邮箱:
 							</td>
 							<td style="text-align: left;">
@@ -127,7 +133,7 @@ function updQuestions(){
 							</td>
 						</tr>
 						<tr>
-							<td>
+							<td align="center">
 								<font color="red">*</font>提供者昵称:
 							</td>
 							<td style="text-align: left;">
@@ -137,7 +143,7 @@ function updQuestions(){
 					</c:forEach>
 				</c:if>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>回复数:
 					</td>
 					<td style="text-align: left;">
@@ -145,7 +151,7 @@ function updQuestions(){
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>点赞数:
 					</td>
 					<td style="text-align: left;">
@@ -153,7 +159,7 @@ function updQuestions(){
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>浏览数:
 					</td>
 					<td style="text-align: left;">
@@ -161,13 +167,13 @@ function updQuestions(){
 					</td>
 				</tr>
 				<tr>
-					<td>问答内容:</td>
+					<td align="center">问答内容:</td>
 					<td style="text-align: left;">
 						<textarea name="questions.content" rows="100" cols="100">${questions.content}</textarea>
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>添加时间:
 					</td>
 					<td style="text-align: left;">
@@ -183,5 +189,6 @@ function updQuestions(){
 			</table>
 		</form>
 	</div>
+</fieldset>
 </body>
 </html>

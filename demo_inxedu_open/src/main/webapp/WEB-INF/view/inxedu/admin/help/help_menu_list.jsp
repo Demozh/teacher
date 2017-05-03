@@ -50,12 +50,12 @@ function doDel(id)
 </script>
 </head>
 <body>
-<div class="pad20">
+<div class="">
 	<!-- /tab1 begin-->
 	<div class="mt20">
 		<div class="commonWrap">
 			<form action="${ctx}/admin/website/navigates" name="searchForm" id="searchForm" method="post">
-			<table cellspacing="0" cellpadding="0" border="0" class="fullwidth">
+			<table cellspacing="0" cellpadding="0" border="0" class="fullwidth" width="100%">
 				<caption>
 					<div class="capHead">
 						<div class="clearfix">

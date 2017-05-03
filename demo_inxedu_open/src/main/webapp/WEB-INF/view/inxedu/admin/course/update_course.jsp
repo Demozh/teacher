@@ -37,7 +37,7 @@
     			returnElement:'returnId',//返回选中的值（必选 ）
     			//-----------------------------------------------------
     			returnIds:'returnIds',//返回所有级的ID，以“,”隔开（可选）
-    			initVal:'${course.subjectId}',//初始默认ID（可选）
+    			initVal:${course.subjectId},//初始默认ID（可选）
     			defName:'请选择',//默认显示的选项名（可选，如果不设置默认显示“请选择”）  
     			defValue:'0'//默认的选项值（可选，如果不设置默认是“0”）
     		};
@@ -47,13 +47,19 @@
     </script>
 </head>
 <body>
-	<div class="pad20" style="background-color: #f0f0f0;">
+<fieldset>
+	<legend>
+		<span>${courseSellType}管理</span>
+		&gt;
+		<span>修改${courseSellType}</span>
+	</legend>
+	<div class="">
 		<form action="${ctx}/admin/cou/updateCourse" method="post" id="saveCourseForm" data-validator-option="{stopOnError:false, timely:false}">
 			<input type="hidden" name="course.courseId" value="${course.courseId}" />
 			<input type="hidden" name="course.logo" value="${course.logo}" />
-			<table style="line-height: 35px;">
+			<table style="line-height: 35px;" width="100%">
 				<tr>
-					<td>
+					<td align="center" width="10%">
 						<font color="red">*</font>课程名称:
 					</td>
 					<td>
@@ -61,7 +67,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>专业分类:
 					</td>
 					<td style="text-align: left;">
@@ -71,7 +77,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>状态:
 					</td>
 					<td>
@@ -85,7 +91,7 @@
 					</script>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>总课时:
 					</td>
 					<td style="text-align: left;">
@@ -93,7 +99,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>课程原价格:
 					</td>
 					<td style="text-align: left;">
@@ -101,7 +107,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>课程销售价格:
 					</td>
 					<td style="text-align: left;">
@@ -109,7 +115,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>有效期类型:
 					</td>
 					<td>
@@ -123,7 +129,7 @@
 					</script>
 				</tr>
 				<tr class="endTimeShow">
-					<td>
+					<td align="center">
 						<font color="red">*</font>有效期结束时间:
 					</td>
 					<td style="text-align: left;">
@@ -140,7 +146,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>添加教师:</td>
+					<td align="center">添加教师:</td>
 					<td style="text-align: left;">
 						<input type="hidden" name="teacherIdArr" value="" />
 						<div id="teacherList"></div>
@@ -148,25 +154,25 @@
 					</td>
 				</tr>
 				<tr>
-					<td>销售数量:</td>
+					<td align="center">销售数量:</td>
 					<td style="text-align: left;">
 						<input name="course.pageBuycount" data-rule="required;integer[+0]" value="${course.pageBuycount}" type="text" style="width: 140px;" />
 					</td>
 				</tr>
 				<tr>
-					<td>浏览量:</td>
+					<td align="center">浏览量:</td>
 					<td style="text-align: left;">
 						<input name="course.pageViewcount" data-rule="required;integer[+0]" value="${course.pageViewcount}" type="text" style="width: 140px;" />
 					</td>
 				</tr>
 				<tr>
-					<td>课程简介:</td>
+					<td align="center">课程简介:</td>
 					<td style="text-align: left;">
 						<input name="course.title" data-rule="required;" value="${course.title}" type="text" style="width: 580px;" />
 					</td>
 				</tr>
 				<tr>
-					<td>课程图片：</td>
+					<td align="center">课程图片：</td>
 					<td style="text-align: left;">
 						<c:choose>
 							<c:when test="${course.logo!=null && course.logo!=''}">
@@ -181,7 +187,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>课程详情:</td>
+					<td align="center">课程详情:</td>
 					<td style="text-align: left;">
 						<textarea name="course.context" id="content" data-rule="required;">${course.context}</textarea>
 					</td>
@@ -196,5 +202,6 @@
 			</table>
 		</form>
 	</div>
+</fieldset>
 </body>
 </html>

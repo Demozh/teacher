@@ -39,13 +39,19 @@
 </script>
 </head>
 <body>
-	<div class="pad20" style="background-color: #f0f0f0;">
+<fieldset>
+	<legend>
+		<span>文章管理</span>
+		&gt;
+		<span>修改文章</span>
+	</legend>
+	<div class="">
 		<form action="${ctx}/admin/article/updatearticle" method="post" id="articleForm" data-validator-option="{stopOnError:false, timely:false}">
 			<input type="hidden" name="article.articleId" value="${article.articleId}">
 			<input type="hidden" name="article.imageUrl" value="${article.imageUrl}">
-			<table style="line-height: 35px;">
+			<table style="line-height: 35px;" width="100%">
 				<tr>
-					<td>
+					<td width="10%" align="center">
 						<font color="red">*</font>标题
 					</td>
 					<td>
@@ -53,13 +59,13 @@
 					</td>
 				</tr>
 				<tr>
-					<td>摘要：</td>
+					<td align="center">摘要：</td>
 					<td>
 						<textarea name="article.summary" style="width: 580px; height: 90px;" data-rule="required;" >${article.summary}</textarea>
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>文章类型：
 					</td>
 					<td>
@@ -72,7 +78,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>封面图片：</td>
+					<td align="center">封面图片：</td>
 					<td>
 						<c:choose>
 							<c:when test="${article.imageUrl==null || article.imageUrl==''}">
@@ -87,19 +93,19 @@
 					</td>
 				</tr>
 				<tr>
-					<td>点击数：</td>
+					<td align="center">点击数：</td>
 					<td>
 						<input name="article.clickNum" id="clickNum"   type="text" style="width: 140px;" value="${article.clickNum}" data-rule="required;" onkeyup="this.value=this.value.replace(/\D/g,'')"/>
 					</td>
 				</tr>
 				<tr>
-					<td>发布时间：</td>
+					<td align="center">发布时间：</td>
 					<td>
 						<input name="article.publishTime" data-rule="required;" id="publishTime" readonly="readonly" type="text" style="width: 140px;z-index: 1000;position:relative;" value="<fmt:formatDate value="${article.publishTime}" pattern="yyyy-MM-dd HH:mm:ss"/>" />
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>内容：
 					</td>
 					<td>
@@ -107,7 +113,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>排序值：</td>
+					<td align="center">排序值：</td>
 					<td>
 						<input name="article.sort" id="sort" data-rule="required;"  type="text" style="width: 140px;" value="${article.sort }"  onkeyup="this.value=this.value.replace(/\D/g,'')" data-rule="required;"/>
 					</td>
@@ -120,5 +126,6 @@
 			</table>
 		</form>
 	</div>
+</fieldset>
 </body>
 </html>

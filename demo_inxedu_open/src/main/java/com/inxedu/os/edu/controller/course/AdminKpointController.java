@@ -33,7 +33,7 @@ import java.util.Map;
 public class AdminKpointController extends BaseController {
 	private static final Logger logger = LoggerFactory.getLogger(AdminKpointController.class);
 
-	// 章节列表 
+	// 章节列表
 	private static final String kpointList = getViewPath("/admin/kpoint/kpoint_list");// 章节列表
 
     // 绑定变量名字和属性，参数封装进类

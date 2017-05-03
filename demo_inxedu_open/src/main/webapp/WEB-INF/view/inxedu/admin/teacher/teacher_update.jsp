@@ -19,13 +19,19 @@
 	</script>
 </head>
 <body>
-	<div class="pad20" style="background-color: #f0f0f0;">
+<fieldset>
+	<legend>
+		<span>讲师管理</span>
+		&gt;
+		<span>修改讲师</span>
+	</legend>
+	<div class="">
 		<form action="${ctx}/admin/teacher/update" method="post" id="saveTeacherForm" data-validator-option="{stopOnError:false, timely:false}">
 			<input type="hidden" name="teacher.id" value="${teacher.id}" />
 			<input type="hidden" name="teacher.picPath" id="imagesUrl" value="${teacher.picPath}" />
-			<table>
+			<table width="100%" style="line-height: 35px;"  >
 				<tr>
-					<td>
+					<td width="10%" align="center">
 						<font color="red">*</font>讲师名称:
 					</td>
 					<td style="text-align: left;">
@@ -33,7 +39,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>讲师资历：
 					</td>
 					<td style="text-align: left;">
@@ -41,7 +47,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>讲师专业：
 					</td>
 					<td style="text-align: left; position: relative;">
@@ -51,7 +57,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>讲师等级：</td>
+					<td align="center">讲师等级：</td>
 					<td style="text-align: left;">
 						<select class="dropdown" name="teacher.isStar" >
 							<option <c:if test="${teacher.isStar==1}">selected="selected"</c:if> value="1">高级讲师</option>
@@ -60,13 +66,13 @@
 					</td>
 				</tr>
 				<tr>
-					<td>讲师排序：</td>
+					<td align="center">讲师排序：</td>
 					<td style="text-align: left;">
 						<input name="teacher.sort" value="${teacher.sort}" data-rule="required;integer[+0]"/>
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>讲师简介：
 					</td>
 					<td style="text-align: left;">
@@ -74,7 +80,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>讲师头像：</td>
+					<td align="center">讲师头像：</td>
 					<td style="text-align: left;">
 						<c:choose>
 							<c:when test="${teacher.picPath!=null && teacher.picPath!=''}">

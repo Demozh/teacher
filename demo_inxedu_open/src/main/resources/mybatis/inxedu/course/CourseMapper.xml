@@ -377,6 +377,9 @@
 	<if test="order=='NEW'">
 	ORDER BY EDU_COURSE.ADD_TIME DESC
 	</if>
+		<if test="queryLimit!=0">
+			limit #{queryLimit}
+		</if>
 	</select>
 
 	<!-- 更新课程的数据数量 -->

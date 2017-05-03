@@ -24,7 +24,7 @@
 </script>
 </head>
 <body>
-	<div class="pad20">
+	<div class="">
 		<form action="${ctx}/admin/website/updateWebsiteCourse" method="post" id="updateWebsiteCourseForm">
 			<input type="hidden" name="websiteCourse.id" value="${websiteCourse.id}" />
 			<fieldset>

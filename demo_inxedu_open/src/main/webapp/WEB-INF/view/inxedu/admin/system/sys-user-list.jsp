@@ -8,7 +8,7 @@
 <script type="text/javascript" src="${ctx}/static/admin/system/sys-user.js"></script>
 </head>
 <body>
-	<div class="pad20">
+	<div class="">
 		<form action="${ctx}/admin/sysuser/userlist" method="post" id="searchForm">
 			<a title="创建用户" onclick="showWin()" class="button tooltip" href="javascript:void(0)">
 				<span class="ui-icon ui-icon-newwin"></span>
@@ -25,7 +25,7 @@
 				清空
 			</a>
 		</form>
-		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth">
+		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth" width="100%">
 			<thead>
 				<tr>
 					<td align="center">登录名</td>
@@ -40,8 +40,8 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${userList}" var="sysuser">
-					<tr class="odd">
+				<c:forEach items="${userList}" var="sysuser" varStatus="index">
+					<tr <c:if test="${index.count%2==1 }">class="odd"</c:if>>
 						<td align="center">${sysuser.loginName}</td>
 						<td align="center">
 							<c:if test="${sysuser.userName!=null && sysuser.userName!=''}">${sysuser.userName}</c:if>
@@ -85,18 +85,23 @@
 							<c:if test="${sysuser.status==1}">冻结</c:if>
 						</td>
 						<td align="center">
-							<a href="javascript:void(0)" onclick="delUser(${sysuser.userId})" class="button tooltip">删除</a>
-							<a href="javascript:void(0)" onclick="initUser(${sysuser.userId})" class="button tooltip">修改</a>
-							<a href="javascript:void(0)" onclick="updatePwd(${sysuser.userId})" class="button tooltip">修改密码</a>
+							<div class="c-more-box">
+								<a href="javascript:void(0)" class="check-more">更多<em class="icon14 ml5 more-select"> </em></a>
+								<ul class="c-more-list">
+									<li><a href="javascript:void(0)" onclick="updatePwd(${sysuser.userId})">修改密码</a></li>
+									<li><a href="javascript:void(0)" onclick="delUser(${sysuser.userId})">删除用户</a></li>
+									<li><a href="${ctx}/admin/sysuser/looklog/${sysuser.userId}">查看日志</a></li>
+								</ul>
+							</div>
 							<samp>
 								<c:if test="${sysuser.status==0}">
-									<a href="javascript:void(0)" onclick="disableOrstart(${sysuser.userId},2,this)" class="button tooltip">冻结</a>
+									<button onclick="disableOrstart(${sysuser.userId},2,this)" class="ui-state-default ui-corner-all" type="button">冻结</button>
 								</c:if>
 								<c:if test="${sysuser.status==1}">
-									<a href="javascript:void(0)" onclick="disableOrstart(${sysuser.userId},1,this)" class="button tooltip">启用</a>
+									<button onclick="disableOrstart(${sysuser.userId},1,this)" class="ui-state-default ui-corner-all" type="button">启用</button>
 								</c:if>
 							</samp>
-							<a href="${ctx}/admin/sysuser/looklog/${sysuser.userId}" class="button tooltip">查看日志</a>
+							<button onclick="initUser(${sysuser.userId})" class="ui-state-default ui-corner-all" type="button">修改</button>
 						</td>
 					</tr>
 				</c:forEach>
@@ -108,7 +113,7 @@
 	<!-- 添加用户窗口 ,开始-->
 	<div id="createWin" aria-labelledby="ui-dialog-title-dialog" role="dialog" tabindex="-1"
 		class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable"
-		style="display: none; position: absolute; overflow: hidden; z-index: 1010; outline: 0px none; height: auto; width: 511px; top: 173px; left: 367px;">
+		style="display: none; position: absolute; overflow: hidden; z-index: 1010; outline: 0px none; height: auto; width: 511px; top: 173px; left: 367px;border: 3px solid #ececec;">
 		<div style="-moz-user-select: none;" unselectable="on" class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
 			<span style="-moz-user-select: none;" unselectable="on" id="ui-dialog-title-dialog" class="ui-dialog-title">创建新用户</span>
 			<a style="-moz-user-select: none;" unselectable="on" role="button" class="ui-dialog-titlebar-close ui-corner-all"
@@ -197,7 +202,7 @@
 	<!-- 修改用户窗口 ,开始-->
 	<div id="updateWin" aria-labelledby="ui-dialog-title-dialog" role="dialog" tabindex="-1"
 		class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable"
-		style="display: none; position: absolute; overflow: hidden; z-index: 1010; outline: 0px none; height: auto; width: 511px; top: 173px; left: 367px;">
+		style="display: none; position: absolute; overflow: hidden; z-index: 1010; outline: 0px none; height: auto; width: 511px; top: 173px; left: 367px;border: 3px solid #ececec;">
 		<div style="-moz-user-select: none;" unselectable="on" class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
 			<span style="-moz-user-select: none;" unselectable="on" id="ui-dialog-title-dialog" class="ui-dialog-title">修改用户信息</span>
 			<a style="-moz-user-select: none;" unselectable="on" role="button" class="ui-dialog-titlebar-close ui-corner-all"
@@ -205,7 +210,7 @@
 				<span style="-moz-user-select: none;" unselectable="on" class="ui-icon ui-icon-closethick">close</span>
 			</a>
 		</div>
-		<div style="height: 300px; min-height: 42px; width: auto;" class="ui-dialog-content ui-widget-content">
+		<div style="height: 197px; min-height: 42px; width: auto;" class="ui-dialog-content ui-widget-content">
 			<form id="updateSysUserForm">
 				<input type="hidden" name="sysUser.userId" value="0" />
 				<table style="line-height: 35px;">
@@ -268,7 +273,7 @@
 	<!-- 修改密码窗口 ,开始-->
 	<div id="updatePwdWin" aria-labelledby="ui-dialog-title-dialog" role="dialog" tabindex="-1"
 		class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable"
-		style="display: none; position: absolute; overflow: hidden; z-index: 1010; outline: 0px none; height: auto; width: 511px; top: 173px; left: 367px;">
+		style="display: none; position: absolute; overflow: hidden; z-index: 1010; outline: 0px none; height: auto; width: 511px; top: 173px; left: 367px;border: 3px solid #ececec;">
 		<div style="-moz-user-select: none;" unselectable="on" class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
 			<span style="-moz-user-select: none;" unselectable="on" id="ui-dialog-title-dialog" class="ui-dialog-title">修改用户密码</span>
 			<a style="-moz-user-select: none;" unselectable="on" role="button" class="ui-dialog-titlebar-close ui-corner-all"
@@ -276,7 +281,7 @@
 				<span style="-moz-user-select: none;" unselectable="on" class="ui-icon ui-icon-closethick">close</span>
 			</a>
 		</div>
-		<div style="height: 300px; min-height: 42px; width: auto;" class="ui-dialog-content ui-widget-content">
+		<div style="height: 78px; min-height: 42px; width: auto;" class="ui-dialog-content ui-widget-content">
 			<input type="hidden" id="sysUserId" value="0" />
 			<table style="line-height: 35px;">
 				<tr>

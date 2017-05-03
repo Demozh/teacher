@@ -37,12 +37,18 @@
 
 </head>
 <body>
-	<div class="pad20" style="background-color: #f0f0f0;">
+<fieldset>
+	<legend>
+		<span>文章管理</span>
+		&gt;
+		<span>添加文章</span>
+	</legend>
+	<div class="">
 		<form action="${ctx}/admin/article/addarticle" method="post" id="articleForm" data-validator-option="{stopOnError:false, timely:false}">
 			<input type="hidden" name="article.imageUrl">
-			<table style="line-height: 35px;">
+			<table style="line-height: 35px;" width="100%">
 				<tr>
-					<td>
+					<td width="10%" align="center">
 						<font color="red">*</font>标题
 					</td>
 					<td>
@@ -50,13 +56,13 @@
 					</td>
 				</tr>
 				<tr>
-					<td>摘要：</td>
+					<td align="center">摘要：</td>
 					<td>
 						<textarea name="article.summary" style="width: 580px; height: 90px;" data-rule="required;"></textarea>
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>文章类型：
 					</td>
 					<td>
@@ -69,19 +75,19 @@
 					</td>
 				</tr>
 				<tr>
-					<td>点击数：</td>
+					<td align="center">点击数：</td>
 					<td>
 						<input name="article.clickNum" id="clickNum"   type="text" style="width: 140px;" value="0"  onkeyup="this.value=this.value.replace(/\D/g,'')" data-rule="required;"/>
 					</td>
 				</tr>
 				<tr>
-					<td>发布时间：</td>
+					<td align="center">发布时间：</td>
 					<td>
 						<input name="article.publishTime" id="publishTime"   readonly="readonly"  type="text" style="width: 140px;z-index: 1000;position:relative;" data-rule="required;"/>
 					</td>
 				</tr>
 				<tr>
-					<td>封面图片：</td>
+					<td align="center">封面图片：</td>
 					<td>
 						<img id="showImage" width="180" height="100" src="${ctx }/static/admin/assets/logo.png">
 						<input type="button" value="上传" id="imageFile" />
@@ -89,7 +95,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>内容：
 					</td>
 					<td>
@@ -97,7 +103,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>排序值：</td>
+					<td align="center">排序值：</td>
 					<td>
 						<input name="article.sort" id="sort"   type="text" style="width: 140px;" value="0"  onkeyup="this.value=this.value.replace(/\D/g,'')" data-rule="required;"/>
 					</td>
@@ -110,5 +116,6 @@
 			</table>
 		</form>
 	</div>
+</fieldset>
 </body>
 </html>

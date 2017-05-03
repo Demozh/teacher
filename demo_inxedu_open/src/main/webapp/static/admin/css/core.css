@@ -150,7 +150,6 @@ INPUT[type="checkbox"], INPUT[type="radio"] {
 
 #container {
 	min-width: 960px;
-	max-width: 1600px;
 	margin: 0 auto;
 }
 
@@ -167,20 +166,24 @@ INPUT[type="checkbox"], INPUT[type="radio"] {
 	display: block;
 	width: 100%;
 	height: 83px;
+	position: relative;
 }
 
 #top .logo {
-	float: left;
+	position: absolute;
+	left: 0;
+	top: 0;
 	display: inline;
-	width: 361px;
-	margin-left: 15px;
-	margin-top: 12px;
+	width: 239px;
+	margin-left: 38px;
+	margin-top: 16px;
 }
 
 #top .meta {
 	display: inline;
-	float: right;
-	position: relative;
+	right: 0;
+	top: 0;
+	position: absolute;
 	padding-right: 10px;
 	margin-top: 5px;
 }
@@ -341,9 +344,9 @@ ul.nav li li a {
 
 #sidebar {
 	float: left;
-	width: 240px;
+	width: 279px;
 	position: relative;
-	padding: 0 15px;
+	padding: 5px 0 0;
 }
 
 #sidebar h2 {
@@ -397,16 +400,14 @@ ul.nav li li a {
 	width: 100%;
 	margin-left: -320px;
 	position: relative;
-	background: url('') 185px 0 repeat-y;
+	background: url('../assets/siderep.png') 185px 0 repeat-y;
 	padding-bottom: 30px;
-	margin-top:26px;
-	line-height:normal;
 }
 
 #main {
-	margin-left: 320px;
+	margin-left: 282px;
 	margin-right: 30px;
-	padding-top: 30px;
+	padding: 10px 0 0 30px;
 	position: relative;
 }
 
@@ -540,7 +541,7 @@ table.fullwidth td, table.normal td {
 
 .warning {
 	background: #feffc8 url('../assets/icons/warning_48.png') 20px 50%
-		no-repeat;
+	no-repeat;
 	border: 1px solid #f1aa2d;
 }
 
@@ -554,19 +555,19 @@ table.fullwidth td, table.normal td {
 
 .error {
 	background: #fdcea4 url('../assets/icons/stop_48.png') 20px 50%
-		no-repeat;
+	no-repeat;
 	border: 1px solid #c44509;
 }
 
 .success {
 	background: #d4f684 url('../assets/icons/tick_48.png') 20px 50%
-		no-repeat;
+	no-repeat;
 	border: 1px solid #739f1d;
 }
 
 .information {
 	background: #c3e4fd url('../assets/icons/info_48.png') 20px 50%
-		no-repeat;
+	no-repeat;
 	border: 1px solid #688fdc;
 }
 
@@ -657,7 +658,7 @@ table.fullwidth td, table.normal td {
 }
 
 .pagination ul>.disabled>span, .pagination ul>.disabled>a, .pagination ul>.disabled>a:hover
-	{
+{
 	background-color: transparent;
 	color: #666;
 	cursor: default;
@@ -685,3 +686,5 @@ table.fullwidth td, table.normal td {
 	color: #fff;
 	text-decoration: none;
 }
+.stat-desc {margin: 12px 0 15px 20px;}
+.stat-desc span {font-size: 12px; color: #555;font-family: "Microsoft YaHei";margin-right: 20px;}

@@ -26,10 +26,10 @@ function cleanEmpty(ehcacheId){
 		success:function(result){
 			if(result.success){
 				alert("清除成功");
-				return;
+
 			}else{
 				alert("请刷新重试");
-				return;
+
 			}
 		}
 	});
@@ -51,7 +51,7 @@ function cleanEmpty(ehcacheId){
 					$("#rem"+id).remove();
 				}else{
 					alert("请刷新重试");
-					return;
+
 				}
 			}
 		});
@@ -72,7 +72,7 @@ function removeAllEHCache(){
 					window.location.href=parent.location.reload();
 				}else{
 					alert("请刷新重试");
-					return;
+
 				}
 			}
 		});
@@ -81,7 +81,7 @@ function removeAllEHCache(){
 </script>
 </head>
 <body>
-	<div class="pad20">
+	<div class="">
 		<form action="${ctx}/admin/ehcache/queryWebsiteEhcacheList" method="post" id="searchForm">
 			<input id="pageCurrentPage" type="hidden" name="page.currentPage" value="${page.currentPage}"/>
 			<span><font>Key：</font></span>
@@ -99,7 +99,7 @@ function removeAllEHCache(){
 				清空所有缓存
 			</a>
 		</form>
-		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth">
+		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth" width="100%">
 			<thead>
 				<tr>
 					<td align="center">ID</td>
@@ -110,15 +110,15 @@ function removeAllEHCache(){
 			</thead>
 
 			<tbody>
-				<c:forEach items="${websiteEhcacheList}" var="ehcache">
-					<tr id="rem${ehcache.id }">
+				<c:forEach items="${websiteEhcacheList}" var="ehcache" varStatus="index">
+					<tr id="rem${ehcache.id }" <c:if test="${index.count%2==1 }">class="odd"</c:if>>
 						<td align="center">${ehcache.id}</td>
 						<td align="center">${ehcache.ehcacheKey}</td>
 						<td align="center">${ehcache.ehcacheDesc}</td>
 						<td align="center" class="c_666 czBtn">
-							<a class="button tooltip" onclick="cleanEmpty(${ehcache.id })" href="javascript:void(0)" title="清空">清空</a>
-							<a class="button tooltip" href="${ctx }/admin/ehcache/updateWebsiteEhcachePage/${ehcache.id}" title="修改">修改</a>
-							<a class="button tooltip" onclick="deladEhcache(${ehcache.id})" href="javascript:void(0)" title="删除">删除</a>
+							<button onclick="deladEhcache(${ehcache.id})" class="ui-state-default ui-corner-all" type="button">删除</button>
+							<button onclick="window.location.href='${ctx }/admin/ehcache/updateWebsiteEhcachePage/${ehcache.id}'" class="ui-state-default ui-corner-all" type="button">修改</button>
+							<button onclick="cleanEmpty(${ehcache.id })" class="ui-state-default ui-corner-all" type="button">清空</button>
 						</td>
 					</tr>
 				</c:forEach>

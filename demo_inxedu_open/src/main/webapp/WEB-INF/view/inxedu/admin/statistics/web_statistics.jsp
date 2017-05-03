@@ -2,7 +2,7 @@
 <%@ include file="/base.jsp"%>
 
 
-<div id="container" style="max-width: 85%;margin: auto;height: 260px;"></div>
+<div id="container" style="max-width: 85%;margin: auto;height: 620px;"></div>
 
 
 <script type="text/javascript">

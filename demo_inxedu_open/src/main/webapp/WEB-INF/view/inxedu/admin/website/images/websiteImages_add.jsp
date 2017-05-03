@@ -17,13 +17,19 @@
 </script>
 </head>
 <body>
-	<div class="pad20" style="background-color: #f0f0f0;">
+<fieldset>
+	<legend>
+		<span>广告图</span>
+		&gt;
+		<span>添加</span>
+	</legend>
+	<div class="">
 		<form action="${ctx}/admin/website/addImages" method="post" id="saveImagesForm">
 			<input type="hidden" name="websiteImages.imagesUrl" />
 			<input type="hidden" name="websiteImages.previewUrl" />
-			<table style="line-height: 35px;">
+			<table style="line-height: 35px;" width="100%">
 				<tr>
-					<td>
+					<td width="15%" align="center">
 						<font color="red">*</font>图片标题
 					</td>
 					<td style="text-align: left;">
@@ -31,15 +37,15 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
-						<font color="red">*</font>图片描述(仅后台描述前台没有展示效果除个别分类,如首页课程互动则会用到)
+					<td align="center">
+						<font color="red">*</font>图片描述
 					</td>
 					<td style="text-align: left;">
-						<input name="websiteImages.describe" type="text" maxlength="600" style="width: 580px;" />
+						<input name="websiteImages.describe" type="text" maxlength="600" style="width: 580px;" />(仅后台描述前台没有展示效果除个别分类,如首页课程互动则会用到)
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>图片类型
 					</td>
 					<td style="text-align: left;">
@@ -52,19 +58,19 @@
 					</td>
 				</tr>
 				<tr>
-					<td>跳转链接</td>
+					<td align="center">跳转链接</td>
 					<td style="text-align: left;">
 						<input name="websiteImages.linkAddress" type="text" style="width: 580px;" />
 					</td>
 				</tr>
 				<tr>
-					<td>排序</td>
+					<td align="center">排序</td>
 					<td style="text-align: left;">
 						<input name="websiteImages.seriesNumber" value="0" type="text" style="width: 110px;" />
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>图片：
 					</td>
 					<td style="text-align: left;">
@@ -73,14 +79,14 @@
 					</td>
 				</tr>
 				<tr>
-					<td>略缩图片：</td>
+					<td align="center">略缩图片：</td>
 					<td style="text-align: left;">
 						<img id="previewUrl" width="200px" height="120px" src="${ctx }/static/admin/assets/logo.png">
 						<input type="button" value="上传" id="previewFile" />
 					</td>
 				</tr>
 				<tr>
-					<td>背景色：</td>
+					<td align="center">背景色：</td>
 					<td style="text-align: left;">
 						<input type="text" id="imageColor" name="websiteImages.color" value="${websiteImages.color}">
 					</td>
@@ -94,5 +100,6 @@
 			</table>
 		</form>
 	</div>
+</fieldset>
 </body>
 </html>

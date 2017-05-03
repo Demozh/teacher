@@ -48,7 +48,13 @@ function updateSubmit(){
 </script>
 </head>
 <body>
-	<div class="pad20" style="background-color: #f0f0f0;">
+<fieldset>
+	<legend>
+		<span>帮助菜单</span>
+		&gt;
+		<span>修改</span>
+	</legend>
+	<div class="">
 			<form action="${ctx}/admin/helpMenu/update" method="post" id="updateForm">
 				<input type="hidden" value="${helpMenu.id}" name="helpMenu.id">
 				<table width="100%" cellspacing="0" cellpadding="0" border="0" class="commonTab01">
@@ -59,7 +65,7 @@ function updateSubmit(){
 					</thead>
 					<tbody>
 					<tr <c:if test="${helpMenu.parentId<=0}">style="display: none"</c:if>>
-						<td ><font color="red">*</font>&nbsp;选择一级菜单：</td>
+						<td  align="center"><font color="red">*</font>&nbsp;选择一级菜单：</td>
 						<td>
 							<select id="menuOne" name="helpMenu.parentId">
 								<option value="0">--请选择--</option>
@@ -70,27 +76,27 @@ function updateSubmit(){
 						</td>
 					</tr>
 					<tr>
-						<td ><font color="red">*</font>&nbsp;菜单名称：</td>
+						<td  align="center"><font color="red">*</font>&nbsp;菜单名称：</td>
 						<td>
 							<input id="menuName" type="text" name="helpMenu.name" maxlength="9" value="${helpMenu.name}" class="{required:true,number:true}"/>
 							<em id="menuNameCount" style="color: #ff0000;">0</em>/9
 						</td>
 					</tr>
 					<tr>
-						<td ><font color="red"></font>&nbsp;帮助内容：</td>
+						<td  align="center"><font color="red"></font>&nbsp;帮助内容：</td>
 						<td>
 							<textarea id="content" name="helpMenu.content">${helpMenu.content}</textarea>
 						</td>
 					</tr>
 					<tr>
-						<td ><font color="red"></font>&nbsp;排序：</td>
+						<td  align="center"><font color="red"></font>&nbsp;排序：</td>
 						<td>
 							<input id="sort" type="text" name="helpMenu.sort" value="${helpMenu.sort}" class="{required:true,number:true}"/>
 							<font color="red">倒序</font>
 						</td>
 					</tr>
 					<tr>
-						<td ><font color="red"></font>&nbsp;外链：</td>
+						<td  align="center"><font color="red"></font>&nbsp;外链：</td>
 						<td>
 							<input id="linkBuilding" type="text" name="helpMenu.linkBuilding" value="${helpMenu.linkBuilding }" />
 							<font color="red">(选填)外链为空则显示帮助内容，不为空则跳转到外链!</font>
@@ -106,5 +112,6 @@ function updateSubmit(){
 				</table>
 			</form>
 		</div>
+</fieldset>
 </body>
 </html>

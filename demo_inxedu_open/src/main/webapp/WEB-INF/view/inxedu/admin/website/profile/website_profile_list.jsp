@@ -63,19 +63,18 @@
 
 	<div class="mt20">
 		<div class="commonWrap">
-			<table class="fullwidth" width="100%" cellspacing="0" cellpadding="0" border="0">
+			<table class="fullwidth" width="100%" width="100%" cellspacing="0" cellpadding="0" border="0">
 				<caption>
 					<div class="capHead">
 						<div class="clearfix">
 							<div class="optionList">
+								<button type="button" class="ui-state-default ui-corner-all" onclick="window.location.href='${ctx}/admin/websiteProfile/find/emailConfigure'"
+									>邮件配置</button>
 								<button type="button" class="ui-state-default ui-corner-all" onclick="window.location.href='${ctx}/admin/websiteProfile/find/cc'"
 									id="web">CC视频配置</button>
 								&nbsp;&nbsp;&nbsp;
 								<button type="button" class="ui-state-default ui-corner-all" onclick="window.location.href='${ctx}/admin/websiteProfile/find/inxeduVideo'"
 										id="web">因酷云视频配置</button>
-								&nbsp;&nbsp;&nbsp;
-								<button type="button" class="ui-state-default ui-corner-all" onclick="window.location.href='${ctx}/admin/websiteProfile/find/web'"
-									id="web">基本信息</button>
 								&nbsp;&nbsp;&nbsp;
 								<button type="button" class="ui-state-default ui-corner-all" onclick="window.location.href='${ctx}/admin/websiteProfile/find/logo'"
 									id="logo">logo</button>
@@ -85,11 +84,14 @@
 								&nbsp;&nbsp;&nbsp;
 								<button type="button" class="ui-state-default ui-corner-all"
 									onclick="window.location.href='${ctx}/admin/websiteProfile/find/censusCode'" id="censusCode">统计代码</button>
+								&nbsp;&nbsp;&nbsp;
+								<button type="button" class="ui-state-default ui-corner-all" onclick="window.location.href='${ctx}/admin/websiteProfile/find/web'"
+										id="web">基本信息</button>
 							</div>
 						</div>
 					</div>
 				</caption>
-				<thead>
+				<thead align="center">
 					<tr>
 						<td width="30%">
 							<span>名称</span>
@@ -144,7 +146,7 @@
 					<input type="hidden" name="type" id="type" value="${type}" />
 					<c:if test="${type=='logo'}">
 						<tbody id="tabS_logo" align="center">
-							<tr>
+							<tr class="odd">
 								<td>图片地址</td>
 								<td>
 									<input type="text" name="url" id="imagesUrl" value="${webSiteMap.logo.url}" style="width: 450px;" />
@@ -164,7 +166,7 @@
 				</form>
 				<c:if test="${type=='censusCode' }">
 					<tbody id="tabS_censusCode" align="center">
-						<tr>
+						<tr class="odd">
 							<td>统计代码</td>
 							<td>
 								<textarea rows="6" cols="60" disabled="disabled">${webSiteMap.censusCode.censusCodeString}</textarea>
@@ -175,7 +177,7 @@
 				<form action="?" method="post" enctype="multipart/form-data" id="icoForm">
 					<c:if test="${type=='ico' }">
 						<tbody id="tabS_censusCode" align="center">
-							<tr>
+							<tr class="odd">
 								<td>ico文件</td>
 								<td>
 									<img alt="" src="${ctx}/favicon.ico">
@@ -208,13 +210,29 @@
 							<td>因酷云UserId</td>
 							<td>${webSiteMap.inxeduVideo.UserId}</td>
 						</tr>
-						<tr class="odd">
+						<tr class="">
 							<td>因酷云SecretKey</td>
 							<td>${webSiteMap.inxeduVideo.SecretKey}</td>
 						</tr>
-						<tr>
+						<tr class="odd">
 							<td>因酷云AccessKey</td>
 							<td>${webSiteMap.inxeduVideo.AccessKey}</td>
+						</tr>
+						</tbody>
+					</c:if>
+					<c:if test="${type=='emailConfigure'}">
+						<tbody align="center">
+						<tr class="odd">
+							<td>邮件传输协议(SMTP)</td>
+							<td>${webSiteMap.emailConfigure.SMTP}</td>
+						</tr>
+						<tr class="">
+							<td>邮件账号</td>
+							<td>${webSiteMap.emailConfigure.username}</td>
+						</tr>
+						<tr class="odd">
+							<td>邮件密码</td>
+							<td>${webSiteMap.emailConfigure.password}</td>
 						</tr>
 						</tbody>
 					</c:if>

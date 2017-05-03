@@ -17,14 +17,20 @@ $(function(){
 </script>
 </head>
 <body>
-	<div class="pad20" style="background-color: #f0f0f0;">
+<fieldset>
+	<legend>
+		<span>广告图</span>
+		&gt;
+		<span>修改</span>
+	</legend>
+	<div class="">
 		<form action="${ctx}/admin/website/updateImages" method="post" id="saveImagesForm">
 			<input type="hidden" name="websiteImages.imageId" value="${websiteImages.imageId}">
 			<input type="hidden" name="websiteImages.imagesUrl" value="${websiteImages.imagesUrl}">
 			<input type="hidden" name="websiteImages.previewUrl" value="${websiteImages.previewUrl}">
-			<table style="line-height: 35px;">
+			<table style="line-height: 35px;"  width="100%">
 				<tr>
-					<td>
+					<td width="10%" align="center">
 						<font color="red">*</font>图片标题
 					</td>
 					<td style="text-align: left;">
@@ -32,15 +38,16 @@ $(function(){
 					</td>
 				</tr>
 				<tr>
-					<td>
-						<font color="red">*</font>图片描述(仅后台描述前台没有展示效果除个别分类,如首页课程互动则会用到)
+					<td align="center">
+						<font color="red">*</font>图片描述
 					</td>
 					<td style="text-align: left;">
 						<input name="websiteImages.describe" type="text"  maxlength="600" value="${websiteImages.describe }" style="width: 580px;"/>
+						(仅后台描述前台没有展示效果除个别分类,如首页课程互动则会用到)
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>图片类型
 					</td>
 					<td style="text-align: left;">
@@ -53,19 +60,19 @@ $(function(){
 					</td>
 				</tr>
 				<tr>
-					<td>跳转链接</td>
+					<td align="center">跳转链接</td>
 					<td style="text-align: left;">
 						<input name="websiteImages.linkAddress" type="text" value="${websiteImages.linkAddress}" style="width: 580px;" />
 					</td>
 				</tr>
 				<tr>
-					<td>排序</td>
+					<td align="center">排序</td>
 					<td style="text-align: left;">
 						<input name="websiteImages.seriesNumber" type="text" value="${websiteImages.seriesNumber}" style="width: 110px;" />
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>图片：
 					</td>
 					<td style="text-align: left;">
@@ -81,7 +88,7 @@ $(function(){
 					</td>
 				</tr>
 				<tr>
-					<td>略缩图片：</td>
+					<td align="center">略缩图片：</td>
 					<td style="text-align: left;">
 						<c:choose>
 							<c:when test="${websiteImages.previewUrl==null || websiteImages.previewUrl==''}">
@@ -95,7 +102,7 @@ $(function(){
 					</td>
 				</tr>
 				<tr>
-					<td>背景色：</td>
+					<td align="center">背景色：</td>
 					<td style="text-align: left;">
 						<input type="text" id="imageColor" name="websiteImages.color" value="${websiteImages.color}">
 					</td>
@@ -110,5 +117,6 @@ $(function(){
 			</table>
 		</form>
 	</div>
+</fieldset>
 </body>
 </html>

@@ -117,10 +117,7 @@
 	
 	<!-- 邮件发送线程类-->
 	<bean name="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		<property name="host" value="${email.host}" />
 		<property name="defaultEncoding" value="UTF-8"></property>
-		<property name="username" value="${email.username}"></property>
-		<property name="password" value="${email.password}"></property>
 		<property name="javaMailProperties">
 			<map>
 				<entry key="mail.smtp.auth" value="true" />

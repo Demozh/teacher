@@ -59,7 +59,13 @@ function addSubmit(){
 </script>
 </head>
 <body>
-	<div class="pad20" style="background-color: #f0f0f0;">
+<fieldset>
+	<legend>
+		<span>帮助菜单</span>
+		&gt;
+		<span>添加</span>
+	</legend>
+	<div class="">
 			<form action="${ctx}/admin/helpMenu/add" method="post" id="addForm">
 				<table width="100%" cellspacing="0" cellpadding="0" border="0" class="commonTab01">
 					<thead>
@@ -69,7 +75,7 @@ function addSubmit(){
 					</thead>
 					<tbody>
 					<tr>
-						<td><font color="red">*</font>&nbsp;级别选择：</td>
+						<td align="center"><font color="red">*</font>&nbsp;级别选择：</td>
 						<td>
 							<input onclick="showMenu(1)" type="radio" name="menuChoose"  checked="checked"/>一级菜单
 							<font style="font-family: '宋体', simsun;">&nbsp;&nbsp;&nbsp;&nbsp;</font>
@@ -77,7 +83,7 @@ function addSubmit(){
 						</td>
 					</tr>
 					<tr style="display: none" class="menuTwo">
-						<td><font color="red">*</font>&nbsp;选择一级菜单：</td>
+						<td align="center"><font color="red">*</font>&nbsp;选择一级菜单：</td>
 						<td>
 							<select id="menuOne" name="helpMenu.parentId">
 								<option value="0">--请选择--</option>
@@ -88,27 +94,27 @@ function addSubmit(){
 						</td>
 					</tr>
 					<tr>
-						<td><font color="red">*</font>&nbsp;菜单名称：</td>
+						<td align="center"><font color="red">*</font>&nbsp;菜单名称：</td>
 						<td>
 							<input id="menuName" type="text" name="helpMenu.name" maxlength="9" class="{required:true,number:true}"/>
 							<em id="menuNameCount" style="color: #ff0000;">0</em>/9
 						</td>
 					</tr>
 					<tr>
-						<td><font color="red"></font>&nbsp;帮助内容：</td>
+						<td align="center"><font color="red"></font>&nbsp;帮助内容：</td>
 						<td>
 							<textarea id="content" name="helpMenu.content"></textarea>
 						</td>
 					</tr>
 					<tr>
-						<td><font color="red"></font>&nbsp;排序：</td>
+						<td align="center"><font color="red"></font>&nbsp;排序：</td>
 						<td>
 							<input id="sort" type="text" name="helpMenu.sort" value="0" class="{required:true,number:true}"/>
 							<font color="red">倒序</font>
 						</td>
 					</tr>
 					<tr>
-						<td><font color="red"></font>&nbsp;外链：</td>
+						<td align="center"><font color="red"></font>&nbsp;外链：</td>
 						<td>
 							<input id="linkBuilding" type="text" name="helpMenu.linkBuilding" value="" />
 							<font color="red">(选填)外链为空则显示帮助内容，不为空则跳转到外链!</font>
@@ -117,13 +123,12 @@ function addSubmit(){
 					<tr>
 						<td colspan="2" align="center">
 							<input onclick="addSubmit()" class="button" type="button" value="提 交" />
-							<input onclick="history.go(-1)" class="button" type="button" value="返 回" />
 						</td>
 					</tr>
 					</tbody>
 				</table>
 			</form>
 	</div>
-
+</fieldset>
 </body>
 </html>

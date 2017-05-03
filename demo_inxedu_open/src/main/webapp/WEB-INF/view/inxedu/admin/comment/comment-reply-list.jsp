@@ -20,24 +20,24 @@ function delcomment(commentId){
 </script>
 </head>
 <body>
-	<div class="pad20">
+	<div class="">
 		<form action="${ctx}/admin/commentreply/query" method="post" id="searchForm">
 			<input type="hidden" id="pageCurrentPage" name="page.currentPage" value="1" />
 			<input placeholder="邮箱" type="text" name="email" value="${comment.email}" />
 			<input placeholder="内容" type="text" name="content" value="${comment.content}" />
-			<a  onclick="javascript:$('#searchForm').submit();" class="button tooltip" href="javascript:void(0)">
+			<a onclick="$('#searchForm').submit();" class="button tooltip" href="javascript:void(0)">
 				<span class="ui-icon ui-icon-search"></span>
 				查找评论
 			</a>
-			<a title="清空" onclick="javascript:$('#searchForm input:text').val('');$('#searchForm select').val(0);" class="button tooltip"
-				href="javascript:void(0)">
+			<a title="清空" onclick="$('#searchForm input:text').val('');$('#searchForm select').val(0);" class="button tooltip"
+			   href="javascript:void(0)">
 				<span class="ui-icon ui-icon-cancel"></span>
 				清空
 			</a>
 			<input onclick="history.go(-1)" class="button" type="button" value="返回">
 		</form>
 		<form action="${ctx}/admin/article/publishOrDelete" id="publishOrDeleteForm" method="post">
-			<table cellspacing="0" cellpadding="0" border="0" class="fullwidth">
+			<table cellspacing="0" cellpadding="0" border="0" class="fullwidth" width="100%">
 				<thead>
 					<tr>
 						<td align="center">
@@ -53,8 +53,8 @@ function delcomment(commentId){
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${commentList}" var="com">
-						<tr class="odd">
+					<c:forEach items="${commentList}" var="com" varStatus="index">
+						<tr <c:if test="${index.count%2==1 }">class="odd"</c:if>>
 							<td align="center">
 								${com.commentId}
 							</td>
@@ -70,8 +70,8 @@ function delcomment(commentId){
 							</td>
 							<td align="center">${com.content}</td>
 							<td align="center">
-								<a href="${ctx}/admin/commentreply/info/${com.commentId}" class="button tooltip">修改</a>
-								<a href="javascript:delcomment('${com.commentId}')" class="button tooltip">删除</a>
+								<button onclick="delcomment('${com.commentId}')" class="ui-state-default ui-corner-all" type="button">删除</button>
+								<button onclick="window.location.href='${ctx}/admin/commentreply/info/${com.commentId}'" class="ui-state-default ui-corner-all" type="button">修改</button>
 							</td>
 						</tr>
 					</c:forEach>

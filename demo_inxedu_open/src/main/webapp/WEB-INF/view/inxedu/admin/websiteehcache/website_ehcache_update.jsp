@@ -41,29 +41,30 @@ function addEhcache(){
 </script>
 </head>
 <body >
-	<div class="pad20" style="background-color: #f0f0f0;">
+<fieldset>
+	<legend>
+		<span>缓存管理</span>
+		&gt;
+		<span>修改</span>
+	</legend>
+	<div class="">
 		<form action="${ctx}/admin/cou/addCourse" method="post" id="saveCourseForm" data-validator-option="{stopOnError:false, timely:false}">
-			<table style="line-height: 35px;">
-				<tr>
-				<td align="center"><font color="red">*</font>&nbsp;Key：</td>
-				<td align="center">
-					<input type="text" value="${websiteEhcache.ehcacheKey }" id="ehcacheKey"/>
-				</td>
-			</tr>
-			<tr>
-				<td align="center"><font color="red">*</font>&nbsp;描述：</td>
-				<td align="center">
-					<input type="text" value="${websiteEhcache.ehcacheDesc }" id="ehcacheDesc"/>
-				</td>
-			</tr>
-			<tr>
-				<td align="center" colspan="2">
-					<input onclick="addEhcache()" class="button" type="button" value="提交" />
-					<input onclick="history.go(-1)" class="button" type="button" value="返回" />
-				</td>
-			</tr>
-			</table>
+				<p>
+					<label for="sf"><font color="red">*</font>&nbsp;Key:</label>
+					<input type="text" id="ehcacheKey" class="{required:true} lf" data-rule="required;" value="${websiteEhcache.ehcacheKey }"/>
+					<span class="field_desc"></span>
+				</p>
+				<p>
+					<label for="sf"><font color="red">*</font>&nbsp;描述:</label>
+					<input type="text" name="" id="ehcacheDesc" class="{required:true} lf" data-rule="required;" value="${websiteEhcache.ehcacheDesc }"/>
+					<span class="field_desc"></span>
+				</p>
+				<p>
+					<input type="button" value="提 交" class="button" onclick="addEhcache()" />
+					<input type="button" value="返 回" class="button" onclick="history.go(-1);" />
+				</p>
 		</form>
 	</div>
+</fieldset>
 </body>
 </html>

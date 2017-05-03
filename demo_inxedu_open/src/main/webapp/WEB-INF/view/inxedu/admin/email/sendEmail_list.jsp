@@ -5,7 +5,6 @@
 <head>
 <title>邮箱列表</title>
 
-<link rel="stylesheet" type="text/css" href="${ctximg}/static/common/jquery-ui-1.10.4/css/ui-lightness/jquery-ui-1.10.4.custom.css?v=${v}"/>
 <script type="text/javascript" src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery-ui-1.10.4.custom.js?v=${v}"></script>
 <script type="text/javascript" src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery.ui.datepicker-zh-CN.js?v=${v}"></script>
 
@@ -30,7 +29,7 @@ function clean(){
 </head>
 <body>
 
-<div class="pad20">
+<div class="">
 		<form action="${ctx}/admin/email/sendEmaillist" method="post" id="searchForm">
 			<input id="pageCurrentPage" type="hidden" name="page.currentPage" value="${page.currentPage}"/>
 			<input type="hidden" id="subjectId" name="queryCourse.subjectId" value="${queryCourse.subjectId}" />
@@ -68,7 +67,7 @@ function clean(){
 				清空
 			</a>
 		</form>
-		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth">
+		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth" width="100%">
 			<thead>
 				<tr>
 					<td align="center" width="150px">ID</td>
@@ -85,8 +84,8 @@ function clean(){
 
 			<tbody>
 				<c:if test="${list.size()>0}">
-				<c:forEach  items="${list}" var="msg" >
-					<tr>
+				<c:forEach  items="${list}" var="msg"  varStatus="index">
+					<tr <c:if test="${index.count%2==1 }">class="odd"</c:if>>
 						<%-- <td><input type="checkbox" class="questionIds" id="${list.id }"/>&nbsp;${list.id }</td> --%>
 						<td align="center">${msg.id }</td>
                         <td align="center">${msg.type==1?'普通':'定时' }</td>
@@ -97,10 +96,10 @@ function clean(){
                         <td align="center"><fmt:formatDate value="${msg.sendTime }" type="both"/></td>
 						<td align="center">${msg.loginName}</td>
 						<td align="center" class="c_666 czBtn" align="center">
-                        <a class="ml10 btn smallbtn btn-y" title="查看" href="${ctx}/admin/email/sendEmailMsgInfo/${msg.id }">查看</a>
-                        <c:if test="${msg.type==2&&msg.status==2}">
-                        <a class="ml10 btn smallbtn btn-y" title="删除" href="${ctx}/admin/email/sendEmail/del?id=${msg.id }">删除</a>
-                        </c:if>
+							<button onclick="window.location.href='${ctx}/admin/email/sendEmailMsgInfo/${msg.id }'" class="ui-state-default ui-corner-all" type="button">查看</button>
+							<c:if test="${msg.type==2&&msg.status==2}">
+								<button onclick="window.location.href='${ctx}/admin/email/sendEmail/del?id=${msg.id }'" class="ui-state-default ui-corner-all" type="button">删除</button>
+							</c:if>
 						</td>
 					</tr>
 					</c:forEach>

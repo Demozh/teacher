@@ -605,7 +605,7 @@ public class UserController extends BaseController{
 			@SuppressWarnings("unchecked")
 			Map<String, Object> web = (Map<String, Object>) websitemap.get("web");
 			String company = web.get("company").toString();
-			emailService.sendMail("找回密码","帐号为["+user.getEmail()+"]的用户，您新密码是["+newPwd+"],请使用后修改密码———帐号找回["+company+"]", email);
+			emailService.sendMail(email,"帐号为["+user.getEmail()+"]的用户，您新密码是["+newPwd+"],请使用后修改密码———帐号找回["+company+"]", "找回密码");
 			json = this.setJson(true, "邮件发送成功，请登录邮箱查收", null);
 			request.getSession().removeAttribute(CommonConstants.RAND_CODE);
 			userService.updateUserPwd(user);

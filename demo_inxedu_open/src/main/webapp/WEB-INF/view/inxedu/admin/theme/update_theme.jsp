@@ -16,27 +16,28 @@
 </script>
 </head>
 <body>
-	<div class="pad20" style="background-color: #f0f0f0;">
+<fieldset>
+	<legend>
+		<span>网站信息</span>
+		&gt;
+		<span>模板切换</span>
+	</legend>
+
+	<div class="">
 		<form action="${ctx}/admin/theme/update" method="post" id="form">
 			<input type="hidden" name="teacher.picPath" id="imagesUrl" />
-			<table>
-				<tr>
-					<td>
-						<font color="red">*</font>前台主题色:
-					</td>
-					<td style="text-align: left;">
-						<input type="text" id="imageColor" name="color" value=""/>
-					</td>
-				</tr>
-				
-				<tr>
-					<td colspan="2" align="center">
-						<a class="button tooltip" title="提 交" href="javascript:void(0)" onclick="formSubmit()">提 交</a>
-						<a class="button tooltip" title="返 回" href="javascript:history.go(-1);">返 回</a>
-					</td>
-				</tr>
-			</table>
+
+			<p>
+				<label for="sf"><font color="red">*</font>&nbsp;前台主题色:</label>
+				<input type="text" name="color" id="imageColor" class="{required:true} sf" data-rule="required;"/>
+				<span class="field_desc"></span>
+			</p>
+			<p>
+				<input type="button" value="提 交" class="button" onclick="formSubmit()" />
+				<%--<input type="button" value="返 回" class="button" onclick="javascript:history.go(-1);" />--%>
+			</p>
 		</form>
 	</div>
+</fieldset>
 </body>
 </html>

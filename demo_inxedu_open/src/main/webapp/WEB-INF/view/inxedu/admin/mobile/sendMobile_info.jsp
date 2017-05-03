@@ -62,10 +62,15 @@
 </script>
 </head>
 <body >
-<div class="pad20" style="background-color: #f0f0f0;">
+<fieldset>
+	<legend>
+		<span>短信管理</span>
+		&gt;
+		<span>详情</span>
+	</legend>
 		<form action="${ctx}/admin/user/updatePwd" method="post" id="addPaperForm">
 			<input name="userMobileMsg.id" id="id" type="hidden" value="${userMobileMsg.id}"/>
-			<table style="line-height: 35px;">
+			<table style="line-height: 35px;" width="100%">
 				<tr>
 					<td align="center"><font color="red">*</font>&nbsp;短信内容：</td>
 					<td>
@@ -123,5 +128,6 @@
 			</table>
 		</form>
 	</div>
+</fieldset>
 </body>
 </html>

@@ -106,6 +106,12 @@ public class AdminWebsiteProfileController extends BaseController {
 					map.put("SecretKey", request.getParameter("SecretKey"));
 					map.put("AccessKey", request.getParameter("AccessKey"));
 				}
+				// 邮件配置
+				if (type.equals(WebSiteProfileType.emailConfigure.toString())) {
+					map.put("SMTP", request.getParameter("SMTP"));
+					map.put("username", request.getParameter("username"));
+					map.put("password", request.getParameter("password"));
+				}
 				// 将map转化json串
 				JsonObject jsonObject = jsonParser.parse(gson.toJson(map)).getAsJsonObject();
 				if (ObjectUtils.isNotNull(jsonObject) && StringUtils.isNotEmpty(jsonObject.toString())) {// 如果不为空进行更新

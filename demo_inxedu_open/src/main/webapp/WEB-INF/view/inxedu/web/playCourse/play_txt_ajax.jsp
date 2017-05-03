@@ -6,6 +6,6 @@
 </style>
 <div class="txt-box">
    <div class="txt-box-in">
-       ${courseKpoint.content} 
+       ${courseKpoint.content}
    </div>
 </div>

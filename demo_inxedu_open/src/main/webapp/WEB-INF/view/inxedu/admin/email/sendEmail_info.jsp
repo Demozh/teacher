@@ -69,10 +69,16 @@
     </script>
 </head>
 <body >
-<div class="pad20" style="background-color: #f0f0f0;">
+<fieldset>
+	<legend>
+		<span>邮件管理</span>
+		&gt;
+		<span>详情</span>
+	</legend>
+	<div class="" >
 		<form action="${ctx}/admin/user/updatePwd" method="post" id="addPaperForm">
 			<input name="user.id" id="id" type="hidden" value="${user.id}"/>
-			<table style="line-height: 35px;">
+			<table style="line-height: 35px;" width="100%">
 					<tr>
 						<td width="10%"><font color="red">*</font>&nbsp;邮件标题：</td>
 						<td width="90%">
@@ -136,5 +142,6 @@
 			</table>
 		</form>
 	</div>
+</fieldset>
 </body>
 </html>

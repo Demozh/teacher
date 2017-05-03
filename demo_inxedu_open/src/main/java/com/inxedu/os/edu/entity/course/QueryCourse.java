@@ -27,4 +27,5 @@ public class QueryCourse implements Serializable{
 	private Date beginCreateTime;//查询 开始添加时间
 	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date endCreateTime;//查询 结束添加时间
+    private int queryLimit;//查询条数
 }

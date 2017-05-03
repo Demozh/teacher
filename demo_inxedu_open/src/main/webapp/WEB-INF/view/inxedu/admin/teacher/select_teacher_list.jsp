@@ -8,7 +8,7 @@
 <script type="text/javascript" src="${ctximg}/static/admin/teacher/select_teacher_list.js"></script>
 </head>
 <body>
-	<div class="pad20">
+	<div class="">
 		<form action="${ctx}/admin/teacher/selectlist/${type}" method="post" id="searchForm">
 			<input type="hidden" id="pageCurrentPage" name="page.currentPage" value="1" />
 			讲师名称：
@@ -28,7 +28,7 @@
 				清空
 			</a>
 		</form>
-		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth">
+		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth" width="100%">
 			<thead>
 				<tr>
 					<td align="center">
@@ -44,8 +44,8 @@
 			</thead>
 
 			<tbody>
-				<c:forEach items="${teacherList}" var="tc">
-					<tr class="odd">
+				<c:forEach items="${teacherList}" var="tc" varStatus="index">
+					<tr <c:if test="${index.count%2==1 }">class="odd"</c:if>>
 						<td align="center">
 							<c:if test="${type=='checkbox'}">
 								<input type="checkbox" name="teacherId" title='${tc.name}' value="${tc.id}" />

@@ -78,7 +78,7 @@
                     	}
                     }else{
 						alert(result.message);
-						return;
+
 					}
 
 				}
@@ -99,7 +99,7 @@
 		} 
 		//显示 去重
 		function addnewUserId(newUserPhoneArr){
-		    var phoneIds=new Array();
+		    var phoneIds=[];
 			if($("#pepole").val().trim()!=""){
 				phoneIds=$("#pepole").val().split(",");
 			}
@@ -109,7 +109,7 @@
 			$("#pepole").val(phoneIds);
 		}
 		function uniqueArray(a){
-		    temp = new Array();
+		    temp = [];
 		    for(var i = 0; i < a.length; i ++){
 		        if(!contains(temp, a[i])){
 		            temp.length+=1;
@@ -155,11 +155,17 @@
 
 </head>
 <body  >
-<div class="pad20" style="background-color: #f0f0f0;">
+<fieldset>
+	<legend>
+		<span>短信管理</span>
+		&gt;
+		<span>发送</span>
+	</legend>
+	<div class="">
 		<form action="/admin/email/importMsgExcel/1" method="post" id="importP" enctype="multipart/form-data">
-			<table style="line-height: 35px;">
+			<table style="line-height: 35px;" align="center" width="100%">
 					<tr>
-						<td width="77px;"><font color="red">*</font>添加联系人：</td>
+						<td width="10%;" align="center"><font color="red">*</font>添加联系人：</td>
 						<td>
 							<textarea name="numerStr" style="height: 80px;" id="pepole"></textarea>
 						</td>
@@ -177,7 +183,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>&nbsp;</td>
+						<td align="center">&nbsp;</td>
 						<td>
 							<font color="red">
 								规则<br/>
@@ -223,5 +229,6 @@
 			</table>
 		</form>
 	</div>
+</fieldset>
 </body>
 </html>

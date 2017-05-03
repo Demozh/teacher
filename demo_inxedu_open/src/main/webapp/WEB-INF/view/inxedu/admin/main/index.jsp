@@ -461,7 +461,7 @@ function xuanze(str){
 		</h1>
 		<p>点击快捷入口即可管理操作！</p>
 
-		<div class="pad20">
+		<div class="">
 			<!-- Big buttons -->
 			<ul class="dash">
 				<li>
@@ -511,8 +511,8 @@ function xuanze(str){
 				&gt;
 				<span id="countName">学员活跃度走势</span>
 			</legend>
-			<span onclick=""><a href="javascript:xuanze('LOGIN_NUM')">学员活跃度走势</a></span>
-			<span onclick=""><a href="javascript:xuanze('REGISTERED_NUM')">学员注册数走势</a></span>
+            <span onclick=""><button onclick="xuanze('LOGIN_NUM')" class="ui-state-default ui-corner-all" type="button" style="float: left">学员活跃度走势</button></span>
+            <span onclick=""><button onclick="xuanze('REGISTERED_NUM')" class="ui-state-default ui-corner-all" type="button" style="float: left">学员注册数走势</button></span>
 			<div class="mt20">
 				<div class="commonWrap">
 					<div>

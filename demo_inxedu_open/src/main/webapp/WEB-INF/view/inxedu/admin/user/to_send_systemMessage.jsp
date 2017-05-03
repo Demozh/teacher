@@ -43,10 +43,13 @@ KindEditor.ready(function(K) {
 
 </head>
 <body  >
-	<div class="page_head">
-		<h4><em class="icon14 i_01"></em>&nbsp;<span>系统管理</span> &gt; <span>发送系统消息</span> </h4>
-	</div>
-	<div class="pad20" style="background-color: #f0f0f0;">
+<fieldset>
+	<legend>
+		<span>系统管理</span>
+		&gt;
+		<span>发送系统消息</span>
+	</legend>
+	<div class="">
 		<form action="${ctx}/admin/cou/addCourse" method="post" id="saveCourseForm">
 			<input type="hidden" name="course.logo" />
 			<table style="line-height: 35px;">
@@ -61,11 +64,12 @@ KindEditor.ready(function(K) {
 				<tr>
 					<td colspan="2" align="center">
 						<input onclick="sendmessage()" class="button" type="button" value="保存" />
-						<input onclick="history.go(-1);" class="button" type="button" value="返回" />
+						<%--<input onclick="history.go(-1);" class="button" type="button" value="返回" />--%>
 					</td>
 				</tr>
 			</table>
 		</form>
 	</div>
+</fieldset>
 </body>
 </html>

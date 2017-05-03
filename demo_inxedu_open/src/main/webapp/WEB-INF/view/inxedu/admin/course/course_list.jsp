@@ -16,14 +16,14 @@
 var subjectList = eval('('+'${subjectList}'+')');
 $(function(){
 	var param={ 
-			data:subjectList,//处理的数据（必选）数据格式：[{object Object},{object Object}]  
+			data:subjectList,	//处理的数据（必选）数据格式：[{object Object},{object Object}]  
 			showId:'levelId',//显示的数据标签ID（必选）
 			idKey:'subjectId',//数据的ID（必选）
 			pidKey:'parentId',//数据的父ID（必选）
 			nameKey:'subjectName',//数据显示的名（必选）
 			returnElement:'subjectId',//返回选中的值（必选 ）
 			//-----------------------------------------------------
-			initVal:'${queryCourse.subjectId}',
+			initVal:${queryCourse.subjectId},
 			defName:'请选择',//默认显示的选项名（可选，如果不设置默认显示“请选择”）
 			defValue:'0'//默认的选项值（可选，如果不设置默认是“0”）
 		};
@@ -63,7 +63,7 @@ function avaliable(courseId,type,em){
 </script>
 </head>
 <body>
-	<div class="pad20">
+	<div class="">
 		<form action="${ctx}/admin/cou/list" method="post" id="searchForm">
 			<input type="hidden" id="pageCurrentPage" name="page.currentPage" value="1" />
 			<input type="text" name="queryCourse.courseName" value="${queryCourse.courseName}" placeholder="课程标题" />
@@ -81,11 +81,11 @@ function avaliable(courseId,type,em){
 				readonly="readonly" style="width: 128px;"/>-
 			<input placeholder="结束创建时间" id="endCreateTime" name="queryCourse.endCreateTime"
 				value="<fmt:formatDate value="${queryCourse.endCreateTime}" pattern="yyyy-MM-dd HH:mm:ss"/>" type="text" readonly="readonly" style="width: 128px;"/>
-			<a title="查找课程" onclick="javascript:$('#searchForm').submit();" class="button tooltip" href="javascript:void(0)">
+			<a title="查找课程" onclick="$('#searchForm').submit();" class="button tooltip" href="javascript:void(0)">
 				<span class="ui-icon ui-icon-search"></span>
 				查找课程
 			</a>
-			<a title="清空" onclick="javascript:$('#searchForm input:text').val('');$('#searchForm select').val(0);$('select').change();"
+			<a title="清空" onclick="$('#searchForm input:text').val('');$('#searchForm select').val(0);$('select').change();"
 				class="button tooltip" href="javascript:void(0)">
 				<span class="ui-icon ui-icon-cancel"></span>
 				清空
@@ -95,7 +95,7 @@ function avaliable(courseId,type,em){
 				创建课程
 			</a>
 		</form>
-		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth">
+		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth" width="100%">
 			<thead>
 				<tr>
 					<td align="center" width="150px">课程名</td>
@@ -113,8 +113,8 @@ function avaliable(courseId,type,em){
 			</thead>
 
 			<tbody>
-				<c:forEach items="${courseList}" var="course">
-					<tr class="odd">
+				<c:forEach items="${courseList}" var="course" varStatus="index">
+					<tr <c:if test="${index.count%2==1 }">class="odd"</c:if>>
 						<td align="center">${course.courseName}</td>
 						<td align="center">
 							<c:if test="${course.isavaliable==1}">上架</c:if>
@@ -138,9 +138,9 @@ function avaliable(courseId,type,em){
 							</c:if>
 						</td>
 						<td align="center">
-							<a href="${ctx}/admin/kpoint/list/${course.courseId}" class="button tooltip">章节管理</a>
-							<a href="${ctx}/admin/cou/initUpdate/${course.courseId}" class="button tooltip">修改</a>
-							<a href="javascript:void(0)" onclick="avaliable(${course.courseId},3,this)" class="button tooltip">删除</a>
+							<button onclick="avaliable(${course.courseId},3,this)" class="ui-state-default ui-corner-all" type="button">删除</button>
+							<button onclick="window.location.href='${ctx}/admin/cou/initUpdate/${course.courseId}'" class="ui-state-default ui-corner-all" type="button">修改</button>
+							<button onclick="window.location.href='${ctx}/admin/kpoint/list/${course.courseId}'" class="ui-state-default ui-corner-all" type="button">章节管理</button>
 						</td>
 					</tr>
 				</c:forEach>

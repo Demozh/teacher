@@ -45,7 +45,7 @@
 </script>
 </head>
 <body>
-	<div class="pad20">
+	<div class="">
 		<form action="${ctx}/admin/website/imagesPage" method="post" id="searchForm">
 			<input type="hidden" id="pageCurrentPage" name="page.currentPage" value="1" />
 			<input placeholder="图片标题" type="text" name="websiteImages.title" value="${websiteImages.title}" />
@@ -75,7 +75,7 @@
 			</a>
 		</form>
 		<form action="${ctx}/admin/website/delImages" id="deleteForm" method="post">
-			<table cellspacing="0" cellpadding="0" border="0" class="fullwidth">
+			<table cellspacing="0" cellpadding="0" border="0" class="fullwidth" width="100%">
 				<thead>
 					<tr>
 						<td align="center">
@@ -91,8 +91,8 @@
 				</thead>
 
 				<tbody>
-					<c:forEach items="${websiteImagesList}" var="image">
-						<tr class="odd">
+					<c:forEach items="${websiteImagesList}" var="image" varStatus="index">
+						<tr <c:if test="${index.count%2==1 }">class="odd"</c:if>>
 							<td align="center">
 								<input type="checkbox" name="imageId" value="${image.imageId}" />
 							</td>
@@ -102,9 +102,9 @@
 							<td align="center">${image.typeName}</td>
 							<td align="center">${image.seriesNumber}</td>
 							<td align="center">
-								<a href="${ctx}/admin/website/doUpdateImages/${image.imageId}" class="button tooltip">修改</a>
-								<a href="javascript:void(0)" onclick="deleteImgThis(this)" class="button tooltip">删除</a>
-								<a href="<%=staticImage%>${image.imagesUrl}" target="_blank" class="button tooltip">预览</a>
+								<button onclick="window.open('<%=staticImage%>${image.imagesUrl}')" target="_blank" class="ui-state-default ui-corner-all" type="button">预览</button>
+								<button onclick="deleteImgThis(this)" class="ui-state-default ui-corner-all" type="button">删除</button>
+								<button onclick="window.location.href='${ctx}/admin/website/doUpdateImages/${image.imageId}'" class="ui-state-default ui-corner-all" type="button">修改</button>
 							</td>
 						</tr>
 					</c:forEach>

@@ -12,7 +12,7 @@
 <script type="text/javascript" src="${ctximg}/static/common/jquery-ui-1.10.4/js/jquery-ui-timepicker-zh-CN.js?v=${v}"></script>
 </head>
 <body>
-	<div class="pad20">
+	<div class="">
 		<form action="${ctx}/admin/user/getuserList" method="post" id="searchForm">
 			<input type="hidden" id="pageCurrentPage" name="page.currentPage" value="1" />
 			<input placeholder="邮箱/手机/昵称/姓名" type="text" name="queryUser.keyWord" value="${queryUser.keyWord}" />
@@ -28,12 +28,12 @@
 			-
 			<input placeholder="结束注册时间" id="endCreateTime" name="queryUser.endCreateTime"
 				value="<fmt:formatDate value="${queryUser.endCreateTime}" pattern="yyyy-MM-dd HH:mm:ss"/>" type="text" readonly="readonly" style="width: 128px;"/>
-			<a title="查找学员" onclick="javascript:$('#searchForm').submit();" class="button tooltip" href="javascript:void(0)">
+			<a title="查找学员" onclick="$('#searchForm').submit();" class="button tooltip" href="javascript:void(0)">
 				<span class="ui-icon ui-icon-search"></span>
 				查找学员
 			</a>
-			<a title="清空" onclick="javascript:$('#searchForm input:text').val('');$('#searchForm select').val(0);" class="button tooltip"
-				href="javascript:void(0)">
+			<a title="清空" onclick="$('#searchForm input:text').val('');$('#searchForm select').val(0);" class="button tooltip"
+			   href="javascript:void(0)">
 				<span class="ui-icon ui-icon-cancel"></span>
 				清空
 			</a>
@@ -42,7 +42,7 @@
 				导出Excel
 			</a>
 		</form>
-		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth">
+		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth" width="100%">
 			<thead>
 				<tr>
 					<td align="center">邮箱</td>
@@ -58,8 +58,8 @@
 			</thead>
 
 			<tbody>
-				<c:forEach items="${userList}" var="user">
-					<tr class="odd">
+				<c:forEach items="${userList}" var="user" varStatus="index">
+					<tr <c:if test="${index.count%2==1 }">class="odd"</c:if>>
 						<td align="center">${user.email}</td>
 						<td align="center">${user.mobile}</td>
 						<td align="center">
@@ -92,16 +92,16 @@
 							<c:if test="${user.isavalible==2}">冻结</c:if>
 						</td>
 						<td align="center">
-							<a href="javascript:void(0)" onclick="initUpdatePwd(${user.userId})" class="button tooltip">修改密码</a>
+							<button onclick="window.location.href='${ctx}/admin/user/lookuserlog/${user.userId}'" class="ui-state-default ui-corner-all" type="button">查看日志</button>
 							<samp id="frozenOrThaw${user.userId}">
-								<c:if test="${user.isavalible==1}">
-									<a href="javascript:void(0)" onclick="frozenOrThaw(${user.userId},2,this)" class="button tooltip">冻结</a>
+								<c:if test="${user.isavalible!=2}">
+									<button onclick="frozenOrThaw(${user.userId},2,this)" class="ui-state-default ui-corner-all" type="button">冻结</button>
 								</c:if>
 								<c:if test="${user.isavalible==2}">
-									<a href="javascript:void(0)" onclick="frozenOrThaw(${user.userId},1,this)" class="button tooltip">解冻</a>
+									<button onclick="frozenOrThaw(${user.userId},1,this)" class="ui-state-default ui-corner-all" type="button">解冻</button>
 								</c:if>
 							</samp>
-							<a href="${ctx}/admin/user/lookuserlog/${user.userId}" class="button tooltip">查看日志</a>
+							<button onclick="initUpdatePwd(${user.userId})" class="ui-state-default ui-corner-all" type="button">修改密码</button>
 						</td>
 					</tr>
 				</c:forEach>
@@ -113,7 +113,7 @@
 	<!-- 修改密码窗口 ,开始-->
 	<div id="updateWin" aria-labelledby="ui-dialog-title-dialog" role="dialog" tabindex="-1"
 		class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable"
-		style="display: none; position: absolute; overflow: hidden; z-index: 1010; outline: 0px none; height: auto; width: 511px; top: 173px; left: 367px;">
+		style="display: none; position: absolute; overflow: hidden; z-index: 1010; outline: 0px none; height: auto; width: 511px; top: 173px; left: 367px;border: 3px solid #ececec;">
 		<div style="-moz-user-select: none;" unselectable="on" class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
 			<span style="-moz-user-select: none;" unselectable="on" id="ui-dialog-title-dialog" class="ui-dialog-title">修改用户修改</span>
 			<a style="-moz-user-select: none;" unselectable="on" role="button" class="ui-dialog-titlebar-close ui-corner-all"
@@ -121,7 +121,7 @@
 				<span style="-moz-user-select: none;" unselectable="on" class="ui-icon ui-icon-closethick">close</span>
 			</a>
 		</div>
-		<div style="height: 300px; min-height: 42px; width: auto;" class="ui-dialog-content ui-widget-content">
+		<div style="height: auto; min-height: 42px; width: auto;" class="ui-dialog-content ui-widget-content">
 			<form id="updateUserPwdForm">
 				<input type="hidden" name="user.userId" value="0" />
 				<table style="line-height: 35px;">

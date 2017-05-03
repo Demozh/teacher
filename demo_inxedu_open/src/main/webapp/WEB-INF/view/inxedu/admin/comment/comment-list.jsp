@@ -34,7 +34,7 @@ $(function(){
 </script>
 </head>
 <body>
-	<div class="pad20">
+	<div class="">
 		<form action="${ctx}/admin/comment/query" method="post" id="searchForm">
 			<input type="hidden" id="pageCurrentPage" name="page.currentPage" value="1" />
 			<input placeholder="邮箱" type="text" name="email" value="${comment.email}" />
@@ -51,18 +51,18 @@ $(function(){
 			-
 			<input placeholder="结束创建时间" id="endCreateTime" name="endCreateTime"
 				value="<fmt:formatDate value="${comment.endCreateTime}" pattern="yyyy-MM-dd HH:mm:ss"/>" type="text" readonly="readonly" style="width: 128px;"/>
-			<a  onclick="javascript:$('#searchForm').submit();" class="button tooltip" href="javascript:void(0)">
+			<a onclick="$('#searchForm').submit();" class="button tooltip" href="javascript:void(0)">
 				<span class="ui-icon ui-icon-search"></span>
 				查找评论
 			</a>
-			<a title="清空" onclick="javascript:$('#searchForm input:text').val('');$('#searchForm select').val(0);" class="button tooltip"
-				href="javascript:void(0)">
+			<a title="清空" onclick="$('#searchForm input:text').val('');$('#searchForm select').val(0);" class="button tooltip"
+			   href="javascript:void(0)">
 				<span class="ui-icon ui-icon-cancel"></span>
 				清空
 			</a>
 		</form>
 		<form action="${ctx}/admin/article/publishOrDelete" id="publishOrDeleteForm" method="post">
-			<table cellspacing="0" cellpadding="0" border="0" class="fullwidth">
+			<table cellspacing="0" cellpadding="0" border="0" class="fullwidth" width="100%">
 				<thead>
 					<tr>
 						<td align="center">
@@ -73,14 +73,14 @@ $(function(){
 						<td align="center">点赞</td>
 						<td align="center">回复</td>
 						<td align="center">创建时间</td>
-						<td align="center">评论内容</td>
+						<%--<td align="center">评论内容</td>--%>
 						<td align="center" width="232">操作</td>
 					</tr>
 				</thead>
 
 				<tbody>
-					<c:forEach items="${commentList}" var="com">
-						<tr class="odd">
+					<c:forEach items="${commentList}" var="com" varStatus="index">
+						<tr <c:if test="${index.count%2==1 }">class="odd"</c:if>>
 							<td align="center">
 								${com.commentId}
 							</td>
@@ -94,11 +94,11 @@ $(function(){
 							<td align="center">
 								<fmt:formatDate value="${com.addTime}" pattern="yyyy/MM/dd HH:mm" />
 							</td>
-							<td align="center"><c:out value="${com.content}"></c:out></td>
+							<%--<td align="center"><c:out value="${com.content}"></c:out></td>--%>
 							<td align="center">
-								<a href="${ctx}/admin/commentreply/info/${com.commentId}" class="button tooltip">修改</a>
-								<a href="javascript:delcomment('${com.commentId}')" class="button tooltip">删除</a>
-								<a href="${ctx}/admin/commentreply/query?pCommentId=${com.commentId}"  class="button tooltip">回复列表</a>
+								<button onclick="window.location.href='${ctx}/admin/commentreply/query?pCommentId=${com.commentId}'" class="ui-state-default ui-corner-all" type="button">回复列表</button>
+								<button onclick="delcomment('${com.commentId}')" class="ui-state-default ui-corner-all" type="button">删除</button>
+								<button onclick="window.location.href='${ctx}/admin/commentreply/info/${com.commentId}'" class="ui-state-default ui-corner-all" type="button">修改</button>
 							</td>
 						</tr>
 					</c:forEach>

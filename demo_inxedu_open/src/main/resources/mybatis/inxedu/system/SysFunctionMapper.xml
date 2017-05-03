@@ -8,7 +8,8 @@
 	SYS_FUNCTION.FUNCTION_URL,
 	SYS_FUNCTION.FUNCTION_TYPE,
 	SYS_FUNCTION.CREATE_TIME,
-	SYS_FUNCTION.SORT
+	SYS_FUNCTION.SORT,
+	SYS_FUNCTION.image_url
 	</sql>
 	<sql id="sys_function_property">
 	#{functionId},
@@ -17,7 +18,8 @@
 	#{functionUrl},
 	#{functionType},
 	#{createTime},
-	#{sort}
+	#{sort},
+	#{imageUrl}
 	</sql>
 	
     <resultMap type="SysFunction" id="SysFunctionResult">
@@ -28,6 +30,7 @@
     <result property="functionType" column="FUNCTION_TYPE"/>
     <result property="createTime" column="CREATE_TIME"/>
     <result property="sort" column="SORT"/>
+		<result property="imageUrl" column="image_url"/>
     </resultMap>
     
     <!-- 查询所有的权限记录 -->
@@ -47,7 +50,8 @@
     	SYS_FUNCTION.FUNCTION_NAME=#{functionName},
     	SYS_FUNCTION.FUNCTION_URL=#{functionUrl},
     	SYS_FUNCTION.FUNCTION_TYPE=${functionType},
-    	SYS_FUNCTION.SORT=#{sort}
+    	SYS_FUNCTION.SORT=#{sort},
+    	SYS_FUNCTION.image_url=#{imageUrl}
     	WHERE SYS_FUNCTION.FUNCTION_ID=#{functionId}
     </update>
     

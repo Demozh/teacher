@@ -48,30 +48,34 @@
 </script>
 </head>
 <body>
-	<div class="pad20">
+	<div class="">
 		<a title="创建类型" class="button tooltip" href="${ctx}/admin/imagetype/addtype">
 			<span class="ui-icon ui-icon-newwin"></span>
 			创建类型
 		</a>
-		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth">
+		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth" width="100%">
 			<thead>
 				<tr>
 					<td align="center" width="100">类型ID</td>
 					<td align="center">类型名称</td>
-					<td align="center" width="130">操作</td>
+					<td align="center" width="244">操作</td>
 				</tr>
 			</thead>
 
 			<tbody>
 				<c:choose>
 					<c:when test="${typeList!=null && typeList.size()>0}">
-						<c:forEach items="${typeList}" var="type">
-							<tr class="odd">
+						<c:forEach items="${typeList}" var="type" varStatus="index">
+							<tr <c:if test="${index.count%2==1 }">class="odd"</c:if>>
 								<td align="center">${type.typeId}</td>
 								<td align="center">${type.typeName}</td>
 								<td align="center">
-									<a href="javascript:void(0)" onclick="deleteType(${type.typeId})" class="button tooltip">删除</a>
-									<a href="javascript:void(0)" onclick="updateType(${type.typeId},this)" class="button tooltip">修改名称</a>
+									<%--<a href="javascript:void(0)" onclick="deleteType(${type.typeId})" class="button tooltip">删除</a>
+									<a href="javascript:void(0)" onclick="updateType(${type.typeId},this)" class="button tooltip">修改名称</a>--%>
+
+									<button onclick="window.location.href='${ctx}/admin/website/imagesPage?websiteImages.typeId=${type.typeId}'" class="ui-state-default ui-corner-all" type="button">查看广告图</button>
+									<button onclick="updateType(${type.typeId},this)" class="ui-state-default ui-corner-all" type="button">修改名称</button>
+									<button onclick="deleteType(${type.typeId})" class="ui-state-default ui-corner-all" type="button">删除</button>
 								</td>
 							</tr>
 						</c:forEach>

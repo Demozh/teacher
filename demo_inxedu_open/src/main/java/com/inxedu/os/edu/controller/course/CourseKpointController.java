@@ -36,7 +36,7 @@ public class CourseKpointController extends BaseController {
 	private static final String callBack56Uploading = getViewPath("/course/callBack56_uploading");//56视频上传回调
 	private static final String playTxtAjax=getViewPath("/web/playCourse/play_txt_ajax");//加载播放大厅文本
 	@Autowired
-	private CourseKpointService courseKpointService; 
+	private CourseKpointService courseKpointService;
 	@Autowired
 	private CourseService courseService;
 	@Autowired

@@ -20,8 +20,14 @@ function importExcel(){
 </script>
 </head>
 <body>
-<div class="mt20">
-    <div class="commonWrap">
+<fieldset>
+	<legend>
+		<span>学员管理</span>
+		&gt;
+		<span>批量开通</span>
+	</legend>
+
+	<div class="mt20">
 		<form action="/admin/user/importExcel" method="post" id="importP" enctype="multipart/form-data">
 				<table width="100%" cellspacing="0" cellpadding="0" border="0" class="commonTab01">
 					<caption>&nbsp;</caption>
@@ -49,7 +55,6 @@ function importExcel(){
 							<td align="center">上传</td>
 							<td>
 								<span class="ml10"><input id="myFile" type="file" value="" name="myFile"/><input type="button" value="提交" class="btn btn-danger"  onclick="importExcel()"/>
-								<a href="javascript:history.go(-1);" title="返回" class="btn btn-danger">返回</a>
 								</span>
 							</td>
 						</tr>
@@ -59,5 +64,6 @@ function importExcel(){
 
 			</div>
     </div>
+</fieldset>
 </body>
 </html>

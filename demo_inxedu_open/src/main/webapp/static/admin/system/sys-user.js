@@ -36,10 +36,10 @@ function disableOrstart(userId,type,em){
 				var td = $(em).parent('samp').parent('td').parent('tr').children('td')[7];
 				if(type==1){
 					$(td).text('正常');
-					$(em).parent('samp').html('<a href="javascript:void(0)" onclick="disableOrstart('+userId+',2,this)" class="button tooltip">冻结</a>');
+					$(em).parent('samp').html('<button onclick="disableOrstart('+userId+',2,this)" class="ui-state-default ui-corner-all" type="button">冻结</button>');
 				}else if(type==2){
 					$(td).text('冻结');
-					$(em).parent('samp').html('<a href="javascript:void(0)" onclick="disableOrstart('+userId+',1,this)" class="button tooltip">启用</a>');
+					$(em).parent('samp').html('<button onclick="disableOrstart('+userId+',1,this)" class="ui-state-default ui-corner-all" type="button">启用</button>');
 				}
 			}else{
 				alert(result.message);
@@ -107,11 +107,8 @@ function updateSysUser(){
 		success:function(result){
 			if(result.success==true){
 				closedData();
-				alert("修改成功");
-				window.location.reload();
-			}else{
-				alert(result.message);
 			}
+			alert(result.message);
 		},
 		error:function(error){
 			alert("系统繁忙，请稍后再操作！");

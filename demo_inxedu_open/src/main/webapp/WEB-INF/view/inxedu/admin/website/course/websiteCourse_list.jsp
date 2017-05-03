@@ -22,7 +22,7 @@
 				<span class="ui-icon ui-icon-newwin"></span>
 				添加
 			</a>
-			<table cellspacing="0" cellpadding="0" border="0" width="100%" class="fullwidth">
+			<table cellspacing="0" cellpadding="0" border="0" width="100%" class="fullwidth" width="100%">
 				<thead>
 					<tr>
 						<td width="10%">

@@ -46,7 +46,7 @@
 	<div class="mt20">
 		<div class="commonWrap">
 			<form action="${ctx}/admin/website/navigates" name="searchForm" id="searchForm" method="post">
-				<table cellspacing="0" cellpadding="0" border="0" width="100%" class="fullwidth">
+				<table cellspacing="0" cellpadding="0" border="0" width="100%" class="fullwidth" width="100%">
 					<caption>
 						<div class="mt10 clearfix">
 							<p class="fl c_666">
@@ -58,18 +58,11 @@
 								</select>
 								<input type="submit" class="button" value="查询" />
 								<input type="button" class="button" value="清空" onclick="$('#type').val('');" />
-							</p>
-							<p class="fl czBtn">
-								<span class="ml10">
-									<a href="${ctx}/admin/website/doAddNavigates" class="button tooltip">
-										<span class="ui-icon ui-icon-newwin"></span>
-										添加
-									</a>
-								</span>
+								<input type="button" class="button" value="添加" onclick="window.location.href='${ctx}/admin/website/doAddNavigates'" />
 							</p>
 						</div>
 					</caption>
-					<thead>
+					<thead  align="center">
 						<tr>
 							<td>
 								<span>名称</span>
@@ -119,12 +112,12 @@
 									<td class="c_666 czBtn" align="center">
 										<button type="button" class="ui-state-default ui-corner-all"
 											onclick="window.location.href='${ctx}/admin/website/doUpdateNavigate/${navigate.id}'">修改</button>
-										<button type="button" class="ui-state-default ui-corner-all" onclick="javascript:delNavigate(${navigate.id})">删除</button>
+										<button type="button" class="ui-state-default ui-corner-all" onclick="delNavigate(${navigate.id})">删除</button>
 										<c:if test="${navigate.status==0}">
-											<button type="button" class="ui-state-default ui-corner-all" onclick="javascript:freezeNavigate(${navigate.id},1)">冻结</button>
+											<button type="button" class="ui-state-default ui-corner-all" onclick="freezeNavigate(${navigate.id},1)">冻结</button>
 										</c:if>
 										<c:if test="${navigate.status==1}">
-											<button type="button" class="ui-state-default ui-corner-all" onclick="javascript:freezeNavigate(${navigate.id},0)">解冻</button>
+											<button type="button" class="ui-state-default ui-corner-all" onclick="freezeNavigate(${navigate.id},0)">解冻</button>
 										</c:if>
 									</td>
 								</tr>

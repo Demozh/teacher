@@ -71,19 +71,15 @@
 
 </head>
 <body>
+<fieldset>
+	<legend>
+		<span>角色</span>
+		&gt;
+		<span>角色管理</span>
+	</legend>
 	<div class="mt20">
 		<form action="" method="post" id="updateRoleFunctionForm" onsubmit="return updateRole();">
 			<table width="100%" cellspacing="0" cellpadding="0" border="0" class="commonTab01">
-				<thead>
-					<tr>
-						<th colspan="2" align="left">
-							<span>
-								角色管理
-								<tt class="c_666 ml20 fsize12"></tt>
-							</span>
-						</th>
-					</tr>
-				</thead>
 				<tbody>
 					<tr>
 						<td width="20%" align="center">
@@ -113,6 +109,7 @@
 			</table>
 		</form>
 	</div>
+</fieldset>
 
 	<!-- 添加角色 -->
 	<div id="addRole" class="addRole" style="display: none">

@@ -8,7 +8,7 @@
 <script type="text/javascript" src="${ctx}/static/admin/website/detail.js"></script>
 </head>
 <body>
-	<div class="pad20">
+	<div class="">
 		<form action="${ctx}/admin/detail/list" method="post" id="searchForm">
 			<input type="hidden" id="pageCurrentPage" name="page.currentPage" value="1" />
 			<input placeholder="课程名" type="text" name="dto.courseName" value="${dto.courseName}" />
@@ -29,12 +29,12 @@
 				<option <c:if test="${dto.isavaliable==1}"> selected="selected" </c:if> value="1">上架</option>
 				<option <c:if test="${dto.isavaliable==2}"> selected="selected" </c:if> value="2">下架</option>
 			</select>
-			<a title="查找" onclick="javascript:$('#searchForm').submit();" class="button tooltip" href="javascript:void(0)">
+			<a title="查找" onclick="$('#searchForm').submit();" class="button tooltip" href="javascript:void(0)">
 				<span class="ui-icon ui-icon-search"></span>
 				查找
 			</a>
-			<a title="清空" onclick="javascript:$('#searchForm input:text').val('');$('#searchForm select').val(0);" class="button tooltip"
-				href="javascript:void(0)">
+			<a title="清空" onclick="$('#searchForm input:text').val('');$('#searchForm select').val(0);" class="button tooltip"
+			   href="javascript:void(0)">
 				<span class="ui-icon ui-icon-cancel"></span>
 				清空
 			</a>
@@ -43,7 +43,7 @@
 				添加推荐课程
 			</a>
 		</form>
-		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth">
+		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth" width="100%">
 			<thead>
 				<tr>
 					<td align="center">ID</td>
@@ -58,8 +58,8 @@
 			<tbody>
 				<c:choose>
 					<c:when test="${dtoList!=null && dtoList.size()>0}">
-						<c:forEach items="${dtoList}" var="dto">
-							<tr class="odd">
+						<c:forEach items="${dtoList}" var="dto" varStatus="index">
+							<tr <c:if test="${index.count%2==1 }">class="odd"</c:if>>
 								<td align="center">${dto.id}</td>
 								<td align="center">${dto.courseName}</td>
 								<td align="center">${dto.recommendName}</td>
@@ -69,8 +69,8 @@
 									<c:if test="${dto.isavaliable==2}">下架</c:if>
 								</td>
 								<td align="center">
-									<a href="javascript:void(0)" onclick="deleteDetail(${dto.id})" class="button tooltip">删除</a>
-									<a href="javascript:void(0)" onclick="updateSort(${dto.id},this)" class="button tooltip">修改排序</a>
+									<button onclick="updateSort(${dto.id},this)" class="ui-state-default ui-corner-all" type="button">修改排序</button>
+									<button onclick="deleteDetail(${dto.id})" class="ui-state-default ui-corner-all" type="button">删除</button>
 								</td>
 							</tr>
 						</c:forEach>

@@ -17,7 +17,7 @@
 <script type="text/javascript" src="${ctximg}/static/admin/course/course.js"></script>
 <script type="text/javascript" src="${ctximg}/static/admin/teacher/select_teacher_list.js"></script>
 
-<%--验证框架 --%>
+<%--验证框架--%>
 <link rel="stylesheet" href="${ctx}/static/common/nice-validator/jquery.validator.css"></link>
 <script type="text/javascript" src="${ctx}/static/common/nice-validator/jquery.validator.js"></script>
 <script type="text/javascript" src="${ctx}/static/common/nice-validator/local/zh-CN.js"></script>
@@ -44,12 +44,18 @@
     </script>
 </head>
 <body>
-	<div class="pad20" style="background-color: #f0f0f0;">
+<fieldset>
+	<legend>
+		<span>课程管理</span>
+		&gt;
+		<span>添加</span>
+	</legend>
+	<div class="">
 		<form action="${ctx}/admin/cou/addCourse" method="post" id="saveCourseForm" data-validator-option="{stopOnError:false, timely:false}">
 			<input type="hidden" name="course.logo" />
-			<table style="line-height: 35px;">
+			<table style="line-height: 35px;" width="100%">
 				<tr>
-					<td>
+					<td  width="10%" align="center">
 						<font color="red">*</font>课程名称:
 					</td>
 					<td>
@@ -57,7 +63,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>专业分类:
 					</td>
 					<td style="text-align: left;">
@@ -67,7 +73,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>状态:
 					</td>
 					<td>
@@ -79,7 +85,7 @@
 				</tr>
 				<tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>总课时:
 					</td>
 					<td style="text-align: left;">
@@ -87,7 +93,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>课程原价格:
 					</td>
 					<td style="text-align: left;">
@@ -95,7 +101,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>课程销售价格:
 					</td>
 					<td style="text-align: left;">
@@ -103,7 +109,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td align="center">
 						<font color="red">*</font>有效期类型:
 					</td>
 					<td>
@@ -114,7 +120,7 @@
 					</td>
 				</tr>
 				<tr class="endTimeShow">
-					<td>
+					<td align="center">
 						<font color="red">*</font>有效期结束时间:
 					</td>
 					<td style="text-align: left;">
@@ -130,7 +136,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>添加教师:</td>
+					<td align="center">添加教师:</td>
 					<td style="text-align: left;">
 						<input type="hidden" name="teacherIdArr" value="" />
 						<div id="teacherList"></div>
@@ -138,25 +144,25 @@
 					</td>
 				</tr>
 				<tr>
-					<td>销售数量:</td>
+					<td align="center">销售数量:</td>
 					<td style="text-align: left;">
 						<input name="course.pageBuycount" value="0" type="text" style="width: 140px;" data-rule="required;integer[+0]"/>
 					</td>
 				</tr>
 				<tr>
-					<td>浏览量:</td>
+					<td align="center">浏览量:</td>
 					<td style="text-align: left;">
 						<input name="course.pageViewcount" value="0" type="text" style="width: 140px;" data-rule="required;integer[+0]"/>
 					</td>
 				</tr>
 				<tr>
-					<td>课程简介:</td>
+					<td align="center">课程简介:</td>
 					<td style="text-align: left;">
 						<input name="course.title" type="text" style="width: 580px;" data-rule="required;"/>
 					</td>
 				</tr>
 				<tr>
-					<td>课程图片：</td>
+					<td align="center">课程图片：</td>
 					<td style="text-align: left;">
 						<img id="showImage" width="278px" height="155" src="${ctx }/static/admin/assets/logo.png" />
 						<input type="button" value="上传" id="imageFile" />
@@ -164,7 +170,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td>课程详情:</td>
+					<td align="center">课程详情:</td>
 					<td style="text-align: left;">
 						<textarea name="course.context" id="content" data-rule="required;"></textarea>
 					</td>
@@ -179,5 +185,6 @@
 			</table>
 		</form>
 	</div>
+</fieldset>
 </body>
 </html>

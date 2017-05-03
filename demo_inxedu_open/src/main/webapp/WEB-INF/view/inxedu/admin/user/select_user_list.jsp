@@ -61,7 +61,7 @@ function toParentsValue(obj) {
 </script>
 </head>
 <body  >
-<div class="pad20">
+<div class="">
 		<form action="${ctx}/admin/email/select_userlist" method="post" id="searchForm">
 			<input id="pageCurrentPage" type="hidden" name="page.currentPage" value="${page.currentPage}"/>
 			姓名：
@@ -84,7 +84,7 @@ function toParentsValue(obj) {
 				清空
 			</a>
 		</form>
-		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth">
+		<table cellspacing="0" cellpadding="0" border="0" class="fullwidth" width="100%">
 			<thead>
 				<tr>
 					<td align="center">
@@ -103,8 +103,8 @@ function toParentsValue(obj) {
 			</thead>
 
 			<tbody>
-				<c:forEach items="${list}" var="u">
-					<tr class="odd">
+				<c:forEach items="${list}" var="u" varStatus="index">
+					<tr <c:if test="${index.count%2==1 }">class="odd"</c:if>>
 						<td align="center">
 							<c:if test="${type==1 }"><!--1 短信  -->
 								<c:if test="${u.mobile!='' && u.mobile!=null && u.mobile.length()==11 }">
