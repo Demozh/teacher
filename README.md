@@ -58,7 +58,7 @@ DB:Mysql5.5</br>
 
 JDK:JAVA 7</br>
 
-tomcat:tomcat 7.0.68已上</br>
+tomcat:tomcat 7.0.68以上</br>
 
 项目文档：
 http://note.youdao.com/groupshare/?token=673A1F2BB3B64A81A72CBD0AFE2D1F86&gid=9574975
