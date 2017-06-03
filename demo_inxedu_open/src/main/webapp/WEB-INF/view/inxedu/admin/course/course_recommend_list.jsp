@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>文章列表</title>
+<title>推荐课程列表</title>
 <script type="text/javascript" src="${ctx}/static/common/multilevel.js"></script>
 <script type="text/javascript">
 var subjectList = eval('('+'${subjectList}'+')');
@@ -112,7 +112,8 @@ function confirmSelect(){
 					<td align="center">课程名</td>
 					<td align="center">专业</td>
 					<td align="center">状态</td>
-					<td align="center">创建时间</td>
+					<%--<td align="center">创建时间</td>--%>
+					<th align="center">有效期</th>
 					<td align="center">原价</td>
 					<td align="center">优惠价</td>
 					<td align="center">课时</td>
@@ -131,8 +132,16 @@ function confirmSelect(){
 							<c:if test="${course.isavaliable==1}">上架</c:if>
 							<c:if test="${course.isavaliable==2}">下架</c:if>
 						</td>
-						<td align="center">
+						<%--<td align="center">
 							<fmt:formatDate value="${course.addTime}" pattern="dd/MM/yyyy HH:mm:ss" />
+						</td>--%>
+						<td align="center">
+							<c:if test="${not empty course.endTime}">
+								<fmt:formatDate value="${course.endTime}" pattern="yyyy/MM/dd HH:mm"/>
+							</c:if>
+							<c:if test="${empty course.endTime}">
+								购买后${course.loseTime}天
+							</c:if>
 						</td>
 						<td align="center">${course.sourcePrice}</td>
 						<td align="center">${course.currentPrice}</td>

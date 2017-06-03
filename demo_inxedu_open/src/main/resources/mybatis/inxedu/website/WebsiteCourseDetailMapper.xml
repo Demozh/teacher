@@ -15,13 +15,17 @@
 	<result property="recommendName" column="NAME"/>
 	<result property="orderNum" column="ORDER_NUM"/>
 	<result property="isavaliable" column="IS_AVALIABLE"/>
+		<result property="endTime" column="end_time"/>
+		<result property="loseTime" column="lose_time"/>
 	</resultMap>
 	<sql id="edu_website_course_detail_dto_column">
 	EDU_WEBSITE_COURSE_DETAIL.ID,
 	EDU_COURSE.COURSE_NAME,
 	EDU_WEBSITE_COURSE.NAME,
 	EDU_WEBSITE_COURSE_DETAIL.ORDER_NUM,
-	EDU_COURSE.IS_AVALIABLE
+	EDU_COURSE.IS_AVALIABLE,
+	EDU_COURSE.end_time,
+	EDU_COURSE.lose_time
 	</sql>
 	<sql id="edu_website_course_detail_column">
 	EDU_WEBSITE_COURSE_DETAIL.ID,

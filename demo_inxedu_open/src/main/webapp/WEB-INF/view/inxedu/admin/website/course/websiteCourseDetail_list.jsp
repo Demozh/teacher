@@ -51,6 +51,7 @@
 					<td align="center">推荐分类</td>
 					<td align="center" width="70">排序值</td>
 					<td align="center">课程状态</td>
+					<th align="center">有效结束时间</th>
 					<td align="center">操作</td>
 				</tr>
 			</thead>
@@ -67,6 +68,14 @@
 								<td align="center">
 									<c:if test="${dto.isavaliable==1}">上架</c:if>
 									<c:if test="${dto.isavaliable==2}">下架</c:if>
+								</td>
+								<td align="center">
+									<c:if test="${not empty dto.endTime}">
+										<fmt:formatDate value="${dto.endTime}" pattern="yyyy/MM/dd HH:mm"/>
+									</c:if>
+									<c:if test="${empty dto.endTime}">
+										购买后${dto.loseTime}天
+									</c:if>
 								</td>
 								<td align="center">
 									<button onclick="updateSort(${dto.id},this)" class="ui-state-default ui-corner-all" type="button">修改排序</button>
